@@ -1,0 +1,24 @@
+2020-11-09 15:34:44,744 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 40408 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-09 15:34:44,749 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-09 15:34:44,750 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-09 15:34:44,787 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-09 15:34:44,788 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-09 15:34:45,683 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-09 15:34:45,696 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-09 15:34:45,697 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-09 15:34:45,697 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-09 15:34:45,760 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-09 15:34:45,760 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 972 ms
+2020-11-09 15:34:46,020 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-09 15:34:46,286 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-09 15:34:46,292 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-09 15:34:46,308 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-09 15:34:46,321 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-09 15:34:46,335 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 1.901 seconds (JVM running for 2.494)
+2020-11-09 15:34:47,571 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(3)-127.0.0.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-09 15:34:47,572 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-127.0.0.1] Initializing Servlet 'dispatcherServlet'
+2020-11-09 15:34:47,575 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-127.0.0.1] Completed initialization in 3 ms
+2020-11-09 15:34:58,574 INFO c.s.a.d.PersonDao [http-nio-8080-exec-2] trucqui marche
+2020-11-09 15:34:58,577 INFO c.s.a.c.PersonController [http-nio-8080-exec-2] trucqui marche
+2020-11-09 15:42:10,007 INFO o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(13)-127.0.0.1] Application shutdown requested.
+2020-11-09 15:42:10,067 INFO o.s.s.c.ExecutorConfigurationSupport [RMI TCP Connection(13)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
