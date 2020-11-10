@@ -2,10 +2,13 @@ package com.safetynet.alerts.model;
 
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 public class PersonList {
   
   
-    ArrayList<Person> persons;
+    public ArrayList<Person> persons;
 
     public ArrayList<Person> getPerson() {
         return persons;
@@ -17,9 +20,7 @@ public class PersonList {
 
     @Override
     public String toString() {
-        return "CarResponse{" +
-                "cars=" + persons +
-                '}';
+        return  persons.toString() ;
     }
 
 

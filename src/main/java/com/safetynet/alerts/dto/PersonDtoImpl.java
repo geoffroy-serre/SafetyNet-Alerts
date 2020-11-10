@@ -1,4 +1,4 @@
-package com.safetynet.alerts.dao;
+package com.safetynet.alerts.dto;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,16 +17,18 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.safetynet.alerts.interfaces.IPersonDto;
 import com.safetynet.alerts.model.Home;
 import com.safetynet.alerts.model.Person;
-
-
+import com.safetynet.alerts.model.PersonList;
 
 @Component
-public class PersonDao {
+public class PersonDtoImpl implements IPersonDto {
   private static final Logger logger = LogManager.getLogger("App");
+
   /**
    * Retrieve personInfo from given Json file.
    * 
@@ -37,13 +39,12 @@ public class PersonDao {
    * @throws JsonMappingException
    * @throws JsonParseException
    */
-  public ArrayList<Person> getPersonInfoDao(String firstName, String lastName)
+  public ArrayList<Person> getPersonInfoDto(String firstName, String lastName)
       throws JsonParseException, JsonMappingException, IOException {
 
     ObjectMapper objectMapper = new ObjectMapper();
     Person person = objectMapper.readValue(new File("data.json"), Person.class);
     Home adress = objectMapper.readValue(new File("data.json"), Home.class);
-    adress.setId(1);
     adress.getId();
     person.setIdHome(1);
     ArrayList<Person> personList = new ArrayList<Person>();
@@ -52,21 +53,19 @@ public class PersonDao {
     return personList;
   }
 
-  
   @JsonIgnoreProperties(ignoreUnknown = true)
-  public Person getperson()
-      throws JsonParseException, JsonMappingException, IOException, NoSuchFileException {
+  public PersonList getPersonListDto() throws JsonParseException, JsonMappingException, IOException {
     ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     DateFormat df = new SimpleDateFormat("MM-dd-YYYY");
     objectMapper.setDateFormat(df);
-    Path pathArray = Paths.get("daa.json");
+    
     logger.info("trucqui marche");
     
-    Person trucs = objectMapper.readValue(
-        Files.newBufferedReader(pathArray, StandardCharsets.UTF_8),
-        Person.class);
+    PersonList trucs = objectMapper.readValue(new File("data.json"),
+        PersonList.class);
     
-
+//logger.info(trucs.toString());
     return trucs;
   }
 

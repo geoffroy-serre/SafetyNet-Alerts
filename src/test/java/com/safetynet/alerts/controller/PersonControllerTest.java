@@ -50,13 +50,13 @@ public class PersonControllerTest {
     person.setIdHome(1);
     person.setIdMedicalRecord(1);
     person.setAge(38);
-    medicalRecord.setId(1);
+    
     medication.add("Seresta");
     allergy.add("Peanut");
     medicalRecord.setAllergy(allergy);
     medicalRecord.setMedication(medication);
     adress.setCity("Toulouse");
-    adress.setId(1);
+    
     
     Mockito.when(personService.getPersonInfoService(Mockito.anyString(),
             Mockito.anyString())).thenReturn(listPerson);

@@ -5,22 +5,31 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Person {
 
   
-  private UUID id;
-  
-  private String lastName;
+  private UUID id = UUID.randomUUID();
   private String firstName;
+  private String lastName;
+  @JsonProperty("phone")
   private String cellNumber;
   private LocalDate birthDate;
   private String email;
   private int idHome;
   private int idMedicalRecord;
   private int age;
-
+  
+  public void person(String pLastName) {
+    this.lastName = pLastName;
+  }
+  
+  public void person() {
+    
+  }
+  
   public UUID getId() {
     return id;
   }

@@ -1,37 +1,31 @@
 package com.safetynet.alerts.model;
 
+import java.util.UUID;
+
 public class Home {
 
-  private int id;
-  private int homeNumber;
-  private String street;
+  private UUID id = UUID.randomUUID();
+  private String adress;
   private String city;
-  private String state;
-  private String postalCode;
+  private String zip;
   private int idFirestation;
 
-  public int getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public int getHomeNumber() {
-    return homeNumber;
+ 
+
+  public String getAdress() {
+    return adress;
   }
 
-  public void setHomeNumber(int homeNumber) {
-    this.homeNumber = homeNumber;
-  }
-
-  public String getStreet() {
-    return street;
-  }
-
-  public void setStreet(String street) {
-    this.street = street;
+  public void setAdress(String pAdress) {
+    this.adress = pAdress;
   }
 
   public String getCity() {
@@ -41,21 +35,13 @@ public class Home {
   public void setCity(String city) {
     this.city = city;
   }
-
-  public String getState() {
-    return state;
+ 
+  public String getZip() {
+    return zip;
   }
 
-  public void setState(String state) {
-    this.state = state;
-  }
-
-  public String getPostalCode() {
-    return postalCode;
-  }
-
-  public void setPostalCode(String postalCode) {
-    this.postalCode = postalCode;
+  public void setZip(String pZip) {
+    this.zip = pZip;
   }
 
   public int getIdFirestation() {
@@ -69,7 +55,7 @@ public class Home {
   @Override
   public String toString() {
     return String.format(
-        "Person [id=%s, HomeNumber=%s, Street=%s, City=%s, State=%s, ZipCode=%s, FirestationId=%s]",
-        id, homeNumber, street, city, state, postalCode, idFirestation);
+        "Person [id=%s, Adress=%s, City=%s,  Zip=%s, FirestationId=%s]",
+        id, adress, city, zip, idFirestation);
   }
 }

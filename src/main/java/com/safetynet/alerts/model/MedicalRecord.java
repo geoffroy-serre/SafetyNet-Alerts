@@ -1,18 +1,19 @@
 package com.safetynet.alerts.model;
 
 import java.util.List;
+import java.util.UUID;
 
 public class MedicalRecord {
 
-  private int id;
+  private UUID id = UUID.randomUUID();
   private List<String> allergy;
   private List<String> medication;
 
-  public int getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

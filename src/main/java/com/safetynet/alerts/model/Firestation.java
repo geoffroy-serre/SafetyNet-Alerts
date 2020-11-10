@@ -1,28 +1,30 @@
 package com.safetynet.alerts.model;
 
+import java.util.UUID;
+
 public class Firestation {
   
-  private int id;
+  private UUID id = UUID.randomUUID();
   private int stationNumber;
-  private Home home;
+  private UUID home;
   
-  public int getId() {
+  public UUID getId() {
     return id;
   }
-  public void setId(int id) {
-    this.id = id;
+  public void setId(UUID pId) {
+    this.id = pId;
   }
   public int getStationNumber() {
     return stationNumber;
   }
-  public void setStationNumber(int stationNumber) {
-    this.stationNumber = stationNumber;
+  public void setStationNumber(int pStationNumber) {
+    this.stationNumber = pStationNumber;
   }
-  public Home getHome() {
+  public UUID getHome() {
     return home;
   }
-  public void setHome(Home home) {
-    this.home = home;
+  public void setHome(UUID pHome) {
+    this.home = pHome;
   }
   
   

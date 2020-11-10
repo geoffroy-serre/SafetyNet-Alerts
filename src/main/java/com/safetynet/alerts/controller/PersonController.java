@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.Person;
+import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.services.PersonService;
 
 @RestController
@@ -42,26 +43,26 @@ public class PersonController {
     }
     
     @GetMapping("/personInfo")
-    public Person getPersonInfo(){
+    public PersonList getPersonInfo(){
       
         try {
           return personService.getpersons();
         } catch (JsonParseException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
-          logger.info("trucqui marche");
+          logger.info("parse");
         } catch (JsonMappingException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
-          logger.info("trucqui marche");
+          logger.info("mapping");
         } catch (NoSuchFileException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
-          logger.info("trucqui marche");
+          logger.info("tfile");
         } catch (IOException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
-          logger.info("trucqui marche");
+          logger.info("io du cul");
         }
         
         
