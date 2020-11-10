@@ -2,11 +2,6 @@ package com.safetynet.alerts.dto;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,21 +47,22 @@ public class PersonDtoImpl implements IPersonDto {
     logger.info("trucqui marche");
     return personList;
   }
-
+  
+  @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
   public PersonList getPersonListDto() throws JsonParseException, JsonMappingException, IOException {
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     DateFormat df = new SimpleDateFormat("MM-dd-YYYY");
     objectMapper.setDateFormat(df);
-    
-    logger.info("trucqui marche");
-    
-    PersonList trucs = objectMapper.readValue(new File("data.json"),
+
+    PersonList personsList = objectMapper.readValue(new File("data.json"),
         PersonList.class);
     
+    logger.info("PersonList retrieval");
+    
 //logger.info(trucs.toString());
-    return trucs;
+    return personsList;
   }
 
 }

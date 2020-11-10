@@ -3,8 +3,6 @@ package com.safetynet.alerts.model;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -22,13 +20,6 @@ public class Person {
   private int idMedicalRecord;
   private int age;
   
-  public void person(String pLastName) {
-    this.lastName = pLastName;
-  }
-  
-  public void person() {
-    
-  }
   
   public UUID getId() {
     return id;

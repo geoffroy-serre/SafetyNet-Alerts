@@ -2,6 +2,8 @@ package com.safetynet.alerts.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.UUID;
+
 import org.junit.jupiter.api.Test;
 
 public class HomeTest {
@@ -9,14 +11,15 @@ public class HomeTest {
   @Test
   public void What_you_set_is_what_you_get() {
     Home home = new Home();
-    home.setId(1);
+    UUID id = UUID.randomUUID();
+    home.setId(id);
     
     home.setAdress("85 rue Jean Jaurès");
     home.setCity("Rochefort");
     home.setZip("17300");
     home.setIdFirestation(1);
 
-    assertEquals(home.getId(), 1);
+    assertEquals(home.getId(), id);
    
     assertEquals(home.getAdress(), "85 rue Jean Jaurès");
     assertEquals(home.getCity(), "Rochefort");

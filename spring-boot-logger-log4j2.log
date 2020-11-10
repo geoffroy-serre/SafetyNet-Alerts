@@ -1,40 +1,1049 @@
-2020-11-10 14:48:13,082 WARN o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [main] 
-
-Found multiple occurrences of org.json.JSONObject on the class path:
-
-	jar:file:/home/heimdall/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
-	jar:file:/home/heimdall/.m2/repository/org/json/json/20200518/json-20200518.jar!/org/json/JSONObject.class
-
-You may wish to exclude one of them to ensure predictable runtime behavior
-
-2020-11-10 14:48:13,118 INFO o.s.b.StartupInfoLogger [main] Starting SafetyNetAlertsApplicationTests on heimdall-Othalla with PID 27902 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-10 14:48:13,120 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-10 14:48:13,121 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-10 14:48:14,349 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-10 14:48:14,817 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-11-10 14:48:14,860 INFO o.s.b.StartupInfoLogger [main] Started SafetyNetAlertsApplicationTests in 2.048 seconds (JVM running for 2.979)
-2020-11-10 14:48:15,120 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.controller.PersonControllerTest], using SpringBootContextLoader
-2020-11-10 14:48:15,121 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.controller.PersonControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-10 14:48:15,121 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.controller.PersonControllerTest]: PersonControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-10 14:48:15,135 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.controller.PersonControllerTest
-2020-11-10 14:48:15,135 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-10 14:48:15,136 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5238896f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@74a85515, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4a2e1e52, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3dfe92ef, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b9b17ce, org.springframework.test.context.event.EventPublishingTestExecutionListener@1d2def55, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@274bae2c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6eeb29c0, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1d3d76b4, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6f986501, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@15d88c10, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@22ca1242]
-2020-11-10 14:48:15,167 WARN o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [main] 
-
-Found multiple occurrences of org.json.JSONObject on the class path:
-
-	jar:file:/home/heimdall/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
-	jar:file:/home/heimdall/.m2/repository/org/json/json/20200518/json-20200518.jar!/org/json/JSONObject.class
-
-You may wish to exclude one of them to ensure predictable runtime behavior
-
-2020-11-10 14:48:15,169 INFO o.s.b.StartupInfoLogger [main] Starting PersonControllerTest on heimdall-Othalla with PID 27902 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-10 14:48:15,170 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-10 14:48:15,171 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-10 14:48:15,533 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-10 14:48:15,722 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-10 14:48:15,722 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-10 14:48:15,733 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 11 ms
-2020-11-10 14:48:15,748 INFO o.s.b.StartupInfoLogger [main] Started PersonControllerTest in 0.609 seconds (JVM running for 3.866)
-2020-11-10 14:48:15,863 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-10 14:48:15,865 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:06:17,910 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:06:17,915 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:06:17,916 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:06:17,958 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-10 17:06:17,958 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-10 17:06:18,830 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:06:18,842 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:06:18,842 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:06:18,843 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:06:18,903 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:06:18,903 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 945 ms
+2020-11-10 17:06:19,181 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:06:19,426 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:06:19,430 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:06:19,443 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:06:19,456 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:06:19,469 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 1.865 seconds (JVM running for 2.441)
+2020-11-10 17:06:22,297 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(3)-127.0.0.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:06:22,298 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-127.0.0.1] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:06:22,303 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-127.0.0.1] Completed initialization in 5 ms
+2020-11-10 17:07:18,553 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-5] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:07:18,640 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:07:18,641 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:07:18,641 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:07:18,910 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:07:18,911 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:07:18,912 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:07:18,912 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:07:18,920 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:07:18,921 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 277 ms
+2020-11-10 17:07:19,056 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:07:19,153 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:07:19,157 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:07:19,166 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:07:19,169 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:07:19,178 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.586 seconds (JVM running for 62.15)
+2020-11-10 17:07:19,180 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:07:21,822 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:07:21,822 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-3] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:07:21,824 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-3] Completed initialization in 2 ms
+2020-11-10 17:09:37,193 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-8] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:09:49,442 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:09:49,443 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:09:49,443 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:09:49,703 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:09:49,704 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:09:49,704 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:09:49,704 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:09:49,712 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:09:49,712 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 268 ms
+2020-11-10 17:09:49,828 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:09:49,915 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:09:49,919 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:09:49,927 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:09:49,929 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:09:49,936 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.536 seconds (JVM running for 212.908)
+2020-11-10 17:09:49,937 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:10:03,525 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-18] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:10:03,600 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:10:03,600 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:10:03,600 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:10:03,824 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:10:03,825 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:10:03,825 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:10:03,825 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:10:03,833 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:10:03,833 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 231 ms
+2020-11-10 17:10:03,952 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:10:04,035 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:10:04,037 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:10:04,045 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:10:04,051 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:10:04,058 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.493 seconds (JVM running for 227.03)
+2020-11-10 17:10:04,060 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:10:17,678 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-23] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:10:17,761 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:10:17,761 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:10:17,762 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:10:18,012 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:10:18,013 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:10:18,013 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:10:18,013 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:10:18,021 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:10:18,021 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 257 ms
+2020-11-10 17:10:18,135 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:10:18,219 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:10:18,221 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:10:18,229 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:10:18,233 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:10:18,239 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.524 seconds (JVM running for 241.211)
+2020-11-10 17:10:18,241 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:10:26,800 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-28] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:10:26,886 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:10:26,886 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:10:26,886 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:10:27,122 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:10:27,122 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:10:27,122 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:10:27,123 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:10:27,130 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:10:27,130 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 242 ms
+2020-11-10 17:10:27,242 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:10:27,326 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:10:27,329 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:10:27,336 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:10:27,338 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:10:27,343 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.499 seconds (JVM running for 250.316)
+2020-11-10 17:10:27,345 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:11:47,219 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:11:47,220 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:11:47,222 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:12:08,914 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-33] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:12:08,998 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:12:08,999 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:12:08,999 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:12:09,258 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:12:09,259 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:12:09,259 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:12:09,259 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:12:09,267 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:12:09,267 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 266 ms
+2020-11-10 17:12:09,380 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:12:09,463 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:12:09,466 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:12:09,473 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:12:09,474 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:12:09,483 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.529 seconds (JVM running for 352.455)
+2020-11-10 17:12:09,484 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:12:10,859 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:12:10,859 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:12:10,861 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:12:20,052 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-38] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:12:20,143 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:12:20,144 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:12:20,144 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:12:20,396 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:12:20,397 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:12:20,397 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:12:20,397 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:12:20,405 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:12:20,405 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 260 ms
+2020-11-10 17:12:20,525 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:12:20,615 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:12:20,618 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:12:20,626 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:12:20,627 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:12:20,636 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.537 seconds (JVM running for 363.608)
+2020-11-10 17:12:20,637 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:12:22,082 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:12:22,082 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:12:22,084 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:12:36,260 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-43] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:12:36,343 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:12:36,344 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:12:36,344 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:12:36,592 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:12:36,593 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:12:36,593 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:12:36,593 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:12:36,601 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:12:36,601 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 256 ms
+2020-11-10 17:12:36,715 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:12:36,812 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:12:36,815 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:12:36,826 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:12:36,827 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:12:36,832 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.525 seconds (JVM running for 379.804)
+2020-11-10 17:12:36,833 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:12:39,495 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:12:39,496 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:12:39,497 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-10 17:13:42,001 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-48] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:13:42,087 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:13:42,088 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:13:42,088 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:13:42,336 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:13:42,336 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:13:42,336 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:13:42,336 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:13:42,344 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:13:42,344 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 254 ms
+2020-11-10 17:13:42,453 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:13:42,538 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:13:42,541 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:13:42,551 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:13:42,555 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:13:42,559 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.516 seconds (JVM running for 445.531)
+2020-11-10 17:13:42,560 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:13:45,582 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:13:45,583 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:13:45,584 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-10 17:14:08,288 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-53] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:14:08,381 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:14:08,382 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:14:08,382 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:14:08,615 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:14:08,615 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:14:08,615 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:14:08,616 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:14:08,623 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:14:08,624 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 240 ms
+2020-11-10 17:14:08,738 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:14:08,827 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:14:08,829 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:14:08,836 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:14:08,838 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:14:08,847 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.512 seconds (JVM running for 471.819)
+2020-11-10 17:14:08,848 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:15:16,063 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-58] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:15:16,140 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:15:16,140 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:15:16,140 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:15:16,364 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:15:16,365 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:15:16,365 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:15:16,365 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:15:16,372 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:15:16,372 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 230 ms
+2020-11-10 17:15:16,485 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:15:16,563 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:15:16,566 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:15:16,576 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:15:16,579 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:15:16,586 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.477 seconds (JVM running for 539.559)
+2020-11-10 17:15:16,588 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:15:18,372 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:15:18,372 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:15:18,374 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:15:25,124 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-63] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:15:25,212 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:15:25,212 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:15:25,213 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:15:25,438 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:15:25,439 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:15:25,439 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:15:25,439 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:15:25,446 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:15:25,447 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 233 ms
+2020-11-10 17:15:25,559 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:15:25,643 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:15:25,646 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:15:25,651 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:15:25,653 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:15:25,658 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.485 seconds (JVM running for 548.631)
+2020-11-10 17:15:25,659 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:15:28,024 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:15:28,024 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:15:28,026 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:15:54,432 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-68] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:15:54,519 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:15:54,519 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:15:54,519 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:15:54,790 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:15:54,790 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:15:54,791 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:15:54,791 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:15:54,801 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:15:54,801 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 280 ms
+2020-11-10 17:15:54,940 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:15:55,025 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:15:55,027 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:15:55,035 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:15:55,037 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:15:55,044 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.558 seconds (JVM running for 578.016)
+2020-11-10 17:15:55,045 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:16:01,537 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:16:01,537 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:16:01,539 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-10 17:16:01,541 INFO c.s.a.d.PersonDtoImpl [http-nio-8080-exec-2] trucqui marche
+2020-11-10 17:17:26,488 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-73] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:17:26,583 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:17:26,584 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:17:26,584 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:17:26,847 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:17:26,848 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:17:26,848 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:17:26,848 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:17:26,858 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:17:26,858 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 273 ms
+2020-11-10 17:17:26,994 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:17:27,096 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:17:27,099 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:17:27,107 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:17:27,109 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:17:27,116 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.575 seconds (JVM running for 670.088)
+2020-11-10 17:17:27,117 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:17:59,287 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:17:59,287 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:17:59,288 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-10 17:20:46,740 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-78] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:20:46,829 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:20:46,830 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:20:46,830 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:20:47,056 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:20:47,056 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:20:47,056 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:20:47,057 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:20:47,066 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:20:47,066 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 235 ms
+2020-11-10 17:20:47,194 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:20:47,277 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:20:47,278 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:20:47,286 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:20:47,287 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:20:47,296 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.504 seconds (JVM running for 870.268)
+2020-11-10 17:20:47,297 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:21:35,268 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-83] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:21:35,365 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:21:35,366 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:21:35,366 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:21:35,625 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:21:35,625 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:21:35,625 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:21:35,625 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:21:35,633 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:21:35,633 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 266 ms
+2020-11-10 17:21:35,760 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:21:35,848 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:21:35,850 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:21:35,855 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:21:35,857 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:21:35,863 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.539 seconds (JVM running for 918.835)
+2020-11-10 17:21:35,865 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:21:39,949 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:21:39,949 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:21:39,951 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:21:39,952 INFO c.s.a.d.PersonDtoImpl [http-nio-8080-exec-2] trucqui marche
+2020-11-10 17:23:45,789 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-88] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:23:45,882 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:23:45,883 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:23:45,883 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:23:46,144 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:23:46,145 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:23:46,145 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:23:46,145 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:23:46,158 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:23:46,158 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 274 ms
+2020-11-10 17:23:46,277 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:23:46,362 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:23:46,365 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:23:46,372 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:23:46,374 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:23:46,383 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.538 seconds (JVM running for 1049.355)
+2020-11-10 17:23:46,384 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:23:53,371 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:23:53,371 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:23:53,373 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:23:53,377 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:24:31,366 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-93] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:24:31,451 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:24:31,451 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:24:31,451 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:24:31,676 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:24:31,676 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:24:31,676 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:24:31,676 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:24:31,684 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:24:31,684 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 231 ms
+2020-11-10 17:24:31,808 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:24:31,893 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:24:31,895 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:24:31,901 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:24:31,903 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:24:31,911 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.493 seconds (JVM running for 1094.884)
+2020-11-10 17:24:31,912 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:26:14,481 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-98] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:26:14,578 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:26:14,578 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:26:14,578 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:26:14,829 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:26:14,829 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:26:14,829 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:26:14,829 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:26:14,841 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:26:14,841 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 261 ms
+2020-11-10 17:26:14,967 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:26:15,057 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:26:15,059 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:26:15,064 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:26:15,071 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:26:15,079 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.54 seconds (JVM running for 1198.051)
+2020-11-10 17:26:15,080 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:26:17,548 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-103] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:26:17,640 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:26:17,640 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:26:17,641 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:26:17,857 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:26:17,857 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:26:17,857 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:26:17,857 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:26:17,865 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:26:17,865 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 223 ms
+2020-11-10 17:26:17,998 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:26:18,097 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:26:18,101 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:26:18,109 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:26:18,110 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:26:18,117 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.515 seconds (JVM running for 1201.089)
+2020-11-10 17:26:18,119 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:26:29,688 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-108] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:26:29,787 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:26:29,787 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:26:29,787 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:26:30,052 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:26:30,053 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:26:30,053 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:26:30,053 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:26:30,060 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:26:30,060 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 272 ms
+2020-11-10 17:26:30,192 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:26:30,290 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:26:30,291 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:26:30,297 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:26:30,298 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:26:30,311 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.564 seconds (JVM running for 1213.283)
+2020-11-10 17:26:30,311 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:26:32,779 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-113] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:26:32,883 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:26:32,884 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:26:32,884 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:26:33,106 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:26:33,106 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:26:33,106 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:26:33,106 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:26:33,118 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:26:33,118 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 232 ms
+2020-11-10 17:26:33,250 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:26:33,333 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:26:33,335 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:26:33,343 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:26:33,344 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:26:33,352 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.509 seconds (JVM running for 1216.324)
+2020-11-10 17:26:33,353 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:26:35,444 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:26:35,445 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:26:35,446 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-10 17:26:35,451 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:26:36,456 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-3] MedicalRecordList retrieval
+2020-11-10 17:27:44,596 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-118] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:27:44,692 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:27:44,692 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:27:44,692 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:27:44,929 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:27:44,929 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:27:44,929 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:27:44,929 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:27:44,940 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:27:44,940 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 246 ms
+2020-11-10 17:27:45,064 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:27:45,155 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:27:45,158 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:27:45,166 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:27:45,167 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:27:45,176 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.522 seconds (JVM running for 1288.148)
+2020-11-10 17:27:45,177 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:27:52,697 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-123] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:27:52,774 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:27:52,774 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:27:52,774 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:27:53,048 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:27:53,049 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:27:53,049 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:27:53,049 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:27:53,057 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:27:53,057 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 281 ms
+2020-11-10 17:27:53,182 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:27:53,277 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:27:53,278 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:27:53,284 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:27:53,285 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:27:53,292 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.548 seconds (JVM running for 1296.264)
+2020-11-10 17:27:53,293 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:27:59,810 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-128] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:27:59,891 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:27:59,891 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:27:59,892 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:28:00,111 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:28:00,111 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:28:00,111 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:28:00,111 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:28:00,119 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:28:00,119 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 226 ms
+2020-11-10 17:28:00,251 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:28:00,334 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:28:00,337 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:28:00,345 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:28:00,346 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:28:00,354 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.498 seconds (JVM running for 1303.326)
+2020-11-10 17:28:00,355 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:28:13,964 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-133] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:28:14,050 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:28:14,050 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:28:14,050 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:28:14,292 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:28:14,292 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:28:14,292 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:28:14,292 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:28:14,300 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:28:14,300 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 249 ms
+2020-11-10 17:28:14,419 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:28:14,518 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:28:14,521 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:28:14,528 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:28:14,529 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:28:14,534 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.519 seconds (JVM running for 1317.506)
+2020-11-10 17:28:14,535 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:30:12,273 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-138] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:30:12,353 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:30:12,353 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:30:12,353 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:30:12,558 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:30:12,558 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:30:12,558 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:30:12,559 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:30:12,569 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:30:12,569 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 214 ms
+2020-11-10 17:30:12,693 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:30:12,786 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:30:12,788 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:30:12,793 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:30:12,794 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:30:12,799 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.477 seconds (JVM running for 1435.772)
+2020-11-10 17:30:12,800 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:30:14,740 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:30:14,740 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:30:14,742 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2020-11-10 17:30:14,747 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-1] MedicalRecordList retrieval
+2020-11-10 17:30:21,348 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-143] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:30:21,427 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:30:21,428 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:30:21,428 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:30:21,647 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:30:21,648 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:30:21,648 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:30:21,648 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:30:21,655 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:30:21,655 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 226 ms
+2020-11-10 17:30:21,773 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:30:21,848 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:30:21,850 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:30:21,860 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:30:21,866 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:30:21,872 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.477 seconds (JVM running for 1444.844)
+2020-11-10 17:30:21,873 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:32:08,492 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-148] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:32:08,574 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:32:08,574 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:32:08,574 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:32:08,817 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:32:08,818 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:32:08,818 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:32:08,818 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:32:08,825 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:32:08,825 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 250 ms
+2020-11-10 17:32:08,954 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:32:09,037 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:32:09,039 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:32:09,045 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:32:09,049 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:32:09,055 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.516 seconds (JVM running for 1552.028)
+2020-11-10 17:32:09,057 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:33:36,495 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:33:36,495 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:33:36,497 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:33:36,501 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:37:11,857 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-153] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:11,948 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:37:11,948 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:37:11,949 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:37:12,204 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:37:12,204 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:12,205 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:37:12,205 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:37:12,212 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:37:12,212 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 262 ms
+2020-11-10 17:37:12,351 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:12,435 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:37:12,439 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:37:12,446 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:12,450 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:37:12,459 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.552 seconds (JVM running for 1855.431)
+2020-11-10 17:37:12,460 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:37:18,999 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-158] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:19,090 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:37:19,090 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:37:19,090 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:37:19,342 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:37:19,342 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:19,343 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:37:19,343 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:37:19,351 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:37:19,351 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 258 ms
+2020-11-10 17:37:19,476 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:19,556 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:37:19,559 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:37:19,566 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:19,567 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:37:19,572 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.522 seconds (JVM running for 1862.544)
+2020-11-10 17:37:19,573 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:37:22,046 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-163] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:22,133 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:37:22,133 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:37:22,133 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:37:22,352 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:37:22,352 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:22,352 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:37:22,352 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:37:22,359 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:37:22,359 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 224 ms
+2020-11-10 17:37:22,476 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:22,567 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:37:22,570 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:37:22,578 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:22,579 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:37:22,587 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.486 seconds (JVM running for 1865.559)
+2020-11-10 17:37:22,589 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:37:25,070 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-168] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:25,161 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:37:25,161 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:37:25,161 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:37:25,391 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:37:25,391 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:25,392 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:37:25,392 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:37:25,401 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:37:25,401 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 238 ms
+2020-11-10 17:37:25,525 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:25,608 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:37:25,611 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:37:25,617 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:25,618 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:37:25,627 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.503 seconds (JVM running for 1868.599)
+2020-11-10 17:37:25,629 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:37:33,176 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-173] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:33,268 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:37:33,269 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:37:33,269 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:37:33,518 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:37:33,518 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:33,518 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:37:33,518 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:37:33,527 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:37:33,527 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 257 ms
+2020-11-10 17:37:33,653 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:33,732 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:37:33,734 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:37:33,742 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:33,743 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:37:33,752 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.522 seconds (JVM running for 1876.724)
+2020-11-10 17:37:33,753 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:37:40,266 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-178] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:40,367 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:37:40,367 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:37:40,367 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:37:40,642 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:37:40,642 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:40,642 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:37:40,642 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:37:40,650 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:37:40,650 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 281 ms
+2020-11-10 17:37:40,776 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:40,862 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:37:40,864 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:37:40,870 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:40,871 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:37:40,880 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.557 seconds (JVM running for 1883.852)
+2020-11-10 17:37:40,881 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:37:44,199 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:37:44,199 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:37:44,201 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:37:44,205 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:37:58,525 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-183] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:58,611 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:37:58,611 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:37:58,612 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:37:58,829 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:37:58,829 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:58,829 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:37:58,829 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:37:58,838 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:37:58,838 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 225 ms
+2020-11-10 17:37:58,961 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:37:59,059 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:37:59,061 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:37:59,068 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:37:59,069 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:37:59,078 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.502 seconds (JVM running for 1902.05)
+2020-11-10 17:37:59,079 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:38:02,518 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:38:02,518 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:38:02,520 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:38:02,524 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:44:17,743 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-188] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:44:17,819 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:44:17,820 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:44:17,820 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:44:18,041 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:44:18,042 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:44:18,042 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:44:18,042 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:44:18,049 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:44:18,049 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 228 ms
+2020-11-10 17:44:18,193 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:44:18,272 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:44:18,273 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:44:18,280 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:44:18,281 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:44:18,288 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.496 seconds (JVM running for 2281.261)
+2020-11-10 17:44:18,290 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:44:26,831 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-193] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:44:26,928 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:44:26,929 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:44:26,929 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:44:27,181 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:44:27,181 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:44:27,181 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:44:27,181 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:44:27,191 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:44:27,191 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 261 ms
+2020-11-10 17:44:27,321 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:44:27,408 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:44:27,410 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:44:27,418 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:44:27,419 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:44:27,426 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.537 seconds (JVM running for 2290.399)
+2020-11-10 17:44:27,428 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:44:45,066 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-198] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:44:45,166 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:44:45,167 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:44:45,167 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:44:45,421 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:44:45,422 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:44:45,422 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:44:45,422 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:44:45,429 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:44:45,429 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 261 ms
+2020-11-10 17:44:45,552 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:44:45,636 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:44:45,639 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:44:45,646 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:44:45,647 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:44:45,658 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.535 seconds (JVM running for 2308.63)
+2020-11-10 17:44:45,659 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:45:24,537 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-203] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:45:24,634 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:45:24,634 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:45:24,634 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:45:24,895 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:45:24,895 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:45:24,895 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:45:24,895 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:45:24,903 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:45:24,903 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 267 ms
+2020-11-10 17:45:25,018 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:45:25,122 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:45:25,124 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:45:25,131 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:45:25,132 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:45:25,137 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.543 seconds (JVM running for 2348.109)
+2020-11-10 17:45:25,138 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:45:31,723 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:45:31,723 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:45:31,725 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:45:31,729 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:47:34,038 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:47:34,130 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:47:34,131 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:47:34,131 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:47:34,358 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:47:34,359 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:47:34,359 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:47:34,359 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:47:34,366 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:47:34,366 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 234 ms
+2020-11-10 17:47:34,484 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:47:34,578 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:47:34,580 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:47:34,588 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:47:34,589 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:47:34,599 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.507 seconds (JVM running for 2477.571)
+2020-11-10 17:47:34,600 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:49:12,121 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-213] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:49:12,213 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:49:12,213 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:49:12,213 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:49:12,477 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:49:12,477 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:49:12,477 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:49:12,477 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:49:12,488 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:49:12,488 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 273 ms
+2020-11-10 17:49:12,597 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:49:12,690 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:49:12,693 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:49:12,701 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:49:12,702 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:49:12,711 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.533 seconds (JVM running for 2575.683)
+2020-11-10 17:49:12,712 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:49:38,436 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-218] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:49:38,518 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:49:38,518 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:49:38,518 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:49:38,747 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:49:38,748 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:49:38,748 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:49:38,748 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:49:38,755 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:49:38,755 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 236 ms
+2020-11-10 17:49:38,867 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:49:38,965 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:49:38,967 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:49:38,975 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:49:38,976 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:49:38,983 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.493 seconds (JVM running for 2601.956)
+2020-11-10 17:49:38,984 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:49:43,479 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-223] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:49:43,577 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:49:43,578 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:49:43,578 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:49:43,837 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:49:43,837 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:49:43,837 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:49:43,838 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:49:43,845 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:49:43,845 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 265 ms
+2020-11-10 17:49:43,961 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:49:44,073 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:49:44,075 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:49:44,083 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:49:44,084 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:49:44,090 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.554 seconds (JVM running for 2607.062)
+2020-11-10 17:49:44,091 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:50:52,339 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-228] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:50:52,437 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:50:52,437 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:50:52,437 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:50:52,680 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:50:52,681 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:50:52,681 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:50:52,681 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:50:52,689 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:50:52,689 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 250 ms
+2020-11-10 17:50:52,800 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:50:52,896 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:50:52,898 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:50:52,905 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:50:52,906 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:50:52,913 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.518 seconds (JVM running for 2675.885)
+2020-11-10 17:50:52,914 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:51:39,873 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-233] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:51:39,955 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:51:39,956 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:51:39,956 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:51:40,168 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:51:40,168 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:51:40,168 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:51:40,169 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:51:40,175 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:51:40,175 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 218 ms
+2020-11-10 17:51:40,281 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:51:40,370 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:51:40,372 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:51:40,380 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:51:40,381 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:51:40,388 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.459 seconds (JVM running for 2723.361)
+2020-11-10 17:51:40,390 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:51:50,950 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-238] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:51:51,044 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:51:51,045 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:51:51,045 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:51:51,278 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:51:51,278 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:51:51,278 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:51:51,279 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:51:51,286 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:51:51,286 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 240 ms
+2020-11-10 17:51:51,409 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:51:51,517 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:51:51,521 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:51:51,529 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:51:51,530 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:51:51,537 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.527 seconds (JVM running for 2734.509)
+2020-11-10 17:51:51,539 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:51:54,384 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:51:54,384 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:51:54,385 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-10 17:51:54,388 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:53:01,741 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-243] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:53:01,836 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:53:01,837 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:53:01,837 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:53:02,100 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:53:02,100 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:53:02,100 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:53:02,101 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:53:02,108 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:53:02,108 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 270 ms
+2020-11-10 17:53:02,218 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:53:02,312 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:53:02,314 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:53:02,319 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:53:02,323 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:53:02,329 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.533 seconds (JVM running for 2805.301)
+2020-11-10 17:53:02,331 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:53:50,318 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-248] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:53:50,423 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:53:50,424 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:53:50,424 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:53:50,687 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:53:50,688 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:53:50,688 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:53:50,688 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:53:50,699 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:53:50,699 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 273 ms
+2020-11-10 17:53:50,820 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:53:50,918 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:53:50,921 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:53:50,928 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:53:50,929 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:53:50,937 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.559 seconds (JVM running for 2853.909)
+2020-11-10 17:53:50,939 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:53:53,039 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:53:53,039 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:53:53,040 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-10 17:53:53,043 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:54:01,501 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-253] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:54:01,591 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:54:01,591 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:54:01,591 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:54:01,807 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:54:01,807 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:54:01,808 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:54:01,808 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:54:01,815 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:54:01,815 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 222 ms
+2020-11-10 17:54:01,926 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:54:02,022 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:54:02,023 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:54:02,029 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:54:02,030 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:54:02,038 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.478 seconds (JVM running for 2865.011)
+2020-11-10 17:54:02,040 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:54:03,855 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:54:03,855 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:54:03,857 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2020-11-10 17:54:03,860 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-1] MedicalRecordList retrieval
+2020-11-10 17:54:05,299 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-3] MedicalRecordList retrieval
+2020-11-10 17:54:12,610 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-258] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:54:12,693 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:54:12,693 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:54:12,693 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:54:12,897 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:54:12,897 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:54:12,898 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:54:12,898 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:54:12,906 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:54:12,906 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 212 ms
+2020-11-10 17:54:13,022 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:54:13,125 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:54:13,128 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:54:13,135 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:54:13,139 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:54:13,144 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.477 seconds (JVM running for 2876.116)
+2020-11-10 17:54:13,145 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:54:50,894 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:54:50,895 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:54:50,896 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-10 17:54:50,900 INFO c.s.a.d.PersonDtoImpl [http-nio-8080-exec-2] PersonList retrieval
+2020-11-10 17:55:37,552 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-263] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:55:37,644 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:55:37,644 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:55:37,644 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:55:37,918 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:55:37,918 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:55:37,919 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:55:37,919 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:55:37,930 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:55:37,930 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 285 ms
+2020-11-10 17:55:38,054 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:55:38,156 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:55:38,159 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:55:38,167 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:55:38,168 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:55:38,175 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.565 seconds (JVM running for 2961.147)
+2020-11-10 17:55:38,176 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:55:45,849 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:55:45,849 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-3] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:55:45,851 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-3] Completed initialization in 2 ms
+2020-11-10 17:55:45,855 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-3] MedicalRecordList retrieval
+2020-11-10 17:56:14,025 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-268] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:56:14,129 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:56:14,129 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:56:14,129 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:56:14,391 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:56:14,391 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:56:14,392 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:56:14,392 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:56:14,399 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:56:14,399 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 268 ms
+2020-11-10 17:56:14,513 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:56:14,604 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:56:14,607 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:56:14,615 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:56:14,616 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:56:14,620 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.537 seconds (JVM running for 2997.592)
+2020-11-10 17:56:14,621 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:56:15,628 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:56:15,628 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:56:15,630 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2020-11-10 17:56:15,633 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:56:45,402 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-273] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:56:45,495 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:56:45,495 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:56:45,495 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:56:45,727 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:56:45,727 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:56:45,727 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:56:45,728 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:56:45,735 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:56:45,735 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 239 ms
+2020-11-10 17:56:45,847 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:56:45,942 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:56:45,945 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:56:45,951 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:56:45,952 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:56:45,959 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.5 seconds (JVM running for 3028.931)
+2020-11-10 17:56:45,961 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:56:56,557 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-278] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:56:56,656 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 39305 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-10 17:56:56,656 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-10 17:56:56,656 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-10 17:56:56,899 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-10 17:56:56,900 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:56:56,900 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-10 17:56:56,900 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-10 17:56:56,910 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-10 17:56:56,910 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 252 ms
+2020-11-10 17:56:57,020 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-10 17:56:57,099 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-10 17:56:57,101 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-10 17:56:57,108 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-10 17:56:57,117 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-10 17:56:57,125 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.508 seconds (JVM running for 3040.097)
+2020-11-10 17:56:57,127 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-10 17:56:58,310 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-10 17:56:58,310 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-10 17:56:58,311 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-10 17:56:58,314 INFO c.s.a.d.MedicalRecordDtoImpl [http-nio-8080-exec-2] MedicalRecordList retrieval
+2020-11-10 17:57:06,024 INFO c.s.a.d.PersonDtoImpl [http-nio-8080-exec-3] PersonList retrieval

@@ -1,11 +1,10 @@
 package com.safetynet.alerts.controller;
 
-import java.io.UnsupportedEncodingException;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -53,8 +52,8 @@ public class PersonControllerTest {
     
     medication.add("Seresta");
     allergy.add("Peanut");
-    medicalRecord.setAllergy(allergy);
-    medicalRecord.setMedication(medication);
+    medicalRecord.setAllergies(allergy);
+    medicalRecord.setMedications(medication);
     adress.setCity("Toulouse");
     
     

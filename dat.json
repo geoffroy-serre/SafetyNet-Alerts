@@ -1,9 +1,0 @@
-{
-    "persons": [
-        { "id":"1","firstName":"Jacob", "lastName":"Boyd","cellNumber":"841-874-6512", "birthDate":"04-14-1982", "email":"drk@email.com","idHome":"1","idMedicalRecord":"1", "age":"97451" },
-        { "id":"1","firstName":"Jacob", "lastName":"Boyd","cellNumber":"841-874-6512", "birthDate":"04-14-1982", "email":"drk@email.com","idHome":"1","idMedicalRecord":"1", "age":"97451"  }
-        
-	] 
-    
-}
-

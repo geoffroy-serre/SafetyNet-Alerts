@@ -1,13 +1,42 @@
 package com.safetynet.alerts.model;
 
-import java.util.List;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class MedicalRecord {
 
+  
   private UUID id = UUID.randomUUID();
-  private List<String> allergy;
-  private List<String> medication;
+  private String firstName;
+  private String lastName;
+  private LocalDate birthdate;
+  private ArrayList<String> allergies;
+  private ArrayList<String> medications;
+
+  public LocalDate getBirthdate() {
+    return birthdate;
+  }
+
+  public void setBirthdate(LocalDate birthdate) {
+    this.birthdate = birthdate;
+  }
+  
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
   public UUID getId() {
     return id;
@@ -17,26 +46,27 @@ public class MedicalRecord {
     this.id = id;
   }
 
-  public List<String> getAllergy() {
-    return allergy;
+  public ArrayList<String> getAllergies() {
+    return allergies;
   }
 
-  public void setAllergy(List<String> allergy) {
-    this.allergy = allergy;
+  public void setAllergies(ArrayList<String> pAllergies) {
+    this.allergies = pAllergies;
   }
 
-  public List<String> getMedication() {
-    return medication;
+  public ArrayList<String> getMedication() {
+    return medications;
   }
 
-  public void setMedication(List<String> medication) {
-    this.medication = medication;
+  public void setMedications(ArrayList<String> pMedications) {
+    this.medications = pMedications;
   }
 
   @Override
   public String toString() {
-    return String.format("MedicalRecord [id=%s, allergy=%s, medication=%s]", id,
-        allergy, medication);
+    return String.format(
+        "MedicalRecord [id=%s,firstName=%s, lastName=%s allergies=%s, medications=%s]",
+        id, firstName, lastName, allergies.toString(), medications.toString());
   }
 
 }

@@ -2,28 +2,21 @@ package com.safetynet.alerts.model;
 
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-
 public class PersonList {
-  
-  
-    public ArrayList<Person> persons;
+   
+    public ArrayList<Person> person;
 
     public ArrayList<Person> getPerson() {
-        return persons;
+        return person;
     }
 
-    public void setPerson(ArrayList<Person> persons) {
-        this.persons = persons;
+    public void setPerson(ArrayList<Person> pPersons) {
+        this.person = pPersons;
     }
 
     @Override
     public String toString() {
-        return  persons.toString() ;
+        return  person.toString() ;
     }
-
-
-
 
 }
