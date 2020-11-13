@@ -14,7 +14,7 @@ public class Person {
   private String lastName;
   @JsonProperty("phone")
   private String cellNumber;
-  private LocalDate birthDate;
+  private LocalDate birthdate;
   private String email;
   private int idHome;
   private int idMedicalRecord;
@@ -54,11 +54,11 @@ public class Person {
   }
 
   public LocalDate getBirthDate() {
-    return birthDate;
+    return birthdate;
   }
 
-  public void setBirthDate(LocalDate pBirthDate) {
-    this.birthDate = pBirthDate;
+  public void setBirthDate(LocalDate pBirthdate) {
+    this.birthdate = pBirthdate;
   }
 
   public String getEmail() {
@@ -97,8 +97,8 @@ public class Person {
   @Override
   public String toString() {
     return String.format(
-        "Person [id=%s, firstName=%s, lastName=%s, email=%s, idMedicalRecord=%s, idHome=%s]",
-        id, firstName, lastName, email, idMedicalRecord, idHome);
+        "Person [id=%s, firstName=%s, lastName=%s, email=%s, idMedicalRecord=%s, idHome=%s; birthdate=%s]",
+        id, firstName, lastName, email, idMedicalRecord, idHome, birthdate);
   }
 
 }

@@ -63,11 +63,7 @@ public class PersonController {
           // TODO Auto-generated catch block
           e.printStackTrace();
           logger.info("io du cul");
-        }
-        
-        
-     
-      
+        }  
       
       return null;
     }

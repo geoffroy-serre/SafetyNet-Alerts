@@ -28,7 +28,7 @@ public class MedicalRecordController {
     try {
       return medicalRecordService.getMedicalRecordsList();
     } catch (JsonParseException e) {
-      logger.info("PArse Error MedicalRecord ",e);
+      logger.info("Parse Error MedicalRecord ",e);
     } catch (JsonMappingException e) {
       logger.info("Mapping Error MedicalRecord ",e);
     } catch (NoSuchFileException e) {

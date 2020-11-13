@@ -10,8 +10,8 @@ public class MedicalRecordList {
       return medicalRecord;
   }
 
-  public void setMedicalRecord(ArrayList<MedicalRecord> pMedicalRecords) {
-      this.medicalRecord = pMedicalRecords;
+  public void setMedicalRecord(ArrayList<MedicalRecord> pMedicalRecord) {
+      this.medicalRecord = pMedicalRecord;
   }
 
   @Override

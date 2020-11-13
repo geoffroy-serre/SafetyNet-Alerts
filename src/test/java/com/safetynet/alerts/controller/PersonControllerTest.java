@@ -45,7 +45,8 @@ public class PersonControllerTest {
     person.setFirstName("Toto");
     person.setLastName("Zozo");
     person.setBirthDate(LocalDate.of(1982, 04, 14));
-    person.setId(UUID.randomUUID());
+    UUID id = UUID.randomUUID();
+    person.setId(id);
     person.setIdHome(1);
     person.setIdMedicalRecord(1);
     person.setAge(38);

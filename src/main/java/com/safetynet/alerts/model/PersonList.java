@@ -10,8 +10,8 @@ public class PersonList {
         return person;
     }
 
-    public void setPerson(ArrayList<Person> pPersons) {
-        this.person = pPersons;
+    public void setPerson(ArrayList<Person> pPerson) {
+        this.person = pPerson;
     }
 
     @Override
