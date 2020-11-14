@@ -22,6 +22,7 @@ public class PersonTest {
     person.setEmail("geff1982@gmail.com");
     person.setIdHome(123);
     person.setIdMedicalRecord(456);
+    person.setAge(38);
     
     assertEquals(person.getId(), id);
     assertEquals(person.getFirstName(), "Geoffroy");
@@ -31,6 +32,9 @@ public class PersonTest {
     assertEquals(person.getEmail(), "geff1982@gmail.com");
     assertEquals(person.getIdHome(), 123);
     assertEquals(person.getIdMedicalRecord(), 456);
+    assertEquals(person.getAge(), 38);
+    assertEquals (person.toString(), "Person [id="+id+", firstName=Geoffroy, lastName=Serre,"
+        + " email=geff1982@gmail.com, idMedicalRecord=456, idHome=123; birthdate=1982-04-14]");
     
   }
 }

@@ -23,12 +23,7 @@
     <groupId>com.fasterxml.jackson.datatype</groupId>
     <artifactId>jackson-datatype-jsr310</artifactId>
 </dependency>
-	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
-<dependency>
-    <groupId>com.fasterxml.jackson.datatype</groupId>
-    <artifactId>jackson-datatype-jsr310</artifactId>
-
-</dependency>
+	
 	
 		<dependency>
     		<groupId>org.apache.maven.plugins</groupId>
@@ -79,6 +74,10 @@
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
+				 <exclusion>
+            <groupId>com.vaadin.external.google</groupId>
+            <artifactId>android-json</artifactId>
+        </exclusion>
 			</exclusions>
 		</dependency>
 		
@@ -137,10 +136,35 @@
 
 	<build>
 		<plugins>
+		<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.9.1</version>
+</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+   				<groupId>org.jacoco</groupId>
+    			<artifactId>jacoco-maven-plugin</artifactId>
+    			<version>0.8.5</version>
+   			 <executions>
+        <execution>
+            <id>default-prepare-agent</id>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>jacoco-report</id>
+            <phase>test</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>                   
+        </execution>
+    </executions>
+</plugin>
 		</plugins>
 	</build>
 	

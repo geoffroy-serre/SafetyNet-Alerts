@@ -30,17 +30,7 @@ public class PersonController {
      * @param lastName
      * @return ArrayList of Person
      */
-    @GetMapping("/personInfo?firstName={firstName}&lastName={lastName}")
-    public ArrayList<Person> getPersonInfo(@PathVariable String firstName, String lastName){
-      try {
-        return personService.getPersonInfoService(firstName, lastName);
-      } catch (IOException e) {
-        System.out.println("erro");
-        e.printStackTrace();
-        
-      }
-      return null;
-    }
+   
     
     @GetMapping("/personInfo")
     public PersonList getPersonInfo(){
