@@ -9,36 +9,36 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.safetynet.alerts.services.MedicalRecordService;
+import com.safetynet.alerts.services.FireStationService;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@WebMvcTest(value = MedicalRecordController.class)
-public class MedicalRecordControllerTest {
+@WebMvcTest(value = FireStationController.class)
+public class FireStationControllerTest {
 
   @MockBean
-  private MedicalRecordService medicalRecordService;
+  private FireStationService fireStationService;
 
   @Autowired
-  private MedicalRecordController medicalRecordController;
+  private FireStationController fireStationController;
 
   @Test
-  public void getMedicalRecordControllerTest() throws JsonParseException,
+  public void getFireStationControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    medicalRecordController.getMedicalRecord();
-    verify(medicalRecordService, times(1)).getMedicalRecordsList();
+    fireStationController.getFireStationInfo();
+    verify(fireStationService, times(1)).getFireStationList();
   }
 
   @Test
   public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(medicalRecordService.getMedicalRecordsList())
+    when(fireStationService.getFireStationList())
         .thenThrow(JsonParseException.class);
-    assertThatCode(() -> medicalRecordController.getMedicalRecord())
+    assertThatCode(() -> fireStationController.getFireStationInfo())
         .doesNotThrowAnyException();
   }
 
@@ -46,9 +46,9 @@ public class MedicalRecordControllerTest {
   public void JsonMappingExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(medicalRecordService.getMedicalRecordsList())
+    when(fireStationService.getFireStationList())
         .thenThrow(JsonMappingException.class);
-    assertThatCode(() -> medicalRecordController.getMedicalRecord())
+    assertThatCode(() -> fireStationController.getFireStationInfo())
         .doesNotThrowAnyException();
   }
 
@@ -56,9 +56,9 @@ public class MedicalRecordControllerTest {
   public void NoSuchFileExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(medicalRecordService.getMedicalRecordsList())
+    when(fireStationService.getFireStationList())
         .thenThrow(NoSuchFileException.class);
-    assertThatCode(() -> medicalRecordController.getMedicalRecord())
+    assertThatCode(() -> fireStationController.getFireStationInfo())
         .doesNotThrowAnyException();
   }
 
@@ -66,9 +66,8 @@ public class MedicalRecordControllerTest {
   public void IoExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(medicalRecordService.getMedicalRecordsList())
-        .thenThrow(IOException.class);
-    assertThatCode(() -> medicalRecordController.getMedicalRecord())
+    when(fireStationService.getFireStationList()).thenThrow(IOException.class);
+    assertThatCode(() -> fireStationController.getFireStationInfo())
         .doesNotThrowAnyException();
   }
 }

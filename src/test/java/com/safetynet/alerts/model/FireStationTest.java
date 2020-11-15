@@ -7,22 +7,22 @@ import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-public class FirestationTest {
+public class FireStationTest {
   
   @Mock
   private Home home = new Home();
 
   @Test
   public void What_you_set_is_what_you_get() {
-    Firestation firestation = new Firestation();
+    FireStation firestation = new FireStation();
     UUID id = UUID.randomUUID();
     firestation.setId(id);
-    firestation.setStationNumber(3);
+    firestation.setStation(3);
     firestation.setHome(id);
     
 
     assertEquals(firestation.getId(), id);
-    assertEquals(firestation.getStationNumber(), 3);
+    assertEquals(firestation.getStation(), 3);
     assertEquals(firestation.getHome(), id);
     
 

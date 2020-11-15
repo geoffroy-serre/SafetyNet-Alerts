@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Person {
 
   
-  private UUID id = UUID.randomUUID();
+  private UUID id ;
   private String firstName;
   private String lastName;
   @JsonProperty("phone")

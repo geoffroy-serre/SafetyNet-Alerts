@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class MedicalRecord {
 
   
-  private UUID id = UUID.randomUUID();
+  private UUID id;
   private String firstName;
   private String lastName;
   @JsonFormat(pattern = "MM/dd/yyyy", shape = JsonFormat.Shape.STRING)
