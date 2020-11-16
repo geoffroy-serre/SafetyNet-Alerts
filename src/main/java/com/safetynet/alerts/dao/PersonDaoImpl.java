@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -22,7 +23,7 @@ import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.utils.OriginalInputFile;
 
 @Component
-public class PersonDtoImpl implements IPersonDao {
+public class PersonDaoImpl implements IPersonDao {
   private static final Logger logger = LogManager.getLogger("App");
 
   
@@ -39,8 +40,7 @@ public class PersonDtoImpl implements IPersonDao {
         PersonList.class);
     
     logger.info("PersonList retrieval");
-    
-//logger.info(trucs.toString());
+
     return personsList;
   }
 

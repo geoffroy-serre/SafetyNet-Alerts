@@ -10,7 +10,7 @@ import com.safetynet.alerts.interfaces.IHomeDao;
 import com.safetynet.alerts.model.HomeList;
 
 @Component
-public class HomeDtoImpl implements IHomeDao{
+public class HomeDaoImpl implements IHomeDao{
 
   @Override
   public HomeList getHomeListDao()

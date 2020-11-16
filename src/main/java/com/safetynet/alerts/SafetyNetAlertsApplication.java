@@ -11,8 +11,7 @@ public class SafetyNetAlertsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SafetyNetAlertsApplication.class, args);
-		CreateWorkingFileService cw = new CreateWorkingFileService();
-		cw.createWorkingFileWithAssociatedProcessedData();
+		
 		
 	}
 

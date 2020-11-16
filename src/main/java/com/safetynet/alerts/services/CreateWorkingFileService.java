@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.safetynet.alerts.dao.PersonDaoImpl;
 import com.safetynet.alerts.interfaces.IFireStationDao;
 import com.safetynet.alerts.interfaces.IMedicalRecordDao;
 import com.safetynet.alerts.interfaces.IPersonDao;
@@ -33,20 +34,30 @@ import com.safetynet.alerts.utils.WorkingFileOuput;
 
 @Component
 public class CreateWorkingFileService {
+ 
   
   PersonList personList;
-  FireStationList fireStationList; 
-  HomeList homeList; 
+ 
+  FireStationList fireStationList;
+  
+  
+  HomeList homeList = new HomeList();
+  
   MedicalRecordList medicalRecordList;
-  IPersonDao ipersonDao; 
+  @Autowired
+  IPersonDao ipersonDao;
+  @Autowired
   IFireStationDao iFirestationDao; 
+  @Autowired
   IMedicalRecordDao imedicalRecordDao;
-  Home home;
+  
+  
+  Home home = new Home();;
 
   private static final Logger logger = LogManager.getLogger("App");
 
   
-  public PersonList createPersonListAndIDFromOriginalFile() {
+  public void createPersonListAndIDFromOriginalFile() {
     try {
       personList = ipersonDao.getPersonListDao();
       logger.info("list getted");
@@ -58,15 +69,15 @@ public class CreateWorkingFileService {
       logger.info("createPersonListFromOriginalFile() IOException", e);
     }
     logger.info("for begin");
-    for (Person personId : personList.person) {
-      personId.setId(UUID.randomUUID());
+    for (Person person : personList.person) {
+      person.setId(UUID.randomUUID());
     }
-    logger.info("for end-");
-    return personList;
+    logger.info("for end");
+    
 
   }
 
-  public FireStationList createFireStationListAndIDFromOriginalFile() {
+  public void createFireStationListAndIDFromOriginalFile() {
     try {
       fireStationList = iFirestationDao.getFireStationListDao();
     } catch (JsonParseException e) {
@@ -81,11 +92,11 @@ public class CreateWorkingFileService {
     for (FireStation fireStationId : fireStationList.fireStation) {
       fireStationId.setId(UUID.randomUUID());
     }
-    return fireStationList;
+    
   }
 
   public void createHomeListFromPersonList() {
-    PersonList personList = createPersonListAndIDFromOriginalFile();
+  
     for (Person person : personList.person) {
       UUID id = UUID.randomUUID();
       home.setAdress(person.getAddress());

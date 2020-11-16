@@ -2,6 +2,7 @@ package com.safetynet.alerts.dao;
 
 import java.io.File;
 import java.io.IOException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
@@ -13,51 +14,55 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.safetynet.alerts.interfaces.IMedicalRecordDao;
-import com.safetynet.alerts.model.MedicalRecord;
-import com.safetynet.alerts.model.MedicalRecordList;
+import com.safetynet.alerts.interfaces.IFireStationDao;
+import com.safetynet.alerts.model.FireStation;
+import com.safetynet.alerts.model.FireStationList;
 import com.safetynet.alerts.utils.OriginalInputFile;
 
 @Component
-public class MedicalRecordDtoImpl implements IMedicalRecordDao {
-
-  private static final Logger logger = LogManager.getLogger("App");
+public class FireStationDaoImpl implements IFireStationDao{
   
+  private static final Logger logger = LogManager.getLogger("App");
+
+
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
-  public MedicalRecordList getMedicalRecordListDao()
+  public FireStationList getFireStationListDao()
       throws JsonParseException, JsonMappingException, IOException {
+    
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
     objectMapper.registerModule(new JavaTimeModule());
     
-    MedicalRecordList medicalRecordList = objectMapper.readValue(new File(OriginalInputFile.getOriginalInputFile()),
-        MedicalRecordList.class);
+    FireStationList fireStationList = objectMapper.readValue(new File(OriginalInputFile.getOriginalInputFile()),
+        FireStationList.class);
     
-    logger.info("MedicalRecordList retrieval done");
+    logger.info("FireStationList retrieval done");
 
-    return medicalRecordList;
+    return fireStationList;
+
   }
 
+
   @Override
-  public MedicalRecord postNewMedicalRecordDao() {
+  public FireStation postFireStationMappingDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
+
   @Override
-  public MedicalRecord updateMedicalRecordDao() {
+  public FireStation updateFireStationNumberDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
+
   @Override
-  public MedicalRecord deleteMedicalRecordDao() {
+  public FireStation deleteFireStationMappingDao() {
     // TODO Auto-generated method stub
     return null;
   }
-
-  
 
 }

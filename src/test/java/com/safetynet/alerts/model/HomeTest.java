@@ -25,9 +25,9 @@ public class HomeTest {
     assertEquals(home.getCity(), "Rochefort");
    
     assertEquals(home.getZip(), "17300");
-    assertEquals(home.getIdFirestation(), 1);
+    assertEquals(home.getIdFirestation(), id);
     assertEquals(home.toString(), "Person [id="+id+", Adress=85 rue Jean Jaurès, "
-        + "City=Rochefort,  Zip=17300, FirestationId=1]");
+        + "City=Rochefort,  Zip=17300, FirestationId="+id+"]");
 
   }
 }

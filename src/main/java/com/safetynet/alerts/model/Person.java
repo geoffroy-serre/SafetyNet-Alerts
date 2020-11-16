@@ -3,6 +3,8 @@ package com.safetynet.alerts.model;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import org.springframework.context.annotation.Bean;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -100,7 +102,7 @@ public class Person {
   @Override
   public String toString() {
     return String.format(
-        "Person [id=%s, firstName=%s, lastName=%s, email=%s, idMedicalRecord=%s, idHome=%s; birthdate=%s]",
+        "Person [id=%s, firstName=%s, lastName=%s, email=%s, idMedicalRecord=%s, idHome=%s, birthdate=%s]",
         id, firstName, lastName, email, idMedicalRecord, idHome, birthdate);
   }
 

@@ -19,7 +19,6 @@ public class PersonService {
   @Autowired
   private IPersonDao personDao;
 
-
   
   public PersonList getpersonsService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
@@ -98,6 +97,10 @@ public class PersonService {
     // TODO Auto-generated method stub
     return personDao.getAllEmailForACityDao(pCity);
   }
+
+
+
+  
 
  
 

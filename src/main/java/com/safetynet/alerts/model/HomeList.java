@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-
+@Component
 public class HomeList {
    
     
@@ -20,6 +20,7 @@ public class HomeList {
         this.home = pHome;
     }
     
+   
     public void addHome(Home pHome) {
       home.add(pHome);
     }

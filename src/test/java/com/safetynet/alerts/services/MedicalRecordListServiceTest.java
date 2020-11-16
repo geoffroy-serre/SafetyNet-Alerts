@@ -7,7 +7,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.safetynet.alerts.dao.MedicalRecordDtoImpl;
+import com.safetynet.alerts.dao.MedicalRecordDaoImpl;
 import com.safetynet.alerts.interfaces.IMedicalRecordDao;
 import com.safetynet.alerts.model.MedicalRecordList;
 import com.safetynet.alerts.services.MedicalRecordService;
