@@ -29,10 +29,10 @@ public class HomeController {
    
     
     @GetMapping("/homeInfo")
-    public HomeList getHomeInfo(){
+    public HomeList getHomeInfoController(){
       
         try {
-          return homeService.getHome();
+          return homeService.getHomeService();
         } catch (JsonParseException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();

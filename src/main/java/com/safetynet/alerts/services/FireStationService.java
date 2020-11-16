@@ -19,26 +19,26 @@ public class FireStationService {
 
 
   
-  public FireStationList getFireStationList() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
+  public FireStationList getFireStationListService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
-    return fireStationDao.getFireStationListDto();
+    return fireStationDao.getFireStationListDao();
   }
 
 
 
   
-  public FireStation postFireStationAdressMapping() {
-    return fireStationDao.postFireStationMapping();
+  public FireStation postFireStationAdressMappingService() {
+    return fireStationDao.postFireStationMappingDao();
     
   }
   
-  public FireStation updateFireStationNumber() {
-    return fireStationDao.updateFireStationNumber();
+  public FireStation updateFireStationNumberService() {
+    return fireStationDao.updateFireStationNumberDao();
     
   }
   
-  public FireStation deleteFireStationAdressMapping() {
-    return fireStationDao.deleteFireStationMapping();
+  public FireStation deleteFireStationAdressMappingService() {
+    return fireStationDao.deleteFireStationMappingDao();
     
   }
 

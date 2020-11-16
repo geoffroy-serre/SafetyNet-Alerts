@@ -27,10 +27,10 @@ public class MedicalRecordController {
   private static final Logger logger = LogManager.getLogger("App");
   
   @GetMapping("/medicalRecordInfo")
-  public MedicalRecordList getMedicalRecord(){
+  public MedicalRecordList getMedicalRecordController(){
     
     try {
-      return medicalRecordService.getMedicalRecordsList();
+      return medicalRecordService.getMedicalRecordsListService();
     } catch (JsonParseException e) {
       logger.info("Parse Error MedicalRecord ",e);
     } catch (JsonMappingException e) {
@@ -46,18 +46,18 @@ public class MedicalRecordController {
 
   
   @PostMapping("/medicalRecord")
-  public MedicalRecord postNewMedicalRecord() {
-   return medicalRecordService.postNewMedicalRecord();   
+  public MedicalRecord postNewMedicalRecordController() {
+   return medicalRecordService.postNewMedicalRecordService();   
   }
   
   @PutMapping("/medicalRecord")
-  public MedicalRecord updateMedicalRecord() {
-   return medicalRecordService.updateMedicalRecord();   
+  public MedicalRecord updateMedicalRecordController() {
+   return medicalRecordService.updateMedicalRecordService();   
   }
   
   @DeleteMapping("/medicalRecord")
-  public MedicalRecord deleteMedicalRecord() {
-   return medicalRecordService.deleteMedicalRecord();   
+  public MedicalRecord deleteMedicalRecordController() {
+   return medicalRecordService.deleteMedicalRecordService();   
   }
   
 

@@ -33,10 +33,10 @@ public class PersonController {
   * @return PersonList
   */
     @GetMapping("/personInfo")
-    public PersonList getPersonInfo(){
+    public PersonList getPersonInfoController(){
       
         try {
-          return personService.getpersons();
+          return personService.getpersonsService();
         } catch (JsonParseException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
@@ -59,48 +59,48 @@ public class PersonController {
     }
   
   @PostMapping("/person")
-  public Person postNewPerson() {
-    return personService.postNewPerson();
+  public Person postNewPersonController() {
+    return personService.postNewPersonService();
   }
   
   @PutMapping("/person")
-  public Person updateAPerson() {
-    return personService.updateAPerson();
+  public Person updateAPersonController() {
+    return personService.updateAPersonService();
   }
   
   @DeleteMapping("/person")
-  public Person deleteAPerson() {
-    return personService.deleteAPerson();
+  public Person deleteAPersonController() {
+    return personService.deleteAPersonService();
   }
 
   @GetMapping("/childAlert?adress={pvAdress}")
-  public PersonList childListForAnAdress(@PathVariable("pvAdress") String pAdress) {
-    return personService.childListForAnAdress(pAdress);
+  public PersonList childListForAnAdressController(@PathVariable("pvAdress") String pAdress) {
+    return personService.childListForAnAdressService(pAdress);
   }
   
   @GetMapping("/phoneAlert?firestation={pvFireStationNumber}")
-  public ArrayList<String> phoneListOfResidentForAGivenFireStation(@PathVariable("pvFireStationNumber") String pFireStationNumber) {
-    return personService.phoneListOfResidentForAGivenFireStation(pFireStationNumber);
+  public ArrayList<String> phoneListOfResidentForAGivenFireStationController(@PathVariable("pvFireStationNumber") int pFireStationNumber) {
+    return personService.phoneListOfResidentForAGivenFireStationService(pFireStationNumber);
   }
   
   @GetMapping("/fire?adress={pvAdress}")
-  public PersonList personListWithCompleteInfoCoveredByFireStation(@PathVariable("pvAdress") String pAdress) {
-    return personService.personListWithCompleteInfoCoveredByFireStation(pAdress);
+  public PersonList personListWithCompleteInfoCoveredByFireStationController(@PathVariable("pvAdress") String pAdress) {
+    return personService.personListWithCompleteInfoCoveredByFireStationService(pAdress);
   }
 
   @GetMapping("/flood/stations?stations={pvListOfStationNumber}")
-  public PersonList floodPersonListComplete( @PathVariable("pvListOfStationNumber") ArrayList<Integer> pListFireStationNumber) {
-    return personService.floodPersonListComplete(pListFireStationNumber) ;
+  public PersonList floodPersonListCompleteController( @PathVariable("pvListOfStationNumber") ArrayList<Integer> pListFireStationNumber) {
+    return personService.floodPersonListCompleteService(pListFireStationNumber) ;
   }
   
   @GetMapping("/personInfo?firstName={pvfirstName}&lastName={pvlastName}")
-  public Person detailledPersonInfo( @PathVariable("pvfirstName") String pfirstName, @PathVariable("pvlastName") String plastName ) {
-    return personService.detailledPersonInfo(pfirstName, plastName) ;
+  public Person detailledPersonInfoController( @PathVariable("pvfirstName") String pfirstName, @PathVariable("pvlastName") String plastName ) {
+    return personService.detailledPersonInfoService(pfirstName, plastName) ;
   }
   
   @GetMapping("/communityEmail.city={pvCity}")
-  public ArrayList<String> getAllEmailForACity( @PathVariable("pvCity") String pCity ) {
-    return personService.getAllEmailForACity(pCity) ;
+  public ArrayList<String> getAllEmailForACityController( @PathVariable("pvCity") String pCity ) {
+    return personService.getAllEmailForACityService(pCity) ;
   }
   
 

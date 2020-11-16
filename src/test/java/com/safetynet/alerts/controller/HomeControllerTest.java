@@ -28,16 +28,16 @@ public class HomeControllerTest {
   @Test
   public void getHomeControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    homeController.getHomeInfo();
-    verify(homeService, times(1)).getHome();
+    homeController.getHomeInfoController();
+    verify(homeService, times(1)).getHomeService();
   }
 
   @Test
   public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(homeService.getHome()).thenThrow(JsonParseException.class);
-    assertThatCode(() -> homeController.getHomeInfo())
+    when(homeService.getHomeService()).thenThrow(JsonParseException.class);
+    assertThatCode(() -> homeController.getHomeInfoController())
         .doesNotThrowAnyException();
   }
 
@@ -45,8 +45,8 @@ public class HomeControllerTest {
   public void JsonMappingExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(homeService.getHome()).thenThrow(JsonMappingException.class);
-    assertThatCode(() -> homeController.getHomeInfo())
+    when(homeService.getHomeService()).thenThrow(JsonMappingException.class);
+    assertThatCode(() -> homeController.getHomeInfoController())
         .doesNotThrowAnyException();
   }
 
@@ -54,8 +54,8 @@ public class HomeControllerTest {
   public void NoSuchFileExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(homeService.getHome()).thenThrow(NoSuchFileException.class);
-    assertThatCode(() -> homeController.getHomeInfo())
+    when(homeService.getHomeService()).thenThrow(NoSuchFileException.class);
+    assertThatCode(() -> homeController.getHomeInfoController())
         .doesNotThrowAnyException();
   }
 
@@ -63,8 +63,8 @@ public class HomeControllerTest {
   public void IoExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(homeService.getHome()).thenThrow(IOException.class);
-    assertThatCode(() -> homeController.getHomeInfo())
+    when(homeService.getHomeService()).thenThrow(IOException.class);
+    assertThatCode(() -> homeController.getHomeInfoController())
         .doesNotThrowAnyException();
   }
 }

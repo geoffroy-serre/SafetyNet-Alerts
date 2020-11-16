@@ -10,12 +10,12 @@ import com.safetynet.alerts.model.MedicalRecordList;
 
 public interface IMedicalRecordDao {
   
-  public MedicalRecordList getMedicalRecordListDto() throws JsonParseException, JsonMappingException, IOException;
+  public MedicalRecordList getMedicalRecordListDao() throws JsonParseException, JsonMappingException, IOException;
 
-  public MedicalRecord postNewMedicalRecord();
+  public MedicalRecord postNewMedicalRecordDao();
 
-  public MedicalRecord updateMedicalRecord();
+  public MedicalRecord updateMedicalRecordDao();
 
-  public MedicalRecord deleteMedicalRecord();
+  public MedicalRecord deleteMedicalRecordDao();
 
 }

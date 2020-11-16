@@ -10,6 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.services.FireStationService;
+import com.safetynet.alerts.services.PersonService;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.mockito.Mockito.times;
@@ -21,6 +22,9 @@ public class FireStationControllerTest {
 
   @MockBean
   private FireStationService fireStationService;
+  
+  @MockBean
+  private PersonService personService;
 
   @Autowired
   private FireStationController fireStationController;
@@ -28,38 +32,46 @@ public class FireStationControllerTest {
   @Test
   public void getFireStationControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    fireStationController.getFireStationInfo();
-    verify(fireStationService, times(1)).getFireStationList();
+    fireStationController.getFireStationInfoController();
+    verify(fireStationService, times(1)).getFireStationListService();
+  }
+  
+  @Test
+  public void personsCoveredByAFireStationControllerTest() throws JsonParseException,
+      JsonMappingException, NoSuchFileException, IOException {
+    int pFireStationNumber = 1;
+    fireStationController.personsCoveredByAFirestationController(pFireStationNumber);
+    verify(personService, times(1)).personsCoveredByAFirestationService(pFireStationNumber);
   }
   
   @Test
   public void postFireStationControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    fireStationController.postFireStationAdressMapping();
-    verify(fireStationService, times(1)).postFireStationAdressMapping();
+    fireStationController.postFireStationAdressMappingController();
+    verify(fireStationService, times(1)).postFireStationAdressMappingService();
   }
   
   @Test
   public void updateFireStationControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    fireStationController.updateFireStationNumber();
-    verify(fireStationService, times(1)).updateFireStationNumber();
+    fireStationController.updateFireStationNumberController();
+    verify(fireStationService, times(1)).updateFireStationNumberService();
   }
   
   @Test
   public void deleteFireStationControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    fireStationController.deleteFireStationAdressMapping();
-    verify(fireStationService, times(1)).deleteFireStationAdressMapping();
+    fireStationController.deleteFireStationAdressMappingController();
+    verify(fireStationService, times(1)).deleteFireStationAdressMappingService();
   }
 
   @Test
   public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(fireStationService.getFireStationList())
+    when(fireStationService.getFireStationListService())
         .thenThrow(JsonParseException.class);
-    assertThatCode(() -> fireStationController.getFireStationInfo())
+    assertThatCode(() -> fireStationController.getFireStationInfoController())
         .doesNotThrowAnyException();
   }
 
@@ -67,9 +79,9 @@ public class FireStationControllerTest {
   public void JsonMappingExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(fireStationService.getFireStationList())
+    when(fireStationService.getFireStationListService())
         .thenThrow(JsonMappingException.class);
-    assertThatCode(() -> fireStationController.getFireStationInfo())
+    assertThatCode(() -> fireStationController.getFireStationInfoController())
         .doesNotThrowAnyException();
   }
 
@@ -77,9 +89,9 @@ public class FireStationControllerTest {
   public void NoSuchFileExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(fireStationService.getFireStationList())
+    when(fireStationService.getFireStationListService())
         .thenThrow(NoSuchFileException.class);
-    assertThatCode(() -> fireStationController.getFireStationInfo())
+    assertThatCode(() -> fireStationController.getFireStationInfoController())
         .doesNotThrowAnyException();
   }
 
@@ -87,8 +99,8 @@ public class FireStationControllerTest {
   public void IoExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(fireStationService.getFireStationList()).thenThrow(IOException.class);
-    assertThatCode(() -> fireStationController.getFireStationInfo())
+    when(fireStationService.getFireStationListService()).thenThrow(IOException.class);
+    assertThatCode(() -> fireStationController.getFireStationInfoController())
         .doesNotThrowAnyException();
   }
 }

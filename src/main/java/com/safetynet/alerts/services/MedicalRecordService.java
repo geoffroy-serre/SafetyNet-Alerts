@@ -16,25 +16,25 @@ public class MedicalRecordService {
   @Autowired
   private IMedicalRecordDao medicalRecordDao;
   
-  public MedicalRecordList getMedicalRecordsList() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
+  public MedicalRecordList getMedicalRecordsListService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
-    return medicalRecordDao.getMedicalRecordListDto();
+    return medicalRecordDao.getMedicalRecordListDao();
   }
 
   
   
-  public MedicalRecord postNewMedicalRecord() {
-    return medicalRecordDao.postNewMedicalRecord();
+  public MedicalRecord postNewMedicalRecordService() {
+    return medicalRecordDao.postNewMedicalRecordDao();
     
   }
   
-  public MedicalRecord updateMedicalRecord() {
-    return medicalRecordDao.updateMedicalRecord();
+  public MedicalRecord updateMedicalRecordService() {
+    return medicalRecordDao.updateMedicalRecordDao();
     
   }
   
-  public MedicalRecord deleteMedicalRecord() {
-    return medicalRecordDao.deleteMedicalRecord();
+  public MedicalRecord deleteMedicalRecordService() {
+    return medicalRecordDao.deleteMedicalRecordDao();
     
   }
 

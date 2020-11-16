@@ -43,10 +43,10 @@ public class FireStationController {
    
     
     @GetMapping("/fireStationInfo")
-    public FireStationList getFireStationInfo(){
+    public FireStationList getFireStationInfoController(){
       
         try {
-          return fireStationService.getFireStationList();
+          return fireStationService.getFireStationListService();
         } catch (JsonParseException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
@@ -70,24 +70,24 @@ public class FireStationController {
 
     
     @PostMapping("/firestation")
-    public FireStation postFireStationAdressMapping() {
-      return fireStationService.postFireStationAdressMapping();
+    public FireStation postFireStationAdressMappingController() {
+      return fireStationService.postFireStationAdressMappingService();
       
     }
     
     @PutMapping("/firestation")
-    public FireStation updateFireStationNumber() {
-      return fireStationService.updateFireStationNumber();
+    public FireStation updateFireStationNumberController() {
+      return fireStationService.updateFireStationNumberService();
     }
     
     @DeleteMapping("/firestation")
-    public FireStation deleteFireStationAdressMapping() {
-      return fireStationService.deleteFireStationAdressMapping();
+    public FireStation deleteFireStationAdressMappingController() {
+      return fireStationService.deleteFireStationAdressMappingService();
     }
   
     @GetMapping("/firestation?stationNumber={pvFireStationNumber}")
-    public PersonList personsCoveredByAFirestation( @PathVariable("pvFireStationNumber") int pFireStationNumber) {
-      return personService.personsCoveredByAFirestation(pFireStationNumber) ;
+    public PersonList personsCoveredByAFirestationController( @PathVariable("pvFireStationNumber") int pFireStationNumber) {
+      return personService.personsCoveredByAFirestationService(pFireStationNumber) ;
     }
     
    

@@ -25,7 +25,7 @@ public class MedicalRecordDtoImpl implements IMedicalRecordDao {
   
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
-  public MedicalRecordList getMedicalRecordListDto()
+  public MedicalRecordList getMedicalRecordListDao()
       throws JsonParseException, JsonMappingException, IOException {
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -41,23 +41,23 @@ public class MedicalRecordDtoImpl implements IMedicalRecordDao {
   }
 
   @Override
-  public MedicalRecord postNewMedicalRecord() {
+  public MedicalRecord postNewMedicalRecordDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public MedicalRecord updateMedicalRecord() {
+  public MedicalRecord updateMedicalRecordDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public MedicalRecord deleteMedicalRecord() {
+  public MedicalRecord deleteMedicalRecordDao() {
     // TODO Auto-generated method stub
     return null;
   }
-  
+
   
 
 }

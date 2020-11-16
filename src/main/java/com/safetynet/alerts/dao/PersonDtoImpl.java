@@ -29,7 +29,7 @@ public class PersonDtoImpl implements IPersonDao {
   
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
-  public PersonList getPersonListDto() throws JsonParseException, JsonMappingException, IOException {
+  public PersonList getPersonListDao() throws JsonParseException, JsonMappingException, IOException {
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
@@ -46,91 +46,80 @@ public class PersonDtoImpl implements IPersonDao {
   }
 
 
-  
-  
   @Override
-  public Person postNewPerson() {
+  public Person postNewPersonDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
 
   @Override
-  public Person updateAPerson() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public Person deleteAPerson() {
+  public Person updateAPersonDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
 
-
-
   @Override
-  public PersonList personsCoveredByAFirestation(int pFireStationNumber) {
+  public Person deleteAPersonDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
 
-
-
   @Override
-  public PersonList childListForAnAdress(String pAdress) {
+  public PersonList personsCoveredByAFirestationDao(int pFireStationNumber) {
     // TODO Auto-generated method stub
     return null;
   }
 
 
-
-
   @Override
-  public ArrayList<String> phoneListOfResidentForAGivenFireStation(
-      String pFireStationNumber) {
+  public PersonList childListForAnAdressDao(String pAdress) {
     // TODO Auto-generated method stub
     return null;
   }
 
 
+  @Override
+  public ArrayList<String> phoneListOfResidentForAGivenFireStationDao(
+      int pFireStationNumber) {
+    // TODO Auto-generated method stub
+    return null;
+  }
 
 
   @Override
-  public PersonList personListWithCompleteInfoCoveredByFireStation(
+  public PersonList personListWithCompleteInfoCoveredByFireStationDao(
       String pAdress) {
     // TODO Auto-generated method stub
     return null;
   }
 
 
-
-
   @Override
-  public PersonList floodPersonListComplete(
+  public PersonList floodPersonListCompleteDao(
       ArrayList<Integer> pListFireStationNumber) {
     // TODO Auto-generated method stub
     return null;
   }
 
 
-
-
   @Override
-  public Person detailledPersonInfo(String pfirstName, String plastName) {
+  public Person detailledPersonInfoDao(String pfirstName, String plastName) {
     // TODO Auto-generated method stub
     return null;
   }
 
 
-
-
   @Override
-  public ArrayList<String> getAllEmailForACity(String pCity) {
+  public ArrayList<String> getAllEmailForACityDao(String pCity) {
     // TODO Auto-generated method stub
     return null;
   }
+
+
+  
+  
 
 }

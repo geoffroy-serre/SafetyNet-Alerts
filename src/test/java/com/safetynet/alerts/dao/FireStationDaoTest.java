@@ -20,7 +20,7 @@ public class FireStationDaoTest {
   
   @Test
   public void getFireStationListDtoTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    assertNotNull(fireStationDto.getFireStationListDto());
+    assertNotNull(fireStationDto.getFireStationListDao());
   }
   
 

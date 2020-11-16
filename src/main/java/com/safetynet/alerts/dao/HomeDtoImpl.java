@@ -13,7 +13,7 @@ import com.safetynet.alerts.model.HomeList;
 public class HomeDtoImpl implements IHomeDao{
 
   @Override
-  public HomeList getHomeListDto()
+  public HomeList getHomeListDao()
       throws JsonParseException, JsonMappingException, IOException {
     // TODO Auto-generated method stub
     return null;

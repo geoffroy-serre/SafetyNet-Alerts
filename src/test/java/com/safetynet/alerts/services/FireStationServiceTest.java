@@ -26,29 +26,29 @@ public class FireStationServiceTest {
     
   @Test
   public void getPersonListServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    fireStationService.getFireStationList();
+    fireStationService.getFireStationListService();
 
-    verify(iFireStationDto, times(1)).getFireStationListDto();
+    verify(iFireStationDto, times(1)).getFireStationListDao();
   }
   
   @Test
   public void updateFireStationAdressMappingServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    fireStationService.updateFireStationNumber();
+    fireStationService.updateFireStationNumberService();
 
-    verify(iFireStationDto, times(1)).updateFireStationNumber();
+    verify(iFireStationDto, times(1)).updateFireStationNumberDao();
   }
   
   @Test
   public void postFireStationAdressMapping() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    fireStationService.postFireStationAdressMapping();
+    fireStationService.postFireStationAdressMappingService();
 
-    verify(iFireStationDto, times(1)).postFireStationMapping();
+    verify(iFireStationDto, times(1)).postFireStationMappingDao();
   }
   
   @Test
   public void deleteFireStationAdressMappingTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    fireStationService.deleteFireStationAdressMapping();
+    fireStationService.deleteFireStationAdressMappingService();
 
-    verify(iFireStationDto, times(1)).deleteFireStationMapping();
+    verify(iFireStationDto, times(1)).deleteFireStationMappingDao();
   }
 }

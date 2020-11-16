@@ -8,7 +8,7 @@ import com.safetynet.alerts.model.HomeList;
 
 public interface IHomeDao {
   
-  public HomeList getHomeListDto() throws JsonParseException, JsonMappingException, IOException;
+  public HomeList getHomeListDao() throws JsonParseException, JsonMappingException, IOException;
   
  
 

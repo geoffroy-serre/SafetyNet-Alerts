@@ -18,9 +18,9 @@ public class HomeService {
 
 
   
-  public HomeList getHome() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
+  public HomeList getHomeService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
-    return homeDto.getHomeListDto();
+    return homeDto.getHomeListDao();
   }
 
  

@@ -28,35 +28,35 @@ public class MedicalRecordControllerTest {
   @Test
   public void getMedicalRecordControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    medicalRecordController.getMedicalRecord();
-    verify(medicalRecordService, times(1)).getMedicalRecordsList();
+    medicalRecordController.getMedicalRecordController();
+    verify(medicalRecordService, times(1)).getMedicalRecordsListService();
   }
   @Test
   public void postNewMedicalRecordControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    medicalRecordController.postNewMedicalRecord();
-    verify(medicalRecordService, times(1)).postNewMedicalRecord();
+    medicalRecordController.postNewMedicalRecordController();
+    verify(medicalRecordService, times(1)).postNewMedicalRecordService();
   }
   @Test
   public void updateMedicalRecordControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    medicalRecordController.updateMedicalRecord();
-    verify(medicalRecordService, times(1)).updateMedicalRecord();
+    medicalRecordController.updateMedicalRecordController();
+    verify(medicalRecordService, times(1)).updateMedicalRecordService();
   }
   @Test
   public void deleteMedicalRecordControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    medicalRecordController.deleteMedicalRecord();
-    verify(medicalRecordService, times(1)).deleteMedicalRecord();
+    medicalRecordController.deleteMedicalRecordController();
+    verify(medicalRecordService, times(1)).deleteMedicalRecordService();
   }
 
   @Test
   public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(medicalRecordService.getMedicalRecordsList())
+    when(medicalRecordService.getMedicalRecordsListService())
         .thenThrow(JsonParseException.class);
-    assertThatCode(() -> medicalRecordController.getMedicalRecord())
+    assertThatCode(() -> medicalRecordController.getMedicalRecordController())
         .doesNotThrowAnyException();
   }
 
@@ -64,9 +64,9 @@ public class MedicalRecordControllerTest {
   public void JsonMappingExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(medicalRecordService.getMedicalRecordsList())
+    when(medicalRecordService.getMedicalRecordsListService())
         .thenThrow(JsonMappingException.class);
-    assertThatCode(() -> medicalRecordController.getMedicalRecord())
+    assertThatCode(() -> medicalRecordController.getMedicalRecordController())
         .doesNotThrowAnyException();
   }
 
@@ -74,9 +74,9 @@ public class MedicalRecordControllerTest {
   public void NoSuchFileExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(medicalRecordService.getMedicalRecordsList())
+    when(medicalRecordService.getMedicalRecordsListService())
         .thenThrow(NoSuchFileException.class);
-    assertThatCode(() -> medicalRecordController.getMedicalRecord())
+    assertThatCode(() -> medicalRecordController.getMedicalRecordController())
         .doesNotThrowAnyException();
   }
 
@@ -84,9 +84,9 @@ public class MedicalRecordControllerTest {
   public void IoExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(medicalRecordService.getMedicalRecordsList())
+    when(medicalRecordService.getMedicalRecordsListService())
         .thenThrow(IOException.class);
-    assertThatCode(() -> medicalRecordController.getMedicalRecord())
+    assertThatCode(() -> medicalRecordController.getMedicalRecordController())
         .doesNotThrowAnyException();
   }
 }

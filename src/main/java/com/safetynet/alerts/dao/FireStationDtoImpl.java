@@ -27,7 +27,7 @@ public class FireStationDtoImpl implements IFireStationDao{
 
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
-  public FireStationList getFireStationListDto()
+  public FireStationList getFireStationListDao()
       throws JsonParseException, JsonMappingException, IOException {
     
     ObjectMapper objectMapper = new ObjectMapper();
@@ -45,25 +45,22 @@ public class FireStationDtoImpl implements IFireStationDao{
   }
 
 
-  
   @Override
-  public FireStation postFireStationMapping() {
+  public FireStation postFireStationMappingDao() {
     // TODO Auto-generated method stub
     return null;
   }
-  
 
 
   @Override
-  public FireStation updateFireStationNumber() {
+  public FireStation updateFireStationNumberDao() {
     // TODO Auto-generated method stub
     return null;
   }
-  
 
 
   @Override
-  public FireStation deleteFireStationMapping() {
+  public FireStation deleteFireStationMappingDao() {
     // TODO Auto-generated method stub
     return null;
   }

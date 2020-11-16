@@ -2,6 +2,7 @@ package com.safetynet.alerts.controller;
 
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,36 +27,85 @@ public class PersonControllerTest {
   private PersonController personController;
 
   @Test
-  public void getPersonControllerTest() throws JsonParseException,
+  public void getPersonInfoControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
-    personController.getPersonInfo();
-    verify(personService, times(1)).getpersons();
+    personController.getPersonInfoController();
+    verify(personService, times(1)).getpersonsService();
   }
 
   @Test
-  public void postNewPersonTest() {
-    personController.postNewPerson();
-    verify(personService, times(1)).postNewPerson();
+  public void postNewPersonControllerTest() {
+    personController.postNewPersonController();
+    verify(personService, times(1)).postNewPersonService();
   }
   
   @Test
-  public void updateAPersonTest() {
-    personController.updateAPerson();
-    verify(personService, times(1)).updateAPerson();
+  public void childListForAnAdressControllerTest() {
+    String pAdress = "Adress Test";
+    personController.childListForAnAdressController(pAdress);
+    verify(personService, times(1)).childListForAnAdressService(pAdress);
   }
   
   @Test
-  public void deleteAPersonTest() {
-    personController.deleteAPerson();
-    verify(personService, times(1)).deleteAPerson();
+  public void detailledPersonInfoControllerTest() {
+    String pfirstName = "Edward";
+    String plastName = "TheGreat";
+    personController.detailledPersonInfoController(pfirstName, plastName);
+    verify(personService, times(1)).detailledPersonInfoService(pfirstName, plastName);
+  }
+  
+  @Test
+  public void floodPersonListCompleteControllerTest() {
+    ArrayList<Integer> pListFireStationNumber = new ArrayList<Integer>();
+    pListFireStationNumber.add(1);
+    pListFireStationNumber.add(2);
+    pListFireStationNumber.add(3);
+    
+    personController.floodPersonListCompleteController(pListFireStationNumber);
+    verify(personService, times(1)).floodPersonListCompleteService(pListFireStationNumber);
+  }
+  
+  @Test
+  public void getAllEmailForACityControllerTest() {
+    String pCity = "Toulouse";
+    
+    personController.getAllEmailForACityController(pCity);
+    verify(personService, times(1)).getAllEmailForACityService(pCity); 
+  }
+  
+  @Test
+  public void personListWithCompleteInfoCoveredByFirestationControllerTest() {
+    String pAdress = "85 rue du gnou";
+    
+    personController.personListWithCompleteInfoCoveredByFireStationController(pAdress);
+    verify(personService, times(1)).personListWithCompleteInfoCoveredByFireStationService(pAdress);
+  }
+  
+  @Test
+  public void phoneListOfResidentForAGivenFireStationControllerTest() {
+    int pFireStationNumber = 1;
+    personController.phoneListOfResidentForAGivenFireStationController(pFireStationNumber);
+    verify(personService, times(1)).phoneListOfResidentForAGivenFireStationService(pFireStationNumber);
+  }
+  
+  @Test
+  public void updateAPersonControllerTest() {
+    personController.updateAPersonController();
+    verify(personService, times(1)).updateAPersonService();
+  }
+  
+  @Test
+  public void deleteAPersonControllerTest() {
+    personController.deleteAPersonController();
+    verify(personService, times(1)).deleteAPersonService();
   }
   
   @Test
 public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(personService.getpersons()).thenThrow(JsonParseException.class);
-    assertThatCode(() -> personController.getPersonInfo())
+    when(personService.getpersonsService()).thenThrow(JsonParseException.class);
+    assertThatCode(() -> personController.getPersonInfoController())
         .doesNotThrowAnyException();
   }
 
@@ -63,8 +113,8 @@ public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
   public void JsonMappingExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(personService.getpersons()).thenThrow(JsonMappingException.class);
-    assertThatCode(() -> personController.getPersonInfo())
+    when(personService.getpersonsService()).thenThrow(JsonMappingException.class);
+    assertThatCode(() -> personController.getPersonInfoController())
         .doesNotThrowAnyException();
   }
 
@@ -72,8 +122,8 @@ public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
   public void NoSuchFileExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(personService.getpersons()).thenThrow(NoSuchFileException.class);
-    assertThatCode(() -> personController.getPersonInfo())
+    when(personService.getpersonsService()).thenThrow(NoSuchFileException.class);
+    assertThatCode(() -> personController.getPersonInfoController())
         .doesNotThrowAnyException();
   }
 
@@ -81,8 +131,8 @@ public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
   public void IoExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(personService.getpersons()).thenThrow(IOException.class);
-    assertThatCode(() -> personController.getPersonInfo())
+    when(personService.getpersonsService()).thenThrow(IOException.class);
+    assertThatCode(() -> personController.getPersonInfoController())
         .doesNotThrowAnyException();
   }
 }

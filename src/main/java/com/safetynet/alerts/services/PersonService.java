@@ -21,82 +21,82 @@ public class PersonService {
 
 
   
-  public PersonList getpersons() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
+  public PersonList getpersonsService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
-    return personDao.getPersonListDto();
+    return personDao.getPersonListDao();
   }
 
 
 
-  public Person postNewPerson() {
+  public Person postNewPersonService() {
     
-    return personDao.postNewPerson();
+    return personDao.postNewPersonDao();
   }
 
 
 
-  public Person updateAPerson() {
+  public Person updateAPersonService() {
     
-    return personDao.updateAPerson();
+    return personDao.updateAPersonDao();
   }
 
 
-  public Person deleteAPerson() {
+  public Person deleteAPersonService() {
    
-    return personDao.deleteAPerson();
+    return personDao.deleteAPersonDao();
   }
 
 
 
   
-  public PersonList personsCoveredByAFirestation(int pFireStationNumber) {
+  public PersonList personsCoveredByAFirestationService(int pFireStationNumber) {
     // TODO Auto-generated method stub
-    return personDao.personsCoveredByAFirestation(pFireStationNumber);
+    return personDao.personsCoveredByAFirestationDao(pFireStationNumber);
   }
 
 
 
-  public PersonList childListForAnAdress(String pAdress) {
+  public PersonList childListForAnAdressService(String pAdress) {
     // TODO Auto-generated method stub
-    return personDao.childListForAnAdress(pAdress);
+    return personDao.childListForAnAdressDao(pAdress);
   }
 
 
 
-  public ArrayList<String> phoneListOfResidentForAGivenFireStation(
-      String pFireStationNumber) {
+  public ArrayList<String> phoneListOfResidentForAGivenFireStationService(
+      int pFireStationNumber) {
     // TODO Auto-generated method stub
-    return personDao.phoneListOfResidentForAGivenFireStation(pFireStationNumber);
+    return personDao.phoneListOfResidentForAGivenFireStationDao(pFireStationNumber);
   }
 
 
 
-  public PersonList personListWithCompleteInfoCoveredByFireStation(
+  public PersonList personListWithCompleteInfoCoveredByFireStationService(
       String pAdress) {
     // TODO Auto-generated method stub
-    return personDao.personListWithCompleteInfoCoveredByFireStation(pAdress);
+    return personDao.personListWithCompleteInfoCoveredByFireStationDao(pAdress);
   }
 
 
 
-  public PersonList floodPersonListComplete(
+  public PersonList floodPersonListCompleteService(
       ArrayList<Integer> pListFireStationNumber) {
     // TODO Auto-generated method stub
-    return personDao.floodPersonListComplete(pListFireStationNumber);
+    return personDao.floodPersonListCompleteDao(pListFireStationNumber);
   }
 
 
 
-  public Person detailledPersonInfo(String pfirstName, String plastName) {
+  public Person detailledPersonInfoService(String pfirstName, String plastName) {
     // TODO Auto-generated method stub
-    return personDao.detailledPersonInfo(pfirstName, plastName);
+    return personDao.detailledPersonInfoDao(pfirstName, plastName);
   }
 
 
 
-  public ArrayList<String> getAllEmailForACity(String pCity) {
+  public ArrayList<String> getAllEmailForACityService(String pCity) {
     // TODO Auto-generated method stub
-    return personDao.getAllEmailForACity(pCity);
+    return personDao.getAllEmailForACityDao(pCity);
   }
 
  

@@ -10,29 +10,29 @@ import com.safetynet.alerts.model.PersonList;
 
 public interface IPersonDao {
   
-  public PersonList getPersonListDto() throws JsonParseException, JsonMappingException, IOException;
+  public PersonList getPersonListDao() throws JsonParseException, JsonMappingException, IOException;
 
-  public Person postNewPerson();
+  public Person postNewPersonDao();
 
-  public Person updateAPerson();
+  public Person updateAPersonDao();
 
-  public Person deleteAPerson();
+  public Person deleteAPersonDao();
 
-  public PersonList personsCoveredByAFirestation(int pFireStationNumber);
+  public PersonList personsCoveredByAFirestationDao(int pFireStationNumber);
 
-  public PersonList childListForAnAdress(String pAdress);
+  public PersonList childListForAnAdressDao(String pAdress);
 
-  public ArrayList<String> phoneListOfResidentForAGivenFireStation(
-      String pFireStationNumber);
+  public ArrayList<String> phoneListOfResidentForAGivenFireStationDao(
+      int pFireStationNumber);
 
-  public PersonList personListWithCompleteInfoCoveredByFireStation(
+  public PersonList personListWithCompleteInfoCoveredByFireStationDao(
       String pAdress);
 
-  public PersonList floodPersonListComplete(
+  public PersonList floodPersonListCompleteDao(
       ArrayList<Integer> pListFireStationNumber);
 
-  public Person detailledPersonInfo(String pfirstName, String plastName);
+  public Person detailledPersonInfoDao(String pfirstName, String plastName);
 
-  public ArrayList<String> getAllEmailForACity(String pCity);
+  public ArrayList<String> getAllEmailForACityDao(String pCity);
   
 }

@@ -19,24 +19,11 @@ public class MedicalRecordDaoTest {
   IMedicalRecordDao medicalRecordDao;
   
   @Test
-  public void getMedicalRecordListDtoTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    assertNotNull(medicalRecordDao.getMedicalRecordListDto());
+  public void getMedicalRecordListDaoTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
+    assertNotNull(medicalRecordDao.getMedicalRecordListDao());
   }
   
-  @Test
-  public void postNewMedicalRecordTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    assertNotNull(medicalRecordDao.postNewMedicalRecord());
-  }
-  
-  @Test
-  public void updateMedicalRecordTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    assertNotNull(medicalRecordDao.updateMedicalRecord());
-  }
-  
-  @Test
-  public void deleteMedicalRecordTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    assertNotNull(medicalRecordDao.deleteMedicalRecord());
-  }
+ 
   
 
 }
