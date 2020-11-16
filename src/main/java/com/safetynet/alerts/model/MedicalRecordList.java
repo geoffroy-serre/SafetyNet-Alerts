@@ -2,6 +2,8 @@ package com.safetynet.alerts.model;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
 public class MedicalRecordList {
   
   public ArrayList<MedicalRecord> medicalRecord;

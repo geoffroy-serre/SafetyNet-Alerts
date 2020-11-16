@@ -20,8 +20,8 @@ public class PersonTest {
     person.setCellNumber("+33619674945");   
     person.setBirthDate(birthday);
     person.setEmail("geff1982@gmail.com");
-    person.setIdHome(123);
-    person.setIdMedicalRecord(456);
+    person.setIdHome(id);
+    person.setIdMedicalRecord(id);
     person.setAge(38);
     
     assertEquals(person.getId(), id);
@@ -30,11 +30,11 @@ public class PersonTest {
     assertEquals(person.getCellNumber(), "+33619674945");
     assertEquals(person.getBirthDate(), birthday);
     assertEquals(person.getEmail(), "geff1982@gmail.com");
-    assertEquals(person.getIdHome(), 123);
-    assertEquals(person.getIdMedicalRecord(), 456);
+    assertEquals(person.getIdHome(), id);
+    assertEquals(person.getIdMedicalRecord(), id);
     assertEquals(person.getAge(), 38);
     assertEquals (person.toString(), "Person [id="+id+", firstName=Geoffroy, lastName=Serre,"
-        + " email=geff1982@gmail.com, idMedicalRecord=456, idHome=123; birthdate=1982-04-14]");
+        + " email=geff1982@gmail.com, idMedicalRecord="+id+", idHome="+id+", birthdate=1982-04-14]");
     
   }
 }

@@ -19,6 +19,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.Person;
 import com.safetynet.alerts.model.PersonList;
+import com.safetynet.alerts.services.CreateWorkingFileService;
 import com.safetynet.alerts.services.PersonService;
 
 @RestController
@@ -27,6 +28,10 @@ public class PersonController {
   private static final Logger logger = LogManager.getLogger("App");
     @Autowired
     PersonService personService;
+    @Autowired
+    CreateWorkingFileService workingFile;
+    
+    
     
  /**
   * Get all persons Info    

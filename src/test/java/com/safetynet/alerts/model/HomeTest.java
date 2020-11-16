@@ -17,7 +17,7 @@ public class HomeTest {
     home.setAdress("85 rue Jean Jaurès");
     home.setCity("Rochefort");
     home.setZip("17300");
-    home.setIdFirestation(1);
+    home.setIdFirestation(id);
 
     assertEquals(home.getId(), id);
    

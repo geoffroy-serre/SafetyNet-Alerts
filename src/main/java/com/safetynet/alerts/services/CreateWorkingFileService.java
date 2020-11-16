@@ -1,5 +1,6 @@
 package com.safetynet.alerts.services;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -8,9 +9,15 @@ import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.safetynet.alerts.interfaces.IFireStationDao;
 import com.safetynet.alerts.interfaces.IMedicalRecordDao;
 import com.safetynet.alerts.interfaces.IPersonDao;
@@ -22,31 +29,27 @@ import com.safetynet.alerts.model.MedicalRecord;
 import com.safetynet.alerts.model.MedicalRecordList;
 import com.safetynet.alerts.model.Person;
 import com.safetynet.alerts.model.PersonList;
+import com.safetynet.alerts.utils.WorkingFileOuput;
 
+@Component
 public class CreateWorkingFileService {
-  @Autowired
+  
   PersonList personList;
-  @Autowired
-  FireStationList fireStationList;
-  @Autowired
-  HomeList homeList;
-  @Autowired
+  FireStationList fireStationList; 
+  HomeList homeList; 
   MedicalRecordList medicalRecordList;
-  @Autowired
-  IPersonDao ipersonDao;
-  @Autowired
-  IFireStationDao iFirestationDao;
-  @Autowired
+  IPersonDao ipersonDao; 
+  IFireStationDao iFirestationDao; 
   IMedicalRecordDao imedicalRecordDao;
-
-  @Autowired
   Home home;
 
   private static final Logger logger = LogManager.getLogger("App");
 
+  
   public PersonList createPersonListAndIDFromOriginalFile() {
     try {
       personList = ipersonDao.getPersonListDao();
+      logger.info("list getted");
     } catch (JsonParseException e) {
       logger.info("createPersonListFromOriginalFile() JsonParseException", e);
     } catch (JsonMappingException e) {
@@ -54,10 +57,11 @@ public class CreateWorkingFileService {
     } catch (IOException e) {
       logger.info("createPersonListFromOriginalFile() IOException", e);
     }
+    logger.info("for begin");
     for (Person personId : personList.person) {
       personId.setId(UUID.randomUUID());
     }
-
+    logger.info("for end-");
     return personList;
 
   }
@@ -80,7 +84,7 @@ public class CreateWorkingFileService {
     return fireStationList;
   }
 
-  public HomeList createHomeListFromPersonList() {
+  public void createHomeListFromPersonList() {
     PersonList personList = createPersonListAndIDFromOriginalFile();
     for (Person person : personList.person) {
       UUID id = UUID.randomUUID();
@@ -91,7 +95,7 @@ public class CreateWorkingFileService {
       person.setIdHome(id);
       homeList.addHome(home);
     }
-    return homeList;
+    
   }
 
   public MedicalRecordList createMedicalRecordListAndIDFromOriginalList()
@@ -142,6 +146,36 @@ public class CreateWorkingFileService {
 
   public void createWorkingFileWithAssociatedProcessedData() {
 
+    createPersonListAndIDFromOriginalFile();
+    createFireStationListAndIDFromOriginalFile();  
+    createMedicalRecordListAndIDFromOriginalList();
+    createHomeListFromPersonList();
+    associateMedicalRecordIdWithRightPerson(); 
+    associateFirestationWithRightHome();
+    
+    
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+   
+    try {
+      objectMapper.writeValue(new File(WorkingFileOuput.getOriginalInputFile()), personList);
+      objectMapper.writeValue(new File(WorkingFileOuput.getOriginalInputFile()), medicalRecordList);
+      objectMapper.writeValue(new File(WorkingFileOuput.getOriginalInputFile()), fireStationList);
+      objectMapper.writeValue(new File(WorkingFileOuput.getOriginalInputFile()), homeList);
+    } catch (JsonGenerationException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (JsonMappingException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
- //TODO
+ 
+  
+  
+  //TODO
 }

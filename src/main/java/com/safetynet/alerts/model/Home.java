@@ -2,6 +2,8 @@ package com.safetynet.alerts.model;
 
 import java.util.UUID;
 
+import org.springframework.stereotype.Component;
+
 public class Home {
 
   private UUID id ;
