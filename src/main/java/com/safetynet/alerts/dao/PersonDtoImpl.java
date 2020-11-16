@@ -1,4 +1,4 @@
-package com.safetynet.alerts.dto;
+package com.safetynet.alerts.dao;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,14 +16,14 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.safetynet.alerts.interfaces.IPersonDto;
+import com.safetynet.alerts.interfaces.IPersonDao;
 import com.safetynet.alerts.model.Home;
 import com.safetynet.alerts.model.Person;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.utils.OriginalInputFile;
 
 @Component
-public class PersonDtoImpl implements IPersonDto {
+public class PersonDtoImpl implements IPersonDao {
   private static final Logger logger = LogManager.getLogger("App");
 
   
@@ -43,6 +43,94 @@ public class PersonDtoImpl implements IPersonDto {
     
 //logger.info(trucs.toString());
     return personsList;
+  }
+
+
+  
+  
+  @Override
+  public Person postNewPerson() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+  @Override
+  public Person updateAPerson() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Person deleteAPerson() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+
+
+  @Override
+  public PersonList personsCoveredByAFirestation(int pFireStationNumber) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+
+
+  @Override
+  public PersonList childListForAnAdress(String pAdress) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+
+
+  @Override
+  public ArrayList<String> phoneListOfResidentForAGivenFireStation(
+      String pFireStationNumber) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+
+
+  @Override
+  public PersonList personListWithCompleteInfoCoveredByFireStation(
+      String pAdress) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+
+
+  @Override
+  public PersonList floodPersonListComplete(
+      ArrayList<Integer> pListFireStationNumber) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+
+
+  @Override
+  public Person detailledPersonInfo(String pfirstName, String plastName) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+
+
+  @Override
+  public ArrayList<String> getAllEmailForACity(String pCity) {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

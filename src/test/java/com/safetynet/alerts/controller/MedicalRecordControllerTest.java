@@ -31,6 +31,24 @@ public class MedicalRecordControllerTest {
     medicalRecordController.getMedicalRecord();
     verify(medicalRecordService, times(1)).getMedicalRecordsList();
   }
+  @Test
+  public void postNewMedicalRecordControllerTest() throws JsonParseException,
+      JsonMappingException, NoSuchFileException, IOException {
+    medicalRecordController.postNewMedicalRecord();
+    verify(medicalRecordService, times(1)).postNewMedicalRecord();
+  }
+  @Test
+  public void updateMedicalRecordControllerTest() throws JsonParseException,
+      JsonMappingException, NoSuchFileException, IOException {
+    medicalRecordController.updateMedicalRecord();
+    verify(medicalRecordService, times(1)).updateMedicalRecord();
+  }
+  @Test
+  public void deleteMedicalRecordControllerTest() throws JsonParseException,
+      JsonMappingException, NoSuchFileException, IOException {
+    medicalRecordController.deleteMedicalRecord();
+    verify(medicalRecordService, times(1)).deleteMedicalRecord();
+  }
 
   @Test
   public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,

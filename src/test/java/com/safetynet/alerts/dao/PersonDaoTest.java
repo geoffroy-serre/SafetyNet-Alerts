@@ -1,4 +1,4 @@
-package com.safetynet.alerts.dto;
+package com.safetynet.alerts.dao;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -11,14 +11,14 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.safetynet.alerts.interfaces.IPersonDto;
+import com.safetynet.alerts.interfaces.IPersonDao;
 import com.safetynet.alerts.services.PersonService;
 
-@WebMvcTest(value =IPersonDto.class)
-public class PersonDtoTest {
+@WebMvcTest(value =IPersonDao.class)
+public class PersonDaoTest {
     
   @Autowired
-  IPersonDto personDto;
+  IPersonDao personDto;
   
   @Test
   public void getPersonListServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {

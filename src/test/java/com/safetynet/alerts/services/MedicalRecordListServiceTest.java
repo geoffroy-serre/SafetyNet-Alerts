@@ -7,8 +7,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.safetynet.alerts.dto.MedicalRecordDtoImpl;
-import com.safetynet.alerts.interfaces.IMedicalRecordDto;
+import com.safetynet.alerts.dao.MedicalRecordDtoImpl;
+import com.safetynet.alerts.interfaces.IMedicalRecordDao;
 import com.safetynet.alerts.model.MedicalRecordList;
 import com.safetynet.alerts.services.MedicalRecordService;
 
@@ -26,7 +26,7 @@ public class MedicalRecordListServiceTest {
   MedicalRecordService medicalRecord;
   
   @MockBean
-  IMedicalRecordDto medicalRecordDto;
+  IMedicalRecordDao medicalRecordDto;
   
   @Test
   public void getMedicalRecordServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {

@@ -1,4 +1,4 @@
-package com.safetynet.alerts.dto;
+package com.safetynet.alerts.dao;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,12 +13,13 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.safetynet.alerts.interfaces.IMedicalRecordDto;
+import com.safetynet.alerts.interfaces.IMedicalRecordDao;
+import com.safetynet.alerts.model.MedicalRecord;
 import com.safetynet.alerts.model.MedicalRecordList;
 import com.safetynet.alerts.utils.OriginalInputFile;
 
 @Component
-public class MedicalRecordDtoImpl implements IMedicalRecordDto {
+public class MedicalRecordDtoImpl implements IMedicalRecordDao {
 
   private static final Logger logger = LogManager.getLogger("App");
   
@@ -37,6 +38,24 @@ public class MedicalRecordDtoImpl implements IMedicalRecordDto {
     logger.info("MedicalRecordList retrieval done");
 
     return medicalRecordList;
+  }
+
+  @Override
+  public MedicalRecord postNewMedicalRecord() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public MedicalRecord updateMedicalRecord() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public MedicalRecord deleteMedicalRecord() {
+    // TODO Auto-generated method stub
+    return null;
   }
   
   

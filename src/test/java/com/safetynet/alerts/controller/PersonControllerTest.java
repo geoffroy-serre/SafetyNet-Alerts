@@ -33,7 +33,25 @@ public class PersonControllerTest {
   }
 
   @Test
-  public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
+  public void postNewPersonTest() {
+    personController.postNewPerson();
+    verify(personService, times(1)).postNewPerson();
+  }
+  
+  @Test
+  public void updateAPersonTest() {
+    personController.updateAPerson();
+    verify(personService, times(1)).updateAPerson();
+  }
+  
+  @Test
+  public void deleteAPersonTest() {
+    personController.deleteAPerson();
+    verify(personService, times(1)).deleteAPerson();
+  }
+  
+  @Test
+public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
     when(personService.getpersons()).thenThrow(JsonParseException.class);

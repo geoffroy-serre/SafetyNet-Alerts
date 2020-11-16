@@ -8,16 +8,34 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.safetynet.alerts.interfaces.IMedicalRecordDto;
+import com.safetynet.alerts.interfaces.IMedicalRecordDao;
+import com.safetynet.alerts.model.MedicalRecord;
 import com.safetynet.alerts.model.MedicalRecordList;
 @Component
 public class MedicalRecordService {
   @Autowired
-  private IMedicalRecordDto medicalRecordDto;
+  private IMedicalRecordDao medicalRecordDao;
   
   public MedicalRecordList getMedicalRecordsList() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
-    return medicalRecordDto.getMedicalRecordListDto();
+    return medicalRecordDao.getMedicalRecordListDto();
+  }
+
+  
+  
+  public MedicalRecord postNewMedicalRecord() {
+    return medicalRecordDao.postNewMedicalRecord();
+    
+  }
+  
+  public MedicalRecord updateMedicalRecord() {
+    return medicalRecordDao.updateMedicalRecord();
+    
+  }
+  
+  public MedicalRecord deleteMedicalRecord() {
+    return medicalRecordDao.deleteMedicalRecord();
+    
   }
 
 }

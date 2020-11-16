@@ -6,11 +6,11 @@ public class FireStationList {
    
     public ArrayList<FireStation> fireStation;
 
-    public ArrayList<FireStation> getPerson() {
+    public ArrayList<FireStation> getFireStation() {
         return fireStation;
     }
 
-    public void setPerson(ArrayList<FireStation> pFireStation) {
+    public void setFireStation(ArrayList<FireStation> pFireStation) {
         this.fireStation = pFireStation;
     }
 

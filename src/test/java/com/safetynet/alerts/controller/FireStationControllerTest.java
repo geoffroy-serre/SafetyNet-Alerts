@@ -31,6 +31,27 @@ public class FireStationControllerTest {
     fireStationController.getFireStationInfo();
     verify(fireStationService, times(1)).getFireStationList();
   }
+  
+  @Test
+  public void postFireStationControllerTest() throws JsonParseException,
+      JsonMappingException, NoSuchFileException, IOException {
+    fireStationController.postFireStationAdressMapping();
+    verify(fireStationService, times(1)).postFireStationAdressMapping();
+  }
+  
+  @Test
+  public void updateFireStationControllerTest() throws JsonParseException,
+      JsonMappingException, NoSuchFileException, IOException {
+    fireStationController.updateFireStationNumber();
+    verify(fireStationService, times(1)).updateFireStationNumber();
+  }
+  
+  @Test
+  public void deleteFireStationControllerTest() throws JsonParseException,
+      JsonMappingException, NoSuchFileException, IOException {
+    fireStationController.deleteFireStationAdressMapping();
+    verify(fireStationService, times(1)).deleteFireStationAdressMapping();
+  }
 
   @Test
   public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,

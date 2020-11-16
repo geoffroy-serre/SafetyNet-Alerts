@@ -7,7 +7,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.safetynet.alerts.interfaces.IPersonDto;
+import com.safetynet.alerts.interfaces.IPersonDao;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.times;
@@ -23,13 +23,31 @@ public class PersonServiceTest {
   PersonService personService;
   
   @MockBean
-  IPersonDto iPersonDto;
+  IPersonDao iPersonDao;
   
     
   @Test
   public void getPersonListServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
     personService.getpersons();
 
-    verify(iPersonDto, times(1)).getPersonListDto();
+    verify(iPersonDao, times(1)).getPersonListDto();
+  }
+  
+  @Test
+  public void postNewPersonServiceTest() {
+    personService.postNewPerson();
+    verify (iPersonDao,times(1)).postNewPerson();
+  }
+  
+  @Test
+  public void updateAPersonServiceTest() {
+    personService.updateAPerson();
+    verify (iPersonDao,times(1)).updateAPerson();
+  }
+  
+  @Test
+  public void deleteAPersonServiceTest() {
+    personService.deleteAPerson();
+    verify (iPersonDao,times(1)).deleteAPerson();
   }
 }

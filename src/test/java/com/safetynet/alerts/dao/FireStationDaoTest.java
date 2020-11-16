@@ -1,4 +1,4 @@
-package com.safetynet.alerts.dto;
+package com.safetynet.alerts.dao;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -10,17 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.safetynet.alerts.interfaces.IMedicalRecordDto;
+import com.safetynet.alerts.interfaces.IFireStationDao;
 
-@WebMvcTest(value=IMedicalRecordDto.class)
-public class MedicalRecordDtoTest {
+@WebMvcTest(value=IFireStationDao.class)
+public class FireStationDaoTest {
 
   @Autowired
-  IMedicalRecordDto medicalRecordDto;
+  IFireStationDao fireStationDto;
   
   @Test
-  public void getMedicalRecordListDtoTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    assertNotNull(medicalRecordDto.getMedicalRecordListDto());
+  public void getFireStationListDtoTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
+    assertNotNull(fireStationDto.getFireStationListDto());
   }
   
 
