@@ -16,8 +16,11 @@ public class Person {
   private String cellNumber;
   private LocalDate birthdate;
   private String email;
-  private int idHome;
-  private int idMedicalRecord;
+  private String address;
+  private String city;
+  private String zip;
+  private UUID idHome;
+  private UUID idMedicalRecord;
   private int age;
   
   
@@ -69,19 +72,19 @@ public class Person {
     this.email = pEmail;
   }
 
-  public int getIdHome() {
+  public UUID getIdHome() {
     return idHome;
   }
 
-  public void setIdHome(int pIdHome) {
+  public void setIdHome(UUID pIdHome) {
     this.idHome = pIdHome;
   }
 
-  public int getIdMedicalRecord() {
+  public UUID getIdMedicalRecord() {
     return idMedicalRecord;
   }
 
-  public void setIdMedicalRecord(int pIdMedicalRecord) {
+  public void setIdMedicalRecord(UUID pIdMedicalRecord) {
     this.idMedicalRecord = pIdMedicalRecord;
 
   }
@@ -99,6 +102,30 @@ public class Person {
     return String.format(
         "Person [id=%s, firstName=%s, lastName=%s, email=%s, idMedicalRecord=%s, idHome=%s; birthdate=%s]",
         id, firstName, lastName, email, idMedicalRecord, idHome, birthdate);
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String pAdress) {
+    this.address = pAdress;
+  }
+
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public String getZip() {
+    return zip;
+  }
+
+  public void setZip(String zipcode) {
+    this.zip = zipcode;
   }
 
 }

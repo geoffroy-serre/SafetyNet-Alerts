@@ -1,210 +1,577 @@
-2020-11-16 15:29:46,691 INFO o.s.b.StartupInfoLogger [main] Starting FilesPathTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:46,700 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:46,703 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:47,691 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:48,013 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:48,014 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:48,032 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 18 ms
-2020-11-16 15:29:48,064 INFO o.s.b.StartupInfoLogger [main] Started FilesPathTest in 1.924 seconds (JVM running for 3.585)
-2020-11-16 15:29:48,414 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.controller.FireStationControllerTest], using SpringBootContextLoader
-2020-11-16 15:29:48,416 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.controller.FireStationControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:48,416 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.controller.FireStationControllerTest]: FireStationControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:48,431 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.controller.FireStationControllerTest
-2020-11-16 15:29:48,432 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:48,434 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@35d518a7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3ea65cf6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3e07a967, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@29bc0447, org.springframework.test.context.support.DirtiesContextTestExecutionListener@343131f7, org.springframework.test.context.event.EventPublishingTestExecutionListener@38fc8a6b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3bb35082, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@72e4f58f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4f67dcad, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1314b8f8, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3282cd58, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@671f1e0a]
-2020-11-16 15:29:48,470 INFO o.s.b.StartupInfoLogger [main] Starting FireStationControllerTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:48,470 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:48,471 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:48,948 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:49,117 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:49,118 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:49,123 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 5 ms
-2020-11-16 15:29:49,135 INFO o.s.b.StartupInfoLogger [main] Started FireStationControllerTest in 0.697 seconds (JVM running for 4.657)
-2020-11-16 15:29:49,215 INFO c.s.a.c.FireStationController [main] io du cul
-2020-11-16 15:29:49,249 INFO c.s.a.c.FireStationController [main] tfile
-2020-11-16 15:29:49,257 INFO c.s.a.c.FireStationController [main] parse
-2020-11-16 15:29:49,266 INFO c.s.a.c.FireStationController [main] mapping
-2020-11-16 15:29:49,274 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.controller.HomeControllerTest], using SpringBootContextLoader
-2020-11-16 15:29:49,275 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.controller.HomeControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:49,275 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.controller.HomeControllerTest]: HomeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:49,278 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.controller.HomeControllerTest
-2020-11-16 15:29:49,279 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:49,281 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@615adefa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2b638e54, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5dfb30e0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@17fd2db5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@20679cbe, org.springframework.test.context.event.EventPublishingTestExecutionListener@17c1b7c8, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1339f9e0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6dd7feb7, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@71c90ddf, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6bac8bd9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@370689b5, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@6576eba4]
-2020-11-16 15:29:49,305 INFO o.s.b.StartupInfoLogger [main] Starting HomeControllerTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:49,305 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:49,306 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:49,586 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:49,743 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:49,743 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:49,749 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 5 ms
-2020-11-16 15:29:49,759 INFO o.s.b.StartupInfoLogger [main] Started HomeControllerTest in 0.475 seconds (JVM running for 5.28)
-2020-11-16 15:29:49,765 INFO c.s.a.c.HomeController [main] io du cul
-2020-11-16 15:29:49,774 INFO c.s.a.c.HomeController [main] tfile
-2020-11-16 15:29:49,779 INFO c.s.a.c.HomeController [main] parse
-2020-11-16 15:29:49,785 INFO c.s.a.c.HomeController [main] mapping
-2020-11-16 15:29:49,789 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.controller.MedicalRecordControllerTest], using SpringBootContextLoader
-2020-11-16 15:29:49,791 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.controller.MedicalRecordControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:49,792 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.controller.MedicalRecordControllerTest]: MedicalRecordControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:49,796 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.controller.MedicalRecordControllerTest
-2020-11-16 15:29:49,796 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:49,797 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@587f17cb, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7ddb6df3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@33ddc39b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2918e3d7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@9796870, org.springframework.test.context.event.EventPublishingTestExecutionListener@2f6b3859, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@72f7e734, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1c1fb4e6, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5e6775fd, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@28b83798, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@65bbabfc, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4629b29]
-2020-11-16 15:29:49,827 INFO o.s.b.StartupInfoLogger [main] Starting MedicalRecordControllerTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:49,827 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:49,828 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:50,113 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:50,260 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:50,261 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:50,265 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 4 ms
-2020-11-16 15:29:50,275 INFO o.s.b.StartupInfoLogger [main] Started MedicalRecordControllerTest in 0.475 seconds (JVM running for 5.796)
-2020-11-16 15:29:50,283 INFO c.s.a.c.MedicalRecordController [main] IO error MedicalRecord 
-java.io.IOException: null
-2020-11-16 15:29:50,300 INFO c.s.a.c.MedicalRecordController [main] No Such File Error MedicalRecord 
-java.nio.file.NoSuchFileException: null
-2020-11-16 15:29:50,304 INFO c.s.a.c.MedicalRecordController [main] Parse Error MedicalRecord 
-com.fasterxml.jackson.core.JsonParseException: N/A
-2020-11-16 15:29:50,312 INFO c.s.a.c.MedicalRecordController [main] Mapping Error MedicalRecord 
-com.fasterxml.jackson.databind.JsonMappingException: N/A
-2020-11-16 15:29:50,317 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.controller.PersonControllerTest], using SpringBootContextLoader
-2020-11-16 15:29:50,319 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.controller.PersonControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:50,319 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.controller.PersonControllerTest]: PersonControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:50,321 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.controller.PersonControllerTest
-2020-11-16 15:29:50,321 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:50,322 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1141ce2a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6e8fc7a3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4b674606, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@68bcdf50, org.springframework.test.context.support.DirtiesContextTestExecutionListener@77136cf3, org.springframework.test.context.event.EventPublishingTestExecutionListener@67b10f6d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@161722eb, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@185f2926, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@74c7ba2a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1be219b8, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@34cd7055, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@55ba69f3]
-2020-11-16 15:29:50,352 INFO o.s.b.StartupInfoLogger [main] Starting PersonControllerTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:50,353 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:50,354 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:50,578 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:50,732 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:50,732 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:50,737 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 4 ms
-2020-11-16 15:29:50,745 INFO o.s.b.StartupInfoLogger [main] Started PersonControllerTest in 0.42 seconds (JVM running for 6.267)
-2020-11-16 15:29:50,750 INFO c.s.a.c.PersonController [main] io du cul
-2020-11-16 15:29:50,762 INFO c.s.a.c.PersonController [main] tfile
-2020-11-16 15:29:50,770 INFO c.s.a.c.PersonController [main] parse
-2020-11-16 15:29:50,781 INFO c.s.a.c.PersonController [main] mapping
-2020-11-16 15:29:50,788 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.dao.FireStationDaoTest], using SpringBootContextLoader
-2020-11-16 15:29:50,789 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.dao.FireStationDaoTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:50,790 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.dao.FireStationDaoTest]: FireStationDaoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:50,799 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.dao.FireStationDaoTest
-2020-11-16 15:29:50,800 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:50,801 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@a483b2c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2e220c0c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@77e1f2a2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@14f5137e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5fafcb97, org.springframework.test.context.event.EventPublishingTestExecutionListener@61d3ee02, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@195f7478, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@250deace, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4df7e8b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7a8233ec, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@181c7470, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@528db627]
-2020-11-16 15:29:50,826 INFO o.s.b.StartupInfoLogger [main] Starting FireStationDaoTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:50,827 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:50,827 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:51,072 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:51,209 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:51,210 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:51,215 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 4 ms
-2020-11-16 15:29:51,222 INFO o.s.b.StartupInfoLogger [main] Started FireStationDaoTest in 0.418 seconds (JVM running for 6.743)
-2020-11-16 15:29:51,297 INFO c.s.a.d.FireStationDtoImpl [main] FireStationList retrieval done
-2020-11-16 15:29:51,301 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.dao.MedicalRecordDaoTest], using SpringBootContextLoader
-2020-11-16 15:29:51,301 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.dao.MedicalRecordDaoTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:51,302 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.dao.MedicalRecordDaoTest]: MedicalRecordDaoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:51,303 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.dao.MedicalRecordDaoTest
-2020-11-16 15:29:51,304 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:51,305 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@384c3b05, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7e566ed5, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@59b3fbf9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7f25ff1f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@26e877ed, org.springframework.test.context.event.EventPublishingTestExecutionListener@6b059523, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2d2fd789, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7da21834, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@18904f72, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5ffb7dce, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@cbb7a27, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@6135b03c]
-2020-11-16 15:29:51,330 INFO o.s.b.StartupInfoLogger [main] Starting MedicalRecordDaoTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:51,331 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:51,332 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:51,574 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:51,711 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:51,711 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:51,716 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 5 ms
-2020-11-16 15:29:51,723 INFO o.s.b.StartupInfoLogger [main] Started MedicalRecordDaoTest in 0.416 seconds (JVM running for 7.245)
-2020-11-16 15:29:51,737 INFO c.s.a.d.MedicalRecordDtoImpl [main] MedicalRecordList retrieval done
-2020-11-16 15:29:51,740 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.dao.PersonDaoTest], using SpringBootContextLoader
-2020-11-16 15:29:51,742 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.dao.PersonDaoTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:51,742 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.dao.PersonDaoTest]: PersonDaoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:51,744 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.dao.PersonDaoTest
-2020-11-16 15:29:51,745 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:51,746 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7dfde83f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7df8457a, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3454873c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@30a8a26b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@22860851, org.springframework.test.context.event.EventPublishingTestExecutionListener@1d6a5aee, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@d974318, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7859033b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6a0f48e1, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@257dc264, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1245ca50, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@22b543f8]
-2020-11-16 15:29:51,767 INFO o.s.b.StartupInfoLogger [main] Starting PersonDaoTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:51,768 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:51,769 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:52,013 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:52,140 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:52,141 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:52,146 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 4 ms
-2020-11-16 15:29:52,152 INFO o.s.b.StartupInfoLogger [main] Started PersonDaoTest in 0.404 seconds (JVM running for 7.674)
-2020-11-16 15:29:52,167 INFO c.s.a.d.PersonDtoImpl [main] PersonList retrieval
-2020-11-16 15:29:52,209 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.SafetyNetAlertsApplicationTests], using SpringBootContextLoader
-2020-11-16 15:29:52,210 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.SafetyNetAlertsApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:52,210 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.SafetyNetAlertsApplicationTests]: SafetyNetAlertsApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:52,214 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.SafetyNetAlertsApplicationTests
-2020-11-16 15:29:52,218 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:52,219 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@46c1ef9e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@169c7207, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@32671bda, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@172309cf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5ed7b9aa, org.springframework.test.context.event.EventPublishingTestExecutionListener@2baee43d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@211d8359, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2eff8bc4, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d867d58, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@11d5f7d9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5c9fa9f1, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@eecb80d]
-2020-11-16 15:29:52,243 INFO o.s.b.StartupInfoLogger [main] Starting SafetyNetAlertsApplicationTests on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:52,244 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:52,244 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:52,918 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:53,218 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-11-16 15:29:53,251 INFO o.s.b.StartupInfoLogger [main] Started SafetyNetAlertsApplicationTests in 1.03 seconds (JVM running for 8.773)
-2020-11-16 15:29:53,266 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.services.FireStationServiceTest], using SpringBootContextLoader
-2020-11-16 15:29:53,267 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.services.FireStationServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:53,267 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.services.FireStationServiceTest]: FireStationServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:53,277 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.services.FireStationServiceTest
-2020-11-16 15:29:53,277 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:53,278 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7431b254, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5ccdd496, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@67c59e7e, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@db2e161, org.springframework.test.context.support.DirtiesContextTestExecutionListener@74684191, org.springframework.test.context.event.EventPublishingTestExecutionListener@46b352ee, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@dce0228, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@176d5319, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@21bffcac, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7d47ee57, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@e57c95, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@7d6d120b]
-2020-11-16 15:29:53,305 INFO o.s.b.StartupInfoLogger [main] Starting FireStationServiceTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:53,306 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:53,307 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:53,541 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:53,680 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:53,680 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:53,685 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 4 ms
-2020-11-16 15:29:53,691 INFO o.s.b.StartupInfoLogger [main] Started FireStationServiceTest in 0.41 seconds (JVM running for 9.213)
-2020-11-16 15:29:53,703 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.services.HomeServiceTest], using SpringBootContextLoader
-2020-11-16 15:29:53,703 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.services.HomeServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:53,704 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.services.HomeServiceTest]: HomeServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:53,706 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.services.HomeServiceTest
-2020-11-16 15:29:53,706 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:53,707 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2be9fb14, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5438acaa, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@16606fc6, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2c6c98f0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@48b9f732, org.springframework.test.context.event.EventPublishingTestExecutionListener@59f54f73, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4c7e15d4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@49dafb3, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@39ac875, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@706791a2, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4c0bfacf, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@250234ca]
-2020-11-16 15:29:53,726 INFO o.s.b.StartupInfoLogger [main] Starting HomeServiceTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:53,727 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:53,727 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:53,976 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,107 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:54,107 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:54,111 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 4 ms
-2020-11-16 15:29:54,118 INFO o.s.b.StartupInfoLogger [main] Started HomeServiceTest in 0.41 seconds (JVM running for 9.64)
-2020-11-16 15:29:54,124 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.services.MedicalRecordListServiceTest], using SpringBootContextLoader
-2020-11-16 15:29:54,125 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.services.MedicalRecordListServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:54,125 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.services.MedicalRecordListServiceTest]: MedicalRecordListServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:54,128 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.services.MedicalRecordListServiceTest
-2020-11-16 15:29:54,128 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:54,129 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6a865af8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@8b79b, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7a051398, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@27a1fe7a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7f2831ec, org.springframework.test.context.event.EventPublishingTestExecutionListener@3a59f5fd, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6892b8fd, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@40e8c9bb, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7ef1371b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@bf2c325, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@765ac7f6, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@70f96d97]
-2020-11-16 15:29:54,154 INFO o.s.b.StartupInfoLogger [main] Starting MedicalRecordListServiceTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:54,155 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:54,156 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:54,361 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,496 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:54,496 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:54,502 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 6 ms
-2020-11-16 15:29:54,508 INFO o.s.b.StartupInfoLogger [main] Started MedicalRecordListServiceTest in 0.377 seconds (JVM running for 10.03)
-2020-11-16 15:29:54,520 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.safetynet.alerts.services.PersonServiceTest], using SpringBootContextLoader
-2020-11-16 15:29:54,521 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.safetynet.alerts.services.PersonServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-11-16 15:29:54,521 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.safetynet.alerts.services.PersonServiceTest]: PersonServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-11-16 15:29:54,523 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.safetynet.alerts.SafetyNetAlertsApplication for test class com.safetynet.alerts.services.PersonServiceTest
-2020-11-16 15:29:54,523 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-11-16 15:29:54,524 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2820a644, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2880ff6f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3754e4b2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@54fabf18, org.springframework.test.context.support.DirtiesContextTestExecutionListener@79c52145, org.springframework.test.context.event.EventPublishingTestExecutionListener@5691d295, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4670dd81, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@47f3b828, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@176c769a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4fb10b98, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@f6d5b3a, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@55858007]
-2020-11-16 15:29:54,546 INFO o.s.b.StartupInfoLogger [main] Starting PersonServiceTest on heimdall-Othalla with PID 26848 (started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
-2020-11-16 15:29:54,547 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
-2020-11-16 15:29:54,547 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-11-16 15:29:54,773 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,904 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
-2020-11-16 15:29:54,905 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
-2020-11-16 15:29:54,909 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 3 ms
-2020-11-16 15:29:54,917 INFO o.s.b.StartupInfoLogger [main] Started PersonServiceTest in 0.391 seconds (JVM running for 10.439)
-2020-11-16 15:29:54,958 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,959 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,958 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,958 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,959 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,958 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,960 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,959 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,962 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,962 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,962 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,961 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-16 15:29:54,959 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:30:53,688 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:30:53,693 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:30:53,694 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:30:53,745 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-16 16:30:53,745 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-16 16:30:54,582 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:30:54,598 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:30:54,599 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:30:54,599 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:30:54,650 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:30:54,651 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 905 ms
+2020-11-16 16:30:54,928 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:30:55,173 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:30:55,178 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:30:55,195 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:30:55,208 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:30:55,219 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 1.82 seconds (JVM running for 2.356)
+2020-11-16 16:30:58,150 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(3)-127.0.0.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-16 16:30:58,150 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-127.0.0.1] Initializing Servlet 'dispatcherServlet'
+2020-11-16 16:30:58,154 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-127.0.0.1] Completed initialization in 4 ms
+2020-11-16 16:31:12,147 INFO c.s.a.d.PersonDtoImpl [http-nio-8080-exec-1] PersonList retrieval
+2020-11-16 16:31:43,358 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-5] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:31:43,440 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:31:43,441 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:31:43,441 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:31:43,731 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:31:43,731 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:31:43,732 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:31:43,732 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:31:43,741 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:31:43,742 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 298 ms
+2020-11-16 16:31:43,886 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:31:43,991 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:31:43,994 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:31:44,004 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:31:44,005 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:31:44,012 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.621 seconds (JVM running for 51.149)
+2020-11-16 16:31:44,014 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:31:52,601 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-8] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:31:52,682 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:31:52,682 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:31:52,682 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:31:52,909 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:31:52,910 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:31:52,910 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:31:52,910 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:31:52,920 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:31:52,920 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 236 ms
+2020-11-16 16:31:53,056 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:31:53,148 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:31:53,150 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:31:53,155 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:31:53,157 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:31:53,165 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.526 seconds (JVM running for 60.302)
+2020-11-16 16:31:53,166 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:32:02,811 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-13] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:32:02,879 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:32:02,879 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:32:02,879 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:32:03,124 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:32:03,125 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:32:03,125 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:32:03,126 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:32:03,136 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:32:03,136 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 255 ms
+2020-11-16 16:32:03,258 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:32:03,349 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:32:03,352 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:32:03,361 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:32:03,362 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:32:03,369 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.529 seconds (JVM running for 70.506)
+2020-11-16 16:32:03,371 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:32:13,990 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-18] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:32:14,063 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:32:14,063 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:32:14,064 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:32:14,293 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:32:14,293 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:32:14,293 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:32:14,294 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:32:14,301 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:32:14,301 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 236 ms
+2020-11-16 16:32:14,422 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:32:14,508 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:32:14,511 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:32:14,517 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:32:14,518 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:32:14,526 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.503 seconds (JVM running for 81.663)
+2020-11-16 16:32:14,528 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:32:19,397 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-16 16:32:19,398 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-11-16 16:32:19,400 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+2020-11-16 16:32:19,411 INFO c.s.a.d.PersonDtoImpl [http-nio-8080-exec-1] PersonList retrieval
+2020-11-16 16:32:59,058 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-23] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:32:59,138 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:32:59,138 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:32:59,139 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:32:59,388 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:32:59,389 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:32:59,389 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:32:59,389 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:32:59,397 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:32:59,397 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 257 ms
+2020-11-16 16:32:59,521 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:32:59,623 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:32:59,625 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:32:59,633 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:32:59,634 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:32:59,643 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.545 seconds (JVM running for 126.78)
+2020-11-16 16:32:59,644 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:33:03,038 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-16 16:33:03,039 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-11-16 16:33:03,040 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2020-11-16 16:33:03,048 INFO c.s.a.d.PersonDtoImpl [http-nio-8080-exec-1] PersonList retrieval
+2020-11-16 16:33:23,481 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-28] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:33:23,565 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:33:23,566 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:33:23,566 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:33:23,836 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:33:23,836 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:33:23,836 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:33:23,837 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:33:23,844 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:33:23,845 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 277 ms
+2020-11-16 16:33:23,965 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:33:24,063 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:33:24,067 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:33:24,078 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:33:24,081 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:33:24,088 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.567 seconds (JVM running for 151.225)
+2020-11-16 16:33:24,090 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:33:32,665 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-33] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:33:32,748 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:33:32,748 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:33:32,749 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:33:32,981 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:33:32,981 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:33:32,981 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:33:32,982 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:33:32,990 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:33:32,990 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 240 ms
+2020-11-16 16:33:33,114 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:33:33,195 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:33:33,197 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:33:33,204 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:33:33,205 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:33:33,211 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.501 seconds (JVM running for 160.348)
+2020-11-16 16:33:33,212 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:33:39,470 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-16 16:33:39,471 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-16 16:33:39,472 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2020-11-16 16:33:39,481 INFO c.s.a.d.PersonDtoImpl [http-nio-8080-exec-2] PersonList retrieval
+2020-11-16 16:34:38,677 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-38] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:34:38,758 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:34:38,759 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:34:38,759 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:34:38,990 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:34:38,990 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:34:38,990 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:34:38,990 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:34:38,998 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:34:38,998 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 238 ms
+2020-11-16 16:34:39,117 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:34:39,197 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:34:39,200 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:34:39,208 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:34:39,217 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:34:39,223 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.5 seconds (JVM running for 226.36)
+2020-11-16 16:34:39,225 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:36:09,238 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-43] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:36:09,326 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:36:09,327 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:36:09,327 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:36:09,585 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:36:09,585 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:36:09,586 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:36:09,586 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:36:09,593 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:36:09,593 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 264 ms
+2020-11-16 16:36:09,722 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:36:09,811 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:36:09,814 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:36:09,821 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:36:09,822 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:36:09,830 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.55 seconds (JVM running for 316.967)
+2020-11-16 16:36:09,832 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:42:40,352 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-48] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:42:40,437 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:42:40,437 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:42:40,437 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:42:40,690 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:42:40,690 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:42:40,690 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:42:40,691 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:42:40,698 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:42:40,698 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 259 ms
+2020-11-16 16:42:40,819 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:42:40,909 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:42:40,912 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:42:40,923 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:42:40,925 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:42:40,932 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.538 seconds (JVM running for 708.069)
+2020-11-16 16:42:40,933 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:43:41,279 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-53] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:43:41,368 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:43:41,369 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:43:41,369 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:43:41,637 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:43:41,638 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:43:41,638 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:43:41,638 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:43:41,647 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:43:41,647 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 276 ms
+2020-11-16 16:43:41,770 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:43:41,868 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:43:41,870 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:43:41,876 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:43:41,878 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:43:41,886 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.56 seconds (JVM running for 769.023)
+2020-11-16 16:43:41,887 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:43:50,469 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-58] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:43:50,561 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:43:50,561 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:43:50,562 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:43:50,827 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:43:50,828 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:43:50,828 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:43:50,828 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:43:50,835 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:43:50,835 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 272 ms
+2020-11-16 16:43:50,948 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:43:51,048 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:43:51,050 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:43:51,058 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:43:51,059 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:43:51,063 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.545 seconds (JVM running for 778.2)
+2020-11-16 16:43:51,064 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:44:28,093 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-63] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:44:28,189 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:44:28,189 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:44:28,189 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:44:28,445 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:44:28,446 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:44:28,446 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:44:28,446 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:44:28,453 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:44:28,453 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 262 ms
+2020-11-16 16:44:28,593 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:44:28,684 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:44:28,686 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:44:28,691 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:44:28,692 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:44:28,699 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.557 seconds (JVM running for 815.836)
+2020-11-16 16:44:28,700 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:47:16,899 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-68] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:47:16,992 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:47:16,993 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:47:16,993 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:47:17,249 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:47:17,249 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:47:17,249 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:47:17,249 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:47:17,257 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:47:17,257 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 262 ms
+2020-11-16 16:47:17,379 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:47:17,459 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:47:17,460 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:47:17,468 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:47:17,469 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:47:17,477 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.526 seconds (JVM running for 984.614)
+2020-11-16 16:47:17,478 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:47:35,218 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-73] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:47:35,312 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:47:35,313 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:47:35,313 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:47:35,599 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:47:35,600 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:47:35,600 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:47:35,600 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:47:35,609 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:47:35,609 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 295 ms
+2020-11-16 16:47:35,753 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:47:35,872 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:47:35,875 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:47:35,882 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:47:35,883 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:47:35,892 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.623 seconds (JVM running for 1003.029)
+2020-11-16 16:47:35,893 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:47:45,482 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-78] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:47:45,557 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:47:45,558 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:47:45,558 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:47:45,791 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:47:45,791 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:47:45,791 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:47:45,792 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:47:45,799 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:47:45,799 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 240 ms
+2020-11-16 16:47:45,935 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:47:46,020 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:47:46,023 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:47:46,035 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:47:46,036 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:47:46,042 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.511 seconds (JVM running for 1013.179)
+2020-11-16 16:47:46,044 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:51:03,505 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-83] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:51:03,581 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:51:03,582 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:51:03,582 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:51:03,814 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:51:03,815 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:51:03,815 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:51:03,815 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:51:03,822 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:51:03,823 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 239 ms
+2020-11-16 16:51:03,953 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:51:04,048 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:51:04,051 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:51:04,064 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:51:04,068 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:51:04,077 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.524 seconds (JVM running for 1211.214)
+2020-11-16 16:51:04,078 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:52:02,399 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-88] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:52:02,494 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:52:02,494 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:52:02,494 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:52:02,764 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:52:02,764 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:52:02,765 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:52:02,765 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:52:02,772 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:52:02,772 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 276 ms
+2020-11-16 16:52:02,916 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:52:03,022 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:52:03,024 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:52:03,032 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:52:03,035 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:52:03,039 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.588 seconds (JVM running for 1270.176)
+2020-11-16 16:52:03,041 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:53:38,203 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-93] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:53:38,303 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:53:38,303 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:53:38,303 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:53:38,553 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:53:38,554 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:53:38,554 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:53:38,554 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:53:38,570 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:53:38,570 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 265 ms
+2020-11-16 16:53:38,691 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:53:38,783 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:53:38,786 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:53:38,793 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:53:38,795 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:53:38,799 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.538 seconds (JVM running for 1365.936)
+2020-11-16 16:53:38,799 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:53:57,546 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-98] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:53:57,636 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:53:57,637 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:53:57,637 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:53:57,869 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:53:57,870 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:53:57,870 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:53:57,870 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:53:57,881 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:53:57,881 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 243 ms
+2020-11-16 16:53:58,005 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:53:58,089 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:53:58,091 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:53:58,098 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:53:58,099 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:53:58,103 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.501 seconds (JVM running for 1385.24)
+2020-11-16 16:53:58,104 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:54:21,950 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-103] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:54:22,044 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:54:22,045 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:54:22,045 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:54:22,260 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:54:22,260 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:54:22,261 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:54:22,261 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:54:22,268 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:54:22,268 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 222 ms
+2020-11-16 16:54:22,386 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:54:22,474 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:54:22,476 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:54:22,484 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:54:22,485 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:54:22,492 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.48 seconds (JVM running for 1409.629)
+2020-11-16 16:54:22,494 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 16:55:40,146 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-108] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:55:40,250 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 16:55:40,250 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 16:55:40,251 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 16:55:40,475 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 16:55:40,476 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:55:40,476 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 16:55:40,476 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 16:55:40,483 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 16:55:40,483 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 231 ms
+2020-11-16 16:55:40,597 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:55:40,681 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 16:55:40,684 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 16:55:40,693 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 16:55:40,694 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 16:55:40,701 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.494 seconds (JVM running for 1487.838)
+2020-11-16 16:55:40,703 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:00:14,292 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-113] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:00:14,386 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:00:14,386 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:00:14,386 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:00:14,616 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:00:14,616 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:00:14,616 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:00:14,617 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:00:14,624 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:00:14,624 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 236 ms
+2020-11-16 17:00:14,749 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:00:14,836 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:00:14,839 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:00:14,848 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:00:14,850 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:00:14,857 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.504 seconds (JVM running for 1761.994)
+2020-11-16 17:00:14,859 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:00:27,501 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-118] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:00:27,591 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:00:27,592 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:00:27,592 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:00:27,828 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:00:27,828 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:00:27,828 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:00:27,828 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:00:27,839 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:00:27,839 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 246 ms
+2020-11-16 17:00:27,961 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:00:28,045 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:00:28,048 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:00:28,055 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:00:28,056 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:00:28,064 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.506 seconds (JVM running for 1775.201)
+2020-11-16 17:00:28,066 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:01:07,131 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-123] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:01:07,234 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:01:07,234 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:01:07,235 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:01:07,499 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:01:07,500 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:01:07,500 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:01:07,500 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:01:07,508 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:01:07,508 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 272 ms
+2020-11-16 17:01:07,629 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:01:07,721 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:01:07,723 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:01:07,731 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:01:07,735 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:01:07,741 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.549 seconds (JVM running for 1814.878)
+2020-11-16 17:01:07,743 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:01:12,258 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-128] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:01:12,335 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:01:12,335 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:01:12,335 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:01:12,563 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:01:12,563 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:01:12,564 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:01:12,564 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:01:12,571 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:01:12,571 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 234 ms
+2020-11-16 17:01:12,706 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:01:12,798 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:01:12,801 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:01:12,810 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:01:12,814 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:01:12,821 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.518 seconds (JVM running for 1819.958)
+2020-11-16 17:01:12,822 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:01:18,362 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-133] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:01:18,448 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:01:18,449 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:01:18,449 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:01:18,678 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:01:18,678 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:01:18,678 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:01:18,678 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:01:18,687 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:01:18,688 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 237 ms
+2020-11-16 17:01:18,810 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:01:18,901 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:01:18,904 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:01:18,909 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:01:18,915 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:01:18,920 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.507 seconds (JVM running for 1826.057)
+2020-11-16 17:01:18,921 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:01:20,400 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-138] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:01:20,487 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:01:20,487 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:01:20,487 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:01:20,722 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:01:20,722 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:01:20,723 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:01:20,723 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:01:20,731 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:01:20,731 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 243 ms
+2020-11-16 17:01:20,858 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:01:20,947 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:01:20,950 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:01:20,958 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:01:20,959 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:01:20,966 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.515 seconds (JVM running for 1828.103)
+2020-11-16 17:01:20,967 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:05:00,839 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-143] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:05:00,919 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:05:00,920 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:05:00,920 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:05:01,140 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:05:01,140 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:05:01,140 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:05:01,141 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:05:01,148 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:05:01,148 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 227 ms
+2020-11-16 17:05:01,262 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:05:01,347 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:05:01,350 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:05:01,360 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:05:01,361 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:05:01,369 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.479 seconds (JVM running for 2048.506)
+2020-11-16 17:05:01,370 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:05:57,714 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-148] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:05:57,806 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:05:57,807 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:05:57,807 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:05:58,047 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:05:58,047 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:05:58,047 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:05:58,047 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:05:58,055 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:05:58,055 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 247 ms
+2020-11-16 17:05:58,180 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:05:58,276 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:05:58,279 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:05:58,286 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:05:58,287 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:05:58,294 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.524 seconds (JVM running for 2105.431)
+2020-11-16 17:05:58,295 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:06:19,079 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-153] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:06:19,174 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:06:19,174 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:06:19,175 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:06:19,411 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:06:19,412 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:06:19,412 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:06:19,412 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:06:19,419 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:06:19,419 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 243 ms
+2020-11-16 17:06:19,540 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:06:19,626 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:06:19,628 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:06:19,635 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:06:19,636 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:06:19,642 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.507 seconds (JVM running for 2126.779)
+2020-11-16 17:06:19,643 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-16 17:07:05,846 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-158] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:07:05,931 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication on heimdall-Othalla with PID 29527 (/media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts/target/classes started by heimdall in /media/heimdall/Stockage/0_DA_Java_OC/P5/SafetyNetAlerts)
+2020-11-16 17:07:05,931 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-16 17:07:05,931 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-16 17:07:06,173 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-11-16 17:07:06,174 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:07:06,174 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-16 17:07:06,174 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-16 17:07:06,182 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-16 17:07:06,182 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 249 ms
+2020-11-16 17:07:06,300 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 17:07:06,391 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-16 17:07:06,394 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-11-16 17:07:06,402 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-16 17:07:06,403 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-16 17:07:06,407 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 0.513 seconds (JVM running for 2173.544)
+2020-11-16 17:07:06,408 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged

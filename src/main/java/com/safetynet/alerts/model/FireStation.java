@@ -7,6 +7,7 @@ public class FireStation {
   private UUID id ;
   private int station;
   private UUID home;
+  private String address;
   
   public UUID getId() {
     return id;
@@ -25,6 +26,12 @@ public class FireStation {
   }
   public void setHome(UUID pHome) {
     this.home = pHome;
+  }
+  public String getAddress() {
+    return address;
+  }
+  public void setAddress(String address) {
+    this.address = address;
   }
   
   

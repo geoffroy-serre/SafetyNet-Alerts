@@ -6,12 +6,16 @@ public class HomeList {
    
     public ArrayList<Home> home;
 
-    public ArrayList<Home> getPerson() {
+    public ArrayList<Home> getHome() {
         return home;
     }
 
-    public void setPerson(ArrayList<Home> pHome) {
+    public void setHome(ArrayList<Home> pHome) {
         this.home = pHome;
+    }
+    
+    public void addHome(Home pHome) {
+      home.add(pHome);
     }
 
     @Override

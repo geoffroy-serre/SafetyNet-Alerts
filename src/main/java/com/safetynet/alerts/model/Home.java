@@ -8,7 +8,7 @@ public class Home {
   private String adress;
   private String city;
   private String zip;
-  private int idFirestation;
+  private UUID idFirestation;
 
   public UUID getId() {
     return id;
@@ -44,11 +44,11 @@ public class Home {
     this.zip = pZip;
   }
 
-  public int getIdFirestation() {
+  public UUID getIdFirestation() {
     return idFirestation;
   }
 
-  public void setIdFirestation(int idFirestation) {
+  public void setIdFirestation(UUID idFirestation) {
     this.idFirestation = idFirestation;
   }
 
