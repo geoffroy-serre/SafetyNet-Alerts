@@ -9,7 +9,7 @@ public class WorkingFileOuput {
   
   private static String workingInputFile = FilesPath.WORKING_INPUT_FILE;
   
-  public static String getOriginalInputFile() {
+  public static String getWorkingInputFile() {
     return workingInputFile;
   }
 

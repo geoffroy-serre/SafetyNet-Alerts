@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
+@Component
 public class MedicalRecordList {
   
   public ArrayList<MedicalRecord> medicalRecord;

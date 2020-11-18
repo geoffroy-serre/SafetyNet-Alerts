@@ -3,7 +3,7 @@ package com.safetynet.alerts.model;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
-
+@Component
 public class FireStationList {
    
     public ArrayList<FireStation> fireStation;

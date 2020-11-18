@@ -4,13 +4,14 @@ import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.interfaces.IHomeDao;
 import com.safetynet.alerts.model.HomeList;
 
-@Component
+@Service
 public class HomeService {
   
   @Autowired

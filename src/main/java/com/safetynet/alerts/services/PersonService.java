@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -13,7 +14,7 @@ import com.safetynet.alerts.interfaces.IPersonDao;
 import com.safetynet.alerts.model.Person;
 import com.safetynet.alerts.model.PersonList;
 
-@Component
+@Service
 public class PersonService {
   
   @Autowired

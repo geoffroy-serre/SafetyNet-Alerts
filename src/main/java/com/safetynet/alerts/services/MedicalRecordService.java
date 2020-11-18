@@ -5,13 +5,15 @@ import java.nio.file.NoSuchFileException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.interfaces.IMedicalRecordDao;
 import com.safetynet.alerts.model.MedicalRecord;
 import com.safetynet.alerts.model.MedicalRecordList;
-@Component
+
+@Service
 public class MedicalRecordService {
   @Autowired
   private IMedicalRecordDao medicalRecordDao;

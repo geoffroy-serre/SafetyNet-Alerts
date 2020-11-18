@@ -4,10 +4,11 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
+@Component
 public class Person {
 
   

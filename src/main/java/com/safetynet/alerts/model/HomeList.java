@@ -8,26 +8,28 @@ import org.springframework.stereotype.Service;
 
 @Component
 public class HomeList {
-   
-    
-    public ArrayList<Home> home;
 
-    public ArrayList<Home> getHome() {
-        return home;
-    }
+  private ArrayList<Home> home = new ArrayList<Home>();
 
-    public void setHome(ArrayList<Home> pHome) {
-        this.home = pHome;
-    }
-    
-   
-    public void addHome(Home pHome) {
-      home.add(pHome);
-    }
+  public ArrayList<Home> getHome() {
+    return home;
+  }
 
-    @Override
-    public String toString() {
-        return  home.toString() ;
-    }
+  public void setHome(ArrayList<Home> pHome) {
+    this.home = pHome;
+  }
+
+  public void addHome(Home pHome) {
+    this.home.add(pHome);
+  }
+
+ 
+
+  @Override
+  public String toString() {
+    return home.toString();
+  }
+  
+  public ArrayList<Home> getHomeList(){return home;}
 
 }
