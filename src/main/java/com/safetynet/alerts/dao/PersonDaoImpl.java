@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.UUID;
 
 import org.apache.logging.log4j.LogManager;
@@ -76,6 +77,7 @@ public class PersonDaoImpl implements IPersonDao {
   public ArrayList<PersonAndMedical> personsCoveredByAFirestationDao(
       ArrayList<Integer> pFireStationNumber) throws JsonParseException, JsonMappingException, IOException {
     String filePath = WorkingFileOuput.getWorkingInputFile();
+   
   
     /*
      * Get Firestation's and addThem to fireStationHomeIdList

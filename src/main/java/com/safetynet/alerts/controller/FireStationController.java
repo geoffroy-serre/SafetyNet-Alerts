@@ -89,7 +89,7 @@ public class FireStationController {
     }
   
     @GetMapping("/flood/stations")
-    public ArrayList<PersonAndMedical> personsCoveredByAFirestationController( @RequestParam ArrayList stations) throws JsonParseException, JsonMappingException, IOException {
+    public ArrayList<PersonAndMedical> personsCoveredByAFirestationController( @RequestParam ArrayList<Integer> stations) throws JsonParseException, JsonMappingException, IOException {
       return personService.personsCoveredByAFirestationService(stations) ;
     }
     
