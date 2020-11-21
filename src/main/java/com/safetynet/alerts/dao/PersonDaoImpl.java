@@ -73,46 +73,68 @@ public class PersonDaoImpl implements IPersonDao {
   }
 
   @Override
-  public PersonList personsCoveredByAFirestationDao(ArrayList<Integer> pFireStationNumber) {
-    ArrayList<Integer> fireStations = pFireStationNumber;
+  public ArrayList<PersonAndMedical> personsCoveredByAFirestationDao(
+      ArrayList<Integer> pFireStationNumber) throws JsonParseException, JsonMappingException, IOException {
     String filePath = WorkingFileOuput.getWorkingInputFile();
-    IFireStationDao  firestationList = new FireStationDaoImpl();
-    
-
-    FireStationList list = new FireStationList();
-    try {
-      list = firestationList.getFireStationListDao();
-    } catch (JsonParseException e) {
-      logger.info("JsonParseException getting person for coverage for file: "
-                  + filePath
-                  + " ",
-          e);
-    } catch (JsonMappingException e) {
-      logger.info("JsonMappingException getting person for coverage for file: "
-                  + filePath
-                  + " ",
-          e);
-    } catch (IOException e) {
-      logger.info("IOException getting person for coverage for file: "
-                  + filePath
-                  + " ",
-          e);
-    }
+  
     /*
-     * Get concerned firestation Id from given station number list from controller
+     * Get Firestation's and addThem to fireStationHomeIdList
+     * only save the firestation with the number given in parameters
      */
-    ArrayList<UUID> firestationIdList = new ArrayList<UUID>();
-    for (int stationNumber : pFireStationNumber) {
-      for (FireStation fireStation : list.fireStation) {
+    ArrayList<FireStation> fireStationHomeIdList = new ArrayList<FireStation>();
+    IFireStationDao firestationDao = new FireStationDaoImpl();
+    FireStationList fireStationList = firestationDao.getFireStationListDao(filePath);
+    
+    for (FireStation fireStation : fireStationList.fireStation) {
+      for (int stationNumber : pFireStationNumber) {
         if(fireStation.getStation()== stationNumber) {
-          firestationIdList.add(fireStation.getId());
+          fireStationHomeIdList.add(fireStation);
         }
-      }    
+      }
+    }
+    
+    /*
+     * Browsing PersonList with same HomeId from fireStationHomeIdList
+     *  and add them into coveredPersonList
+     */
+    IPersonDao personDao = new PersonDaoImpl();
+    PersonList personList = personDao.getPersonListDao(filePath);
+    ArrayList<Person> coveredPersonList = new ArrayList<Person>();
+    for (Person person : personList.person) {
+      for (FireStation fireStation : fireStationHomeIdList) {
+        if(person.getIdHome().equals(fireStation.getHome())) {
+          coveredPersonList.add(person);
+        }
+      }
+    }
+   
+    ArrayList<PersonAndMedical> resultList = new ArrayList<PersonAndMedical>();
+    IMedicalRecordDao medicalRecordDao = new MedicalRecordDaoImpl();
+    MedicalRecordList medicalRecordList = medicalRecordDao.getMedicalRecordListDao(filePath);
+    /*
+     * Get the medicalRecord of persons using coveredPersonList
+     */
+    for (Person person : coveredPersonList) {
+      for (MedicalRecord medicalRecord : medicalRecordList.medicalRecord) {
+        /*
+         * Create and populate resultList<PersonAndMedical> with coveredPersonList
+         * and their medical record
+         */
+        if  (person.getIdMedicalRecord().equals(medicalRecord.getId())) {
+          PersonAndMedical persons = new PersonAndMedical();
+          persons.setMedicalRecord(medicalRecord);
+          persons.setPerson(person);
+          resultList.add(persons);
+        }
+      }
     }
     
     
     
-    return null;
+    
+    
+    
+    return resultList;
   }
 
   @Override
@@ -166,6 +188,7 @@ public class PersonDaoImpl implements IPersonDao {
                   + " ",
           e);
     }
+    
     ArrayList<Person> processedPersonList = new ArrayList<Person>();
     for (Person person : list.person) {
       if (person.getLastName().equalsIgnoreCase(plastName)

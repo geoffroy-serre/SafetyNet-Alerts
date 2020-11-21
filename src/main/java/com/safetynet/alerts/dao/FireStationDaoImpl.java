@@ -28,7 +28,7 @@ public class FireStationDaoImpl implements IFireStationDao{
 
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
-  public FireStationList getFireStationListDao()
+  public FireStationList getFireStationListDao(String filePath)
       throws JsonParseException, JsonMappingException, IOException {
     
     ObjectMapper objectMapper = new ObjectMapper();
@@ -36,7 +36,7 @@ public class FireStationDaoImpl implements IFireStationDao{
     objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
     objectMapper.registerModule(new JavaTimeModule());
     
-    FireStationList fireStationList = objectMapper.readValue(new File(OriginalInputFile.getOriginalInputFile()),
+    FireStationList fireStationList = objectMapper.readValue(new File(filePath),
         FireStationList.class);
     
     logger.info("FireStationList retrieval done");

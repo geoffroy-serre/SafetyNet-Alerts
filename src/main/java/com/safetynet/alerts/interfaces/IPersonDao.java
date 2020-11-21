@@ -21,7 +21,7 @@ public interface IPersonDao {
 
   public Person deleteAPersonDao();
 
-  public PersonList personsCoveredByAFirestationDao(ArrayList<Integer> fireStationNumber);
+  public ArrayList<PersonAndMedical> personsCoveredByAFirestationDao(ArrayList<Integer> fireStationNumber) throws JsonParseException, JsonMappingException, IOException;
 
   public PersonList childListForAnAdressDao(String pAdress);
 

@@ -20,9 +20,9 @@ public class FireStationService {
 
 
   
-  public FireStationList getFireStationListService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
+  public FireStationList getFireStationListService(String filePath) throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
-    return fireStationDao.getFireStationListDao();
+    return fireStationDao.getFireStationListDao(filePath);
   }
 
 

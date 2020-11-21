@@ -9,7 +9,7 @@ import com.safetynet.alerts.model.FireStationList;
 
 public interface IFireStationDao {
   
-  public FireStationList getFireStationListDao() throws JsonParseException, JsonMappingException, IOException;
+  public FireStationList getFireStationListDao(String filePath) throws JsonParseException, JsonMappingException, IOException;
 
   public FireStation postFireStationMappingDao();
 

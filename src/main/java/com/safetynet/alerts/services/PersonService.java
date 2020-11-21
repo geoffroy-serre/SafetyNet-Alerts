@@ -41,7 +41,7 @@ public class PersonService {
    
     return personDao.deleteAPersonDao();
   }
-  public PersonList personsCoveredByAFirestationService(ArrayList<Integer> fireStationNumber) {
+  public ArrayList<PersonAndMedical> personsCoveredByAFirestationService(ArrayList<Integer> fireStationNumber) throws JsonParseException, JsonMappingException, IOException {
     // TODO Auto-generated method stub
     return personDao.personsCoveredByAFirestationDao(fireStationNumber);
   }

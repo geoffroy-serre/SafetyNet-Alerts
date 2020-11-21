@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -20,10 +21,12 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.FireStation;
 import com.safetynet.alerts.model.FireStationList;
 import com.safetynet.alerts.model.HomeList;
+import com.safetynet.alerts.model.PersonAndMedical;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.services.FireStationService;
 import com.safetynet.alerts.services.HomeService;
 import com.safetynet.alerts.services.PersonService;
+import com.safetynet.alerts.utils.WorkingFileOuput;
 
 @RestController
 public class FireStationController {
@@ -46,7 +49,7 @@ public class FireStationController {
     public FireStationList getFireStationInfoController(){
       
         try {
-          return fireStationService.getFireStationListService();
+          return fireStationService.getFireStationListService(WorkingFileOuput.getWorkingInputFile());
         } catch (JsonParseException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
@@ -85,9 +88,9 @@ public class FireStationController {
       return fireStationService.deleteFireStationAdressMappingService();
     }
   
-    @GetMapping("/firestation")
-    public PersonList personsCoveredByAFirestationController( @RequestAttribute ArrayList fireStationNumber) {
-      return personService.personsCoveredByAFirestationService(fireStationNumber) ;
+    @GetMapping("/flood/stations")
+    public ArrayList<PersonAndMedical> personsCoveredByAFirestationController( @RequestParam ArrayList stations) throws JsonParseException, JsonMappingException, IOException {
+      return personService.personsCoveredByAFirestationService(stations) ;
     }
     
    

@@ -79,10 +79,10 @@ public class CreateWorkingFileService {
 
   }
 
-  public void createFireStationListAndIDFromOriginalFile() {
+  public void createFireStationListAndIDFromOriginalFile(String filePath) {
     
     try {
-      fireStationList = iFirestationDao.getFireStationListDao();
+      fireStationList = iFirestationDao.getFireStationListDao(filePath);
     } catch (JsonParseException e) {
       logger.info("createFireStationListFromOriginalFile() JsonPArseException",
           e);
@@ -173,7 +173,7 @@ public class CreateWorkingFileService {
   public void createWorkingFileWithAssociatedProcessedData(String filePath) {
 
     createPersonListAndIDFromOriginalFile(filePath);
-    createFireStationListAndIDFromOriginalFile();
+    createFireStationListAndIDFromOriginalFile(filePath);
     createMedicalRecordListAndIDFromOriginalList(filePath);
     createHomeListFromPersonList();
     associateMedicalRecordIdWithRightPerson();
