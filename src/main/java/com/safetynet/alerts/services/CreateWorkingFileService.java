@@ -123,9 +123,9 @@ public class CreateWorkingFileService {
   }
 
 
-  public MedicalRecordList createMedicalRecordListAndIDFromOriginalList() {
+  public MedicalRecordList createMedicalRecordListAndIDFromOriginalList(String pathToData) {
     try {
-      medicalRecordList = imedicalRecordDao.getMedicalRecordListDao();
+      medicalRecordList = imedicalRecordDao.getMedicalRecordListDao(pathToData);
     } catch (JsonParseException e) {
       logger.info(
           "createMedicalRecordListFromOriginalList() JsonParseException", e);
@@ -174,7 +174,7 @@ public class CreateWorkingFileService {
 
     createPersonListAndIDFromOriginalFile(filePath);
     createFireStationListAndIDFromOriginalFile();
-    createMedicalRecordListAndIDFromOriginalList();
+    createMedicalRecordListAndIDFromOriginalList(filePath);
     createHomeListFromPersonList();
     associateMedicalRecordIdWithRightPerson();
     associateFirestationWithRightHome();

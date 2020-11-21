@@ -2,32 +2,32 @@ package com.safetynet.alerts.dao;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.UUID;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.safetynet.alerts.interfaces.IFireStationDao;
 import com.safetynet.alerts.interfaces.IMedicalRecordDao;
 import com.safetynet.alerts.interfaces.IPersonDao;
+import com.safetynet.alerts.model.FireStation;
+import com.safetynet.alerts.model.FireStationList;
 import com.safetynet.alerts.model.MedicalRecord;
+import com.safetynet.alerts.model.MedicalRecordList;
 import com.safetynet.alerts.model.Person;
+import com.safetynet.alerts.model.PersonAndMedical;
 import com.safetynet.alerts.model.PersonList;
-import com.safetynet.alerts.utils.OriginalInputFile;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
 @Repository
@@ -73,8 +73,45 @@ public class PersonDaoImpl implements IPersonDao {
   }
 
   @Override
-  public PersonList personsCoveredByAFirestationDao(int pFireStationNumber) {
-    // TODO Auto-generated method stub
+  public PersonList personsCoveredByAFirestationDao(ArrayList<Integer> pFireStationNumber) {
+    ArrayList<Integer> fireStations = pFireStationNumber;
+    String filePath = WorkingFileOuput.getWorkingInputFile();
+    IFireStationDao  firestationList = new FireStationDaoImpl();
+    
+
+    FireStationList list = new FireStationList();
+    try {
+      list = firestationList.getFireStationListDao();
+    } catch (JsonParseException e) {
+      logger.info("JsonParseException getting person for coverage for file: "
+                  + filePath
+                  + " ",
+          e);
+    } catch (JsonMappingException e) {
+      logger.info("JsonMappingException getting person for coverage for file: "
+                  + filePath
+                  + " ",
+          e);
+    } catch (IOException e) {
+      logger.info("IOException getting person for coverage for file: "
+                  + filePath
+                  + " ",
+          e);
+    }
+    /*
+     * Get concerned firestation Id from given station number list from controller
+     */
+    ArrayList<UUID> firestationIdList = new ArrayList<UUID>();
+    for (int stationNumber : pFireStationNumber) {
+      for (FireStation fireStation : list.fireStation) {
+        if(fireStation.getStation()== stationNumber) {
+          firestationIdList.add(fireStation.getId());
+        }
+      }    
+    }
+    
+    
+    
     return null;
   }
 
@@ -106,7 +143,8 @@ public class PersonDaoImpl implements IPersonDao {
   }
 
   @Override
-  public ArrayList<Person> detailledPersonInfoDao(String pfirstName, String plastName) {
+  public ArrayList<PersonAndMedical> detailledPersonInfoDao(String pfirstName,
+      String plastName) {
     String filePath = WorkingFileOuput.getWorkingInputFile();
 
     PersonList list = new PersonList();
@@ -130,24 +168,50 @@ public class PersonDaoImpl implements IPersonDao {
     }
     ArrayList<Person> processedPersonList = new ArrayList<Person>();
     for (Person person : list.person) {
-      if (person.getLastName().equalsIgnoreCase(plastName)&&person.getFirstName().equalsIgnoreCase(pfirstName) ) {
-       processedPersonList.add(person);
+      if (person.getLastName().equalsIgnoreCase(plastName)
+          && person.getFirstName().equalsIgnoreCase(pfirstName)) {
+        processedPersonList.add(person);
       }
     }
-    ArrayList<MedicalRecord> processedMedicalRecordList = new ArrayList<MedicalRecord>();
-    IMedicalRecordDao medicalList = new MedicalRecordDaoImpl();
-    
+    IMedicalRecordDao medicalRecordList = new MedicalRecordDaoImpl();
+    MedicalRecordList processedMedicalRecordList = new MedicalRecordList();
+    try {
+      processedMedicalRecordList = medicalRecordList
+          .getMedicalRecordListDao(WorkingFileOuput.getWorkingInputFile());
+    } catch (JsonParseException e) {
+      logger.info("JsonParseException getting Medical Record for file: "
+                  + filePath
+                  + " ",
+          e);
+    } catch (JsonMappingException e) {
+      logger.info("JsonMappingException getting Medical Record for file: "
+                  + filePath
+                  + " ",
+          e);
+    } catch (IOException e) {
+      logger.info("IOException getting Medical Record for file: "
+                  + filePath
+                  + " ",
+          e);
+    }
+
+    ArrayList<PersonAndMedical> result = new ArrayList<PersonAndMedical>();
     for (Person person : processedPersonList) {
       UUID personId = person.getIdMedicalRecord();
-      for (MedicalRecord medicalRecord : processedMedicalRecordList) {
+      for (MedicalRecord medicalRecord : processedMedicalRecordList.medicalRecord) {
         if (medicalRecord.getId().equals(personId)) {
-          processedMedicalRecordList.add(medicalRecord);
+          PersonAndMedical persons = new PersonAndMedical();
+          persons.setMedicalRecord(medicalRecord);
+          persons.setPerson(person);
+          person.setAge(
+              Period.between(medicalRecord.getBirthdate(), LocalDate.now())
+                  .getYears());
+          result.add(persons);
         }
       }
     }
-    
-    
-    return processedPersonList + processedMedicalRecordList;
+
+    return result;
   }
 
   @Override

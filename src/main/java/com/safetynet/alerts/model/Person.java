@@ -26,7 +26,6 @@ public class Person {
   private String zip;
   private UUID idHome;
   private UUID idMedicalRecord;
-  private String medicalRecord;
   private int age;
   
   

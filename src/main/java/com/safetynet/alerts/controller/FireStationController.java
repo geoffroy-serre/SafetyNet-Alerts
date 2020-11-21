@@ -85,9 +85,9 @@ public class FireStationController {
       return fireStationService.deleteFireStationAdressMappingService();
     }
   
-    @GetMapping("/firestation?stationNumber={pvFireStationNumber}")
-    public PersonList personsCoveredByAFirestationController( @PathVariable("pvFireStationNumber") int pFireStationNumber) {
-      return personService.personsCoveredByAFirestationService(pFireStationNumber) ;
+    @GetMapping("/firestation")
+    public PersonList personsCoveredByAFirestationController( @RequestAttribute ArrayList fireStationNumber) {
+      return personService.personsCoveredByAFirestationService(fireStationNumber) ;
     }
     
    

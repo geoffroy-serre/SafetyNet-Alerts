@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.interfaces.IPersonDao;
 import com.safetynet.alerts.model.Person;
+import com.safetynet.alerts.model.PersonAndMedical;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
@@ -39,9 +41,9 @@ public class PersonService {
    
     return personDao.deleteAPersonDao();
   }
-  public PersonList personsCoveredByAFirestationService(int pFireStationNumber) {
+  public PersonList personsCoveredByAFirestationService(ArrayList<Integer> fireStationNumber) {
     // TODO Auto-generated method stub
-    return personDao.personsCoveredByAFirestationDao(pFireStationNumber);
+    return personDao.personsCoveredByAFirestationDao(fireStationNumber);
   }
   public PersonList childListForAnAdressService(String pAdress) {
     // TODO Auto-generated method stub
@@ -62,7 +64,7 @@ public class PersonService {
     // TODO Auto-generated method stub
     return personDao.floodPersonListCompleteDao(pListFireStationNumber);
   }
-  public ArrayList<Person> detailledPersonInfoService(String pfirstName, String plastName) {
+  public ArrayList<PersonAndMedical> detailledPersonInfoService(String pfirstName, String plastName) {
     // TODO Auto-generated method stub
     return personDao.detailledPersonInfoDao(pfirstName, plastName);
   }

@@ -10,7 +10,7 @@ import com.safetynet.alerts.model.MedicalRecordList;
 
 public interface IMedicalRecordDao {
   
-  public MedicalRecordList getMedicalRecordListDao() throws JsonParseException, JsonMappingException, IOException;
+  public MedicalRecordList getMedicalRecordListDao(String pathToData) throws JsonParseException, JsonMappingException, IOException;
 
   public MedicalRecord postNewMedicalRecordDao();
 

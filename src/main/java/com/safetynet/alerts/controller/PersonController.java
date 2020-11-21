@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.Person;
+import com.safetynet.alerts.model.PersonAndMedical;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.services.CreateWorkingFileService;
 import com.safetynet.alerts.services.PersonService;
@@ -100,7 +102,7 @@ public class PersonController {
   }
   
   @GetMapping("/personInfo")
-  public ArrayList<Person> detailledPersonInfoController( @RequestParam String firstName, @RequestParam String lastName ) {
+  public ArrayList<PersonAndMedical> detailledPersonInfoController( @RequestParam String firstName, @RequestParam String lastName ) {
     return personService.detailledPersonInfoService(firstName, lastName) ;
   }
   

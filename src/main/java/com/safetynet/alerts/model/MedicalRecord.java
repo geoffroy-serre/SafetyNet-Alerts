@@ -53,7 +53,7 @@ public class MedicalRecord {
   public void setAllergies(ArrayList<String> pAllergies) {
     this.allergies = pAllergies;
   }
-  public ArrayList<String> getMedication() {
+  public ArrayList<String> getMedications() {
     return medications;
   }
   public void setMedications(ArrayList<String> pMedications) {

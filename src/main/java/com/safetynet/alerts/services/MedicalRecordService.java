@@ -18,9 +18,9 @@ public class MedicalRecordService {
   @Autowired
   private IMedicalRecordDao medicalRecordDao;
   
-  public MedicalRecordList getMedicalRecordsListService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
+  public MedicalRecordList getMedicalRecordsListService(String pathToData) throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
-    return medicalRecordDao.getMedicalRecordListDao();
+    return medicalRecordDao.getMedicalRecordListDao(pathToData);
   }
 
   

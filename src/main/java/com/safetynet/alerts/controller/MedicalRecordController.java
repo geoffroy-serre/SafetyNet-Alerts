@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.MedicalRecord;
 import com.safetynet.alerts.model.MedicalRecordList;
 import com.safetynet.alerts.services.MedicalRecordService;
+import com.safetynet.alerts.utils.WorkingFileOuput;
 
 @RestController
 public class MedicalRecordController {
@@ -30,7 +31,7 @@ public class MedicalRecordController {
   public MedicalRecordList getMedicalRecordController(){
     
     try {
-      return medicalRecordService.getMedicalRecordsListService();
+      return medicalRecordService.getMedicalRecordsListService(WorkingFileOuput.getWorkingInputFile());
     } catch (JsonParseException e) {
       logger.info("Parse Error MedicalRecord ",e);
     } catch (JsonMappingException e) {
