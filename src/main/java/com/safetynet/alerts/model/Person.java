@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Component
@@ -17,6 +18,7 @@ public class Person {
   private String lastName;
   @JsonProperty("phone")
   private String cellNumber;
+  @JsonFormat(pattern = "MM/dd/yyyy", shape = JsonFormat.Shape.STRING)
   private LocalDate birthdate;
   private String email;
   private String address;
@@ -24,6 +26,7 @@ public class Person {
   private String zip;
   private UUID idHome;
   private UUID idMedicalRecord;
+  private String medicalRecord;
   private int age;
   
   

@@ -3,6 +3,7 @@ package com.safetynet.alerts.services;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.interfaces.IPersonDao;
 import com.safetynet.alerts.model.Person;
 import com.safetynet.alerts.model.PersonList;
+import com.safetynet.alerts.utils.WorkingFileOuput;
 
 @Service
 public class PersonService {
@@ -21,81 +23,52 @@ public class PersonService {
   private IPersonDao personDao;
 
   
-  public PersonList getpersonsService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
+  public PersonList getpersonsService(String filePathData) throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
-    return personDao.getPersonListDao();
+    return personDao.getPersonListDao(filePathData);
   }
-
-
-
   public Person postNewPersonService() {
     
     return personDao.postNewPersonDao();
   }
-
-
-
   public Person updateAPersonService() {
     
     return personDao.updateAPersonDao();
   }
-
-
   public Person deleteAPersonService() {
    
     return personDao.deleteAPersonDao();
   }
-
-
-
-  
   public PersonList personsCoveredByAFirestationService(int pFireStationNumber) {
     // TODO Auto-generated method stub
     return personDao.personsCoveredByAFirestationDao(pFireStationNumber);
   }
-
-
-
   public PersonList childListForAnAdressService(String pAdress) {
     // TODO Auto-generated method stub
     return personDao.childListForAnAdressDao(pAdress);
   }
-
-
-
   public ArrayList<String> phoneListOfResidentForAGivenFireStationService(
       int pFireStationNumber) {
     // TODO Auto-generated method stub
     return personDao.phoneListOfResidentForAGivenFireStationDao(pFireStationNumber);
   }
-
-
-
   public PersonList personListWithCompleteInfoCoveredByFireStationService(
       String pAdress) {
     // TODO Auto-generated method stub
     return personDao.personListWithCompleteInfoCoveredByFireStationDao(pAdress);
   }
-
-
-
   public PersonList floodPersonListCompleteService(
       ArrayList<Integer> pListFireStationNumber) {
     // TODO Auto-generated method stub
     return personDao.floodPersonListCompleteDao(pListFireStationNumber);
   }
-
-
-
-  public Person detailledPersonInfoService(String pfirstName, String plastName) {
+  public ArrayList<Person> detailledPersonInfoService(String pfirstName, String plastName) {
     // TODO Auto-generated method stub
     return personDao.detailledPersonInfoDao(pfirstName, plastName);
   }
-
-
-
-  public ArrayList<String> getAllEmailForACityService(String pCity) {
-    // TODO Auto-generated method stub
+  public HashSet<String> getAllEmailForACityService(String pCity) {
+    
+    
     return personDao.getAllEmailForACityDao(pCity);
   }
 

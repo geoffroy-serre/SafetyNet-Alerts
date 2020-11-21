@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.safetynet.alerts.services.CreateWorkingFileService;
+import com.safetynet.alerts.utils.OriginalInputFile;
 
 @RestController
 public class CreateWorkingFileController {
@@ -16,6 +17,6 @@ public class CreateWorkingFileController {
   @GetMapping("/popopupu")
   public void testPOpo() {
      
-   cw.createWorkingFileWithAssociatedProcessedData();
+   cw.createWorkingFileWithAssociatedProcessedData(OriginalInputFile.getOriginalInputFile());
   }
 }

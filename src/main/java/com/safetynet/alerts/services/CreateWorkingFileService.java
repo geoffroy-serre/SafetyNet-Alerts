@@ -22,6 +22,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.safetynet.alerts.interfaces.IFireStationDao;
 import com.safetynet.alerts.interfaces.IMedicalRecordDao;
 import com.safetynet.alerts.interfaces.IPersonDao;
@@ -56,9 +58,9 @@ public class CreateWorkingFileService {
 
   private static final Logger logger = LogManager.getLogger("App");
 
-  public void createPersonListAndIDFromOriginalFile() {
+  public PersonList createPersonListAndIDFromOriginalFile(String filePath) {
     try {
-      personList = ipersonDao.getPersonListDao();
+      personList = ipersonDao.getPersonListDao(filePath);
       logger.info("list getted");
     } catch (JsonParseException e) {
       logger.info("createPersonListFromOriginalFile() JsonParseException", e);
@@ -67,18 +69,20 @@ public class CreateWorkingFileService {
     } catch (IOException e) {
       logger.info("createPersonListFromOriginalFile() IOException", e);
     }
-    logger.info("for begin");
+    
     for (Person person : personList.person) {
       person.setId(UUID.randomUUID());
     }
-    logger.info("for end");
+    
+    
+    return personList;
 
   }
 
   public void createFireStationListAndIDFromOriginalFile() {
-    Set<FireStation> fireStationSet = new HashSet<>();
+    
     try {
-      FireStationList tempFireStationList = iFirestationDao.getFireStationListDao();
+      fireStationList = iFirestationDao.getFireStationListDao();
     } catch (JsonParseException e) {
       logger.info("createFireStationListFromOriginalFile() JsonPArseException",
           e);
@@ -89,13 +93,15 @@ public class CreateWorkingFileService {
       logger.info("createFireStationListFromOriginalFile() IOException", e);
     }
     for (FireStation fireStation : fireStationList.fireStation) {
-      FireStation firestationWorking = new FireStation();
-      firestationWorking.setId(UUID.randomUUID());
-      fireStationSet.add(firestationWorking);
+      fireStation.setId(UUID.randomUUID());
     }
 
   }
 
+  public void createAdressListOfFireStation() {
+    
+    
+  }
   public void createHomeListFromPersonList() {
 
     Set<Home> homeSet = new HashSet<>();
@@ -164,9 +170,9 @@ public class CreateWorkingFileService {
     }
   }
 
-  public void createWorkingFileWithAssociatedProcessedData() {
+  public void createWorkingFileWithAssociatedProcessedData(String filePath) {
 
-    createPersonListAndIDFromOriginalFile();
+    createPersonListAndIDFromOriginalFile(filePath);
     createFireStationListAndIDFromOriginalFile();
     createMedicalRecordListAndIDFromOriginalList();
     createHomeListFromPersonList();
@@ -178,7 +184,11 @@ public class CreateWorkingFileService {
         false);
     objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES,
         true);
+    //objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+    objectMapper.registerModule(new JavaTimeModule());
+    
     File file = new File(WorkingFileOuput.getWorkingInputFile());
+    
 
     HashMap<String, ArrayList<?>> list = new HashMap<String, ArrayList<?>>();
 
@@ -201,5 +211,5 @@ public class CreateWorkingFileService {
       e.printStackTrace();
     }
   }
-  // TODO
+  
 }

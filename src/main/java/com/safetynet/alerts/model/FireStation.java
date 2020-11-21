@@ -12,7 +12,6 @@ public class FireStation {
   private int station;
   private UUID home;
   private String address;
-  private ArrayList<String> addressFireStationList;
   
   public UUID getId() {
     return id;
@@ -33,12 +32,8 @@ public class FireStation {
     this.home = pHome;
   }
  
-  public ArrayList<String> getAddressFireStationList() {
-    return addressFireStationList;
-  }
-  public void setAddressFireStationList(ArrayList<String> addressFireStationList) {
-    this.addressFireStationList = addressFireStationList;
-  }
+  
+ 
   public String getAddress() {
     return address;
   }

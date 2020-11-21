@@ -3,6 +3,7 @@ package com.safetynet.alerts.controller;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -29,21 +32,17 @@ public class PersonController {
   private static final Logger logger = LogManager.getLogger("App");
     @Autowired
     PersonService personService;
-    
-    
-    
-
-    
+ 
     
  /**
   * Get all persons Info    
   * @return PersonList
   */
-    @GetMapping("/personInfo")
+    @GetMapping("/allPersonInfo")
    public PersonList getPersonInfoController(){
       
         try {
-          return personService.getpersonsService();
+          return personService.getpersonsService(WorkingFileOuput.getWorkingInputFile());
         } catch (JsonParseException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
@@ -100,14 +99,14 @@ public class PersonController {
     return personService.floodPersonListCompleteService(pListFireStationNumber) ;
   }
   
-  @GetMapping("/personInfo?firstName={pvfirstName}&lastName={pvlastName}")
-  public Person detailledPersonInfoController( @PathVariable("pvfirstName") String pfirstName, @PathVariable("pvlastName") String plastName ) {
-    return personService.detailledPersonInfoService(pfirstName, plastName) ;
+  @GetMapping("/personInfo")
+  public ArrayList<Person> detailledPersonInfoController( @RequestParam String firstName, @RequestParam String lastName ) {
+    return personService.detailledPersonInfoService(firstName, lastName) ;
   }
   
-  @GetMapping("/communityEmail.city={pvCity}")
-  public ArrayList<String> getAllEmailForACityController( @PathVariable("pvCity") String pCity ) {
-    return personService.getAllEmailForACityService(pCity) ;
+  @GetMapping("/communityEmail")
+  public HashSet<String> getAllEmailForACityController( @RequestParam String city ) {
+    return personService.getAllEmailForACityService(city) ;
   }
   
 

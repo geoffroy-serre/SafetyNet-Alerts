@@ -2,6 +2,7 @@ package com.safetynet.alerts.interfaces;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -10,7 +11,7 @@ import com.safetynet.alerts.model.PersonList;
 
 public interface IPersonDao {
   
-  public PersonList getPersonListDao() throws JsonParseException, JsonMappingException, IOException;
+  public PersonList getPersonListDao(String filePathData) throws JsonParseException, JsonMappingException, IOException;
 
   public Person postNewPersonDao();
 
@@ -31,8 +32,8 @@ public interface IPersonDao {
   public PersonList floodPersonListCompleteDao(
       ArrayList<Integer> pListFireStationNumber);
 
-  public Person detailledPersonInfoDao(String pfirstName, String plastName);
+  public ArrayList<Person> detailledPersonInfoDao(String pfirstName, String plastName);
 
-  public ArrayList<String> getAllEmailForACityDao(String pCity);
+  public HashSet<String> getAllEmailForACityDao(String pCity);
   
 }
