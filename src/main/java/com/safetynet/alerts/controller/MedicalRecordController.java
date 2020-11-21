@@ -21,12 +21,24 @@ import com.safetynet.alerts.model.MedicalRecordList;
 import com.safetynet.alerts.services.MedicalRecordService;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
+/**
+ * The Class MedicalRecordController.
+ */
 @RestController
 public class MedicalRecordController {
+  
+  /** The medical record service. */
   @Autowired
   MedicalRecordService medicalRecordService;
+  
+  /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
   
+  /**
+   * Gets the medical record controller.
+   *
+   * @return the medical record controller
+   */
   @GetMapping("/medicalRecordInfo")
   public MedicalRecordList getMedicalRecordController(){
     
@@ -46,16 +58,31 @@ public class MedicalRecordController {
   }
 
   
+  /**
+   * Post new medical record controller.
+   *
+   * @return the medical record
+   */
   @PostMapping("/medicalRecord")
   public MedicalRecord postNewMedicalRecordController() {
    return medicalRecordService.postNewMedicalRecordService();   
   }
   
+  /**
+   * Update medical record controller.
+   *
+   * @return the medical record
+   */
   @PutMapping("/medicalRecord")
   public MedicalRecord updateMedicalRecordController() {
    return medicalRecordService.updateMedicalRecordService();   
   }
   
+  /**
+   * Delete medical record controller.
+   *
+   * @return the medical record
+   */
   @DeleteMapping("/medicalRecord")
   public MedicalRecord deleteMedicalRecordController() {
    return medicalRecordService.deleteMedicalRecordService();   

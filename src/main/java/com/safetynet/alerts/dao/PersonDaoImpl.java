@@ -31,10 +31,26 @@ import com.safetynet.alerts.model.PersonAndMedical;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PersonDaoImpl.
+ */
 @Repository
 public class PersonDaoImpl implements IPersonDao {
+  
+  /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
 
+  
+  /**
+   * Gets the person list dao.
+   *
+   * @param filePathData the file path data
+   * @return the person list dao
+   * @throws JsonParseException the json parse exception
+   * @throws JsonMappingException the json mapping exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
   public PersonList getPersonListDao(String filePathData)
@@ -45,7 +61,6 @@ public class PersonDaoImpl implements IPersonDao {
     objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES,
         true);
     objectMapper.registerModule(new JavaTimeModule());
-    // objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
     PersonList personsList = objectMapper.readValue(new File(filePathData),
         PersonList.class);
@@ -55,24 +70,48 @@ public class PersonDaoImpl implements IPersonDao {
     return personsList;
   }
 
+  /**
+   * Post new person dao.
+   *
+   * @return the person
+   */
   @Override
   public Person postNewPersonDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
+  /**
+   * Update A person dao.
+   *
+   * @return the person
+   */
   @Override
   public Person updateAPersonDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
+  /**
+   * Delete A person dao.
+   *
+   * @return the person
+   */
   @Override
   public Person deleteAPersonDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
+  /**
+   * Persons covered by A firestation dao.
+   *
+   * @param pFireStationNumber the fire station number
+   * @return the array list
+   * @throws JsonParseException the json parse exception
+   * @throws JsonMappingException the json mapping exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   @Override
   public ArrayList<PersonAndMedical> personsCoveredByAFirestationDao(
       ArrayList<Integer> pFireStationNumber) throws JsonParseException, JsonMappingException, IOException {
@@ -139,12 +178,24 @@ public class PersonDaoImpl implements IPersonDao {
     return resultList;
   }
 
+  /**
+   * Child list for an adress dao.
+   *
+   * @param pAdress the adress
+   * @return the person list
+   */
   @Override
   public PersonList childListForAnAdressDao(String pAdress) {
     // TODO Auto-generated method stub
     return null;
   }
 
+  /**
+   * Phone list of resident for A given fire station dao.
+   *
+   * @param pFireStationNumber the fire station number
+   * @return the array list
+   */
   @Override
   public ArrayList<String> phoneListOfResidentForAGivenFireStationDao(
       int pFireStationNumber) {
@@ -152,6 +203,12 @@ public class PersonDaoImpl implements IPersonDao {
     return null;
   }
 
+  /**
+   * Person list with complete info covered by fire station dao.
+   *
+   * @param pAdress the adress
+   * @return the person list
+   */
   @Override
   public PersonList personListWithCompleteInfoCoveredByFireStationDao(
       String pAdress) {
@@ -159,6 +216,12 @@ public class PersonDaoImpl implements IPersonDao {
     return null;
   }
 
+  /**
+   * Flood person list complete dao.
+   *
+   * @param pListFireStationNumber the list fire station number
+   * @return the person list
+   */
   @Override
   public PersonList floodPersonListCompleteDao(
       ArrayList<Integer> pListFireStationNumber) {
@@ -166,6 +229,13 @@ public class PersonDaoImpl implements IPersonDao {
     return null;
   }
 
+  /**
+   * Detailled person info dao.
+   *
+   * @param pfirstName the pfirst name
+   * @param plastName the plast name
+   * @return the array list
+   */
   @Override
   public ArrayList<PersonAndMedical> detailledPersonInfoDao(String pfirstName,
       String plastName) {
@@ -239,6 +309,12 @@ public class PersonDaoImpl implements IPersonDao {
     return result;
   }
 
+  /**
+   * Gets the all email for A city dao.
+   *
+   * @param pCity the city
+   * @return the all email for A city dao
+   */
   @Override
   public HashSet<String> getAllEmailForACityDao(String pCity) {
     String filePath = WorkingFileOuput.getWorkingInputFile();

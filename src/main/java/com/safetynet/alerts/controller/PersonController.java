@@ -28,18 +28,27 @@ import com.safetynet.alerts.services.CreateWorkingFileService;
 import com.safetynet.alerts.services.PersonService;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
+
+/**
+ * The Class PersonController.
+ */
 @RestController
 public class PersonController {
 
+  /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
+    
+    /** The person service. */
     @Autowired
     PersonService personService;
  
     
- /**
-  * Get all persons Info    
-  * @return PersonList
-  */
+ 
+    /**
+     * Gets the person info controller.
+     *
+     * @return the person info controller
+     */
     @GetMapping("/allPersonInfo")
    public PersonList getPersonInfoController(){
       
@@ -66,46 +75,98 @@ public class PersonController {
       return null;
     }
   
+  /**
+   * Post new person controller.
+   *
+   * @return the person
+   */
   @PostMapping("/person")
   public Person postNewPersonController() {
     return personService.postNewPersonService();
   }
   
+  /**
+   * Update A person controller.
+   *
+   * @return the person
+   */
   @PutMapping("/person")
   public Person updateAPersonController() {
     return personService.updateAPersonService();
   }
   
+  /**
+   * Delete A person controller.
+   *
+   * @return the person
+   */
   @DeleteMapping("/person")
   public Person deleteAPersonController() {
     return personService.deleteAPersonService();
   }
 
+  /**
+   * Child list for an adress controller.
+   *
+   * @param pAdress the adress
+   * @return the person list
+   */
   @GetMapping("/childAlert?adress={pvAdress}")
   public PersonList childListForAnAdressController(@PathVariable("pvAdress") String pAdress) {
     return personService.childListForAnAdressService(pAdress);
   }
   
+  /**
+   * Phone list of resident for A given fire station controller.
+   *
+   * @param pFireStationNumber the fire station number
+   * @return the array list
+   */
   @GetMapping("/phoneAlert?firestation={pvFireStationNumber}")
   public ArrayList<String> phoneListOfResidentForAGivenFireStationController(@PathVariable("pvFireStationNumber") int pFireStationNumber) {
     return personService.phoneListOfResidentForAGivenFireStationService(pFireStationNumber);
   }
   
+  /**
+   * Person list with complete info covered by fire station controller.
+   *
+   * @param pAdress the adress
+   * @return the person list
+   */
   @GetMapping("/fire?adress={pvAdress}")
   public PersonList personListWithCompleteInfoCoveredByFireStationController(@PathVariable("pvAdress") String pAdress) {
     return personService.personListWithCompleteInfoCoveredByFireStationService(pAdress);
   }
 
+  /**
+   * Flood person list complete controller.
+   *
+   * @param pListFireStationNumber the list fire station number
+   * @return the person list
+   */
   @GetMapping("/flood/stations?stations={pvListOfStationNumber}")
   public PersonList floodPersonListCompleteController( @PathVariable("pvListOfStationNumber") ArrayList<Integer> pListFireStationNumber) {
     return personService.floodPersonListCompleteService(pListFireStationNumber) ;
   }
   
+  /**
+   * Detailled person info controller.
+   *
+   * @param firstName the first name
+   * @param lastName the last name
+   * @return the array list
+   */
   @GetMapping("/personInfo")
   public ArrayList<PersonAndMedical> detailledPersonInfoController( @RequestParam String firstName, @RequestParam String lastName ) {
     return personService.detailledPersonInfoService(firstName, lastName) ;
   }
   
+  /**
+   * Gets the all email for A city controller.
+   *
+   * @param city the city
+   * @return the all email for A city controller
+   */
   @GetMapping("/communityEmail")
   public HashSet<String> getAllEmailForACityController( @RequestParam String city ) {
     return personService.getAllEmailForACityService(city) ;

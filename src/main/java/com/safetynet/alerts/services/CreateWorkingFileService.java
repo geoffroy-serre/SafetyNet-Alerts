@@ -37,27 +37,51 @@ import com.safetynet.alerts.model.Person;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
+
+/**
+ * The Class CreateWorkingFileService.
+ */
 @Service
 public class CreateWorkingFileService {
 
+  /** The person list. */
   @Autowired
   PersonList personList;
+  
+  /** The fire station list. */
   @Autowired
   FireStationList fireStationList;
+  
+  /** The home list. */
   @Autowired
   HomeList homeList;
+  
+  /** The medical record list. */
   @Autowired
   MedicalRecordList medicalRecordList;
+  
+  /** The iperson dao. */
   @Autowired
   IPersonDao ipersonDao;
+  
+  /** The i firestation dao. */
   @Autowired
   IFireStationDao iFirestationDao;
+  
+  /** The imedical record dao. */
   @Autowired
   IMedicalRecordDao imedicalRecordDao;
   
 
+  /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
 
+  /**
+   * Creates the person list and ID from original file.
+   *
+   * @param filePath the file path
+   * @return the person list
+   */
   public PersonList createPersonListAndIDFromOriginalFile(String filePath) {
     try {
       personList = ipersonDao.getPersonListDao(filePath);
@@ -79,6 +103,11 @@ public class CreateWorkingFileService {
 
   }
 
+  /**
+   * Creates the fire station list and ID from original file.
+   *
+   * @param filePath the file path
+   */
   public void createFireStationListAndIDFromOriginalFile(String filePath) {
     
     try {
@@ -98,10 +127,17 @@ public class CreateWorkingFileService {
 
   }
 
+  /**
+   * Creates the adress list of fire station.
+   */
   public void createAdressListOfFireStation() {
     
     
   }
+  
+  /**
+   * Creates the home list from person list.
+   */
   public void createHomeListFromPersonList() {
 
     Set<Home> homeSet = new HashSet<>();
@@ -123,6 +159,12 @@ public class CreateWorkingFileService {
   }
 
 
+  /**
+   * Creates the medical record list and ID from original list.
+   *
+   * @param pathToData the path to data
+   * @return the medical record list
+   */
   public MedicalRecordList createMedicalRecordListAndIDFromOriginalList(String pathToData) {
     try {
       medicalRecordList = imedicalRecordDao.getMedicalRecordListDao(pathToData);
@@ -141,6 +183,9 @@ public class CreateWorkingFileService {
     return medicalRecordList;
   }
 
+  /**
+   * Associate medical record id with right person.
+   */
   public void associateMedicalRecordIdWithRightPerson() {
 
     for (Person person : personList.person) {
@@ -159,6 +204,9 @@ public class CreateWorkingFileService {
     }
   }
 
+  /**
+   * Associate firestation with right home.
+   */
   public void associateFirestationWithRightHome() {
     for (FireStation firestation : fireStationList.fireStation) {
       for (Home home : homeList.getHome()) {
@@ -170,6 +218,11 @@ public class CreateWorkingFileService {
     }
   }
 
+  /**
+   * Creates the working file with associated processed data.
+   *
+   * @param filePath the file path
+   */
   public void createWorkingFileWithAssociatedProcessedData(String filePath) {
 
     createPersonListAndIDFromOriginalFile(filePath);

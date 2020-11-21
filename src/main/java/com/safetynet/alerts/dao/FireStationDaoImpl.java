@@ -20,12 +20,25 @@ import com.safetynet.alerts.model.FireStation;
 import com.safetynet.alerts.model.FireStationList;
 import com.safetynet.alerts.utils.OriginalInputFile;
 
+/**
+ * The Class FireStationDaoImpl.
+ */
 @Repository
 public class FireStationDaoImpl implements IFireStationDao{
   
+  /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
 
 
+  /**
+   * Gets the fire station list dao.
+   *
+   * @param filePath the file path
+   * @return the fire station list dao
+   * @throws JsonParseException the json parse exception
+   * @throws JsonMappingException the json mapping exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
   public FireStationList getFireStationListDao(String filePath)
@@ -46,6 +59,11 @@ public class FireStationDaoImpl implements IFireStationDao{
   }
 
 
+  /**
+   * Post fire station mapping dao.
+   *
+   * @return the fire station
+   */
   @Override
   public FireStation postFireStationMappingDao() {
     // TODO Auto-generated method stub
@@ -53,6 +71,11 @@ public class FireStationDaoImpl implements IFireStationDao{
   }
 
 
+  /**
+   * Update fire station number dao.
+   *
+   * @return the fire station
+   */
   @Override
   public FireStation updateFireStationNumberDao() {
     // TODO Auto-generated method stub
@@ -60,6 +83,11 @@ public class FireStationDaoImpl implements IFireStationDao{
   }
 
 
+  /**
+   * Delete fire station mapping dao.
+   *
+   * @return the fire station
+   */
   @Override
   public FireStation deleteFireStationMappingDao() {
     // TODO Auto-generated method stub

@@ -19,11 +19,24 @@ import com.safetynet.alerts.model.MedicalRecord;
 import com.safetynet.alerts.model.MedicalRecordList;
 import com.safetynet.alerts.utils.OriginalInputFile;
 
+/**
+ * The Class MedicalRecordDaoImpl.
+ */
 @Repository
 public class MedicalRecordDaoImpl implements IMedicalRecordDao {
 
+  /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
   
+  /**
+   * Gets the medical record list dao.
+   *
+   * @param pathToData the path to data
+   * @return the medical record list dao
+   * @throws JsonParseException the json parse exception
+   * @throws JsonMappingException the json mapping exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
   public MedicalRecordList getMedicalRecordListDao(String pathToData)
@@ -41,18 +54,33 @@ public class MedicalRecordDaoImpl implements IMedicalRecordDao {
     return medicalRecordList;
   }
 
+  /**
+   * Post new medical record dao.
+   *
+   * @return the medical record
+   */
   @Override
   public MedicalRecord postNewMedicalRecordDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
+  /**
+   * Update medical record dao.
+   *
+   * @return the medical record
+   */
   @Override
   public MedicalRecord updateMedicalRecordDao() {
     // TODO Auto-generated method stub
     return null;
   }
 
+  /**
+   * Delete medical record dao.
+   *
+   * @return the medical record
+   */
   @Override
   public MedicalRecord deleteMedicalRecordDao() {
     // TODO Auto-generated method stub

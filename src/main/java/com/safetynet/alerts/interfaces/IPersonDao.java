@@ -11,31 +11,105 @@ import com.safetynet.alerts.model.Person;
 import com.safetynet.alerts.model.PersonAndMedical;
 import com.safetynet.alerts.model.PersonList;
 
+
+/**
+ * The Interface IPersonDao.
+ */
 public interface IPersonDao {
   
+  /**
+   * Gets the person list dao.
+   *
+   * @param filePathData the file path data
+   * @return the person list dao
+   * @throws JsonParseException the json parse exception
+   * @throws JsonMappingException the json mapping exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   public PersonList getPersonListDao(String filePathData) throws JsonParseException, JsonMappingException, IOException;
 
+  /**
+   * Post new person dao.
+   *
+   * @return the person
+   */
   public Person postNewPersonDao();
 
+  /**
+   * Update A person dao.
+   *
+   * @return the person
+   */
   public Person updateAPersonDao();
 
+  /**
+   * Delete A person dao.
+   *
+   * @return the person
+   */
   public Person deleteAPersonDao();
 
+  /**
+   * Persons covered by A firestation dao.
+   *
+   * @param fireStationNumber the fire station number
+   * @return the array list
+   * @throws JsonParseException the json parse exception
+   * @throws JsonMappingException the json mapping exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   public ArrayList<PersonAndMedical> personsCoveredByAFirestationDao(ArrayList<Integer> fireStationNumber) throws JsonParseException, JsonMappingException, IOException;
 
+  /**
+   * Child list for an adress dao.
+   *
+   * @param pAdress the adress
+   * @return the person list
+   */
   public PersonList childListForAnAdressDao(String pAdress);
 
+  /**
+   * Phone list of resident for A given fire station dao.
+   *
+   * @param pFireStationNumber the fire station number
+   * @return the array list
+   */
   public ArrayList<String> phoneListOfResidentForAGivenFireStationDao(
       int pFireStationNumber);
 
+  /**
+   * Person list with complete info covered by fire station dao.
+   *
+   * @param pAdress the adress
+   * @return the person list
+   */
   public PersonList personListWithCompleteInfoCoveredByFireStationDao(
       String pAdress);
 
+  /**
+   * Flood person list complete dao.
+   *
+   * @param pListFireStationNumber the list fire station number
+   * @return the person list
+   */
   public PersonList floodPersonListCompleteDao(
       ArrayList<Integer> pListFireStationNumber);
 
+  /**
+   * Detailled person info dao.
+   *
+   * @param pfirstName the pfirst name
+   * @param plastName the plast name
+   * @return the array list
+   */
   public ArrayList<PersonAndMedical> detailledPersonInfoDao(String pfirstName, String plastName);
 
+  /**
+   * Gets the all email for A city dao.
+   *
+   * @param pCity the city
+   * @return the all email for A city dao
+   */
   public HashSet<String> getAllEmailForACityDao(String pCity);
   
 }

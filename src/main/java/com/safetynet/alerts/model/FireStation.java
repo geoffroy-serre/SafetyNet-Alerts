@@ -1,6 +1,5 @@
 package com.safetynet.alerts.model;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 import org.springframework.stereotype.Component;

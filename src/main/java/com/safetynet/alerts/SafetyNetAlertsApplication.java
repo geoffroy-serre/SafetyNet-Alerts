@@ -1,14 +1,18 @@
+
 package com.safetynet.alerts;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.safetynet.alerts.services.CreateWorkingFileService;
 
 @SpringBootApplication
 public class SafetyNetAlertsApplication {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(SafetyNetAlertsApplication.class, args);
 		

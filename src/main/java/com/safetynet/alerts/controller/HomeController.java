@@ -13,21 +13,22 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.HomeList;
 import com.safetynet.alerts.services.HomeService;
 
+
 @RestController
 public class HomeController {
 
+  /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
+    
+    /** The home service. */
     @Autowired
     HomeService homeService;
-    
+        
     /**
-     * Get Person Info from personService.
-     * @param firstName
-     * @param lastName
-     * @return ArrayList of Person
+     * Gets the home info controller.
+     *
+     * @return the home info controller
      */
-   
-    
     @GetMapping("/homeInfo")
     public HomeList getHomeInfoController(){
       

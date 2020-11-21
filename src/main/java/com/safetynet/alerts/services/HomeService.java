@@ -11,14 +11,27 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.interfaces.IHomeDao;
 import com.safetynet.alerts.model.HomeList;
 
+/**
+ * The Class HomeService.
+ */
 @Service
 public class HomeService {
   
+  /** The home dto. */
   @Autowired
   private IHomeDao homeDto;
 
 
   
+  /**
+   * Gets the home service.
+   *
+   * @return the home service
+   * @throws JsonParseException the json parse exception
+   * @throws JsonMappingException the json mapping exception
+   * @throws NoSuchFileException the no such file exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   public HomeList getHomeService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
   {
     return homeDto.getHomeListDao();

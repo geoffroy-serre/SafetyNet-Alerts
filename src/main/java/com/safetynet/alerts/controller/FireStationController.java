@@ -28,23 +28,27 @@ import com.safetynet.alerts.services.HomeService;
 import com.safetynet.alerts.services.PersonService;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
+
 @RestController
 public class FireStationController {
 
+  /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
+    
+    /** The fire station service. */
     @Autowired
     FireStationService fireStationService;
+    
+    /** The person service. */
     @Autowired
     PersonService personService;
     
-    /**
-     * Get Person Info from personService.
-     * @param firstName
-     * @param lastName
-     * @return ArrayList of Person
-     */
-   
     
+    /**
+     * Gets the fire station info controller.
+     *
+     * @return the fire station info controller
+     */
     @GetMapping("/fireStationInfo")
     public FireStationList getFireStationInfoController(){
       
@@ -72,22 +76,46 @@ public class FireStationController {
     }
 
     
+    /**
+     * Post fire station adress mapping controller.
+     *
+     * @return the fire station
+     */
     @PostMapping("/firestation")
     public FireStation postFireStationAdressMappingController() {
       return fireStationService.postFireStationAdressMappingService();
       
     }
     
+    /**
+     * Update fire station number controller.
+     *
+     * @return the fire station
+     */
     @PutMapping("/firestation")
     public FireStation updateFireStationNumberController() {
       return fireStationService.updateFireStationNumberService();
     }
     
+    /**
+     * Delete fire station adress mapping controller.
+     *
+     * @return the fire station
+     */
     @DeleteMapping("/firestation")
     public FireStation deleteFireStationAdressMappingController() {
       return fireStationService.deleteFireStationAdressMappingService();
     }
   
+    /**
+     * Persons covered by A firestation controller.
+     *
+     * @param stations the stations
+     * @return the array list
+     * @throws JsonParseException the json parse exception
+     * @throws JsonMappingException the json mapping exception
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     @GetMapping("/flood/stations")
     public ArrayList<PersonAndMedical> personsCoveredByAFirestationController( @RequestParam ArrayList<Integer> stations) throws JsonParseException, JsonMappingException, IOException {
       return personService.personsCoveredByAFirestationService(stations) ;
