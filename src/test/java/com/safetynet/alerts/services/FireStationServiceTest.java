@@ -26,9 +26,9 @@ public class FireStationServiceTest {
     
   @Test
   public void getPersonListServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    fireStationService.getFireStationListService();
+    fireStationService.getFireStationListService("data.json");
 
-    verify(iFireStationDto, times(1)).getFireStationListDao();
+    verify(iFireStationDto, times(1)).getFireStationListDao("data.json");
   }
   
   @Test

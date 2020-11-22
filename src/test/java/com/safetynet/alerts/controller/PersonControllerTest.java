@@ -11,6 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.services.PersonService;
+import com.safetynet.alerts.utils.WorkingFileOuput;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.mockito.Mockito.times;
@@ -30,7 +31,7 @@ public class PersonControllerTest {
   public void getPersonInfoControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
     personController.getPersonInfoController();
-    verify(personService, times(1)).getpersonsService();
+    verify(personService, times(1)).getpersonsService(WorkingFileOuput.getWorkingInputFile());
   }
 
   @Test
@@ -104,7 +105,7 @@ public class PersonControllerTest {
 public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(personService.getpersonsService()).thenThrow(JsonParseException.class);
+    when(personService.getpersonsService("filepath")).thenThrow(JsonParseException.class);
     assertThatCode(() -> personController.getPersonInfoController())
         .doesNotThrowAnyException();
   }
@@ -113,7 +114,7 @@ public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
   public void JsonMappingExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(personService.getpersonsService()).thenThrow(JsonMappingException.class);
+    when(personService.getpersonsService("filepath")).thenThrow(JsonMappingException.class);
     assertThatCode(() -> personController.getPersonInfoController())
         .doesNotThrowAnyException();
   }
@@ -122,7 +123,7 @@ public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
   public void NoSuchFileExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(personService.getpersonsService()).thenThrow(NoSuchFileException.class);
+    when(personService.getpersonsService("filepath")).thenThrow(NoSuchFileException.class);
     assertThatCode(() -> personController.getPersonInfoController())
         .doesNotThrowAnyException();
   }
@@ -131,7 +132,7 @@ public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
   public void IoExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(personService.getpersonsService()).thenThrow(IOException.class);
+    when(personService.getpersonsService("filepath")).thenThrow(IOException.class);
     assertThatCode(() -> personController.getPersonInfoController())
         .doesNotThrowAnyException();
   }

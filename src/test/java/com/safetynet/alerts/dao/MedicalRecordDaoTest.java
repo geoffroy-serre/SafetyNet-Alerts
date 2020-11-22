@@ -20,7 +20,7 @@ public class MedicalRecordDaoTest {
   
   @Test
   public void getMedicalRecordListDaoTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    assertNotNull(medicalRecordDao.getMedicalRecordListDao());
+    assertNotNull(medicalRecordDao.getMedicalRecordListDao("data.json"));
   }
   
  

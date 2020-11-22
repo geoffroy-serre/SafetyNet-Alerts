@@ -37,19 +37,18 @@ import com.safetynet.alerts.utils.WorkingFileOuput;
  */
 @Repository
 public class PersonDaoImpl implements IPersonDao {
-  
+
   /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
 
-  
   /**
    * Gets the person list dao.
    *
    * @param filePathData the file path data
    * @return the person list dao
-   * @throws JsonParseException the json parse exception
+   * @throws JsonParseException   the json parse exception
    * @throws JsonMappingException the json mapping exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws IOException          Signals that an I/O exception has occurred.
    */
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
@@ -108,60 +107,65 @@ public class PersonDaoImpl implements IPersonDao {
    *
    * @param pFireStationNumber the fire station number
    * @return the array list
-   * @throws JsonParseException the json parse exception
+   * @throws JsonParseException   the json parse exception
    * @throws JsonMappingException the json mapping exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws IOException          Signals that an I/O exception has occurred.
    */
   @Override
   public ArrayList<PersonAndMedical> personsCoveredByAFirestationDao(
-      ArrayList<Integer> pFireStationNumber) throws JsonParseException, JsonMappingException, IOException {
+      ArrayList<Integer> pFireStationNumber)
+      throws JsonParseException, JsonMappingException, IOException {
     String filePath = WorkingFileOuput.getWorkingInputFile();
-   
-  
+
     /*
-     * Get Firestation's and addThem to fireStationHomeIdList
-     * only save the firestation with the number given in parameters
+     * Get Firestation's and addThem to fireStationHomeIdList only save the
+     * firestation with the number given in parameters
      */
     ArrayList<FireStation> fireStationHomeIdList = new ArrayList<FireStation>();
     IFireStationDao firestationDao = new FireStationDaoImpl();
-    FireStationList fireStationList = firestationDao.getFireStationListDao(filePath);
-    
+    FireStationList fireStationList = firestationDao
+        .getFireStationListDao(filePath);
+
     for (FireStation fireStation : fireStationList.fireStation) {
       for (int stationNumber : pFireStationNumber) {
-        if(fireStation.getStation()== stationNumber) {
+        if (fireStation.getStation() == stationNumber) {
           fireStationHomeIdList.add(fireStation);
         }
       }
     }
-    
+
     /*
-     * Browsing PersonList with same HomeId from fireStationHomeIdList
-     *  and add them into coveredPersonList
+     * Browsing PersonList with same HomeId from fireStationHomeIdList and add
+     * them into coveredPersonList
+     * 
      */
     IPersonDao personDao = new PersonDaoImpl();
     PersonList personList = personDao.getPersonListDao(filePath);
     ArrayList<Person> coveredPersonList = new ArrayList<Person>();
     for (Person person : personList.person) {
       for (FireStation fireStation : fireStationHomeIdList) {
-        if(person.getIdHome().equals(fireStation.getHome())) {
+        if (person.getIdHome().equals(fireStation.getHome())) {
           coveredPersonList.add(person);
+
         }
       }
     }
-   
-    ArrayList<PersonAndMedical> resultList = new ArrayList<PersonAndMedical>();
-    IMedicalRecordDao medicalRecordDao = new MedicalRecordDaoImpl();
-    MedicalRecordList medicalRecordList = medicalRecordDao.getMedicalRecordListDao(filePath);
+
     /*
      * Get the medicalRecord of persons using coveredPersonList
      */
+    ArrayList<PersonAndMedical> resultList = new ArrayList<PersonAndMedical>();
+    IMedicalRecordDao medicalRecordDao = new MedicalRecordDaoImpl();
+    MedicalRecordList medicalRecordList = medicalRecordDao
+        .getMedicalRecordListDao(filePath);
     for (Person person : coveredPersonList) {
       for (MedicalRecord medicalRecord : medicalRecordList.medicalRecord) {
         /*
-         * Create and populate resultList<PersonAndMedical> with coveredPersonList
-         * and their medical record
+         * Create and populate resultList<PersonAndMedical> with
+         * coveredPersonList and their medical record
+         * 
          */
-        if  (person.getIdMedicalRecord().equals(medicalRecord.getId())) {
+        if (person.getIdMedicalRecord().equals(medicalRecord.getId())) {
           PersonAndMedical persons = new PersonAndMedical();
           persons.setMedicalRecord(medicalRecord);
           persons.setPerson(person);
@@ -169,12 +173,21 @@ public class PersonDaoImpl implements IPersonDao {
         }
       }
     }
-    
-    
-    
-    
-    
-    
+
+    /**
+     * Setting to null infos we dont want to send.
+     */
+    for (PersonAndMedical personAndMedical : resultList) {
+      personAndMedical.getPerson().setId(null);
+      personAndMedical.getPerson().setBirthDate(null);
+      personAndMedical.getPerson().setIdHome(null);
+      personAndMedical.getPerson().setIdHome(null);
+      personAndMedical.getPerson().setCellNumber(null);
+      personAndMedical.getMedicalRecord().setId(null);
+      personAndMedical.getMedicalRecord().setBirthdate(null);
+      personAndMedical.getPerson().setIdMedicalRecord(null);
+    }
+
     return resultList;
   }
 
@@ -233,7 +246,7 @@ public class PersonDaoImpl implements IPersonDao {
    * Detailled person info dao.
    *
    * @param pfirstName the pfirst name
-   * @param plastName the plast name
+   * @param plastName  the plast name
    * @return the array list
    */
   @Override
@@ -245,22 +258,22 @@ public class PersonDaoImpl implements IPersonDao {
     try {
       list = getPersonListDao(filePath);
     } catch (JsonParseException e) {
-      logger.info("JsonParseException getting email for file: "
+      logger.error("JsonParseException getting email for file: "
                   + filePath
                   + " ",
           e);
     } catch (JsonMappingException e) {
-      logger.info("JsonMappingException getting email for file: "
+      logger.error("JsonMappingException getting email for file: "
                   + filePath
                   + " ",
           e);
     } catch (IOException e) {
-      logger.info("IOException getting email for file: "
+      logger.error("IOException getting email for file: "
                   + filePath
                   + " ",
           e);
     }
-    
+
     ArrayList<Person> processedPersonList = new ArrayList<Person>();
     for (Person person : list.person) {
       if (person.getLastName().equalsIgnoreCase(plastName)
@@ -274,17 +287,17 @@ public class PersonDaoImpl implements IPersonDao {
       processedMedicalRecordList = medicalRecordList
           .getMedicalRecordListDao(WorkingFileOuput.getWorkingInputFile());
     } catch (JsonParseException e) {
-      logger.info("JsonParseException getting Medical Record for file: "
+      logger.error("JsonParseException getting Medical Record for file: "
                   + filePath
                   + " ",
           e);
     } catch (JsonMappingException e) {
-      logger.info("JsonMappingException getting Medical Record for file: "
+      logger.error("JsonMappingException getting Medical Record for file: "
                   + filePath
                   + " ",
           e);
     } catch (IOException e) {
-      logger.info("IOException getting Medical Record for file: "
+      logger.error("IOException getting Medical Record for file: "
                   + filePath
                   + " ",
           e);
@@ -304,6 +317,19 @@ public class PersonDaoImpl implements IPersonDao {
           result.add(persons);
         }
       }
+    }
+    /**
+     * Setting to null infos we dont want to send
+     */
+    for (PersonAndMedical personAndMedical : result) {
+      personAndMedical.getPerson().setId(null);
+      personAndMedical.getPerson().setBirthDate(null);
+      personAndMedical.getPerson().setIdHome(null);
+      personAndMedical.getPerson().setIdHome(null);
+      personAndMedical.getPerson().setCellNumber(null);
+      personAndMedical.getMedicalRecord().setId(null);
+      personAndMedical.getMedicalRecord().setBirthdate(null);
+      personAndMedical.getPerson().setIdMedicalRecord(null);
     }
 
     return result;

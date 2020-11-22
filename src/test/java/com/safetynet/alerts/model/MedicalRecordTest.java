@@ -30,7 +30,7 @@ public class MedicalRecordTest {
     medicalRecord.setMedications(medication);
    
     assertEquals(medicalRecord.getAllergies(), allergy);
-    assertEquals(medicalRecord.getMedication(), medication);
+    assertEquals(medicalRecord.getMedications(), medication);
     assertEquals(medicalRecord.getLastName(), "Serre");
     assertEquals(medicalRecord.getFirstName(), "Geff");
     assertEquals(medicalRecord.toString(), "MedicalRecord [id="+id+",firstName=Geff, "

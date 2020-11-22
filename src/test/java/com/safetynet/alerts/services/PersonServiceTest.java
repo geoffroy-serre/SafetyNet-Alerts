@@ -29,9 +29,9 @@ public class PersonServiceTest {
     
   @Test
   public void getPersonListServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    personService.getpersonsService();
+    personService.getpersonsService("data.json");
 
-    verify(iPersonDao, times(1)).getPersonListDao();
+    verify(iPersonDao, times(1)).getPersonListDao("data.json");
   }
 
   @Test
@@ -48,8 +48,8 @@ public class PersonServiceTest {
   }
   
   @Test
-  public void personCoveredByAFireStationServiceTest() {
-    int pFireStationNumber = 1;
+  public void personCoveredByAFireStationServiceTest() throws JsonParseException, JsonMappingException, IOException {
+    ArrayList<Integer> pFireStationNumber = new ArrayList<Integer>();
     personService.personsCoveredByAFirestationService(pFireStationNumber);
     verify(iPersonDao, times(1)).personsCoveredByAFirestationDao(pFireStationNumber);
   }

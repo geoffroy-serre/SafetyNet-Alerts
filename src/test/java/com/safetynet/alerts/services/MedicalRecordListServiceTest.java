@@ -31,9 +31,9 @@ public class MedicalRecordListServiceTest {
   @Test
   public void getMedicalRecordServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
     
-    medicalRecord.getMedicalRecordsListService();
+    medicalRecord.getMedicalRecordsListService("data.json");
 
-    verify(medicalRecordDto, times(1)).getMedicalRecordListDao();
+    verify(medicalRecordDto, times(1)).getMedicalRecordListDao("data.json");
   }
   @Test
   public void postNewMedicalRecordServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {

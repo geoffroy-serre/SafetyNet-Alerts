@@ -22,7 +22,7 @@ public class PersonDaoTest {
   
   @Test
   public void getPersonListServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    assertNotNull(personDto.getPersonListDao());
+    assertNotNull(personDto.getPersonListDao("data.json"));
   }
   
 
