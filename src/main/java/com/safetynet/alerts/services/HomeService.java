@@ -2,6 +2,8 @@ package com.safetynet.alerts.services;
 
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -32,9 +34,9 @@ public class HomeService {
    * @throws NoSuchFileException the no such file exception
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public HomeList getHomeService() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException 
+  public HomeList getHomeService(String filePath) 
   {
-    return homeDto.getHomeListDao();
+    return homeDto.getHomeListDao(filePath);
   }
 
  

@@ -43,7 +43,7 @@ public class FireStationControllerTest {
       JsonMappingException, NoSuchFileException, IOException {
     ArrayList<Integer> pFireStationNumber = new ArrayList<Integer>();
     fireStationController.personsCoveredByAFirestationController(pFireStationNumber);
-    verify(personService, times(1)).personsCoveredByAFirestationService(pFireStationNumber);
+    verify(personService, times(1)).floodPersonsCoveredByAFirestationService(pFireStationNumber);
   }
   
   @Test

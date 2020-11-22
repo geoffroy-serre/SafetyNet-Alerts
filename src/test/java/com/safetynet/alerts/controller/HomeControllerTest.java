@@ -10,6 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.services.HomeService;
+import com.safetynet.alerts.utils.WorkingFileOuput;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.mockito.Mockito.times;
@@ -29,14 +30,14 @@ public class HomeControllerTest {
   public void getHomeControllerTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
     homeController.getHomeInfoController();
-    verify(homeService, times(1)).getHomeService();
+    verify(homeService, times(1)).getHomeService(WorkingFileOuput.getWorkingInputFile());
   }
 
   @Test
   public void JsonPArseExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(homeService.getHomeService()).thenThrow(JsonParseException.class);
+    when(homeService.getHomeService(WorkingFileOuput.getWorkingInputFile())).thenThrow(JsonParseException.class);
     assertThatCode(() -> homeController.getHomeInfoController())
         .doesNotThrowAnyException();
   }
@@ -45,7 +46,7 @@ public class HomeControllerTest {
   public void JsonMappingExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(homeService.getHomeService()).thenThrow(JsonMappingException.class);
+    when(homeService.getHomeService(WorkingFileOuput.getWorkingInputFile())).thenThrow(JsonMappingException.class);
     assertThatCode(() -> homeController.getHomeInfoController())
         .doesNotThrowAnyException();
   }
@@ -54,7 +55,7 @@ public class HomeControllerTest {
   public void NoSuchFileExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(homeService.getHomeService()).thenThrow(NoSuchFileException.class);
+    when(homeService.getHomeService(WorkingFileOuput.getWorkingInputFile())).thenThrow(NoSuchFileException.class);
     assertThatCode(() -> homeController.getHomeInfoController())
         .doesNotThrowAnyException();
   }
@@ -63,7 +64,7 @@ public class HomeControllerTest {
   public void IoExceptionIsCatchedTest() throws JsonParseException,
       JsonMappingException, NoSuchFileException, IOException {
 
-    when(homeService.getHomeService()).thenThrow(IOException.class);
+    when(homeService.getHomeService(WorkingFileOuput.getWorkingInputFile())).thenThrow(IOException.class);
     assertThatCode(() -> homeController.getHomeInfoController())
         .doesNotThrowAnyException();
   }

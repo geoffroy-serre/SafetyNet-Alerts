@@ -56,17 +56,6 @@ public class PersonControllerTest {
   }
   
   @Test
-  public void floodPersonListCompleteControllerTest() {
-    ArrayList<Integer> pListFireStationNumber = new ArrayList<Integer>();
-    pListFireStationNumber.add(1);
-    pListFireStationNumber.add(2);
-    pListFireStationNumber.add(3);
-    
-    personController.floodPersonListCompleteController(pListFireStationNumber);
-    verify(personService, times(1)).floodPersonListCompleteService(pListFireStationNumber);
-  }
-  
-  @Test
   public void getAllEmailForACityControllerTest() {
     String pCity = "Toulouse";
     

@@ -2,6 +2,8 @@ package com.safetynet.alerts.controller;
 
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
+import java.util.ArrayList;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,48 +14,28 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.HomeList;
 import com.safetynet.alerts.services.HomeService;
-
+import com.safetynet.alerts.utils.WorkingFileOuput;
 
 @RestController
 public class HomeController {
 
   /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
-    
-    /** The home service. */
-    @Autowired
-    HomeService homeService;
-        
-    /**
-     * Gets the home info controller.
-     *
-     * @return the home info controller
-     */
-    @GetMapping("/homeInfo")
-    public HomeList getHomeInfoController(){
-      
-        try {
-          return homeService.getHomeService();
-        } catch (JsonParseException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-          logger.info("parse");
-        } catch (JsonMappingException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-          logger.info("mapping");
-        } catch (NoSuchFileException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-          logger.info("tfile");
-        } catch (IOException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-          logger.info("io du cul");
-        }  
-      
-      return null;
-    }
-  
-  
+
+  /** The home service. */
+  @Autowired
+  HomeService homeService;
+
+  /**
+   * Gets the home info controller.
+   *
+   * @return the home info controller
+   */
+  @GetMapping("/homeInfo")
+  public HomeList getHomeInfoController() {
+
+    return homeService.getHomeService(WorkingFileOuput.getWorkingInputFile());
+
+  }
+
 }

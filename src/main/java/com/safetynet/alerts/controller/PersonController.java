@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.Person;
-import com.safetynet.alerts.model.PersonAndMedical;
+import com.safetynet.alerts.model.PersonMedicalFireStationWrapper;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.services.CreateWorkingFileService;
 import com.safetynet.alerts.services.PersonService;
@@ -133,22 +133,12 @@ public class PersonController {
    * @param pAdress the adress
    * @return the person list
    */
-  @GetMapping("/fire?adress={pvAdress}")
-  public PersonList personListWithCompleteInfoCoveredByFireStationController(@PathVariable("pvAdress") String pAdress) {
-    return personService.personListWithCompleteInfoCoveredByFireStationService(pAdress);
+  @GetMapping("/fire")
+  public ArrayList<PersonMedicalFireStationWrapper> personListWithCompleteInfoCoveredByFireStationController(@RequestParam String adress) {
+    return personService.personListWithCompleteInfoCoveredByFireStationService(adress);
   }
 
-  /**
-   * Flood person list complete controller.
-   *
-   * @param pListFireStationNumber the list fire station number
-   * @return the person list
-   */
-  @GetMapping("/flood/stations?stations={pvListOfStationNumber}")
-  public PersonList floodPersonListCompleteController( @PathVariable("pvListOfStationNumber") ArrayList<Integer> pListFireStationNumber) {
-    return personService.floodPersonListCompleteService(pListFireStationNumber) ;
-  }
-  
+ 
   /**
    * Detailled person info controller.
    *
@@ -157,7 +147,7 @@ public class PersonController {
    * @return the array list
    */
   @GetMapping("/personInfo")
-  public ArrayList<PersonAndMedical> detailledPersonInfoController( @RequestParam String firstName, @RequestParam String lastName ) {
+  public ArrayList<PersonMedicalFireStationWrapper> detailledPersonInfoController( @RequestParam String firstName, @RequestParam String lastName ) {
     return personService.detailledPersonInfoService(firstName, lastName) ;
   }
   

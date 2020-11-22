@@ -21,7 +21,7 @@ public interface IFireStationDao {
    * @throws JsonMappingException the json mapping exception
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public FireStationList getFireStationListDao(String filePath) throws JsonParseException, JsonMappingException, IOException;
+  public FireStationList getFireStationListDao(String filePath);
 
   /**
    * Post fire station mapping dao.

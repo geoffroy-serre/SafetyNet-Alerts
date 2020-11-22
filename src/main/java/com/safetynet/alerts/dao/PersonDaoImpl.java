@@ -20,14 +20,17 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.safetynet.alerts.interfaces.IFireStationDao;
+import com.safetynet.alerts.interfaces.IHomeDao;
 import com.safetynet.alerts.interfaces.IMedicalRecordDao;
 import com.safetynet.alerts.interfaces.IPersonDao;
 import com.safetynet.alerts.model.FireStation;
 import com.safetynet.alerts.model.FireStationList;
+import com.safetynet.alerts.model.Home;
+import com.safetynet.alerts.model.HomeList;
 import com.safetynet.alerts.model.MedicalRecord;
 import com.safetynet.alerts.model.MedicalRecordList;
 import com.safetynet.alerts.model.Person;
-import com.safetynet.alerts.model.PersonAndMedical;
+import com.safetynet.alerts.model.PersonMedicalFireStationWrapper;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
@@ -46,14 +49,10 @@ public class PersonDaoImpl implements IPersonDao {
    *
    * @param filePathData the file path data
    * @return the person list dao
-   * @throws JsonParseException   the json parse exception
-   * @throws JsonMappingException the json mapping exception
-   * @throws IOException          Signals that an I/O exception has occurred.
    */
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
-  public PersonList getPersonListDao(String filePathData)
-      throws JsonParseException, JsonMappingException, IOException {
+  public PersonList getPersonListDao(String filePathData) {
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
         false);
@@ -61,8 +60,17 @@ public class PersonDaoImpl implements IPersonDao {
         true);
     objectMapper.registerModule(new JavaTimeModule());
 
-    PersonList personsList = objectMapper.readValue(new File(filePathData),
-        PersonList.class);
+    PersonList personsList = new PersonList();
+    try {
+      personsList = objectMapper.readValue(new File(filePathData),
+          PersonList.class);
+    } catch (JsonParseException e) {
+      logger.error("JsonParseException getting person List", e);
+    } catch (JsonMappingException e) {
+      logger.error("JsonMappingException getting person List", e);
+    } catch (IOException e) {
+      logger.error("IOException getting person List", e);
+    }
 
     logger.info("PersonList retrieval");
 
@@ -112,9 +120,8 @@ public class PersonDaoImpl implements IPersonDao {
    * @throws IOException          Signals that an I/O exception has occurred.
    */
   @Override
-  public ArrayList<PersonAndMedical> personsCoveredByAFirestationDao(
-      ArrayList<Integer> pFireStationNumber)
-      throws JsonParseException, JsonMappingException, IOException {
+  public ArrayList<PersonMedicalFireStationWrapper> floodPersonsCoveredByAFirestationDao(
+      ArrayList<Integer> pFireStationNumber) {
     String filePath = WorkingFileOuput.getWorkingInputFile();
 
     /*
@@ -139,8 +146,8 @@ public class PersonDaoImpl implements IPersonDao {
      * them into coveredPersonList
      * 
      */
-    IPersonDao personDao = new PersonDaoImpl();
-    PersonList personList = personDao.getPersonListDao(filePath);
+
+    PersonList personList = getPersonListDao(filePath);
     ArrayList<Person> coveredPersonList = new ArrayList<Person>();
     for (Person person : personList.person) {
       for (FireStation fireStation : fireStationHomeIdList) {
@@ -154,7 +161,7 @@ public class PersonDaoImpl implements IPersonDao {
     /*
      * Get the medicalRecord of persons using coveredPersonList
      */
-    ArrayList<PersonAndMedical> resultList = new ArrayList<PersonAndMedical>();
+    ArrayList<PersonMedicalFireStationWrapper> resultList = new ArrayList<PersonMedicalFireStationWrapper>();
     IMedicalRecordDao medicalRecordDao = new MedicalRecordDaoImpl();
     MedicalRecordList medicalRecordList = medicalRecordDao
         .getMedicalRecordListDao(filePath);
@@ -166,7 +173,7 @@ public class PersonDaoImpl implements IPersonDao {
          * 
          */
         if (person.getIdMedicalRecord().equals(medicalRecord.getId())) {
-          PersonAndMedical persons = new PersonAndMedical();
+          PersonMedicalFireStationWrapper persons = new PersonMedicalFireStationWrapper();
           persons.setMedicalRecord(medicalRecord);
           persons.setPerson(person);
           resultList.add(persons);
@@ -177,7 +184,7 @@ public class PersonDaoImpl implements IPersonDao {
     /**
      * Setting to null infos we dont want to send.
      */
-    for (PersonAndMedical personAndMedical : resultList) {
+    for (PersonMedicalFireStationWrapper personAndMedical : resultList) {
       personAndMedical.getPerson().setId(null);
       personAndMedical.getPerson().setBirthDate(null);
       personAndMedical.getPerson().setIdHome(null);
@@ -223,23 +230,57 @@ public class PersonDaoImpl implements IPersonDao {
    * @return the person list
    */
   @Override
-  public PersonList personListWithCompleteInfoCoveredByFireStationDao(
+  public ArrayList<PersonMedicalFireStationWrapper> personListWithCompleteInfoCoveredByFireStationDao(
       String pAdress) {
-    // TODO Auto-generated method stub
-    return null;
-  }
+    String filePath = WorkingFileOuput.getWorkingInputFile();
 
-  /**
-   * Flood person list complete dao.
-   *
-   * @param pListFireStationNumber the list fire station number
-   * @return the person list
-   */
-  @Override
-  public PersonList floodPersonListCompleteDao(
-      ArrayList<Integer> pListFireStationNumber) {
-    // TODO Auto-generated method stub
-    return null;
+    /**
+     * Getting Home Id for given Adress
+     */
+    UUID homeID = null;
+    IHomeDao homeDao = new HomeDaoImpl();
+    HomeList homeList = new HomeList();
+    homeList = homeDao.getHomeListDao(filePath);
+    for (Home home : homeList.getHome()) {
+
+      if (home.getAdress().equalsIgnoreCase(pAdress)) {
+        homeID = home.getId();
+      }
+    }
+    /**
+     * Getting Firestation number for given adress
+     */
+    IFireStationDao firestationDao = new FireStationDaoImpl();
+    FireStationList fireStationList = new FireStationList();
+    fireStationList = firestationDao.getFireStationListDao(filePath);
+
+    /**
+     * Getting Person for given adress And their medical Record And
+     * FireStationNumber.
+     */
+    IMedicalRecordDao medicalRecordDao = new MedicalRecordDaoImpl();
+    MedicalRecordList medicalRecordList = medicalRecordDao
+        .getMedicalRecordListDao(filePath);
+    ArrayList<PersonMedicalFireStationWrapper> preResult = new ArrayList<PersonMedicalFireStationWrapper>();
+
+    for (Person person : getPersonListDao(filePath).person) {
+      for (MedicalRecord medicalRecord : medicalRecordList.medicalRecord) {
+        for (FireStation firestation : fireStationList.fireStation) {
+          if (person.getIdHome().equals(homeID)
+              && medicalRecord.getId().equals(person.getId())
+              && firestation.getHome().equals(homeID)) {
+            PersonMedicalFireStationWrapper persons = new PersonMedicalFireStationWrapper();
+            persons.setPerson(person);
+            persons.setFirestation(firestation);
+            persons.setMedicalRecord(medicalRecord);
+            preResult.add(persons);
+          }
+        }
+      }
+    }
+
+    return preResult;
+
   }
 
   /**
@@ -250,29 +291,12 @@ public class PersonDaoImpl implements IPersonDao {
    * @return the array list
    */
   @Override
-  public ArrayList<PersonAndMedical> detailledPersonInfoDao(String pfirstName,
-      String plastName) {
+  public ArrayList<PersonMedicalFireStationWrapper> detailledPersonInfoDao(
+      String pfirstName, String plastName) {
     String filePath = WorkingFileOuput.getWorkingInputFile();
 
     PersonList list = new PersonList();
-    try {
-      list = getPersonListDao(filePath);
-    } catch (JsonParseException e) {
-      logger.error("JsonParseException getting email for file: "
-                  + filePath
-                  + " ",
-          e);
-    } catch (JsonMappingException e) {
-      logger.error("JsonMappingException getting email for file: "
-                  + filePath
-                  + " ",
-          e);
-    } catch (IOException e) {
-      logger.error("IOException getting email for file: "
-                  + filePath
-                  + " ",
-          e);
-    }
+    list = getPersonListDao(filePath);
 
     ArrayList<Person> processedPersonList = new ArrayList<Person>();
     for (Person person : list.person) {
@@ -283,32 +307,16 @@ public class PersonDaoImpl implements IPersonDao {
     }
     IMedicalRecordDao medicalRecordList = new MedicalRecordDaoImpl();
     MedicalRecordList processedMedicalRecordList = new MedicalRecordList();
-    try {
-      processedMedicalRecordList = medicalRecordList
-          .getMedicalRecordListDao(WorkingFileOuput.getWorkingInputFile());
-    } catch (JsonParseException e) {
-      logger.error("JsonParseException getting Medical Record for file: "
-                  + filePath
-                  + " ",
-          e);
-    } catch (JsonMappingException e) {
-      logger.error("JsonMappingException getting Medical Record for file: "
-                  + filePath
-                  + " ",
-          e);
-    } catch (IOException e) {
-      logger.error("IOException getting Medical Record for file: "
-                  + filePath
-                  + " ",
-          e);
-    }
 
-    ArrayList<PersonAndMedical> result = new ArrayList<PersonAndMedical>();
+    processedMedicalRecordList = medicalRecordList
+        .getMedicalRecordListDao(WorkingFileOuput.getWorkingInputFile());
+
+    ArrayList<PersonMedicalFireStationWrapper> result = new ArrayList<PersonMedicalFireStationWrapper>();
     for (Person person : processedPersonList) {
       UUID personId = person.getIdMedicalRecord();
       for (MedicalRecord medicalRecord : processedMedicalRecordList.medicalRecord) {
         if (medicalRecord.getId().equals(personId)) {
-          PersonAndMedical persons = new PersonAndMedical();
+          PersonMedicalFireStationWrapper persons = new PersonMedicalFireStationWrapper();
           persons.setMedicalRecord(medicalRecord);
           persons.setPerson(person);
           person.setAge(
@@ -321,7 +329,7 @@ public class PersonDaoImpl implements IPersonDao {
     /**
      * Setting to null infos we dont want to send
      */
-    for (PersonAndMedical personAndMedical : result) {
+    for (PersonMedicalFireStationWrapper personAndMedical : result) {
       personAndMedical.getPerson().setId(null);
       personAndMedical.getPerson().setBirthDate(null);
       personAndMedical.getPerson().setIdHome(null);
@@ -346,24 +354,9 @@ public class PersonDaoImpl implements IPersonDao {
     String filePath = WorkingFileOuput.getWorkingInputFile();
 
     PersonList list = new PersonList();
-    try {
-      list = getPersonListDao(filePath);
-    } catch (JsonParseException e) {
-      logger.info("JsonParseException getting email for file: "
-                  + filePath
-                  + " ",
-          e);
-    } catch (JsonMappingException e) {
-      logger.info("JsonMappingException getting email for file: "
-                  + filePath
-                  + " ",
-          e);
-    } catch (IOException e) {
-      logger.info("IOException getting email for file: "
-                  + filePath
-                  + " ",
-          e);
-    }
+
+    list = getPersonListDao(filePath);
+
     HashSet<String> emailList = new HashSet<String>();
     for (Person person : list.person) {
       if (person.getCity().equalsIgnoreCase(pCity)) {

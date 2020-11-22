@@ -1,9 +1,11 @@
 package com.safetynet.alerts.model;
 
-public class PersonAndMedical {
+public class PersonMedicalFireStationWrapper {
   
+  private FireStation firestation;
   private Person person;
   private MedicalRecord medicalRecord;
+  
   public Person getPerson() {
     return person;
   }
@@ -21,6 +23,12 @@ public class PersonAndMedical {
   public String toString() {
     return person.toString()+" "+medicalRecord.toString();
     
+  }
+  public FireStation getFirestation() {
+    return firestation;
+  }
+  public void setFirestation(FireStation firestation) {
+    this.firestation = firestation;
   }
 
 }

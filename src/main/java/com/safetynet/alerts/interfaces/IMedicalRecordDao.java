@@ -22,7 +22,7 @@ public interface IMedicalRecordDao {
    * @throws JsonMappingException the json mapping exception
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public MedicalRecordList getMedicalRecordListDao(String pathToData) throws JsonParseException, JsonMappingException, IOException;
+  public MedicalRecordList getMedicalRecordListDao(String pathToData);
 
   /**
    * Post new medical record dao.

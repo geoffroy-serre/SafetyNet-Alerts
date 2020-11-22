@@ -50,8 +50,8 @@ public class PersonServiceTest {
   @Test
   public void personCoveredByAFireStationServiceTest() throws JsonParseException, JsonMappingException, IOException {
     ArrayList<Integer> pFireStationNumber = new ArrayList<Integer>();
-    personService.personsCoveredByAFirestationService(pFireStationNumber);
-    verify(iPersonDao, times(1)).personsCoveredByAFirestationDao(pFireStationNumber);
+    personService.floodPersonsCoveredByAFirestationService(pFireStationNumber);
+    verify(iPersonDao, times(1)).floodPersonsCoveredByAFirestationDao(pFireStationNumber);
   }
   
   @Test
@@ -62,16 +62,7 @@ public class PersonServiceTest {
     verify(iPersonDao, times(1)).detailledPersonInfoDao(pfirstName, plastName);
   }
   
-  @Test
-  public void floodPersonListCompleteServiceTest() {
-    ArrayList<Integer> pListFireStationNumber = new ArrayList<Integer>();
-    pListFireStationNumber.add(1);
-    pListFireStationNumber.add(2);
-    pListFireStationNumber.add(3);
-    
-    personService.floodPersonListCompleteService(pListFireStationNumber);
-    verify(iPersonDao, times(1)).floodPersonListCompleteDao(pListFireStationNumber);
-  }
+ 
   
   @Test
   public void getAllEmailForACityServiceTest() {

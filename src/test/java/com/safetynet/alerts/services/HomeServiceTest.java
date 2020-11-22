@@ -8,6 +8,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.interfaces.IHomeDao;
+import com.safetynet.alerts.utils.WorkingFileOuput;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -26,10 +27,10 @@ public class HomeServiceTest {
   
     
   @Test
-  public void getHomeListServiceTest() throws JsonParseException, JsonMappingException, NoSuchFileException, IOException {
-    homeService.getHomeService();
+  public void getHomeListServiceTest() {
+    homeService.getHomeService(WorkingFileOuput.getWorkingInputFile());
 
-    verify(iHomeDao, times(1)).getHomeListDao();
+    verify(iHomeDao, times(1)).getHomeListDao(WorkingFileOuput.getWorkingInputFile());
   }
   
 }

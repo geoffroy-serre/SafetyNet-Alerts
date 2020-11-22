@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.FireStation;
 import com.safetynet.alerts.model.FireStationList;
 import com.safetynet.alerts.model.HomeList;
-import com.safetynet.alerts.model.PersonAndMedical;
+import com.safetynet.alerts.model.PersonMedicalFireStationWrapper;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.services.FireStationService;
 import com.safetynet.alerts.services.HomeService;
@@ -117,8 +117,8 @@ public class FireStationController {
      * @throws IOException Signals that an I/O exception has occurred.
      */
     @GetMapping("/flood/stations")
-    public ArrayList<PersonAndMedical> personsCoveredByAFirestationController( @RequestParam ArrayList<Integer> stations) throws JsonParseException, JsonMappingException, IOException {
-      return personService.personsCoveredByAFirestationService(stations) ;
+    public ArrayList<PersonMedicalFireStationWrapper> personsCoveredByAFirestationController( @RequestParam ArrayList<Integer> stations) throws JsonParseException, JsonMappingException, IOException {
+      return personService.floodPersonsCoveredByAFirestationService(stations) ;
     }
     
    

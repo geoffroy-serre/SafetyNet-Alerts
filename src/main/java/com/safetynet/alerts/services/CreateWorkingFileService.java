@@ -110,17 +110,9 @@ public class CreateWorkingFileService {
    */
   public void createFireStationListAndIDFromOriginalFile(String filePath) {
     
-    try {
+    
       fireStationList = iFirestationDao.getFireStationListDao(filePath);
-    } catch (JsonParseException e) {
-      logger.info("createFireStationListFromOriginalFile() JsonPArseException",
-          e);
-    } catch (JsonMappingException e) {
-      logger.info(
-          "createFireStationListFromOriginalFile() JsonMappingException", e);
-    } catch (IOException e) {
-      logger.info("createFireStationListFromOriginalFile() IOException", e);
-    }
+    
     for (FireStation fireStation : fireStationList.fireStation) {
       fireStation.setId(UUID.randomUUID());
     }
@@ -166,17 +158,9 @@ public class CreateWorkingFileService {
    * @return the medical record list
    */
   public MedicalRecordList createMedicalRecordListAndIDFromOriginalList(String pathToData) {
-    try {
+    
       medicalRecordList = imedicalRecordDao.getMedicalRecordListDao(pathToData);
-    } catch (JsonParseException e) {
-      logger.info(
-          "createMedicalRecordListFromOriginalList() JsonParseException", e);
-    } catch (JsonMappingException e) {
-      logger.info(
-          "createMedicalRecordListFromOriginalList() JsonMappingException", e);
-    } catch (IOException e) {
-      logger.info("createMedicalRecordListFromOriginalList() IOException", e);
-    }
+    
     for (MedicalRecord medicalRecordId : medicalRecordList.medicalRecord) {
       medicalRecordId.setId(UUID.randomUUID());
     }

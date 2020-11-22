@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.model.Person;
-import com.safetynet.alerts.model.PersonAndMedical;
+import com.safetynet.alerts.model.PersonMedicalFireStationWrapper;
 import com.safetynet.alerts.model.PersonList;
 
 
@@ -58,7 +58,7 @@ public interface IPersonDao {
    * @throws JsonMappingException the json mapping exception
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public ArrayList<PersonAndMedical> personsCoveredByAFirestationDao(ArrayList<Integer> fireStationNumber) throws JsonParseException, JsonMappingException, IOException;
+  public ArrayList<PersonMedicalFireStationWrapper> floodPersonsCoveredByAFirestationDao(ArrayList<Integer> fireStationNumber);
 
   /**
    * Child list for an adress dao.
@@ -83,17 +83,9 @@ public interface IPersonDao {
    * @param pAdress the adress
    * @return the person list
    */
-  public PersonList personListWithCompleteInfoCoveredByFireStationDao(
+  public ArrayList<PersonMedicalFireStationWrapper> personListWithCompleteInfoCoveredByFireStationDao(
       String pAdress);
 
-  /**
-   * Flood person list complete dao.
-   *
-   * @param pListFireStationNumber the list fire station number
-   * @return the person list
-   */
-  public PersonList floodPersonListCompleteDao(
-      ArrayList<Integer> pListFireStationNumber);
 
   /**
    * Detailled person info dao.
@@ -102,7 +94,7 @@ public interface IPersonDao {
    * @param plastName the plast name
    * @return the array list
    */
-  public ArrayList<PersonAndMedical> detailledPersonInfoDao(String pfirstName, String plastName);
+  public ArrayList<PersonMedicalFireStationWrapper> detailledPersonInfoDao(String pfirstName, String plastName);
 
   /**
    * Gets the all email for A city dao.

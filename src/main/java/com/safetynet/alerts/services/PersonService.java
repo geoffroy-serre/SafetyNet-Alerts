@@ -14,7 +14,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.interfaces.IPersonDao;
 import com.safetynet.alerts.model.Person;
-import com.safetynet.alerts.model.PersonAndMedical;
+import com.safetynet.alerts.model.PersonMedicalFireStationWrapper;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
@@ -83,9 +83,9 @@ public class PersonService {
    * @throws JsonMappingException the json mapping exception
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public ArrayList<PersonAndMedical> personsCoveredByAFirestationService(ArrayList<Integer> fireStationNumber) throws JsonParseException, JsonMappingException, IOException {
+  public ArrayList<PersonMedicalFireStationWrapper> floodPersonsCoveredByAFirestationService(ArrayList<Integer> fireStationNumber) throws JsonParseException, JsonMappingException, IOException {
     // TODO Auto-generated method stub
-    return personDao.personsCoveredByAFirestationDao(fireStationNumber);
+    return personDao.floodPersonsCoveredByAFirestationDao(fireStationNumber);
   }
   
   /**
@@ -117,23 +117,13 @@ public class PersonService {
    * @param pAdress the adress
    * @return the person list
    */
-  public PersonList personListWithCompleteInfoCoveredByFireStationService(
+  public ArrayList<PersonMedicalFireStationWrapper> personListWithCompleteInfoCoveredByFireStationService(
       String pAdress) {
     // TODO Auto-generated method stub
     return personDao.personListWithCompleteInfoCoveredByFireStationDao(pAdress);
   }
   
-  /**
-   * Flood person list complete service.
-   *
-   * @param pListFireStationNumber the list fire station number
-   * @return the person list
-   */
-  public PersonList floodPersonListCompleteService(
-      ArrayList<Integer> pListFireStationNumber) {
-    // TODO Auto-generated method stub
-    return personDao.floodPersonListCompleteDao(pListFireStationNumber);
-  }
+ 
   
   /**
    * Detailled person info service.
@@ -142,7 +132,7 @@ public class PersonService {
    * @param plastName the plast name
    * @return the array list
    */
-  public ArrayList<PersonAndMedical> detailledPersonInfoService(String pfirstName, String plastName) {
+  public ArrayList<PersonMedicalFireStationWrapper> detailledPersonInfoService(String pfirstName, String plastName) {
     // TODO Auto-generated method stub
     return personDao.detailledPersonInfoDao(pfirstName, plastName);
   }

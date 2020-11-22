@@ -39,15 +39,23 @@ public class MedicalRecordDaoImpl implements IMedicalRecordDao {
    */
   @Override
   @JsonIgnoreProperties(ignoreUnknown = true)
-  public MedicalRecordList getMedicalRecordListDao(String pathToData)
-      throws JsonParseException, JsonMappingException, IOException {
+  public MedicalRecordList getMedicalRecordListDao(String pathToData){
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
     objectMapper.registerModule(new JavaTimeModule());
     
-    MedicalRecordList medicalRecordList = objectMapper.readValue(new File(pathToData),
-        MedicalRecordList.class);
+    MedicalRecordList medicalRecordList = new MedicalRecordList();;
+    try {
+      medicalRecordList = objectMapper.readValue(new File(pathToData),
+          MedicalRecordList.class);
+    } catch (JsonParseException e) {
+      logger.error("JsonParseException getting MedicalRecord List", e);
+    } catch (JsonMappingException e) {
+      logger.error("JsonMappingException getting MedicalRecord List", e);
+    } catch (IOException e) {
+      logger.error("IOException getting MedicalRecord List", e);
+    }
     
     logger.info("MedicalRecordList retrieval done");
 
