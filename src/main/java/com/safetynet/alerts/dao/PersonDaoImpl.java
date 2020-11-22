@@ -242,34 +242,36 @@ public class PersonDaoImpl implements IPersonDao {
     HashSet<Home> homeList = new HashSet<Home>();
     homeList = homeDao.getHomeListDao(filePath);
     for (Home home : homeList) {
-
       if (home.getAdress().equalsIgnoreCase(pAdress)) {
         homeID = home.getId();
       }
     }
     /**
-     * Getting Firestation number for given adress
+     * Getting Person for given adress And their medical Record And
+     * FireStationNumber. Adding result to preResult List
      */
     IFireStationDao firestationDao = new FireStationDaoImpl();
     FireStationList fireStationList = new FireStationList();
     fireStationList = firestationDao.getFireStationListDao(filePath);
-
-    /**
-     * Getting Person for given adress And their medical Record And
-     * FireStationNumber. Adding result to preResult List
-     */
     IMedicalRecordDao medicalRecordDao = new MedicalRecordDaoImpl();
     MedicalRecordList medicalRecordList = medicalRecordDao
         .getMedicalRecordListDao(filePath);
     ArrayList<PersonMedicalFireStationWrapper> preResult = new ArrayList<PersonMedicalFireStationWrapper>();
     PersonList personList = getPersonListDao(filePath);
-    
+
     for (Person person : personList.person) {
+      logger.info("Enter person list:"
+                  + person.getIdHome()
+                  + " "
+                  + homeID);
       for (MedicalRecord medicalRecord : medicalRecordList.medicalRecord) {
+        logger.info("Enter medical list");
         for (FireStation firestation : fireStationList.fireStation) {
+          logger.info("Enter fire list");
           if (person.getIdHome().equals(homeID)
               && medicalRecord.getId().equals(person.getIdMedicalRecord())
               && firestation.getHome().equals(homeID)) {
+            logger.info("Match found");
             PersonMedicalFireStationWrapper persons = new PersonMedicalFireStationWrapper();
             persons.setPerson(person);
             persons.setFirestation(firestation);
@@ -278,6 +280,21 @@ public class PersonDaoImpl implements IPersonDao {
           }
         }
       }
+    }
+
+    /**
+     * Setting non wantend properties to null to avoid presence in result
+     */
+    for (PersonMedicalFireStationWrapper data : preResult) {
+      data.getFirestation().setId(null);
+      data.getFirestation().setHome(null);
+      data.getFirestation().setAddress(null);
+      data.getMedicalRecord().setId(null);
+      data.getMedicalRecord().setBirthdate(null);
+      data.getPerson().setId(null);
+      data.getPerson().setBirthDate(null);
+      data.getPerson().setIdHome(null);
+      data.getPerson().setIdMedicalRecord(null);
     }
 
     return preResult;

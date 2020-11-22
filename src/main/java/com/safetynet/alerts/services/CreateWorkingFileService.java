@@ -137,18 +137,28 @@ public class CreateWorkingFileService {
       home.setAdress(person.getAddress());
       home.setCity(person.getCity());
       home.setZip(person.getZip());
-      if (!homeSet.contains(home)) {
+      
       home.setId(id);
       
-        person.setIdHome(id);
+        
         homeSet.add(home);
-      }
+      
 
     }
     
     ArrayList<Home> homeList2 = new ArrayList<Home>(homeSet);
     homeList = homeList2;
 
+  }
+  
+  public void setPersonHomeId() {
+    for (Home home : homeList) {
+      for (Person person : personList.person) {
+        if(home.getAdress().equals(person.getAddress())) {
+          person.setIdHome(home.getId());
+        }
+      }
+    }
   }
 
   /**
@@ -214,6 +224,7 @@ public class CreateWorkingFileService {
     createFireStationListAndIDFromOriginalFile(filePath);
     createMedicalRecordListAndIDFromOriginalList(filePath);
     createHomeListFromPersonList();
+    setPersonHomeId();
     associateMedicalRecordIdWithRightPerson();
     associateFirestationWithRightHome();
 
