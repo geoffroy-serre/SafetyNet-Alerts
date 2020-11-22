@@ -2,9 +2,10 @@ package com.safetynet.alerts.model;
 
 public class PersonMedicalFireStationWrapper {
   
-  private FireStation firestation;
+  
   private Person person;
   private MedicalRecord medicalRecord;
+  private FireStation firestation;
   
   public Person getPerson() {
     return person;

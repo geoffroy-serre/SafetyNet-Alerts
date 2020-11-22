@@ -256,18 +256,19 @@ public class PersonDaoImpl implements IPersonDao {
 
     /**
      * Getting Person for given adress And their medical Record And
-     * FireStationNumber.
+     * FireStationNumber. Adding result to preResult List
      */
     IMedicalRecordDao medicalRecordDao = new MedicalRecordDaoImpl();
     MedicalRecordList medicalRecordList = medicalRecordDao
         .getMedicalRecordListDao(filePath);
     ArrayList<PersonMedicalFireStationWrapper> preResult = new ArrayList<PersonMedicalFireStationWrapper>();
-
-    for (Person person : getPersonListDao(filePath).person) {
+    PersonList personList = getPersonListDao(filePath);
+    
+    for (Person person : personList.person) {
       for (MedicalRecord medicalRecord : medicalRecordList.medicalRecord) {
         for (FireStation firestation : fireStationList.fireStation) {
           if (person.getIdHome().equals(homeID)
-              && medicalRecord.getId().equals(person.getId())
+              && medicalRecord.getId().equals(person.getIdMedicalRecord())
               && firestation.getHome().equals(homeID)) {
             PersonMedicalFireStationWrapper persons = new PersonMedicalFireStationWrapper();
             persons.setPerson(person);
