@@ -239,9 +239,9 @@ public class PersonDaoImpl implements IPersonDao {
      */
     UUID homeID = null;
     IHomeDao homeDao = new HomeDaoImpl();
-    HomeList homeList = new HomeList();
+    HashSet<Home> homeList = new HashSet<Home>();
     homeList = homeDao.getHomeListDao(filePath);
-    for (Home home : homeList.getHome()) {
+    for (Home home : homeList) {
 
       if (home.getAdress().equalsIgnoreCase(pAdress)) {
         homeID = home.getId();

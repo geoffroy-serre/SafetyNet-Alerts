@@ -3,6 +3,7 @@ package com.safetynet.alerts.services;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.safetynet.alerts.interfaces.IHomeDao;
+import com.safetynet.alerts.model.Home;
 import com.safetynet.alerts.model.HomeList;
 
 /**
@@ -34,7 +36,7 @@ public class HomeService {
    * @throws NoSuchFileException the no such file exception
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public HomeList getHomeService(String filePath) 
+  public HashSet<Home> getHomeService(String filePath) 
   {
     return homeDto.getHomeListDao(filePath);
   }

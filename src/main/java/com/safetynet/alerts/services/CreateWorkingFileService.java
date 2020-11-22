@@ -37,7 +37,6 @@ import com.safetynet.alerts.model.Person;
 import com.safetynet.alerts.model.PersonList;
 import com.safetynet.alerts.utils.WorkingFileOuput;
 
-
 /**
  * The Class CreateWorkingFileService.
  */
@@ -47,31 +46,33 @@ public class CreateWorkingFileService {
   /** The person list. */
   @Autowired
   PersonList personList;
-  
+
   /** The fire station list. */
   @Autowired
   FireStationList fireStationList;
-  
+
   /** The home list. */
-  @Autowired
-  HomeList homeList;
-  
+  // @Autowired
+  // HomeList homeList;
+
   /** The medical record list. */
   @Autowired
   MedicalRecordList medicalRecordList;
-  
+
   /** The iperson dao. */
   @Autowired
   IPersonDao ipersonDao;
-  
+
   /** The i firestation dao. */
   @Autowired
   IFireStationDao iFirestationDao;
-  
+
   /** The imedical record dao. */
   @Autowired
   IMedicalRecordDao imedicalRecordDao;
-  
+
+  ArrayList<Home> homeList = new ArrayList<Home>();
+  HashSet<Home> homeSet = new HashSet<Home>();
 
   /** The Constant logger. */
   private static final Logger logger = LogManager.getLogger("App");
@@ -93,12 +94,11 @@ public class CreateWorkingFileService {
     } catch (IOException e) {
       logger.info("createPersonListFromOriginalFile() IOException", e);
     }
-    
+
     for (Person person : personList.person) {
       person.setId(UUID.randomUUID());
     }
-    
-    
+
     return personList;
 
   }
@@ -109,10 +109,9 @@ public class CreateWorkingFileService {
    * @param filePath the file path
    */
   public void createFireStationListAndIDFromOriginalFile(String filePath) {
-    
-    
-      fireStationList = iFirestationDao.getFireStationListDao(filePath);
-    
+
+    fireStationList = iFirestationDao.getFireStationListDao(filePath);
+
     for (FireStation fireStation : fireStationList.fireStation) {
       fireStation.setId(UUID.randomUUID());
     }
@@ -123,33 +122,34 @@ public class CreateWorkingFileService {
    * Creates the adress list of fire station.
    */
   public void createAdressListOfFireStation() {
-    
-    
+
   }
-  
+
   /**
    * Creates the home list from person list.
    */
   public void createHomeListFromPersonList() {
 
-    Set<Home> homeSet = new HashSet<>();
     for (Person person : personList.person) {
-      Home home =new Home();
+      Home home = new Home();
       UUID id = UUID.randomUUID();
+
       home.setAdress(person.getAddress());
       home.setCity(person.getCity());
       home.setZip(person.getZip());
+      if (!homeSet.contains(home)) {
       home.setId(id);
-      person.setIdHome(id);
-
-      homeSet.add(home);
       
+        person.setIdHome(id);
+        homeSet.add(home);
+      }
+
     }
     
-    ArrayList<Home> list = new ArrayList<>(homeSet);
-    homeList.setHome(list);
-  }
+    ArrayList<Home> homeList2 = new ArrayList<Home>(homeSet);
+    homeList = homeList2;
 
+  }
 
   /**
    * Creates the medical record list and ID from original list.
@@ -157,10 +157,11 @@ public class CreateWorkingFileService {
    * @param pathToData the path to data
    * @return the medical record list
    */
-  public MedicalRecordList createMedicalRecordListAndIDFromOriginalList(String pathToData) {
-    
-      medicalRecordList = imedicalRecordDao.getMedicalRecordListDao(pathToData);
-    
+  public MedicalRecordList createMedicalRecordListAndIDFromOriginalList(
+      String pathToData) {
+
+    medicalRecordList = imedicalRecordDao.getMedicalRecordListDao(pathToData);
+
     for (MedicalRecord medicalRecordId : medicalRecordList.medicalRecord) {
       medicalRecordId.setId(UUID.randomUUID());
     }
@@ -193,7 +194,7 @@ public class CreateWorkingFileService {
    */
   public void associateFirestationWithRightHome() {
     for (FireStation firestation : fireStationList.fireStation) {
-      for (Home home : homeList.getHome()) {
+      for (Home home : homeSet) {
         if (firestation.getAddress().equals(home.getAdress())) {
           home.setIdFirestation(firestation.getId());
           firestation.setHome(home.getId());
@@ -221,17 +222,16 @@ public class CreateWorkingFileService {
         false);
     objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES,
         true);
-    //objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+    // objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     objectMapper.registerModule(new JavaTimeModule());
-    
+
     File file = new File(WorkingFileOuput.getWorkingInputFile());
-    
 
     HashMap<String, ArrayList<?>> list = new HashMap<String, ArrayList<?>>();
 
     list.put("Person", personList.person);
     list.put("Firestation", fireStationList.fireStation);
-    list.put("Home", homeList.getHome());
+    list.put("Home", homeList);
     list.put("MedicalRecord", medicalRecordList.medicalRecord);
 
     try {
@@ -248,5 +248,5 @@ public class CreateWorkingFileService {
       e.printStackTrace();
     }
   }
-  
+
 }

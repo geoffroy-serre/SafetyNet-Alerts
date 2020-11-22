@@ -40,17 +40,16 @@ public class HomeDaoImpl implements IHomeDao{
    * @throws IOException Signals that an I/O exception has occurred.
    */
   @Override
-  public HomeList getHomeListDao(String filePath) {
+  public HashSet<Home> getHomeListDao(String filePath) {
     HomeList homeList = new HomeList();
+    
+    
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
         false);
     objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES,
         true);
     objectMapper.registerModule(new JavaTimeModule());
-    
-    Set<Home> list = new HashSet<Home>();
-    
 
    try {
     homeList = objectMapper.readValue(new File(filePath),HomeList.class);
@@ -61,15 +60,12 @@ public class HomeDaoImpl implements IHomeDao{
   } catch (IOException e) {
     logger.error("IOException getting HOme List ",e);
   }
- 
- 
- 
- 
- 
- 
-    logger.info("HomeList retrieval");
 
-    return homeList;
+    logger.info("HomeList retrieval");
+    HashSet<Home> list = new HashSet<Home>(homeList.getHome());
+    
+
+    return list;
     
   }
 

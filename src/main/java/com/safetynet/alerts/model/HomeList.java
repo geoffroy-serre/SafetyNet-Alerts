@@ -31,5 +31,7 @@ public class HomeList {
   }
   
   public ArrayList<Home> getHomeList(){return home;}
+  
+  
 
 }

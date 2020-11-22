@@ -61,4 +61,21 @@ public class Home {
         "Person [id=%s, Adress=%s, City=%s,  Zip=%s, FirestationId=%s]",
         id, adress, city, zip, idFirestation);
   }
+
+@Override
+public int hashCode() {
+  return adress.hashCode()+city.hashCode()+zip.hashCode();
+}
+
+@Override
+public boolean equals(Object h) {
+  if (this == h) {return true;}
+  if (this.hashCode() == h.hashCode()) {return true;}
+  return false;
+  
+}
+
+
+
+
 }
