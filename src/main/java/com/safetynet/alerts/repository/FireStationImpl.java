@@ -1,6 +1,6 @@
 package com.safetynet.alerts.repository;
 
-import com.safetynet.alerts.interfaces.IFirestation;
+import com.safetynet.alerts.interfaces.Ifirestation;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public class FireStationImpl implements IFirestation {
+public class FireStationImpl implements Ifirestation {
 
 
 }

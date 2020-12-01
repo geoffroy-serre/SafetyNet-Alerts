@@ -7,5 +7,8 @@ public class DataType {
   public static final String WORKING_FIRESTATION  = "WorkingFireStation";
   public static final String ORIGINAL_MEDICALRECORD  = "OriginalMedicalRecord";
   public static final String WORKING_MEDICALRECORD  = "WorkingMedicalRecord";
+  public static final String FIRESTATION  = "WorkingFireStation";
+  public static final String MEDICALRECORD  = "OriginalMedicalRecord";
+  public static final String PERSON  = "WorkingMedicalRecord";
 
 }

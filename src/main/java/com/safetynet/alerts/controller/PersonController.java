@@ -1,8 +1,7 @@
 package com.safetynet.alerts.controller;
 
-import java.util.ArrayList;
-
 import com.safetynet.alerts.services.PersonService;
+import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +22,15 @@ public class PersonController {
   @Autowired
   PersonService personService;
 
+  /**
+   * Retrieve all Person from original file.
+   *
+   * @return ArrayList
+   */
   @GetMapping("/person")
   public ArrayList<?> getPersons() {
 
-    return personService.getPersonsService();
+    return personService.getOriginalPersonsService();
 
   }
 

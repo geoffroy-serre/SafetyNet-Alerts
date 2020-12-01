@@ -1,7 +1,7 @@
 package com.safetynet.alerts.repository;
 
 
-import com.safetynet.alerts.interfaces.IPerson;
+import com.safetynet.alerts.interfaces.Iperson;
 import org.springframework.stereotype.Repository;
 
 
@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class PersonImpl implements IPerson {
+public class PersonImpl implements Iperson {
 
 }

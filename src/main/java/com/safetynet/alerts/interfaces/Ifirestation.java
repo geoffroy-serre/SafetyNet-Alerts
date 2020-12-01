@@ -3,7 +3,7 @@ package com.safetynet.alerts.interfaces;
 /**
  * The Interface IFireStationDao.
  */
-public interface IFirestation {
+public interface Ifirestation {
 
 
 }

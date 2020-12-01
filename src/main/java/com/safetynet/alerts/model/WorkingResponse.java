@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.safetynet.alerts.interfaces.Response;
 import java.util.ArrayList;
 
-public class OriginalResponse implements Response {
+public class WorkingResponse implements Response {
 
   @JsonProperty("persons")
   private ArrayList<?> persons;
@@ -41,11 +41,10 @@ public class OriginalResponse implements Response {
 
   @Override
   public String toString() {
-    return
-            "OriginalResponse{"
-                    + "persons = '" + persons + '\''
-                    + ",firestations = '" + firestations + '\''
-                    + ",medicalrecords = '" + medicalrecords + '\''
-                    + "}";
+    return "WorkingResponse{"
+            + "persons=" + persons
+            + ", firestations=" + firestations
+            + ", medicalrecords=" + medicalrecords
+            + '}';
   }
 }

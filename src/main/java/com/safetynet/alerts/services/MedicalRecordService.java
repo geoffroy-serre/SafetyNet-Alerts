@@ -1,9 +1,9 @@
 package com.safetynet.alerts.services;
 
-import java.util.ArrayList;
-
 import com.safetynet.alerts.constants.DataType;
+import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveData;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,9 @@ public class MedicalRecordService {
 
   @Autowired
   RetrieveData retrieveData;
+
   public ArrayList<?> getMedicalRecordService() {
-    return retrieveData.getOriginalDataByType(DataType.ORIGINAL_MEDICALRECORD);
+    return retrieveData.getDataByType(FilesPath.ORIGINAL_INPUT_FILE,
+            DataType.ORIGINAL_MEDICALRECORD);
   }
 }

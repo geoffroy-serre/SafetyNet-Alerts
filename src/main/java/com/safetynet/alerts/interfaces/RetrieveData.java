@@ -1,11 +1,13 @@
 package com.safetynet.alerts.interfaces;
 
-import java.util.ArrayList;
-
 import com.safetynet.alerts.model.OriginalResponse;
+import com.safetynet.alerts.model.WorkingResponse;
+import java.util.ArrayList;
 
 public interface RetrieveData {
 
-  public OriginalResponse getOriginalData();
-  public ArrayList<?> getOriginalDataByType(String constantOfDataType);
+  Response getData(String constantFilePath);
+
+
+  ArrayList<?> getDataByType(String constantFilePath, String constantOfDataType);
 }
