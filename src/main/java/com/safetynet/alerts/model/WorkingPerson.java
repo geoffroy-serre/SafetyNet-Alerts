@@ -3,7 +3,9 @@ package com.safetynet.alerts.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.util.UUID;
+import org.springframework.stereotype.Component;
 
+@Component
 public class WorkingPerson {
 
   @JsonProperty("id")

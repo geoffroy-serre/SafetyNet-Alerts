@@ -3,7 +3,9 @@ package com.safetynet.alerts.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.UUID;
+import org.springframework.stereotype.Component;
 
+@Component
 public class WorkingFireStation {
   @JsonProperty("idFirestation")
   private UUID idFireStation;

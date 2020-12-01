@@ -3,40 +3,45 @@ package com.safetynet.alerts.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.safetynet.alerts.interfaces.Response;
 import java.util.ArrayList;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OriginalResponse implements Response {
 
   @JsonProperty("persons")
-  private ArrayList<?> persons;
+  private ArrayList<OriginalPersons> persons;
 
   @JsonProperty("firestations")
-  private ArrayList<?> firestations;
+  private ArrayList<OriginalFirestation> firestations;
 
   @JsonProperty("medicalrecords")
-  private ArrayList<?> medicalrecords;
+  private ArrayList<OriginalMedicalrecords> medicalrecords;
 
-  public void setPersons(ArrayList<?> persons) {
-    this.persons = persons;
-  }
-
-  public ArrayList<?> getPersons() {
+  @Override
+  public ArrayList<OriginalPersons> getPersons() {
     return persons;
   }
 
-  public void setFirestations(ArrayList<?> firestations) {
-    this.firestations = firestations;
+  public void setPersons(ArrayList<OriginalPersons> persons) {
+    this.persons = persons;
   }
 
-  public ArrayList<?> getFirestations() {
+  @Override
+  public ArrayList<OriginalFirestation> getFirestations() {
     return firestations;
   }
 
-  public void setMedicalrecords(ArrayList<?> medicalrecords) {
-    this.medicalrecords = medicalrecords;
+  public void setFirestations(ArrayList<OriginalFirestation> firestations) {
+    this.firestations = firestations;
   }
 
-  public ArrayList<?> getMedicalrecords() {
+  @Override
+  public ArrayList<OriginalMedicalrecords> getMedicalrecords() {
     return medicalrecords;
+  }
+
+  public void setMedicalrecords(ArrayList<OriginalMedicalrecords> medicalrecords) {
+    this.medicalrecords = medicalrecords;
   }
 
   @Override

@@ -6,11 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CreateWorkingFileController {
 
-
-  
-  
-  @GetMapping("/popopupu")
-  public void testPOpo() {
+  @GetMapping("/createWorkingFile")
+  public void createWorkingFile() {
      
 
   }

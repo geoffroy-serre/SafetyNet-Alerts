@@ -3,7 +3,9 @@ package com.safetynet.alerts.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.stereotype.Component;
 
+@Component
 public class WorkingMedicalRecord {
 
   @JsonProperty("idMedicalRecord")

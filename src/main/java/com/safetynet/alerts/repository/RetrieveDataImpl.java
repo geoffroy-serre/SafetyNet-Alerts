@@ -35,8 +35,10 @@ public class RetrieveDataImpl implements RetrieveData {
     ObjectMapper objectMapper = new ObjectMapper();
     Response response = new OriginalResponse();
 
+
     if (filePath.equals(FilesPath.ORIGINAL_INPUT_FILE)) {
       response = new OriginalResponse();
+
     }
     if (filePath.equals(FilesPath.WORKING_INPUT_FILE)) {
       response = new WorkingResponse();
@@ -47,6 +49,7 @@ public class RetrieveDataImpl implements RetrieveData {
             true);
     objectMapper.registerModule(new JavaTimeModule());
     try {
+
       response = (objectMapper.readValue(new File(filePath),
               response.getClass()));
     } catch (IOException e) {
