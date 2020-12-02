@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CreateWorkingFileController {
 
-  @Autowired
-  WorkingFileService workingFileService;
+
 
   @GetMapping("/createWorkingFile")
   public void createWorkingFile() {
+    WorkingFileService workingFileService = new WorkingFileService();
      workingFileService.createWorkingFile(FilesPath.ORIGINAL_INPUT_FILE);
 
   }

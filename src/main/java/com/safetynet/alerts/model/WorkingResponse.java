@@ -17,6 +17,17 @@ public class WorkingResponse {
   @JsonProperty("medicalrecords")
   private ArrayList<WorkingMedicalRecord> medicalrecords;
 
+  @JsonProperty("home")
+  private ArrayList<WorkingHome> homes;
+
+  public ArrayList<WorkingHome> getHomes() {
+    return homes;
+  }
+
+  public void setHomes(ArrayList<WorkingHome> homes) {
+    this.homes = homes;
+  }
+
   public void setPersons(ArrayList<WorkingPerson> persons) {
     this.persons = persons;
   }

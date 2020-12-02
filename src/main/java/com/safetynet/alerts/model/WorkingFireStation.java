@@ -10,9 +10,13 @@ public class WorkingFireStation {
   @JsonProperty("idFirestation")
   private UUID idFireStation;
   @JsonProperty("station")
-  private int stationNumber;
-  @JsonProperty("homeList")
-  private ArrayList<WorkingHome> homeList;
+  private String stationNumber;
+  @JsonProperty("home")
+  private ArrayList<WorkingHome> homeList = new ArrayList<WorkingHome>();
+
+  public void addWorkingHome(WorkingHome workingHome) {
+    homeList.add(workingHome);
+  }
 
   public UUID getIdFireStation() {
     return idFireStation;
@@ -22,11 +26,11 @@ public class WorkingFireStation {
     this.idFireStation = idFireStation;
   }
 
-  public int getStationNumber() {
+  public String getStationNumber() {
     return stationNumber;
   }
 
-  public void setStationNumber(int stationNumber) {
+  public void setStationNumber(String stationNumber) {
     this.stationNumber = stationNumber;
   }
 
