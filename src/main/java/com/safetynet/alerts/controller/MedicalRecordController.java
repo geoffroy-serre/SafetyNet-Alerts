@@ -13,9 +13,5 @@ public class MedicalRecordController {
   @Autowired
   MedicalRecordService medicalRecordService;
 
-  @GetMapping("/medicalRecord")
-  public ArrayList<?> getMedicalRecord() {
-    return medicalRecordService.getMedicalRecordService();
 
-  }
 }

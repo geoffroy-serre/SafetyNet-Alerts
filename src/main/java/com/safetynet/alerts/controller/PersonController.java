@@ -2,11 +2,11 @@ package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.Response;
-import com.safetynet.alerts.interfaces.RetrieveData;
-import com.safetynet.alerts.interfaces.WorkingFileService;
+import com.safetynet.alerts.interfaces.RetrieveOriginalData;
+import com.safetynet.alerts.model.OriginalPersons;
 import com.safetynet.alerts.model.WorkingHome;
+import com.safetynet.alerts.services.OriginalFileService;
 import com.safetynet.alerts.services.PersonService;
-import com.safetynet.alerts.services.WorkingFileServiceImpl;
 import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,22 +29,17 @@ public class PersonController {
   PersonService personService;
 
   @Autowired
-  WorkingFileService worksp;
-
-  @Autowired
-  RetrieveData retrieveData;
-
-
+  OriginalFileService originalFileService;
 
   /**
    * Retrieve all Person from original file.
    *
    * @return ArrayList
    */
-  @GetMapping("/person")
-  public ArrayList<WorkingHome> getPersons() {
-    Response response = retrieveData.getData(FilesPath.ORIGINAL_INPUT_FILE);
-    return worksp.createWorkingHomes(response);
+  @GetMapping("/persons")
+  public ArrayList<OriginalPersons> getPersons() {
+
+    return originalFileService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE).getPersons();
 
   }
 

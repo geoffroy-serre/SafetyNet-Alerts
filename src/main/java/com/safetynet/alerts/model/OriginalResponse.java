@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OriginalResponse implements Response {
+public class OriginalResponse  {
 
   @JsonProperty("persons")
   private ArrayList<OriginalPersons> persons;
@@ -17,7 +17,7 @@ public class OriginalResponse implements Response {
   @JsonProperty("medicalrecords")
   private ArrayList<OriginalMedicalrecords> medicalrecords;
 
-  @Override
+
   public ArrayList<OriginalPersons> getPersons() {
     return persons;
   }
@@ -26,7 +26,7 @@ public class OriginalResponse implements Response {
     this.persons = persons;
   }
 
-  @Override
+
   public ArrayList<OriginalFirestation> getFirestations() {
     return firestations;
   }
@@ -35,7 +35,7 @@ public class OriginalResponse implements Response {
     this.firestations = firestations;
   }
 
-  @Override
+
   public ArrayList<OriginalMedicalrecords> getMedicalrecords() {
     return medicalrecords;
   }

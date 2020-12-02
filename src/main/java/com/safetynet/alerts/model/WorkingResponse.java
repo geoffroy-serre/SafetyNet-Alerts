@@ -6,38 +6,38 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
 @Component
-public class WorkingResponse implements Response {
+public class WorkingResponse {
 
   @JsonProperty("persons")
-  private ArrayList<?> persons;
+  private ArrayList<WorkingPerson> persons;
 
   @JsonProperty("firestations")
-  private ArrayList<?> firestations;
+  private ArrayList<WorkingFireStation> firestations;
 
   @JsonProperty("medicalrecords")
-  private ArrayList<?> medicalrecords;
+  private ArrayList<WorkingMedicalRecord> medicalrecords;
 
-  public void setPersons(ArrayList<?> persons) {
+  public void setPersons(ArrayList<WorkingPerson> persons) {
     this.persons = persons;
   }
 
-  public ArrayList<?> getPersons() {
+  public ArrayList<WorkingPerson> getPersons() {
     return persons;
   }
 
-  public void setFirestations(ArrayList<?> firestations) {
+  public void setFirestations(ArrayList<WorkingFireStation> firestations) {
     this.firestations = firestations;
   }
 
-  public ArrayList<?> getFirestations() {
+  public ArrayList<WorkingFireStation> getFirestations() {
     return firestations;
   }
 
-  public void setMedicalrecords(ArrayList<?> medicalrecords) {
+  public void setMedicalrecords(ArrayList<WorkingMedicalRecord> medicalrecords) {
     this.medicalrecords = medicalrecords;
   }
 
-  public ArrayList<?> getMedicalrecords() {
+  public ArrayList<WorkingMedicalRecord> getMedicalrecords() {
     return medicalrecords;
   }
 

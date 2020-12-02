@@ -19,10 +19,7 @@ public class FireStationController {
   @Autowired
   FireStationService fireStationService;
 
-  @GetMapping("/firestation")
-  public ArrayList<?> fireStation() {
-    return fireStationService.getOriginalFireStations();
-  }
+
 
 
 }

@@ -4,10 +4,8 @@ import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingResponse;
 import java.util.ArrayList;
 
-public interface RetrieveData {
+public interface RetrieveOriginalData {
 
-  Response getData(String constantFilePath);
+  OriginalResponse getOriginalData(String constantFilePath);
 
-
-  ArrayList<?> getDataByType(String constantFilePath, String constantOfDataType);
 }
