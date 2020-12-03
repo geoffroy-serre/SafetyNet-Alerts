@@ -1,12 +1,8 @@
 package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.constants.FilesPath;
-import com.safetynet.alerts.interfaces.Response;
-import com.safetynet.alerts.interfaces.RetrieveOriginalData;
 import com.safetynet.alerts.model.OriginalPersons;
-import com.safetynet.alerts.model.WorkingHome;
 import com.safetynet.alerts.services.OriginalFileService;
-import com.safetynet.alerts.services.PersonService;
 import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

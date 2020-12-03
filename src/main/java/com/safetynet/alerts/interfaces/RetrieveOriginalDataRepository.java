@@ -2,8 +2,11 @@ package com.safetynet.alerts.interfaces;
 
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingResponse;
+import java.util.ArrayList;
 
-public interface RetrieveWorkingData {
 
-  public WorkingResponse getWorkingData(String constantFilePath);
+public interface RetrieveOriginalDataRepository {
+
+  OriginalResponse getOriginalData(String constantFilePath);
+
 }

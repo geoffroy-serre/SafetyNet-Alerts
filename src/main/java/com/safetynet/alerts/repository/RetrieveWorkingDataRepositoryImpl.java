@@ -4,15 +4,14 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.safetynet.alerts.interfaces.RetrieveWorkingData;
-import com.safetynet.alerts.model.OriginalResponse;
+import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.model.WorkingResponse;
 import java.io.File;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class RetrieveWorkingDataImpl implements RetrieveWorkingData {
+public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRepository {
   private static final Logger logger = LogManager.getLogger("App");
 
   /**

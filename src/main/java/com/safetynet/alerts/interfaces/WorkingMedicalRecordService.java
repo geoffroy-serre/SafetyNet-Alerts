@@ -4,6 +4,6 @@ package com.safetynet.alerts.interfaces;
 /**
  * The Interface IMedicalRecordDao.
  */
-public interface ImedicalRecord {
+public interface WorkingMedicalRecordService {
 
 }

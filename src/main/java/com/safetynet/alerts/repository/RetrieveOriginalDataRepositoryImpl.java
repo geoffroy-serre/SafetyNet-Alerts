@@ -4,11 +4,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.safetynet.alerts.constants.FilesPath;
-import com.safetynet.alerts.interfaces.Response;
-import com.safetynet.alerts.interfaces.RetrieveOriginalData;
+import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.model.OriginalResponse;
-import com.safetynet.alerts.model.WorkingResponse;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class RetrieveOriginalDataImpl implements RetrieveOriginalData {
+public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataRepository {
   private static final Logger logger = LogManager.getLogger("App");
 
   /**
