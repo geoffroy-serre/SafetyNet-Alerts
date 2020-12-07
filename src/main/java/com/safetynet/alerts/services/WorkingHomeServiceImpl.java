@@ -1,11 +1,17 @@
 package com.safetynet.alerts.services;
 
+import com.safetynet.alerts.constants.FilesPath;
+import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
+import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.interfaces.WorkingHomeService;
 import com.safetynet.alerts.model.OriginalPersons;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingHome;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +20,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class WorkingHomeServiceImpl implements WorkingHomeService {
 
-  ArrayList<WorkingHome> workingHomes = new ArrayList<WorkingHome>();
+  @Autowired
+  RetrieveOriginalDataRepository retrieveOriginalDataRepository;
+
 
   /**
    * Return Object Working Home found by equality between
@@ -34,20 +42,63 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
 
   }
 
-  public ArrayList<WorkingHome> createWorkingHomes(OriginalResponse originalResponse) {
+  public ArrayList<WorkingHome> getWorkingHomesArrayList() {
+    ArrayList<WorkingHome> workingHomes = new ArrayList<WorkingHome>();
+    workingHomes.addAll(createWorkingHomes());
+    return workingHomes;
+  }
 
-    for (OriginalPersons currentIteration : originalResponse.getPersons()) {
+  /**
+   * Get workingHomes from OriginalPersonObjet in original file.
+   * OriginalFile input can't be set with the constant FilesPath.
+   * Unique adresses set by address, city, zip.
+   *
+   * @return HashSet<WorkingHome> WorkingHome.
+   */
+  public HashSet<WorkingHome> createWorkingHomes() {
+    OriginalResponse originalResponse =
+            retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
+
+    HashSet<WorkingHome> homeHashSet = new HashSet<WorkingHome>();
+    for (OriginalPersons originalPerson : originalResponse.getPersons()) {
       WorkingHome addingHome = new WorkingHome();
-      if (searchWorkingHome(currentIteration.getAddress(), workingHomes) == null) {
-        addingHome.setAddress(currentIteration.getAddress());
-        addingHome.setCity(currentIteration.getCity());
-        addingHome.setZip(currentIteration.getZip());
-        addingHome.setIdHome(UUID.randomUUID());
-        workingHomes.add(addingHome);
-      }
+      addingHome.setAddress(originalPerson.getAddress());
+      addingHome.setCity(originalPerson.getCity());
+      addingHome.setZip(originalPerson.getZip());
+      addingHome.setIdHome(UUID.randomUUID());
+      homeHashSet.add(addingHome);
+    }
+    return homeHashSet;
+  }
+
+  /**
+   * Use for processing, it has ID in key.
+   *
+   * @return HashMap<UUID, WorkingHome>
+   */
+  public HashMap<UUID, WorkingHome> getFinishedWorkingHomesHashMap() {
+
+    HashMap<UUID, WorkingHome> hashMapWorkingHomes = new HashMap<>();
+    for (WorkingHome workingHome : createWorkingHomes()) {
+      hashMapWorkingHomes.put(workingHome.getIdHome(), workingHome);
+    }
+    return hashMapWorkingHomes;
+  }
+
+  /**
+   * use for linking home  to others object.
+   * Key "address,city,zip"
+   *
+   * @return
+   */
+  public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap() {
+
+    HashMap<String, WorkingHome> hashMapWorkingHomes = new HashMap<>();
+    for (WorkingHome workingHome : createWorkingHomes()) {
+      hashMapWorkingHomes.put(workingHome.getAddress() + "," + workingHome.getCity() + "," + workingHome.getZip(), workingHome);
 
     }
-    return workingHomes;
+    return hashMapWorkingHomes;
   }
 
 }

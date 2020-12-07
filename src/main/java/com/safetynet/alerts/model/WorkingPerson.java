@@ -2,6 +2,7 @@ package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
@@ -98,6 +99,25 @@ public class WorkingPerson {
 
   public void setIdMedicalRecord(UUID idMedicalRecord) {
     this.idMedicalRecord = idMedicalRecord;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == this) return true;
+    if (!(obj instanceof WorkingPerson)) {
+      return false;
+    }
+    WorkingPerson workingPerson = (WorkingPerson) obj;
+    return Objects.equals(firstName, workingPerson.firstName) &&
+            Objects.equals(lastName, workingPerson.lastName) &&
+            Objects.equals(birthdate, workingPerson.birthdate) &&
+            Objects.equals(email, workingPerson.email) &&
+            Objects.equals(phone, workingPerson.phone);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(firstName, lastName, birthdate, email, phone);
   }
 
   @Override

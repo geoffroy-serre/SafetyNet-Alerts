@@ -1,6 +1,7 @@
 package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.constants.FilesPath;
+import com.safetynet.alerts.interfaces.WorkingPersonsService;
 import com.safetynet.alerts.model.OriginalPersons;
 import com.safetynet.alerts.services.OriginalFileService;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class PersonController {
 
 
   @Autowired
-  PersonService personService;
+  WorkingPersonsService workingPersonsService;
 
   @Autowired
   OriginalFileService originalFileService;

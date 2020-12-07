@@ -2,6 +2,7 @@ package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
@@ -57,6 +58,22 @@ public class WorkingHome {
 
   public void setPersonList(ArrayList<WorkingPerson> personList) {
     this.personList = personList;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == this) return true;
+    if (!(obj instanceof WorkingHome)) {
+      return false;
+    }
+    WorkingHome workingHome = (WorkingHome) obj;
+    return Objects.equals(address, workingHome.address) &&
+            Objects.equals(zip, workingHome.zip) &&
+            Objects.equals(city, workingHome.city);
+  }
+  @Override
+  public int hashCode() {
+    return Objects.hash(address, zip, city);
   }
 
   @Override

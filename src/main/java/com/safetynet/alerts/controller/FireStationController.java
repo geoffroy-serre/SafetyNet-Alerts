@@ -13,8 +13,6 @@ public class FireStationController {
    * The Constant logger.
    */
   private static final Logger logger = LogManager.getLogger("App");
-  @Autowired
-  FireStationService fireStationService;
 
 
 

@@ -1,70 +1,45 @@
 package com.safetynet.alerts.services;
 
-import com.safetynet.alerts.model.OriginalFirestation;
-import com.safetynet.alerts.model.OriginalResponse;
-import com.safetynet.alerts.model.WorkingFireStation;
-import com.safetynet.alerts.model.WorkingHome;
+import com.safetynet.alerts.constants.FilesPath;
+import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
+import com.safetynet.alerts.interfaces.WorkingFirestationsService;
+import com.safetynet.alerts.interfaces.WorkingHomeService;
+import com.safetynet.alerts.model.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WorkingFireStationServiceImpl {
+public class WorkingFireStationServiceImpl implements WorkingFirestationsService {
 
   @Autowired
   OriginalResponse originalResponse;
 
-  ArrayList<WorkingFireStation> workingFireStations = new ArrayList<WorkingFireStation>();
+  @Autowired
+  RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
   /**
-   * Create List of Working FireStation with Original FireStation list
-   * created by calling originalResponse.getFirestations();
+   * Retrieve Original FiresStation for processing.
+   * Return HashMpa with key as address, and value is WorkingFirestation
    *
-   * @return ArrayList<WorkingFireStation>
+   * @return HashMap<String, WorkingFireStation>
    */
-  public ArrayList<WorkingFireStation> createWorkingFireStations() {
-    ArrayList<OriginalFirestation> originalFirestations = originalResponse.getFirestations();
-    for (OriginalFirestation currentOriginalFirestation : originalFirestations) {
+  public HashMap<String, WorkingFireStation> createWorkingFiresStationHashMap(String filePath) {
+    originalResponse =
+            retrieveOriginalDataRepository.getOriginalData(filePath);
+
+    HashMap<String, WorkingFireStation> fireStationsHashMap = new HashMap<String,
+            WorkingFireStation>();
+    for (OriginalFirestation originalFiresStation : originalResponse.getFirestations()) {
       WorkingFireStation workingFireStation = new WorkingFireStation();
-      UUID alreadyPresentFireStationId =
-              presentFireStationId(currentOriginalFirestation.getStation());
-
-      if (alreadyPresentFireStationId != null) {
-        for (WorkingFireStation presentFireStation : workingFireStations) {
-          if (presentFireStation.getIdFireStation().equals(alreadyPresentFireStationId)) {
-            presentFireStation.addWorkingHome(workingHomeServiceImpl.searchWorkingHome(currentOriginalFirestation.getAddress(), workingHomes));
-          }
-        }
-      } else {
-        workingFireStation.setIdFireStation(UUID.randomUUID());
-        workingFireStation.setStationNumber(currentOriginalFirestation.getStation());
-        WorkingHome truc =
-                workingHomeServiceImpl.searchWorkingHome(currentOriginalFirestation.getAddress(),
-                        workingHomes);
-        workingFireStation.addWorkingHome(truc);
-        workingFireStations.add(workingFireStation);
-      }
+      workingFireStation.setStationNumber(originalFiresStation.getStation());
+      fireStationsHashMap.put(originalFiresStation.getAddress(), workingFireStation);
 
     }
-    return workingFireStations;
+    return fireStationsHashMap;
   }
 
-  /**
-   * Return ID of FireStation if it is in workingFirestations.
-   * Else return null
-   *
-   * @param stationNumber String
-   * @return fireStationID UUID
-   */
-  public UUID presentFireStationId(String stationNumber) {
-
-    UUID idFireStationPresent = null;
-    for (WorkingFireStation currentFireStation : workingFireStations) {
-      if (currentFireStation.getStationNumber().equals(stationNumber)) {
-        idFireStationPresent = currentFireStation.getIdFireStation();
-      }
-    }
-    return idFireStationPresent;
-  }
 }
