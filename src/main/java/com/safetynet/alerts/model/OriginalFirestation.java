@@ -10,7 +10,7 @@ public class OriginalFirestation {
   private String address;
 
   @JsonProperty("station")
-  private String station;
+  private int station;
 
   public void setAddress(String address) {
     this.address = address;
@@ -20,11 +20,11 @@ public class OriginalFirestation {
     return address;
   }
 
-  public void setStation(String station) {
+  public void setStation(int station) {
     this.station = station;
   }
 
-  public String getStation() {
+  public int getStation() {
     return station;
   }
 

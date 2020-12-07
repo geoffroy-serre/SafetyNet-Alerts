@@ -88,7 +88,7 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
         birthDate = originalMedicalRecordHashMap.get(keyNames).getBirthdate();
       }
 
-      if (homeId != null && medicalRecordId != null && birthDate!=null) {
+      if (homeId != null && medicalRecordId != null && birthDate != null) {
         WorkingPerson currentPerson = me.getValue();
         currentPerson.setHomeID(homeId);
         currentPerson.setIdMedicalRecord(medicalRecordId);

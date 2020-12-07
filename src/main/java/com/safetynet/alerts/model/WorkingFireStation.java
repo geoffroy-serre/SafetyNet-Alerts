@@ -11,7 +11,7 @@ public class WorkingFireStation {
   @JsonProperty("idFirestation")
   private UUID idFireStation;
   @JsonProperty("station")
-  private String stationNumber;
+  private int stationNumber;
   @JsonProperty("home")
   private ArrayList<WorkingHome> homeList = new ArrayList<WorkingHome>();
 
@@ -27,11 +27,11 @@ public class WorkingFireStation {
     this.idFireStation = idFireStation;
   }
 
-  public String getStationNumber() {
+  public int getStationNumber() {
     return stationNumber;
   }
 
-  public void setStationNumber(String stationNumber) {
+  public void setStationNumber(int stationNumber) {
     this.stationNumber = stationNumber;
   }
 
