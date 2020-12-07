@@ -11,6 +11,8 @@ import com.safetynet.alerts.services.WorkingFileServiceImpl;
 import com.safetynet.alerts.services.WorkingHomeServiceImpl;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,16 +35,22 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
   WorkingMedicalRecordService workingMedicalRecordService;
   @Autowired
   OriginalPersonsService originalPersonsService;
+  @Autowired
+  OriginalMedicalRecordService originalMedicalRecordService;
 
   @GetMapping("/createWorkingFile")
   public void createWorkingFile() {
 
     HashMap<String, WorkingPerson> workingPersonsHashMap =
             workingPersonsService.getWorkingPersonsHashMap();
-    HashMap<String, WorkingPerson> workingPersonsHashMapFinal = new HashMap<String, WorkingPerson>();
+    HashMap<String, WorkingPerson> workingPersonsHashMapFinal = new HashMap<String,
+            WorkingPerson>();
 
     HashMap<String, WorkingMedicalRecord> workingMedicalRecordHashMap =
             workingMedicalRecordService.getWorkingMedicalRecordsHashMap();
+    HashMap<String, OriginalMedicalrecords> originalMedicalRecordHashMap =
+            originalMedicalRecordService.getOriginalMedicalRecordHashMap();
+
     HashMap<String, WorkingFireStation> workingFireStationHashMap =
             workingFireStationService.createWorkingFiresStationHashMap();
     HashMap<String, WorkingHome> workingHomeHashMap =
@@ -66,6 +74,7 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
       System.out.println(keyNames);
       UUID homeId = null;
       UUID medicalRecordId = null;
+      LocalDate birthDate = null;
       System.out.println(workingHomeHashMap.keySet());
       if (workingHomeHashMap.containsKey(keyAdress)) {
         homeId = workingHomeHashMap.get(keyAdress).getIdHome();
@@ -73,20 +82,24 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
       }
       if (workingMedicalRecordHashMap.containsKey(keyNames)) {
         medicalRecordId = workingMedicalRecordHashMap.get(keyNames).getIdMedicalRecord();
-        System.out.println("--------------------weshqsdqsdqsdqdzdzqd----------------------");
+
+      }
+      if (originalMedicalRecordHashMap.containsKey(keyNames)) {
+        birthDate = originalMedicalRecordHashMap.get(keyNames).getBirthdate();
       }
 
-      if (homeId != null) {
+      if (homeId != null && medicalRecordId != null && birthDate!=null) {
         WorkingPerson currentPerson = me.getValue();
         currentPerson.setHomeID(homeId);
         currentPerson.setIdMedicalRecord(medicalRecordId);
+        currentPerson.setBirthdate(birthDate);
+        currentPerson.setAge(Period.between(birthDate, LocalDate.now()).getYears());
         workingPersonsHashMapFinal.put(currentKeyvalue, currentPerson);
       }
     }
 
 
-
-      workingPersonsFinal.addAll(workingPersonsHashMap.values());
+    workingPersonsFinal.addAll(workingPersonsHashMap.values());
 
 
     WorkingResponse workingResponse = new WorkingResponse();

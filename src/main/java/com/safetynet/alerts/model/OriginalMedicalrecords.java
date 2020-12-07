@@ -1,6 +1,8 @@
 package com.safetynet.alerts.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +16,9 @@ public class OriginalMedicalrecords {
   @JsonProperty("lastName")
   private String lastName;
 
+  @JsonFormat(pattern = "MM/dd/yyyy", shape = JsonFormat.Shape.STRING)
   @JsonProperty("birthdate")
-  private String birthdate;
+  private LocalDate birthdate;
 
   @JsonProperty("medications")
   private List<String> medications;
@@ -47,11 +50,11 @@ public class OriginalMedicalrecords {
     return lastName;
   }
 
-  public void setBirthdate(String birthdate) {
+  public void setBirthdate(LocalDate birthdate) {
     this.birthdate = birthdate;
   }
 
-  public String getBirthdate() {
+  public LocalDate getBirthdate() {
     return birthdate;
   }
 
