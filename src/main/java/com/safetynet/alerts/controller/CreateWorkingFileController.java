@@ -39,6 +39,8 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
 
     HashMap<String, WorkingPerson> workingPersonsHashMap =
             workingPersonsService.getWorkingPersonsHashMap();
+    HashMap<String, WorkingPerson> workingPersonsHashMapFinal = new HashMap<String, WorkingPerson>();
+
     HashMap<String, WorkingMedicalRecord> workingMedicalRecordHashMap =
             workingMedicalRecordService.getWorkingMedicalRecordsHashMap();
     HashMap<String, WorkingFireStation> workingFireStationHashMap =
@@ -47,7 +49,8 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
             workingHomeServiceImpl.getUnFinishedWorkingHomesHashMap();
     HashMap<UUID, OriginalPersons> identifiedPersonsHashMap = new HashMap<>();
 
-    ArrayList<WorkingPerson> workingPersonsFinal = new ArrayList<>();
+
+    ArrayList<WorkingPerson> workingPersonsFinal = new ArrayList<WorkingPerson>();
     ArrayList<WorkingMedicalRecord> workingMedicalRecordsFinal = new ArrayList<>();
     ArrayList<WorkingFireStation> workingFireStationsFinal = new ArrayList<>();
     ArrayList<WorkingHome> workingHomesFinal = new ArrayList<>();
@@ -56,37 +59,38 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
 
       String currentKeyvalue = me.getKey();
       String[] currentKeyValueProcessed = me.getKey().split(",");
-      String keyNames = currentKeyValueProcessed[0]+","+currentKeyValueProcessed[1];
+      String keyNames = currentKeyValueProcessed[0] + "," + currentKeyValueProcessed[1];
       String keyAdress =
-              currentKeyValueProcessed[2]+","+currentKeyValueProcessed[3]+","+currentKeyValueProcessed[4];
+              currentKeyValueProcessed[2] + "," + currentKeyValueProcessed[3] + "," + currentKeyValueProcessed[4];
       WorkingPerson workingPerson = new WorkingPerson();
-      System.out.println(keyAdress);
+      System.out.println(keyNames);
       UUID homeId = null;
       UUID medicalRecordId = null;
       System.out.println(workingHomeHashMap.keySet());
       if (workingHomeHashMap.containsKey(keyAdress)) {
         homeId = workingHomeHashMap.get(keyAdress).getIdHome();
+
       }
       if (workingMedicalRecordHashMap.containsKey(keyNames)) {
-        medicalRecordId = workingHomeHashMap.get(keyNames).getIdHome();
+        medicalRecordId = workingMedicalRecordHashMap.get(keyNames).getIdMedicalRecord();
+        System.out.println("--------------------weshqsdqsdqsdqdzdzqd----------------------");
       }
 
-      if (homeId != null && medicalRecordId !=null) {
-        WorkingPerson currentPerson =
-                workingPersonsHashMap.get(currentKeyvalue);
+      if (homeId != null) {
+        WorkingPerson currentPerson = me.getValue();
         currentPerson.setHomeID(homeId);
         currentPerson.setIdMedicalRecord(medicalRecordId);
-        workingPersonsHashMap.put(currentKeyvalue,currentPerson);
+        workingPersonsHashMapFinal.put(currentKeyvalue, currentPerson);
       }
-
-
-    }
-    for(String key : workingPersonsHashMap.keySet()){
-      workingPersonsFinal.add(workingPersonsHashMap.get(key));
     }
 
-WorkingResponse workingResponse = new WorkingResponse();
-  workingResponse.setPersons(workingPersonsFinal);
+
+
+      workingPersonsFinal.addAll(workingPersonsHashMap.values());
+
+
+    WorkingResponse workingResponse = new WorkingResponse();
+    workingResponse.setPersons(workingPersonsFinal);
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);

@@ -52,6 +52,7 @@ public class WorkingPersonsServiceImpl implements WorkingPersonsService {
       workingPerson.setEmail(originalPerson.getEmail());
       workingPerson.setFirstName(originalPerson.getFirstName());
       workingPerson.setLastName(originalPerson.getLastName());
+      workingPerson.setPhone(originalPerson.getPhone());
       String createdKey =
               originalPerson.getFirstName()+","+originalPerson.getLastName()+","+originalPerson.getAddress()+","+originalPerson.getCity()+","+originalPerson.getZip();
       workingPersonsHashMap.put(createdKey,workingPerson);

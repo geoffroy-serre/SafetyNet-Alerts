@@ -32,8 +32,7 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
       workingMedicalRecord.setMedications(originalMedicalrecords.getMedications());
       workingMedicalRecord.setIdMedicalRecord(UUID.randomUUID());
       workingMedicalRecordHashMap.put(originalMedicalrecords.getFirstName() + ","
-              + originalMedicalrecords.getLastName() + ","
-              + originalMedicalrecords.getBirthdate(), workingMedicalRecord);
+              + originalMedicalrecords.getLastName(), workingMedicalRecord);
     }
     return workingMedicalRecordHashMap;
   }
