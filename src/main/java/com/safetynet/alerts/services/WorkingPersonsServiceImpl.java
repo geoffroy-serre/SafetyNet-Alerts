@@ -7,6 +7,7 @@ import com.safetynet.alerts.model.OriginalPersons;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingPerson;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,13 @@ public class WorkingPersonsServiceImpl implements WorkingPersonsService {
 
   /**
    * ArrayList created from private Methode getWorkingPersonsHashSet
+   *
    * @return ArrayList<WorkingPerson>
    */
-  public ArrayList<WorkingPerson> createWorkingPersonsArrayList(String filePath) {
+  @Override
+  public ArrayList<WorkingPerson> createWorkingPersonsArrayList() {
     ArrayList<WorkingPerson> workingPersons = new ArrayList<WorkingPerson>();
-    workingPersons.addAll(getWorkingPersonsHashSet(filePath));
+    //workingPersons.addAll(getWorkingPersonsHashSet());
     return workingPersons;
 
   }
@@ -36,11 +39,12 @@ public class WorkingPersonsServiceImpl implements WorkingPersonsService {
    *
    * @return HashSet<WorkingPerson>
    */
-  public HashSet<WorkingPerson> getWorkingPersonsHashSet(String filePath) {
+  @Override
+  public HashMap<String,WorkingPerson> getWorkingPersonsHashMap() {
 
     originalResponse =
-            retrieveOriginalDataRepository.getOriginalData(filePath);
-    HashSet<WorkingPerson> workingPersonsHashSet = new HashSet<>();
+            retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
+    HashMap<String,WorkingPerson> workingPersonsHashMap = new HashMap<>();
 
     for (OriginalPersons originalPerson : originalResponse.getPersons()) {
       WorkingPerson workingPerson = new WorkingPerson();
@@ -48,8 +52,14 @@ public class WorkingPersonsServiceImpl implements WorkingPersonsService {
       workingPerson.setEmail(originalPerson.getEmail());
       workingPerson.setFirstName(originalPerson.getFirstName());
       workingPerson.setLastName(originalPerson.getLastName());
-      workingPersonsHashSet.add(workingPerson);
+      String createdKey =
+              originalPerson.getFirstName()+","+originalPerson.getLastName()+","+originalPerson.getAddress()+","+originalPerson.getCity()+","+originalPerson.getZip();
+      workingPersonsHashMap.put(createdKey,workingPerson);
     }
-    return workingPersonsHashSet;
+    return workingPersonsHashMap;
   }
+
+
+
+
 }

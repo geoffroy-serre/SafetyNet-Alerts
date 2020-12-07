@@ -9,7 +9,9 @@ import com.safetynet.alerts.model.WorkingMedicalRecord;
 import java.util.HashMap;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordService {
 
   @Autowired

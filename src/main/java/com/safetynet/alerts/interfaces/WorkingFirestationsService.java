@@ -8,5 +8,11 @@ import java.util.HashMap;
  */
 public interface WorkingFirestationsService {
 
-  public HashMap<String, WorkingFireStation> createWorkingFiresStationHashMap(String filePath);
+  /**
+   * Retrieve Original FiresStation for processing.
+   * Return HashMpa with key as address, and value is WorkingFirestation
+   *
+   * @return HashMap<String, WorkingFireStation>
+   */
+  public HashMap<String, WorkingFireStation> createWorkingFiresStationHashMap();
 }

@@ -27,9 +27,9 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
    *
    * @return HashMap<String, WorkingFireStation>
    */
-  public HashMap<String, WorkingFireStation> createWorkingFiresStationHashMap(String filePath) {
+  public HashMap<String, WorkingFireStation> createWorkingFiresStationHashMap() {
     originalResponse =
-            retrieveOriginalDataRepository.getOriginalData(filePath);
+            retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
 
     HashMap<String, WorkingFireStation> fireStationsHashMap = new HashMap<String,
             WorkingFireStation>();
