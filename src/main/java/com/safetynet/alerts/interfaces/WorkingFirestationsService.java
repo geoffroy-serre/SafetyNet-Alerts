@@ -14,5 +14,5 @@ public interface WorkingFirestationsService {
    *
    * @return HashMap<String, WorkingFireStation>
    */
-  public HashMap<String, WorkingFireStation> createWorkingFiresStationHashMap();
+  public HashMap<Integer, WorkingFireStation> createWorkingFiresStationHashMap();
 }

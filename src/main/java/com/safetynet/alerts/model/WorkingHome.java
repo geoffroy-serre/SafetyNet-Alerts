@@ -18,7 +18,11 @@ public class WorkingHome {
   @JsonProperty("zip")
   private String zip;
   @JsonProperty("persons")
-  private ArrayList<WorkingPerson> personList;
+  private ArrayList<WorkingPerson> personList = new ArrayList<>();
+
+  public void addPerson(WorkingPerson workingPerson) {
+    personList.add(workingPerson);
+  }
 
   public UUID getIdHome() {
     return idHome;
@@ -71,6 +75,7 @@ public class WorkingHome {
             Objects.equals(zip, workingHome.zip) &&
             Objects.equals(city, workingHome.city);
   }
+
   @Override
   public int hashCode() {
     return Objects.hash(address, zip, city);

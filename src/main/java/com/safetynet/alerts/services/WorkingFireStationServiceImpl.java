@@ -27,16 +27,17 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
    *
    * @return HashMap<String, WorkingFireStation>
    */
-  public HashMap<String, WorkingFireStation> createWorkingFiresStationHashMap() {
+  public HashMap<Integer, WorkingFireStation> createWorkingFiresStationHashMap() {
     originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
 
-    HashMap<String, WorkingFireStation> fireStationsHashMap = new HashMap<String,
+    HashMap<Integer, WorkingFireStation> fireStationsHashMap = new HashMap<Integer,
             WorkingFireStation>();
     for (OriginalFirestation originalFiresStation : originalResponse.getFirestations()) {
       WorkingFireStation workingFireStation = new WorkingFireStation();
       workingFireStation.setStationNumber(originalFiresStation.getStation());
-      fireStationsHashMap.put(originalFiresStation.getAddress(), workingFireStation);
+      workingFireStation.setIdFireStation(UUID.randomUUID());
+      fireStationsHashMap.put(workingFireStation.getStationNumber(), workingFireStation);
 
     }
     return fireStationsHashMap;

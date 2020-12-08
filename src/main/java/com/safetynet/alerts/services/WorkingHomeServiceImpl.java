@@ -2,7 +2,6 @@ package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
-import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.interfaces.WorkingHomeService;
 import com.safetynet.alerts.model.OriginalPersons;
 import com.safetynet.alerts.model.OriginalResponse;
@@ -95,7 +94,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
 
     HashMap<String, WorkingHome> hashMapWorkingHomes = new HashMap<>();
     for (WorkingHome workingHome : createWorkingHomes()) {
-      hashMapWorkingHomes.put(workingHome.getAddress() + "," + workingHome.getCity() + "," + workingHome.getZip(), workingHome);
+      hashMapWorkingHomes.put(workingHome.getAddress() , workingHome);
 
     }
     return hashMapWorkingHomes;

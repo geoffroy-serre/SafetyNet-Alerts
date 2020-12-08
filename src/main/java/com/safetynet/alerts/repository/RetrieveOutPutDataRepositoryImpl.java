@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
+import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
 import com.safetynet.alerts.model.WorkingResponse;
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRepository {
+public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepository {
   private static final Logger logger = LogManager.getLogger("App");
 
   /**

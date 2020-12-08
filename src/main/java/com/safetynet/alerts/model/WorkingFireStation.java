@@ -50,13 +50,18 @@ public class WorkingFireStation {
       return false;
     }
     WorkingFireStation workingFireStation = (WorkingFireStation) obj;
-    return Objects.equals(stationNumber, workingFireStation.stationNumber) ;
+    return Objects.equals(stationNumber, workingFireStation.stationNumber)&&
+    Objects.equals(idFireStation, workingFireStation.idFireStation)&&
+    Objects.equals(homeList, workingFireStation.homeList);
+
+
+
 
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(stationNumber);
+    return Objects.hash(stationNumber,idFireStation,homeList);
   }
 
 

@@ -1,14 +1,21 @@
 package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.constants.FilesPath;
+import com.safetynet.alerts.interfaces.OutPutHomeService;
+import com.safetynet.alerts.interfaces.OutPutPersonService;
 import com.safetynet.alerts.interfaces.WorkingPersonsService;
 import com.safetynet.alerts.model.OriginalPersons;
+import com.safetynet.alerts.model.WorkingHome;
+import com.safetynet.alerts.model.WorkingPerson;
 import com.safetynet.alerts.services.OriginalFileService;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -23,20 +30,25 @@ public class PersonController {
 
 
   @Autowired
-  WorkingPersonsService workingPersonsService;
+  OutPutPersonService outPutPersonService;
 
   @Autowired
-  OriginalFileService originalFileService;
+  OutPutHomeService outPutHomeService;
 
-  /**
-   * Retrieve all Person from original file.
-   *
-   * @return ArrayList
-   */
-  @GetMapping("/persons")
-  public ArrayList<OriginalPersons> getPersons() {
 
-    return originalFileService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE).getPersons();
+  @GetMapping("/communityEmail")
+  public HashSet<String> getEmailforACity(@RequestParam String city) {
+    HashSet<String> output = new HashSet<>();
+    ArrayList<WorkingPerson> persons = outPutPersonService.getAllPerson();
+    for (WorkingPerson currentPerson : persons) {
+      String cityy = outPutHomeService.getHomeById(currentPerson.getHomeID()).getCity();
+
+      if (outPutHomeService.getHomeById(currentPerson.getHomeID()).getCity().equalsIgnoreCase(city)) {
+        output.add(currentPerson.getEmail());
+      }
+
+    }
+    return output;
 
   }
 

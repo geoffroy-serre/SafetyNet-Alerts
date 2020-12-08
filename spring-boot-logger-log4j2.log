@@ -1,20 +1,20 @@
-2020-12-07 19:31:36,771 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication using Java 11.0.9.1 on Daedalus with PID 3048 (E:\0_DA_Java_OC\P5\SafetyNetAlerts\target\classes started by Heimdall in E:\0_DA_Java_OC\P5\SafetyNetAlerts)
-2020-12-07 19:31:36,775 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-12-07 19:31:36,776 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-12-07 19:31:36,799 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-12-07 19:31:36,800 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-12-07 19:31:37,497 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2020-12-07 19:31:37,507 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2020-12-07 19:31:37,508 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2020-12-07 19:31:37,508 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-12-07 19:31:37,573 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-12-07 19:31:37,573 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 772 ms
-2020-12-07 19:31:37,819 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-07 19:31:37,997 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2020-12-07 19:31:38,000 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-07 19:31:38,015 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2020-12-07 19:31:38,026 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-07 19:31:38,037 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 1.573 seconds (JVM running for 2.233)
-2020-12-07 19:31:38,531 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(2)-192.168.1.23] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-07 19:31:38,531 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(2)-192.168.1.23] Initializing Servlet 'dispatcherServlet'
-2020-12-07 19:31:38,532 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(2)-192.168.1.23] Completed initialization in 1 ms
+2020-12-08 13:06:16,437 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SafetyNetAlertsApplication using Java 11.0.9.1 on Daedalus with PID 9540 (E:\0_DA_Java_OC\P5\SafetyNetAlerts\target\classes started by Heimdall in E:\0_DA_Java_OC\P5\SafetyNetAlerts)
+2020-12-08 13:06:16,440 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-12-08 13:06:16,441 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-12-08 13:06:16,465 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-08 13:06:16,465 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-08 13:06:17,148 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-12-08 13:06:17,158 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-08 13:06:17,158 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-12-08 13:06:17,159 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-08 13:06:17,223 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-12-08 13:06:17,223 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 757 ms
+2020-12-08 13:06:17,474 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-08 13:06:17,658 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-12-08 13:06:17,661 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-08 13:06:17,676 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-12-08 13:06:17,687 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-08 13:06:17,698 INFO o.s.b.StartupInfoLogger [restartedMain] Started SafetyNetAlertsApplication in 1.539 seconds (JVM running for 2.182)
+2020-12-08 13:06:18,221 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(1)-192.168.1.23] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-08 13:06:18,221 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(1)-192.168.1.23] Initializing Servlet 'dispatcherServlet'
+2020-12-08 13:06:18,222 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(1)-192.168.1.23] Completed initialization in 1 ms

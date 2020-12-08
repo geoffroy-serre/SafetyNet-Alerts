@@ -25,17 +25,16 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
 
 
   @Override
-  public HashMap<Integer, OriginalFirestation> getOriginalFireStationHashMap() {
+  public ArrayList<OriginalFirestation> getOriginalFireStations() {
 
     originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
-    HashMap<Integer, OriginalFirestation> originalFireStationHashMap = new HashMap<>();
+    ArrayList<OriginalFirestation> originalFireStations = new ArrayList<>();
 
     for (OriginalFirestation originalFireStation : originalResponse.getFirestations()) {
-      originalFireStationHashMap.put(originalFireStation.getStation(),
-              originalFireStation);
+      originalFireStations.add(originalFireStation);
     }
-    return originalFireStationHashMap;
+    return originalFireStations;
   }
 
 
