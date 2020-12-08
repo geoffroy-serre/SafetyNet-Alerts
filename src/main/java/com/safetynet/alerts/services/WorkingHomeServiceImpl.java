@@ -2,6 +2,7 @@ package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
+import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
 import com.safetynet.alerts.interfaces.WorkingHomeService;
 import com.safetynet.alerts.model.OriginalPersons;
 import com.safetynet.alerts.model.OriginalResponse;
@@ -21,6 +22,9 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
 
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
+
+  @Autowired
+  RetrieveOutPutDataRepository retrieveOutPutDataRepository;
 
 
   /**
@@ -98,6 +102,20 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
 
     }
     return hashMapWorkingHomes;
+  }
+
+  @Override
+  public WorkingHome getHomeById(UUID homeId) {
+    WorkingHome workingHome = new WorkingHome();
+    ArrayList<WorkingHome> workingHomes =
+            retrieveOutPutDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE).getHomes();
+    for (WorkingHome currentWorkingHome : workingHomes) {
+      if (currentWorkingHome.getIdHome().equals(homeId)) {
+        workingHome = currentWorkingHome;
+        return workingHome;
+      }
+    }
+    return null;
   }
 
 }

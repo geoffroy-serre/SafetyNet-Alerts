@@ -47,7 +47,12 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
 
     HashMap<String, WorkingHome> workingHomeHashMap =
             workingHomeServiceImpl.getUnFinishedWorkingHomesHashMap();
-    HashMap<UUID, OriginalPersons> identifiedPersonsHashMap = new HashMap<>();
+
+    HashMap<String, WorkingMedicalRecord> workingMedicalRecordHashMap =
+            workingMedicalRecordService.getWorkingMedicalRecordsHashMap();
+
+    HashMap<String, OriginalMedicalrecords> originalMedicalRecordHashMap =
+            originalMedicalRecordService.getOriginalMedicalRecordHashMap();
 
     ArrayList<WorkingPerson> workingPersonsFinal = new ArrayList<WorkingPerson>();
     ArrayList<WorkingMedicalRecord> workingMedicalRecordsFinal = new ArrayList<>();
@@ -65,23 +70,20 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
       String currentKeyvalue = me.getKey();
       String[] currentKeyValueProcessed = me.getKey().split(",");
       String keyNames = currentKeyValueProcessed[0] + "," + currentKeyValueProcessed[1];
-      String keyAdress =
-              currentKeyValueProcessed[2];
+      String keyAddress = currentKeyValueProcessed[2];
       UUID homeId = null;
       UUID medicalRecordId = null;
       LocalDate birthDate = null;
       WorkingHome currentHome = new WorkingHome();
-      if (workingHomeHashMap.containsKey(keyAdress)) {
-        homeId = workingHomeHashMap.get(keyAdress).getIdHome();
-        currentHome = workingHomeHashMap.get(keyAdress);
+
+      if (workingHomeHashMap.containsKey(keyAddress)) {
+        homeId = workingHomeHashMap.get(keyAddress).getIdHome();
+        currentHome = workingHomeHashMap.get(keyAddress);
       }
-      HashMap<String, WorkingMedicalRecord> workingMedicalRecordHashMap =
-              workingMedicalRecordService.getWorkingMedicalRecordsHashMap();
+
       if (workingMedicalRecordHashMap.containsKey(keyNames)) {
         medicalRecordId = workingMedicalRecordHashMap.get(keyNames).getIdMedicalRecord();
       }
-      HashMap<String, OriginalMedicalrecords> originalMedicalRecordHashMap =
-              originalMedicalRecordService.getOriginalMedicalRecordHashMap();
       if (originalMedicalRecordHashMap.containsKey(keyNames)) {
         birthDate = originalMedicalRecordHashMap.get(keyNames).getBirthdate();
       }
@@ -94,7 +96,7 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
         currentPerson.setAge(Period.between(birthDate, LocalDate.now()).getYears());
         workingPersonsHashMapFinal.put(currentKeyvalue, currentPerson);
         currentHome.addPerson(currentPerson);
-        workingHomeHashMap.put(keyAdress, currentHome);
+        workingHomeHashMap.put(keyAddress, currentHome);
 
       }
     }
@@ -125,7 +127,7 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
     /*
     Adding list to be mapped
      */
-    workingMedicalRecordsFinal.addAll(workingMedicalRecordService.getWorkingMedicalRecordsHashMap().values());
+    workingMedicalRecordsFinal.addAll(workingMedicalRecordHashMap.values());
     workingPersonsFinal.addAll(workingPersonsHashMap.values());
     workingFireStationsFinal.addAll(workingFireStationHashMap.values());
     workingHomesFinal.addAll(workingHomeHashMap.values());

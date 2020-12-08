@@ -40,4 +40,6 @@ public interface WorkingHomeService {
    * @return
    */
   public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap();
+
+  WorkingHome getHomeById(UUID homeId);
 }

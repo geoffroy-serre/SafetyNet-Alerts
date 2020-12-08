@@ -1,12 +1,8 @@
 package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.constants.FilesPath;
-import com.safetynet.alerts.interfaces.OutPutHomeService;
-import com.safetynet.alerts.interfaces.OutPutPersonService;
-import com.safetynet.alerts.interfaces.WorkingPersonsService;
-import com.safetynet.alerts.model.OriginalPersons;
-import com.safetynet.alerts.model.WorkingHome;
-import com.safetynet.alerts.model.WorkingPerson;
+import com.safetynet.alerts.interfaces.*;
+import com.safetynet.alerts.model.*;
 import com.safetynet.alerts.services.OriginalFileService;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -33,7 +29,13 @@ public class PersonController {
   OutPutPersonService outPutPersonService;
 
   @Autowired
+  WorkingHomeService workingHomeService;
+
+  @Autowired
   OutPutHomeService outPutHomeService;
+
+  @Autowired
+  OutPutMedicalRecordService outPutMedicalRecordService;
 
 
   @GetMapping("/communityEmail")
@@ -41,16 +43,37 @@ public class PersonController {
     HashSet<String> output = new HashSet<>();
     ArrayList<WorkingPerson> persons = outPutPersonService.getAllPerson();
     for (WorkingPerson currentPerson : persons) {
-      String cityy = outPutHomeService.getHomeById(currentPerson.getHomeID()).getCity();
-
-      if (outPutHomeService.getHomeById(currentPerson.getHomeID()).getCity().equalsIgnoreCase(city)) {
+      if (workingHomeService.getHomeById(currentPerson.getHomeID()).getCity().equalsIgnoreCase(city)) {
         output.add(currentPerson.getEmail());
       }
-
     }
     return output;
 
   }
 
+  @GetMapping("/personInfo")
+  public ArrayList<OutPutPerson> getPersonInfo(@RequestParam String firstName,
+                                               @RequestParam String lastName) {
+    ArrayList<WorkingPerson> workinglist = outPutPersonService.getAllPerson();
 
+    ArrayList<OutPutPerson> outPutPersons = new ArrayList<>();
+    UUID medicalRecordId;
+    UUID homeId;
+    for (WorkingPerson workingPerson : workinglist) {
+      if (workingPerson.getFirstName().equalsIgnoreCase(firstName) && workingPerson.getLastName().equalsIgnoreCase(lastName)) {
+        OutPutPerson outPutPerson = new OutPutPerson();
+        outPutPerson = outPutPersonService.transformWorkingIntoOutPut(workingPerson);
+        OutPutHome outPutHome =
+                outPutHomeService.transformWorkingIntoOutPut(workingHomeService.getHomeById(workingPerson.getHomeID()));
+        outPutPerson.setHome(outPutHome);
+        OutPutMedicalRecord outPutMedicalRecord =
+                outPutMedicalRecordService.getMedicalRecordById(workingPerson.getIdMedicalRecord());
+        outPutPerson.setMedicalRecord(outPutMedicalRecord);
+        outPutPersons.add(outPutPerson);
+      }
+
+    }
+    return outPutPersons;
+
+  }
 }

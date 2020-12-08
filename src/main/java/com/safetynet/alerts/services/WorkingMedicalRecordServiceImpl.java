@@ -22,6 +22,8 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
    * Value: WorkingMedicalRecord with id generated in it.
    * @return HashMap<String, WorkingMedicalRecord>
    */
+
+
   public HashMap<String, WorkingMedicalRecord> getWorkingMedicalRecordsHashMap() {
     OriginalResponse originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
