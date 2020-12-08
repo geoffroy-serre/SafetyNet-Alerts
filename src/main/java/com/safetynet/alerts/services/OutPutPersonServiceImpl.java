@@ -43,4 +43,22 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
 
 
   }
+
+  @Override
+  public ArrayList<OutPutPerson> transformWorkingIntoOutPut(ArrayList<WorkingPerson> inputPerson) {
+    ArrayList<OutPutPerson> output = new ArrayList<>();
+    for (WorkingPerson wp : inputPerson){
+      OutPutPerson result = new OutPutPerson();
+      result.setPhone(wp.getPhone());
+      result.setAge(wp.getAge());
+      result.setEmail(wp.getEmail());
+      result.setFirstName(wp.getFirstName());
+      result.setLastName(wp.getLastName());
+      result.setBirthdate(wp.getBirthdate());
+      output.add(result);
+    }
+
+
+    return output;
+    }
 }

@@ -2,9 +2,11 @@ package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
+import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
 import com.safetynet.alerts.interfaces.WorkingFirestationsService;
 import com.safetynet.alerts.interfaces.WorkingHomeService;
 import com.safetynet.alerts.model.*;
+import com.safetynet.alerts.repository.RetrieveOutPutDataRepositoryImpl;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -20,6 +22,9 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
 
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
+
+
+
 
   /**
    * Retrieve Original FiresStation for processing.
@@ -41,6 +46,20 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
 
     }
     return fireStationsHashMap;
+  }
+
+  @Override
+  public HashMap<Integer, WorkingFireStation> getWorkingFireStationHashMap() {
+    RetrieveOutPutDataRepository retrieveOutPutDataRepository = new RetrieveOutPutDataRepositoryImpl();
+    HashMap<Integer, WorkingFireStation> workingFireStationHashMap = new HashMap<>();
+    WorkingResponse  workingResponse =
+            retrieveOutPutDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE);
+    ArrayList<WorkingFireStation> workingFireStations = workingResponse.getFirestations();
+
+    for (WorkingFireStation current : workingFireStations) {
+      workingFireStationHashMap.put(current.getStationNumber(), current);
+    }
+    return workingFireStationHashMap;
   }
 
 }

@@ -7,9 +7,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.*;
-import com.safetynet.alerts.services.OriginalFileService;
-import com.safetynet.alerts.services.WorkingFileServiceImpl;
-import com.safetynet.alerts.services.WorkingHomeServiceImpl;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -137,6 +134,11 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
     workingResponse.setHomes(workingHomesFinal);
     workingResponse.setFirestations(workingFireStationsFinal);
     workingResponse.setMedicalrecords(workingMedicalRecordsFinal);
+    test(workingResponse);
+
+  }
+
+  public WorkingResponse test(WorkingResponse po) {
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);
@@ -144,13 +146,12 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
             true);
     objectMapper.registerModule(new JavaTimeModule());
     try {
-      objectMapper.writeValue(new File(FilesPath.WORKING_INPUT_FILE), workingResponse);
+      objectMapper.writeValue(new File(FilesPath.WORKING_INPUT_FILE), po);
     } catch (IOException e) {
       // logger.error("IOException", e);
     }
-
+    return po;
 
   }
-
 
 }

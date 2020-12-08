@@ -42,4 +42,6 @@ public interface WorkingHomeService {
   public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap();
 
   WorkingHome getHomeById(UUID homeId);
+
+  ArrayList<WorkingHome> retrieveWorkingHomeFromFile(String filePath);
 }

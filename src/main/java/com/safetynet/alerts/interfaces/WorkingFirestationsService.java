@@ -15,4 +15,6 @@ public interface WorkingFirestationsService {
    * @return HashMap<String, WorkingFireStation>
    */
   public HashMap<Integer, WorkingFireStation> createWorkingFiresStationHashMap();
+
+  HashMap<Integer, WorkingFireStation> getWorkingFireStationHashMap();
 }

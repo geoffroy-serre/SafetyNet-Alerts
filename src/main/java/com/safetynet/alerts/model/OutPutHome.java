@@ -13,6 +13,16 @@ public class OutPutHome {
   private String city;
   @JsonProperty("zip")
   private String zip;
+  @JsonProperty("persons")
+  private ArrayList<OutPutPerson> persons = new ArrayList<>();
+
+  public ArrayList<OutPutPerson> getPersons() {
+    return persons;
+  }
+
+  public void setPersons(ArrayList<OutPutPerson> persons) {
+    this.persons = persons;
+  }
 
   public String getAddress() {
     return address;

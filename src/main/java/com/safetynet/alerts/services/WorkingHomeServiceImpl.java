@@ -7,6 +7,7 @@ import com.safetynet.alerts.interfaces.WorkingHomeService;
 import com.safetynet.alerts.model.OriginalPersons;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingHome;
+import com.safetynet.alerts.model.WorkingResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -116,6 +117,13 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
       }
     }
     return null;
+  }
+
+  @Override
+  public  ArrayList<WorkingHome> retrieveWorkingHomeFromFile(String filePath){
+    WorkingResponse wr = retrieveOutPutDataRepository.getWorkingData(filePath);
+    ArrayList<WorkingHome> ws = wr.getHomes();
+    return ws;
   }
 
 }

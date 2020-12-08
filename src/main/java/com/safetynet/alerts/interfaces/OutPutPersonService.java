@@ -10,4 +10,6 @@ public interface OutPutPersonService {
   ArrayList<WorkingPerson> getAllPerson();
 
   OutPutPerson transformWorkingIntoOutPut(WorkingPerson inputPerson);
+
+  ArrayList<OutPutPerson> transformWorkingIntoOutPut(ArrayList<WorkingPerson> inputPerson);
 }

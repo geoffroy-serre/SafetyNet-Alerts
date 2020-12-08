@@ -30,4 +30,27 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return result;
   }
 
+  @Override
+  public ArrayList<OutPutHome> getOutPutHomeList(){
+    ArrayList<WorkingHome> workingHomes =
+            retrieveOutPutDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE).getHomes();
+    ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
+    for (WorkingHome workingHome : workingHomes){
+      outPutHomes.add(transformWorkingIntoOutPut(workingHome));
+    }
+    return outPutHomes;
+  }
+
+  @Override
+  public ArrayList<OutPutHome> transformWorkingIntoOutPut(ArrayList<WorkingHome> inputHome) {
+    ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
+    for(WorkingHome current : inputHome){
+      OutPutHome result = new OutPutHome();
+      result.setAddress(current.getAddress());
+      result.setCity(current.getCity());
+      result.setZip(current.getZip());
+      outPutHomes.add(result);
+    }
+    return outPutHomes;
+  }
 }
