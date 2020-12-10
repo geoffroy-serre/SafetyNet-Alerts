@@ -3,6 +3,7 @@ package com.safetynet.alerts.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,8 +24,19 @@ public class OutPutPerson {
   private int age;
   @JsonProperty("email")
   private String email;
-  @JsonProperty("MedicalRecord")
-  private OutPutMedicalRecord medicalRecord;
+  @JsonProperty("medicalRecord")
+  private OutPutMedicalRecord medicalRecord  ;
+  @JsonProperty("idMedicalRecord")
+  private UUID idMedicalRecord  ;
+
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+  public UUID getIdMedicalRecord() {
+    return idMedicalRecord;
+  }
+
+  public void setIdMedicalRecord(UUID idMedicalRecord) {
+    this.idMedicalRecord = idMedicalRecord;
+  }
 
   public String getFirstName() {
     return firstName;

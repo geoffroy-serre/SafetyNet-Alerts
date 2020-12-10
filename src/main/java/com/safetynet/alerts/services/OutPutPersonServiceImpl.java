@@ -2,20 +2,17 @@ package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.OutPutPersonService;
-import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
+import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.model.OutPutPerson;
-import com.safetynet.alerts.model.WorkingHome;
-import com.safetynet.alerts.model.WorkingMedicalRecord;
 import com.safetynet.alerts.model.WorkingPerson;
 import java.util.ArrayList;
-import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OutPutPersonServiceImpl implements OutPutPersonService {
   @Autowired
-  RetrieveOutPutDataRepository retrieveOutPutDataRepository;
+  RetrieveWorkingDataRepository retrieveOutPutDataRepository;
 
   @Override
   public ArrayList<WorkingPerson> getAllPerson() {
@@ -45,9 +42,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
-  public ArrayList<OutPutPerson> transformWorkingIntoOutPut(ArrayList<WorkingPerson> inputPerson) {
+  public ArrayList<OutPutPerson> transformWorkingIntoOutPut(ArrayList<WorkingPerson> inputPersons) {
     ArrayList<OutPutPerson> output = new ArrayList<>();
-    for (WorkingPerson wp : inputPerson){
+    for (WorkingPerson wp : inputPersons){
       OutPutPerson result = new OutPutPerson();
       result.setPhone(wp.getPhone());
       result.setAge(wp.getAge());
@@ -57,8 +54,6 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
       result.setBirthdate(wp.getBirthdate());
       output.add(result);
     }
-
-
     return output;
     }
 }

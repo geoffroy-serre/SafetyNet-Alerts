@@ -2,16 +2,28 @@ package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
+import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 @Component
 public class OutPutMedicalRecord {
 
+  @JsonProperty("idMedicalRecord")
+  private UUID idMedicalRecord;
   @JsonProperty("medications")
   private List<String> medications;
 
   @JsonProperty("allergies")
   private List<String> allergies;
+
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+  public UUID getIdMedicalRecord() {
+    return idMedicalRecord;
+  }
+
+  public void setIdMedicalRecord(UUID idMedicalRecord) {
+    this.idMedicalRecord = idMedicalRecord;
+  }
 
   public List<String> getMedications() {
     return medications;
@@ -37,3 +49,4 @@ public class OutPutMedicalRecord {
             '}';
   }
 }
+

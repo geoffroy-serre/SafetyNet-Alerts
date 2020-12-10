@@ -2,9 +2,8 @@ package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.OutPutMedicalRecordService;
-import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
+import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.model.OutPutMedicalRecord;
-import com.safetynet.alerts.model.WorkingHome;
 import com.safetynet.alerts.model.WorkingMedicalRecord;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class OutPutMedicalRecordServiceImpl implements OutPutMedicalRecordService {
   @Autowired
-  RetrieveOutPutDataRepository retrieveOutPutDataRepository;
+  RetrieveWorkingDataRepository retrieveOutPutDataRepository;
 
   @Override
   public OutPutMedicalRecord getMedicalRecordById(UUID medicalRecordId) {

@@ -1,10 +1,7 @@
 package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.constants.FilesPath;
-import com.safetynet.alerts.interfaces.OutPutHomeService;
-import com.safetynet.alerts.interfaces.OutPutPersonService;
-import com.safetynet.alerts.interfaces.WorkingFirestationsService;
-import com.safetynet.alerts.interfaces.WorkingHomeService;
+import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.*;
 import com.safetynet.alerts.services.OutPutHomeServiceImpl;
 import com.safetynet.alerts.services.OutPutPersonServiceImpl;
@@ -31,21 +28,39 @@ public class FireStationController {
   WorkingHomeService workingHomeService;
   @Autowired
   OutPutHomeService outPutHomeService;
+  @Autowired
+  RetrieveOutPutResponseService retrieveOutPutResponseService;
+  @Autowired
+  WorkingMedicalRecordService workingMedicalRecordService;
+
 
   @GetMapping("/flood/stations")
   public ArrayList<OutPutFireStation> getPersonsByStation(@RequestParam ArrayList<Integer> stations) {
-    WorkingFirestationsService workingFirestationsService = new WorkingFireStationServiceImpl();
-    OutPutPersonService outPutPersonService = new OutPutPersonServiceImpl();
-
-    HashMap<Integer, WorkingFireStation> workingFireStationHashMap =
-            workingFirestationsService.getWorkingFireStationHashMap();
+    OutPutResponse outPutResponse =
+            retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
     ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
-
     for (Integer stationNumber : stations) {
-      if (workingFireStationHashMap.containsKey(stationNumber)) {
-       
+
+      for (OutPutFireStation outPutFireStation : outPutResponse.getFirestations()) {
+        if (outPutFireStation.getStationNumber() == stationNumber) {
+          for (OutPutHome outPutHome : outPutFireStation.getHomeList()) {
+            for (OutPutPerson outPutPerson : outPutHome.getPersons()) {
+              for (OutPutMedicalRecord outPutMedicalRecord : outPutResponse.getMedicalrecords()) {
+                if (outPutMedicalRecord.getIdMedicalRecord().equals(outPutPerson.getIdMedicalRecord())) {
+                  outPutPerson.setMedicalRecord(outPutMedicalRecord);
+                  outPutPerson.setBirthdate(null);
+                  outPutPerson.setEmail(null);
+                  outPutPerson.setIdMedicalRecord(null);
+                }
+              }
+            }
+          }
+          outPutFireStations.add(outPutFireStation);
+        }
+
       }
     }
+
     return outPutFireStations;
   }
 

@@ -1,9 +1,7 @@
 package com.safetynet.alerts.interfaces;
 
-import com.safetynet.alerts.model.OriginalResponse;
-import com.safetynet.alerts.model.WorkingResponse;
+import com.safetynet.alerts.model.OutPutResponse;
 
 public interface RetrieveOutPutDataRepository {
-
-  public WorkingResponse getWorkingData(String constantFilePath);
+  OutPutResponse getOutPutData(String constantFilePath);
 }

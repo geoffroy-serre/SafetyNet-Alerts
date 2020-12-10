@@ -14,7 +14,7 @@ public class OutPutHome {
   @JsonProperty("zip")
   private String zip;
   @JsonProperty("persons")
-  private ArrayList<OutPutPerson> persons = new ArrayList<>();
+  private ArrayList<OutPutPerson> persons = null;
 
   public ArrayList<OutPutPerson> getPersons() {
     return persons;

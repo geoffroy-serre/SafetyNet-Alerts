@@ -57,8 +57,7 @@ public class PersonController {
     ArrayList<WorkingPerson> workinglist = outPutPersonService.getAllPerson();
 
     ArrayList<OutPutPerson> outPutPersons = new ArrayList<>();
-    UUID medicalRecordId;
-    UUID homeId;
+
     for (WorkingPerson workingPerson : workinglist) {
       if (workingPerson.getFirstName().equalsIgnoreCase(firstName) && workingPerson.getLastName().equalsIgnoreCase(lastName)) {
         OutPutPerson outPutPerson = new OutPutPerson();

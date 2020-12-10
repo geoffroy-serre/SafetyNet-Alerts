@@ -2,7 +2,7 @@ package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
-import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
+import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.interfaces.WorkingHomeService;
 import com.safetynet.alerts.model.OriginalPersons;
 import com.safetynet.alerts.model.OriginalResponse;
@@ -25,7 +25,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
   @Autowired
-  RetrieveOutPutDataRepository retrieveOutPutDataRepository;
+  RetrieveWorkingDataRepository retrieveOutPutDataRepository;
 
 
   /**

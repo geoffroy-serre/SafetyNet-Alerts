@@ -2,14 +2,12 @@ package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
-import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
+import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.interfaces.WorkingFirestationsService;
-import com.safetynet.alerts.interfaces.WorkingHomeService;
 import com.safetynet.alerts.model.*;
-import com.safetynet.alerts.repository.RetrieveOutPutDataRepositoryImpl;
+import com.safetynet.alerts.repository.RetrieveWorkingDataRepositoryImpl;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,7 +48,7 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
 
   @Override
   public HashMap<Integer, WorkingFireStation> getWorkingFireStationHashMap() {
-    RetrieveOutPutDataRepository retrieveOutPutDataRepository = new RetrieveOutPutDataRepositoryImpl();
+    RetrieveWorkingDataRepository retrieveOutPutDataRepository = new RetrieveWorkingDataRepositoryImpl();
     HashMap<Integer, WorkingFireStation> workingFireStationHashMap = new HashMap<>();
     WorkingResponse  workingResponse =
             retrieveOutPutDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE);
