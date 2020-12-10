@@ -7,6 +7,8 @@ import java.util.UUID;
 
 public class OutPutHome {
 
+  @JsonProperty("stationNumber")
+  private Integer stationNumber = null;
   @JsonProperty("address")
   private String address;
   @JsonProperty("city")
@@ -15,6 +17,15 @@ public class OutPutHome {
   private String zip;
   @JsonProperty("persons")
   private ArrayList<OutPutPerson> persons = null;
+
+
+  public Integer getStationNumber() {
+    return stationNumber;
+  }
+
+  public void setStationNumber(Integer stationNumber) {
+    this.stationNumber = stationNumber;
+  }
 
   public ArrayList<OutPutPerson> getPersons() {
     return persons;
