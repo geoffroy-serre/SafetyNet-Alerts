@@ -4,8 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OutPutHome {
+
 
   @JsonProperty("stationNumber")
   private Integer stationNumber = null;
@@ -15,9 +18,29 @@ public class OutPutHome {
   private String city;
   @JsonProperty("zip")
   private String zip;
+  @JsonProperty("adults")
+  private Integer numberOfAdults;
+  @JsonProperty("children")
+  private Integer numberOfChildren;
   @JsonProperty("persons")
   private ArrayList<OutPutPerson> persons = null;
 
+
+  public Integer getNumberOfAdults() {
+    return numberOfAdults;
+  }
+
+  public void setNumberOfAdults(Integer numberOfAdults) {
+    this.numberOfAdults = numberOfAdults;
+  }
+
+  public Integer getNumberOfChildren() {
+    return numberOfChildren;
+  }
+
+  public void setNumberOfChildren(Integer numberOfChildren) {
+    this.numberOfChildren = numberOfChildren;
+  }
 
   public Integer getStationNumber() {
     return stationNumber;

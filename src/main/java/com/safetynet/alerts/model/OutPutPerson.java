@@ -21,7 +21,7 @@ public class OutPutPerson {
   @JsonProperty("birthdate")
   private LocalDate birthdate;
   @JsonProperty("age")
-  private int age;
+  private Integer age;
   @JsonProperty("email")
   private String email;
   @JsonProperty("medicalRecord")
@@ -78,11 +78,11 @@ public class OutPutPerson {
     this.birthdate = birthdate;
   }
 
-  public int getAge() {
+  public Integer getAge() {
     return age;
   }
 
-  public void setAge(int age) {
+  public void setAge(Integer age) {
     this.age = age;
   }
 

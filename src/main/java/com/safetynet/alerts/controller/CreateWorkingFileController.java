@@ -90,7 +90,7 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
         currentPerson.setHomeID(homeId);
         currentPerson.setIdMedicalRecord(medicalRecordId);
         currentPerson.setBirthdate(birthDate);
-        currentPerson.setAge(Period.between(birthDate, LocalDate.now()).getYears());
+
         workingPersonsHashMapFinal.put(currentKeyvalue, currentPerson);
         currentHome.addPerson(currentPerson);
         workingHomeHashMap.put(keyAddress, currentHome);

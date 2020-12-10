@@ -2,7 +2,9 @@ package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OutPutResponse {
 
 

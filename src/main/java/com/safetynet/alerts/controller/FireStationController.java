@@ -1,11 +1,14 @@
 package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.constants.FilesPath;
+import com.safetynet.alerts.constants.OfAgeRules;
 import com.safetynet.alerts.interfaces.OutPutHomeService;
 import com.safetynet.alerts.interfaces.RetrieveOutPutResponseService;
 import com.safetynet.alerts.interfaces.WorkingHomeService;
 import com.safetynet.alerts.interfaces.WorkingMedicalRecordService;
 import com.safetynet.alerts.model.*;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
 import org.apache.logging.log4j.LogManager;
@@ -36,7 +39,6 @@ public class FireStationController {
             retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
     ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
     for (Integer stationNumber : stations) {
-
       for (OutPutFireStation outPutFireStation : outPutResponse.getFirestations()) {
         if (outPutFireStation.getStationNumber() == stationNumber) {
           for (OutPutHome outPutHome : outPutFireStation.getHomeList()) {
@@ -44,19 +46,19 @@ public class FireStationController {
               for (OutPutMedicalRecord outPutMedicalRecord : outPutResponse.getMedicalrecords()) {
                 if (outPutMedicalRecord.getIdMedicalRecord().equals(outPutPerson.getIdMedicalRecord())) {
                   outPutPerson.setMedicalRecord(outPutMedicalRecord);
-                  outPutPerson.setBirthdate(null);
                   outPutPerson.setEmail(null);
-                  outPutHome.setStationNumber(null);
+                  outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(),
+                          LocalDate.now()).getYears());
+                  outPutPerson.setBirthdate(null);
+
                 }
               }
             }
           }
           outPutFireStations.add(outPutFireStation);
         }
-
       }
     }
-
     return outPutFireStations;
   }
 
@@ -73,15 +75,16 @@ public class FireStationController {
         for (OutPutPerson outPutPerson : outPutPersons) {
           for (OutPutMedicalRecord outPutMedicalRecord : getOutPutResponse.getMedicalrecords()) {
             if (outPutMedicalRecord.getIdMedicalRecord().equals(outPutPerson.getIdMedicalRecord())) {
+              outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
               outPutPerson.setMedicalRecord(outPutMedicalRecord);
               outPutPerson.setBirthdate(null);
               outPutPerson.setEmail(null);
-              for (OutPutFireStation outPutFireStation : getOutPutResponse.getFirestations()){
-                if(outPutFireStation.getHomeList().contains(outPutHome)){
+              for (OutPutFireStation outPutFireStation : getOutPutResponse.getFirestations()) {
+                if (outPutFireStation.getHomeList().contains(outPutHome)) {
                   outPutHome.setStationNumber(outPutFireStation.getStationNumber());
                 }
               }
-              result= outPutHome;
+              result = outPutHome;
             }
           }
         }
@@ -92,15 +95,15 @@ public class FireStationController {
 
   }
 
-  @GetMapping("phoneAlert")
-  public HashSet<String> getPhoneNumberByStations(@RequestParam Integer firestation){
+  @GetMapping("/phoneAlert")
+  public HashSet<String> getPhoneNumberByStations(@RequestParam Integer firestation) {
     HashSet<String> resultPhoneNumbers = new HashSet<>();
     OutPutResponse outPutResponse =
             retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
-    for(OutPutFireStation outPutFireStation : outPutResponse.getFirestations()){
-      if (outPutFireStation.getStationNumber()==firestation){
-        for(OutPutHome outPutHome : outPutFireStation.getHomeList()){
-          for(OutPutPerson outPutPerson : outPutHome.getPersons()){
+    for (OutPutFireStation outPutFireStation : outPutResponse.getFirestations()) {
+      if (outPutFireStation.getStationNumber() == firestation) {
+        for (OutPutHome outPutHome : outPutFireStation.getHomeList()) {
+          for (OutPutPerson outPutPerson : outPutHome.getPersons()) {
             resultPhoneNumbers.add(outPutPerson.getPhone());
           }
         }
@@ -108,6 +111,43 @@ public class FireStationController {
     }
 
     return resultPhoneNumbers;
+  }
+
+  @GetMapping("/firestation")
+  public ArrayList<OutPutHome> getPersonbyStationWithFamillyStats(@RequestParam
+                                                                          int stationNumber) {
+
+    OutPutResponse outPutResponse =
+            retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
+    ArrayList<OutPutHome> result = new ArrayList<>();
+    ArrayList<OutPutHome> served = new ArrayList<>();
+
+    for (OutPutFireStation outPutFireStation : outPutResponse.getFirestations()) {
+      if (stationNumber == (outPutFireStation.getStationNumber())) {
+        served.addAll(outPutFireStation.getHomeList());
+      }
+    }
+    for (OutPutHome outPutHome : served) {
+      int underAge = 0;
+      int ofAge = 0;
+      for (OutPutPerson outPutPerson : outPutHome.getPersons()) {
+        outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
+        if (outPutPerson.getAge() < OfAgeRules.OF_AGE_FR) {
+          underAge++;
+        } else if (outPutPerson.getAge() >= OfAgeRules.OF_AGE_FR) {
+          ofAge++;
+        }
+        outPutPerson.setBirthdate(null);
+        outPutPerson.setEmail(null);
+        outPutPerson.setAge(null);
+
+
+      }
+      outPutHome.setNumberOfChildren(underAge);
+      outPutHome.setNumberOfAdults(ofAge);
+      result.add(outPutHome);
+    }
+    return result;
   }
 
 

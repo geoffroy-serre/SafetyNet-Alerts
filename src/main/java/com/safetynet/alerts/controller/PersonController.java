@@ -58,25 +58,24 @@ public class PersonController {
   @GetMapping("/personInfo")
   public ArrayList<OutPutPerson> getPersonInfo(@RequestParam String firstName,
                                                @RequestParam String lastName) {
-    ArrayList<WorkingPerson> workinglist = outPutPersonService.getAllPerson();
-
-    ArrayList<OutPutPerson> outPutPersons = new ArrayList<>();
-
-    for (WorkingPerson workingPerson : workinglist) {
-      if (workingPerson.getFirstName().equalsIgnoreCase(firstName) && workingPerson.getLastName().equalsIgnoreCase(lastName)) {
-        OutPutPerson outPutPerson = new OutPutPerson();
-        outPutPerson = outPutPersonService.transformWorkingIntoOutPut(workingPerson);
-        OutPutHome outPutHome =
-                outPutHomeService.transformWorkingIntoOutPut(workingHomeService.getHomeById(workingPerson.getHomeID()));
-        outPutPerson.setHome(outPutHome);
-        OutPutMedicalRecord outPutMedicalRecord =
-                outPutMedicalRecordService.getMedicalRecordById(workingPerson.getIdMedicalRecord());
-        outPutPerson.setMedicalRecord(outPutMedicalRecord);
-        outPutPersons.add(outPutPerson);
+    OutPutResponse outPutResponse =
+            retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
+    ArrayList<OutPutPerson> result = new ArrayList<>();
+    for (OutPutPerson outPutPerson : outPutResponse.getPersons()) {
+      if (outPutPerson.getFirstName().equalsIgnoreCase(firstName) && outPutPerson.getLastName().equalsIgnoreCase(lastName)) {
+        for (OutPutMedicalRecord outPutMedicalRecord : outPutResponse.getMedicalrecords()) {
+          if (outPutPerson.getIdMedicalRecord().equals(outPutMedicalRecord.getIdMedicalRecord())) {
+            outPutPerson.setMedicalRecord(outPutMedicalRecord);
+            outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
+            outPutPerson.setBirthdate(null);
+            outPutPerson.setPhone(null);
+            result.add(outPutPerson);
+          }
+        }
       }
-
     }
-    return outPutPersons;
+
+    return result;
 
   }
 
@@ -93,8 +92,8 @@ public class PersonController {
 
         for (OutPutPerson outPutPerson : outPutHome.getPersons()) {
           boolean isUnderAge = false;
-
-          if (Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears() < OfAgeRules.OF_AGE_FR) {
+  outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
+          if (outPutPerson.getAge() < OfAgeRules.OF_AGE_FR) {
             isUnderAge = true;
           }
           if (isUnderAge) {
@@ -103,13 +102,13 @@ public class PersonController {
             outPutPerson.setEmail(null);
             underAge.add(outPutPerson);
             isUnderAge = false;
-          } else if (!isUnderAge){
+          } else if (!isUnderAge) {
             outPutPerson.setBirthdate(null);
             family.add(outPutPerson);
           }
         }
       }
-      if(!underAge.isEmpty()) {
+      if (!underAge.isEmpty()) {
         outPutChild.setChild(underAge);
         outPutChild.setFamilly(family);
       }
