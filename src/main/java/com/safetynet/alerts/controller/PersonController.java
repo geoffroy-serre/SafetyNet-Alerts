@@ -1,12 +1,13 @@
 package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.constants.FilesPath;
+import com.safetynet.alerts.constants.OfAgeRules;
 import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.*;
-import com.safetynet.alerts.services.OriginalFileService;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,9 @@ public class PersonController {
 
   @Autowired
   OutPutMedicalRecordService outPutMedicalRecordService;
+
+  @Autowired
+  RetrieveOutPutResponseService retrieveOutPutResponseService;
 
 
   @GetMapping("/communityEmail")
@@ -74,5 +78,43 @@ public class PersonController {
     }
     return outPutPersons;
 
+  }
+
+  @GetMapping("/childAlert")
+  public OutPutChild getChilds(@RequestParam String address) {
+
+    ArrayList<OutPutHome> outPutHomes =
+            retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE).getHomes();
+    ArrayList<OutPutPerson> family = new ArrayList<>();
+    ArrayList<OutPutPerson> underAge = new ArrayList<>();
+    OutPutChild outPutChild = new OutPutChild();
+    for (OutPutHome outPutHome : outPutHomes) {
+      if (outPutHome.getAddress().equalsIgnoreCase(address)) {
+
+        for (OutPutPerson outPutPerson : outPutHome.getPersons()) {
+          boolean isUnderAge = false;
+
+          if (Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears() < OfAgeRules.OF_AGE_FR) {
+            isUnderAge = true;
+          }
+          if (isUnderAge) {
+            outPutPerson.setBirthdate(null);
+            outPutPerson.setPhone(null);
+            outPutPerson.setEmail(null);
+            underAge.add(outPutPerson);
+            isUnderAge = false;
+          } else if (!isUnderAge){
+            outPutPerson.setBirthdate(null);
+            family.add(outPutPerson);
+          }
+        }
+      }
+      if(!underAge.isEmpty()) {
+        outPutChild.setChild(underAge);
+        outPutChild.setFamilly(family);
+      }
+    }
+
+    return outPutChild;
   }
 }
