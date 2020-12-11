@@ -2,6 +2,7 @@ package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.OutPutPersonService;
+import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.model.OutPutPerson;
 import com.safetynet.alerts.model.WorkingPerson;
@@ -12,14 +13,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class OutPutPersonServiceImpl implements OutPutPersonService {
   @Autowired
-  RetrieveWorkingDataRepository retrieveOutPutDataRepository;
+  RetrieveOutPutDataRepository retrieveOutPutDataRepository;
 
   @Override
-  public ArrayList<WorkingPerson> getAllPerson() {
-    ArrayList<WorkingPerson> output = new ArrayList<>();
-    ArrayList<WorkingPerson> workingPersons =
-            retrieveOutPutDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE).getPersons();
-    for (WorkingPerson current : workingPersons) {
+  public ArrayList<OutPutPerson> getAllPerson() {
+    ArrayList<OutPutPerson> output = new ArrayList<>();
+    ArrayList<OutPutPerson> outPutPersons =
+            retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getPersons();
+    for (OutPutPerson current : outPutPersons) {
       output.add(current);
     }
     return output;

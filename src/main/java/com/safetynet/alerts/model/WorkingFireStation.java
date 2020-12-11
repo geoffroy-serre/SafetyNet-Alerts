@@ -13,10 +13,10 @@ public class WorkingFireStation {
   @JsonProperty("station")
   private int stationNumber;
   @JsonProperty("home")
-  private ArrayList<WorkingHome> homeList = new ArrayList<WorkingHome>();
+  private ArrayList<UUID> workingHomeIds = new ArrayList<UUID>();
 
-  public void addWorkingHome(WorkingHome workingHome) {
-    homeList.add(workingHome);
+  public void addWorkingHome(UUID workingHomeId) {
+    workingHomeIds.add(workingHomeId);
   }
 
   public UUID getIdFireStation() {
@@ -35,12 +35,12 @@ public class WorkingFireStation {
     this.stationNumber = stationNumber;
   }
 
-  public ArrayList<WorkingHome> getHomeList() {
-    return homeList;
+  public ArrayList<UUID> getWorkingHomeIds() {
+    return workingHomeIds;
   }
 
-  public void setHomeList(ArrayList<WorkingHome> homeList) {
-    this.homeList = homeList;
+  public void setWorkingHomeIds(ArrayList<UUID> workingHomeIds) {
+    this.workingHomeIds = workingHomeIds;
   }
 
   @Override
@@ -52,7 +52,7 @@ public class WorkingFireStation {
     WorkingFireStation workingFireStation = (WorkingFireStation) obj;
     return Objects.equals(stationNumber, workingFireStation.stationNumber)&&
     Objects.equals(idFireStation, workingFireStation.idFireStation)&&
-    Objects.equals(homeList, workingFireStation.homeList);
+    Objects.equals(workingHomeIds, workingFireStation.workingHomeIds);
 
 
 
@@ -61,7 +61,7 @@ public class WorkingFireStation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(stationNumber,idFireStation,homeList);
+    return Objects.hash(stationNumber,idFireStation,workingHomeIds);
   }
 
 
@@ -70,7 +70,7 @@ public class WorkingFireStation {
     return "WorkingFireStation{"
             + "idFireStation=" + idFireStation
             + ", stationNumber=" + stationNumber
-            + ", homeList=" + homeList
+            + ", homeList=" + workingHomeIds
             + '}';
   }
 }

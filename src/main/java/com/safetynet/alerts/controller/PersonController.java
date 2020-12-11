@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,12 +46,23 @@ public class PersonController {
   @GetMapping("/communityEmail")
   public HashSet<String> getEmailforACity(@RequestParam String city) {
     HashSet<String> output = new HashSet<>();
-    ArrayList<WorkingPerson> persons = outPutPersonService.getAllPerson();
-    for (WorkingPerson currentPerson : persons) {
-      if (workingHomeService.getHomeById(currentPerson.getHomeID()).getCity().equalsIgnoreCase(city)) {
-        output.add(currentPerson.getEmail());
+    OutPutResponse outPutResponse =
+            retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
+    HashSet<UUID> idHomes = new HashSet<>();
+    for (OutPutHome outPutHome : outPutResponse.getHomes()) {
+      if (outPutHome.getCity().equalsIgnoreCase(city)) {
+        idHomes.add(outPutHome.getIdHome());
       }
     }
+    for (UUID idHome : idHomes) {
+      for (OutPutPerson outPutPerson : outPutResponse.getPersons()) {
+        if (outPutPerson.getIdHome().equals(idHome)) {
+          output.add(outPutPerson.getEmail());
+        }
+      }
+
+    }
+
     return output;
 
   }
@@ -60,7 +72,7 @@ public class PersonController {
                                                @RequestParam String lastName) {
     OutPutResponse outPutResponse =
             retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
-    ArrayList<OutPutPerson> result = new ArrayList<>();
+    ArrayList<OutPutPerson> preResult = new ArrayList<>();
     for (OutPutPerson outPutPerson : outPutResponse.getPersons()) {
       if (outPutPerson.getFirstName().equalsIgnoreCase(firstName) && outPutPerson.getLastName().equalsIgnoreCase(lastName)) {
         for (OutPutMedicalRecord outPutMedicalRecord : outPutResponse.getMedicalrecords()) {
@@ -69,8 +81,17 @@ public class PersonController {
             outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
             outPutPerson.setBirthdate(null);
             outPutPerson.setPhone(null);
-            result.add(outPutPerson);
+            preResult.add(outPutPerson);
           }
+        }
+      }
+    }
+    ArrayList<OutPutPerson> result = new ArrayList<>();
+    for (OutPutPerson outPutPerson : preResult) {
+      for (OutPutHome outPutHome : outPutResponse.getHomes()) {
+        if (outPutHome.getIdHome().equals(outPutPerson.getIdHome())) {
+          outPutPerson.setHome(outPutHome);
+          result.add(outPutPerson);
         }
       }
     }
@@ -82,38 +103,42 @@ public class PersonController {
   @GetMapping("/childAlert")
   public OutPutChild getChilds(@RequestParam String address) {
 
-    ArrayList<OutPutHome> outPutHomes =
-            retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE).getHomes();
+    OutPutResponse outPutResponse =
+            retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
     ArrayList<OutPutPerson> family = new ArrayList<>();
     ArrayList<OutPutPerson> underAge = new ArrayList<>();
+    ArrayList<OutPutPerson> personsForSelectedHome = new ArrayList<>();
     OutPutChild outPutChild = new OutPutChild();
-    for (OutPutHome outPutHome : outPutHomes) {
+    OutPutHome selectedHome = new OutPutHome();
+    for (OutPutHome outPutHome : outPutResponse.getHomes()) {
       if (outPutHome.getAddress().equalsIgnoreCase(address)) {
-
-        for (OutPutPerson outPutPerson : outPutHome.getPersons()) {
-          boolean isUnderAge = false;
-  outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
-          if (outPutPerson.getAge() < OfAgeRules.OF_AGE_FR) {
-            isUnderAge = true;
-          }
-          if (isUnderAge) {
-            outPutPerson.setBirthdate(null);
-            outPutPerson.setPhone(null);
-            outPutPerson.setEmail(null);
-            underAge.add(outPutPerson);
-            isUnderAge = false;
-          } else if (!isUnderAge) {
-            outPutPerson.setBirthdate(null);
-            family.add(outPutPerson);
-          }
-        }
-      }
-      if (!underAge.isEmpty()) {
-        outPutChild.setChild(underAge);
-        outPutChild.setFamilly(family);
+        selectedHome = outPutHome;
       }
     }
+    for (OutPutPerson outPutPerson : outPutResponse.getPersons()) {
+      if (selectedHome.getIdHome().equals(outPutPerson.getIdHome())) {
+        outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
+        personsForSelectedHome.add(outPutPerson);
+      }
+    }
+    selectedHome.setPersons(personsForSelectedHome);
 
+    for (OutPutPerson outPutPerson : selectedHome.getPersons()) {
+      boolean isUnderAge = false;
+      outPutPerson.setEmail(null);
+      outPutPerson.setPhone(null);
+      outPutPerson.setBirthdate(null);
+      if (outPutPerson.getAge() < OfAgeRules.OF_AGE_FR) {
+        isUnderAge = true;
+      }
+      if (isUnderAge) {
+        underAge.add(outPutPerson);
+      } else if (!isUnderAge) {
+        family.add(outPutPerson);
+      }
+    }
+    outPutChild.setChild(underAge);
+    outPutChild.setFamilly(family);
     return outPutChild;
   }
 }

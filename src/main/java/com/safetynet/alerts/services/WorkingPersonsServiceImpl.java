@@ -8,7 +8,6 @@ import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingPerson;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

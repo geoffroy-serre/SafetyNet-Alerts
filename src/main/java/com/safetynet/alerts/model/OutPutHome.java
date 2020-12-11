@@ -22,9 +22,28 @@ public class OutPutHome {
   private Integer numberOfAdults;
   @JsonProperty("children")
   private Integer numberOfChildren;
-  @JsonProperty("persons")
-  private ArrayList<OutPutPerson> persons = null;
+  @JsonProperty("idHome")
+  private UUID idHome;
 
+  @JsonProperty("persons")
+  private ArrayList<OutPutPerson> persons;
+
+  public ArrayList<OutPutPerson> getPersons() {
+    return persons;
+  }
+
+  public void setPersons(ArrayList<OutPutPerson> persons) {
+    this.persons = persons;
+  }
+
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+  public UUID getIdHome() {
+    return idHome;
+  }
+
+  public void setIdHome(UUID idHome) {
+    this.idHome = idHome;
+  }
 
   public Integer getNumberOfAdults() {
     return numberOfAdults;
@@ -48,14 +67,6 @@ public class OutPutHome {
 
   public void setStationNumber(Integer stationNumber) {
     this.stationNumber = stationNumber;
-  }
-
-  public ArrayList<OutPutPerson> getPersons() {
-    return persons;
-  }
-
-  public void setPersons(ArrayList<OutPutPerson> persons) {
-    this.persons = persons;
   }
 
   public String getAddress() {

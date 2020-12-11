@@ -3,7 +3,7 @@ package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
-import com.safetynet.alerts.model.*;
+import com.safetynet.alerts.model.WorkingMedicalRecord;
 import com.safetynet.alerts.repository.RetrieveOriginalDataRepositoryImpl;
 import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class OutPutPerson {
 
-
   @JsonProperty("firstName")
   private String firstName;
   @JsonProperty("lastName")
@@ -28,6 +27,18 @@ public class OutPutPerson {
   private OutPutMedicalRecord medicalRecord  ;
   @JsonProperty("idMedicalRecord")
   private UUID idMedicalRecord  ;
+
+  @JsonProperty("homeId")
+  private UUID idHome;
+
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+  public UUID getIdHome() {
+    return idHome;
+  }
+
+  public void setIdHome(UUID idHome) {
+    this.idHome = idHome;
+  }
 
   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   public UUID getIdMedicalRecord() {

@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.model.OriginalResponse;
-
 import java.io.File;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;

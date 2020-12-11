@@ -5,7 +5,6 @@ import com.safetynet.alerts.interfaces.OutPutHomeService;
 import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.model.OutPutHome;
 import com.safetynet.alerts.model.WorkingHome;
-
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,7 +45,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
       result.setAddress(current.getAddress());
       result.setCity(current.getCity());
       result.setZip(current.getZip());
-      result.setPersons(null);
+
       outPutHomes.add(result);
     }
     return outPutHomes;

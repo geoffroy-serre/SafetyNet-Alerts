@@ -1,7 +1,6 @@
 package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.safetynet.alerts.interfaces.Response;
 import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 

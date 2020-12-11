@@ -4,9 +4,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
+import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
-import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.OutPutResponse;
 import java.io.File;
 import java.io.IOException;
@@ -37,6 +36,7 @@ public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepos
             true);
     objectMapper.registerModule(new JavaTimeModule());
     try {
+      System.out.println(FilesPath.WORKING_INPUT_FILE);
       response = (objectMapper.readValue(new File(filePath),
               OutPutResponse.class));
     } catch (IOException e) {

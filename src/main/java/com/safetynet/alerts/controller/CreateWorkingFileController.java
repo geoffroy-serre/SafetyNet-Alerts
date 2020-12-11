@@ -10,8 +10,10 @@ import com.safetynet.alerts.model.*;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.Period;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -92,7 +94,7 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
         currentPerson.setBirthdate(birthDate);
 
         workingPersonsHashMapFinal.put(currentKeyvalue, currentPerson);
-        currentHome.addPerson(currentPerson);
+
         workingHomeHashMap.put(keyAddress, currentHome);
 
       }
@@ -116,7 +118,7 @@ public class CreateWorkingFileController<WorkingFireStationService, WorkingFireS
       if (workingFireStationHashMap.containsKey(currentOriginalFirestation.getStation())) {
         addFireStation = workingFireStationHashMap.get(currentOriginalFirestation.getStation());
       }
-      addFireStation.addWorkingHome(addHome);
+      addFireStation.addWorkingHome(addHome.getIdHome());
       workingFireStationHashMap.put(currentOriginalFirestation.getStation(), addFireStation);
     }
 

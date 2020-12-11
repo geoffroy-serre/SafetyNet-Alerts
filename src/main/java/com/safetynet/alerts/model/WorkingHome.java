@@ -17,12 +17,9 @@ public class WorkingHome {
   private String city;
   @JsonProperty("zip")
   private String zip;
-  @JsonProperty("persons")
-  private ArrayList<WorkingPerson> personList = new ArrayList<>();
 
-  public void addPerson(WorkingPerson workingPerson) {
-    personList.add(workingPerson);
-  }
+
+
 
   public UUID getIdHome() {
     return idHome;
@@ -56,13 +53,7 @@ public class WorkingHome {
     this.zip = zip;
   }
 
-  public ArrayList<WorkingPerson> getPersonList() {
-    return personList;
-  }
 
-  public void setPersonList(ArrayList<WorkingPerson> personList) {
-    this.personList = personList;
-  }
 
   @Override
   public boolean equals(Object obj) {
@@ -88,7 +79,6 @@ public class WorkingHome {
             + ", address='" + address + '\''
             + ", city='" + city + '\''
             + ", zip='" + zip + '\''
-            + ", personList=" + personList
             + '}';
   }
 }
