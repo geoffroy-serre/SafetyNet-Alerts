@@ -13,7 +13,7 @@ public class OutPutFireStation {
   @JsonProperty("home")
   private ArrayList<UUID> homeListIds = new ArrayList<UUID>();
 
-  @JsonProperty("homeList")
+  @JsonProperty("homes")
   private ArrayList<OutPutHome> homes = new ArrayList<>();
 
 

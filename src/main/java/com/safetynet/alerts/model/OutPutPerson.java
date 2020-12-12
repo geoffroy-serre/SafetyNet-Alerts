@@ -81,6 +81,7 @@ public class OutPutPerson {
     this.phone = phone;
   }
 
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   public LocalDate getBirthdate() {
     return birthdate;
   }

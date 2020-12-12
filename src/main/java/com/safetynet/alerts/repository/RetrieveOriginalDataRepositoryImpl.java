@@ -35,12 +35,13 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
             true);
     objectMapper.registerModule(new JavaTimeModule());
     try {
+      logger.debug("Get Original Response from RetrieveOriginalDataRepositoryImpl");
       response = (objectMapper.readValue(new File(filePath),
               OriginalResponse.class));
     } catch (IOException e) {
       logger.error("IOException ", e);
     }
-
+    logger.debug("return OriginalResponse for getOriginalData ");
     return response;
   }
 

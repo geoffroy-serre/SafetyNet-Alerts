@@ -2,10 +2,7 @@ package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.constants.OfAgeRules;
-import com.safetynet.alerts.interfaces.OutPutHomeService;
-import com.safetynet.alerts.interfaces.RetrieveOutPutResponseService;
-import com.safetynet.alerts.interfaces.WorkingHomeService;
-import com.safetynet.alerts.interfaces.WorkingMedicalRecordService;
+import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.*;
 import java.time.LocalDate;
 import java.time.Period;
@@ -23,87 +20,51 @@ public class FireStationController {
 
   private static final Logger logger = LogManager.getLogger("App");
   @Autowired
-  WorkingHomeService workingHomeService;
-  @Autowired
   OutPutHomeService outPutHomeService;
   @Autowired
-  RetrieveOutPutResponseService retrieveOutPutResponseService;
+  OutPutFireStationService outPutFireStationService;
+
   @Autowired
-  WorkingMedicalRecordService workingMedicalRecordService;
+  OutPutPersonService outPutPersonService;
+
+  @Autowired
+  RetrieveOutPutResponseService retrieveOutPutResponseService;
+
+  @Autowired
+  OutPutMedicalRecordService outPutMedicalRecordService;
 
 
   @GetMapping("/flood/stations")
   public ArrayList<OutPutFireStation> getPersonsByStation(@RequestParam ArrayList<Integer> stations) {
-    OutPutResponse outPutResponse =
-            retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
-    ArrayList<OutPutHome> selectedHomes = new ArrayList<>();
-    ArrayList<OutPutFireStation> wantedFireStations = new ArrayList<>();
-    HashMap<Integer, ArrayList<OutPutHome>> result = new HashMap<>();
+    logger.info("Launching flood station controller");
 
-    for (int stationNumber : stations) {
-      for (OutPutFireStation outPutFireStation : outPutResponse.getFirestations()) {
-        if (outPutFireStation.getStationNumber() == stationNumber) {
-          wantedFireStations.add(outPutFireStation);
-        }
-      }
-    }
+    ArrayList<OutPutFireStation> wantedFireStations =
+            outPutFireStationService.getFireStationByNumbers(outPutFireStationService.getFiresStations(), stations);
+    ArrayList<OutPutHome> selectedHomes = outPutHomeService.getHomesbyIds(wantedFireStations,
+            outPutHomeService.getOutPutHomeList());
+    ArrayList<UUID> homesId = outPutHomeService.getHomesIds(selectedHomes);
+    ArrayList<OutPutPerson> selectedPersons =
+            outPutPersonService.getPersonByHomeIds(homesId);
+    ArrayList<OutPutPerson> personsSetted =
+            outPutPersonService.setMedicalRecordForPersons(selectedPersons,
+                    outPutMedicalRecordService.getAllMedicalRecords());
 
-    for (OutPutFireStation outPutFireStation : wantedFireStations) {
-      for (UUID fireStationHomeId : outPutFireStation.getHomeListIds()) {
-        for (OutPutHome outPutHome : outPutResponse.getHomes()) {
-          if (outPutHome.getIdHome().equals(fireStationHomeId)) {
-            outPutHome.setStationNumber(outPutFireStation.getStationNumber());
-            selectedHomes.add(outPutHome);
-          }
-        }
-      }
-    }
+    outPutPersonService.setEmailToNull(personsSetted);
 
-    for (OutPutHome outPutHome : selectedHomes) {
-      ArrayList<OutPutPerson> wantedPersons = new ArrayList<>();
-      for (OutPutPerson outPutPerson : outPutResponse.getPersons()) {
-        for (OutPutMedicalRecord outPutMedicalRecord : outPutResponse.getMedicalrecords()) {
-          if (outPutHome.getIdHome().equals(outPutPerson.getIdHome())) {
-            if (outPutMedicalRecord.getIdMedicalRecord().equals(outPutPerson.getIdMedicalRecord())) {
-              outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
-              outPutPerson.setBirthdate(null);
-              outPutPerson.setEmail(null);
-              outPutPerson.setMedicalRecord(outPutMedicalRecord);
-              wantedPersons.add(outPutPerson);
-            }
-          }
-        }
-        outPutHome.setPersons(wantedPersons);
-      }
-    }
+    ArrayList<OutPutHome> homesWithPersons = outPutHomeService.setPersons(personsSetted,
+            selectedHomes);
 
-    ArrayList<OutPutFireStation> finalResult = new ArrayList<>();
-    for (OutPutFireStation outPutFireStation : wantedFireStations) {
-      ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
-      for (OutPutHome outPutHome : selectedHomes) {
+    ArrayList<OutPutFireStation> result = outPutFireStationService.setHomes(wantedFireStations,
+            homesWithPersons);
 
-        if (outPutFireStation.getStationNumber() == outPutHome.getStationNumber()) {
-
-          outPutHomes.add(outPutHome);
-        }
-
-      }
-      outPutFireStation.setHomes(outPutHomes);
-      finalResult.add(outPutFireStation);
-    }
-
-
-    for (OutPutFireStation outPutFireStation : finalResult) {
-      for (OutPutHome outPutHome : outPutFireStation.getHomes()) {
-        outPutHome.setStationNumber(null);
-      }
-    }
-    return finalResult;
+    logger.info("Returning expected result for flood station controller");
+    return result;
 
   }
 
   @GetMapping("/fire")
   public OutPutHome getPersonsbyAddress(@RequestParam String address) {
+    logger.info("Launching fire controller");
     ArrayList<OutPutPerson> outPutPersons = new ArrayList<>();
     OutPutHome result = new OutPutHome();
 
@@ -112,14 +73,14 @@ public class FireStationController {
     ArrayList<OutPutHome> selectedHomes = new ArrayList<>();
     UUID wantedAddress = new UUID(0L, 0L);
     int stationNumber = 0;
-
+    logger.debug("Get requested Home for given Address ine fire controller");
     for (OutPutHome outPutHome : getOutPutResponse.getHomes()) {
       if (outPutHome.getAddress().equalsIgnoreCase(address)) {
         selectedHomes.add(outPutHome);
         wantedAddress = outPutHome.getIdHome();
       }
     }
-
+    logger.debug("Setting fire station number in fire controller");
     for (OutPutFireStation outPutFireStation : getOutPutResponse.getFirestations()) {
       for (UUID outPutHome : outPutFireStation.getHomeListIds()) {
         if (wantedAddress.equals(outPutHome)) {
@@ -127,6 +88,7 @@ public class FireStationController {
         }
       }
     }
+    logger.debug("Populate personsList for given Home fire controller");
     for (OutPutHome outPutHome : selectedHomes) {
       ArrayList<OutPutPerson> personsInHome = new ArrayList<>();
       for (OutPutPerson outPutPerson : getOutPutResponse.getPersons()) {
@@ -144,45 +106,44 @@ public class FireStationController {
       outPutHome.setPersons(personsInHome);
       result = outPutHome;
     }
+    logger.debug("Set birthdate and email to null  to avoid display fire controller");
     for (OutPutPerson outPutperson : result.getPersons()) {
       outPutperson.setBirthdate(null);
       outPutperson.setEmail(null);
     }
+    logger.info("Returning result Fire controller");
     return result;
 
   }
 
   @GetMapping("/phoneAlert")
   public HashSet<String> getPhoneNumberByStations(@RequestParam Integer firestation) {
-    HashSet<String> resultPhoneNumbers = new HashSet<String>();
-    OutPutResponse outPutResponse =
-            retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
+    logger.info("Launching phoneAlert");
 
-    for (OutPutFireStation outPutFireStation : outPutResponse.getFirestations()) {
-      if (outPutFireStation.getStationNumber() == firestation) {
-        for (UUID outPutHomIde : outPutFireStation.getHomeListIds()) {
-          for (OutPutPerson outPutPerson : outPutResponse.getPersons()) {
-            if (outPutPerson.getIdHome().equals(outPutHomIde)) {
-              resultPhoneNumbers.add(outPutPerson.getPhone());
-            }
-          }
-        }
-      }
-    }
+    OutPutFireStation selectedFireStation =
+            outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),
+                    firestation);
+    ArrayList<UUID> firestationHomes = selectedFireStation.getHomeListIds();
+    ArrayList<OutPutPerson> selectedPersons =
+            outPutPersonService.getPersonByHomeIds(firestationHomes);
+    HashSet<String> result = outPutPersonService.getPersonsPhones(selectedPersons);
 
-    return resultPhoneNumbers;
+    logger.info("Returning phones list phoneAlert controller");
+    return result;
   }
 
   @GetMapping("/firestation")
   public ArrayList<OutPutHome> getPersonbyStationWithFamillyStats(@RequestParam
                                                                           int stationNumber) {
 
+    logger.info("Launching firestation controller");
     OutPutResponse outPutResponse =
             retrieveOutPutResponseService.retrieveOutPutResponse(FilesPath.WORKING_INPUT_FILE);
     ArrayList<OutPutHome> result = new ArrayList<>();
     ArrayList<OutPutHome> served = new ArrayList<>();
     ArrayList<OutPutPerson> selectedPersons = new ArrayList<>();
 
+    logger.debug("Adding served home for given station in list firestation controller");
     for (OutPutFireStation outPutFireStation : outPutResponse.getFirestations()) {
       if (stationNumber == (outPutFireStation.getStationNumber())) {
         for (UUID outPutHomeId : outPutFireStation.getHomeListIds()) {
@@ -195,6 +156,7 @@ public class FireStationController {
         }
       }
     }
+    logger.debug("Adding persons to served home for given station in list firestation controller");
     for (OutPutHome outPutHome : served) {
       ArrayList<OutPutPerson> outPutPersons = new ArrayList<>();
       for (OutPutPerson outPutPerson : outPutResponse.getPersons()) {
@@ -204,16 +166,15 @@ public class FireStationController {
       }
       outPutHome.setPersons(outPutPersons);
     }
-
-    for (OutPutHome outPutHome : served){
+    logger.debug("counting children and adult for given homes firestation controller");
+    for (OutPutHome outPutHome : served) {
       int underAge = 0;
       int ofAge = 0;
-      for (OutPutPerson outPutPerson : outPutHome.getPersons()){
+      for (OutPutPerson outPutPerson : outPutHome.getPersons()) {
         outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
-        if (outPutPerson.getAge()< OfAgeRules.OF_AGE_FR){
+        if (outPutPerson.getAge() < OfAgeRules.OF_AGE_FR) {
           underAge++;
-        }
-        else if (outPutPerson.getAge()>= OfAgeRules.OF_AGE_FR){
+        } else if (outPutPerson.getAge() >= OfAgeRules.OF_AGE_FR) {
           ofAge++;
         }
         outPutPerson.setBirthdate(null);
@@ -224,6 +185,7 @@ public class FireStationController {
       outPutHome.setNumberOfChildren(underAge);
     }
 
+    logger.info("Returning results for firestation controller");
     return served;
   }
 

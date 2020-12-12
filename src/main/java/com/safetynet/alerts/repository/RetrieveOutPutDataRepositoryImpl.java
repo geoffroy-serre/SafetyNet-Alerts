@@ -36,13 +36,14 @@ public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepos
             true);
     objectMapper.registerModule(new JavaTimeModule());
     try {
-      System.out.println(FilesPath.WORKING_INPUT_FILE);
+      logger.debug("Trying to create OutPutResponse");
       response = (objectMapper.readValue(new File(filePath),
               OutPutResponse.class));
+
     } catch (IOException e) {
       logger.error("IOException ", e);
     }
-
+    logger.debug("Returng OutPutResponse created");
     return response;
   }
 

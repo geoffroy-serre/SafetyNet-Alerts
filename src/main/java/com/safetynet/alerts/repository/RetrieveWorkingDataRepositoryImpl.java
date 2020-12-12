@@ -28,7 +28,7 @@ public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRep
   public WorkingResponse getWorkingData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();
-   WorkingResponse response = new WorkingResponse();
+    WorkingResponse response = new WorkingResponse();
 
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);
@@ -36,12 +36,13 @@ public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRep
             true);
     objectMapper.registerModule(new JavaTimeModule());
     try {
+      logger.debug("Trying to create WorkingResponse");
       response = (objectMapper.readValue(new File(filePath),
               WorkingResponse.class));
     } catch (IOException e) {
       logger.error("IOException ", e);
     }
-
+    logger.debug("Returning created WorkingResponse");
     return response;
   }
 
