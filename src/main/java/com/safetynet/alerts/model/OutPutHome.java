@@ -23,7 +23,7 @@ public class OutPutHome {
   @JsonProperty("children")
   private Integer numberOfChildren;
   @JsonProperty("idHome")
-  private UUID idHome;
+  private UUID idHome = new UUID(0L,0L);
 
   @JsonProperty("persons")
   private ArrayList<OutPutPerson> persons;
@@ -106,5 +106,19 @@ public class OutPutHome {
   @Override
   public int hashCode() {
     return Objects.hash(address, city, zip);
+  }
+
+  @Override
+  public String toString() {
+    return "OutPutHome{" +
+            "stationNumber=" + stationNumber +
+            ", address='" + address + '\'' +
+            ", city='" + city + '\'' +
+            ", zip='" + zip + '\'' +
+            ", numberOfAdults=" + numberOfAdults +
+            ", numberOfChildren=" + numberOfChildren +
+            ", idHome=" + idHome +
+            ", persons=" + persons +
+            '}';
   }
 }

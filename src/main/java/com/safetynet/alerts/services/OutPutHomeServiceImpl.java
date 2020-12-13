@@ -1,14 +1,18 @@
 package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
+import com.safetynet.alerts.constants.OfAgeRules;
 import com.safetynet.alerts.interfaces.OutPutHomeService;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.model.*;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 
@@ -16,6 +20,55 @@ import org.springframework.stereotype.Service;
 public class OutPutHomeServiceImpl implements OutPutHomeService {
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
+
+
+  @Override
+  public ArrayList<OutPutHome> setStationNumberNull(ArrayList<OutPutHome> outPutHomes) {
+    ArrayList<OutPutHome> result = new ArrayList<>();
+    for (OutPutHome outPutHome : outPutHomes) {
+      outPutHome.setStationNumber(null);
+      result.add(outPutHome);
+    }
+    return result;
+  }
+
+  @Override
+  public ArrayList<OutPutHome> getCountChildrenAndAdultsforList(ArrayList<OutPutHome> outPutHomes) {
+    for (OutPutHome outPutHome : outPutHomes) {
+      int underAge = 0;
+      int ofAge = 0;
+      for (OutPutPerson outPutPerson : outPutHome.getPersons()) {
+        outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
+        if (outPutPerson.getAge() < OfAgeRules.OF_AGE_FR) {
+          underAge++;
+        } else if (outPutPerson.getAge() >= OfAgeRules.OF_AGE_FR) {
+          ofAge++;
+        }
+        outPutPerson.setBirthdate(null);
+        outPutPerson.setEmail(null);
+
+      }
+      outPutHome.setNumberOfAdults(ofAge);
+      outPutHome.setNumberOfChildren(underAge);
+    }
+    return outPutHomes;
+  }
+
+  @Override
+  public ArrayList<OutPutHome> getHomeByStationNumber(ArrayList<OutPutHome> outPutHomes,
+                                                      OutPutFireStation firestation) {
+    int stationNumber = firestation.getStationNumber();
+    ArrayList<OutPutHome> fireStationHomes = new ArrayList<>();
+    for (UUID outPutHomeId : firestation.getHomeListIds()) {
+      for (OutPutHome outPutHome : outPutHomes) {
+        if (outPutHomeId.equals(outPutHome.getIdHome())) {
+          outPutHome.setStationNumber(stationNumber);
+          fireStationHomes.add(outPutHome);
+        }
+      }
+    }
+    return fireStationHomes;
+  }
 
   @Override
   public ArrayList<OutPutHome> setPersons(ArrayList<OutPutPerson> persons,
@@ -33,6 +86,25 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     }
 
     return result;
+  }
+
+  @Override
+  public OutPutHome setPersonsHome(ArrayList<OutPutPerson> persons,
+                                    OutPutHome home) {
+
+
+      ArrayList<OutPutPerson> personeHome = new ArrayList<>();
+      for (OutPutPerson outPutPerson : persons) {
+        if (home.getIdHome().equals(outPutPerson.getIdHome())) {
+          outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
+          personeHome.add(outPutPerson);
+        }
+        home.setPersons(personeHome);
+      }
+
+
+
+    return home;
   }
 
   @Override

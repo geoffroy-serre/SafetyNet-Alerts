@@ -17,6 +17,18 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
 
   @Override
+  public int getStationNumberByHomeId (UUID homeId, ArrayList<OutPutFireStation> fireStations){
+    int result = 0;
+    for(OutPutFireStation outPutFireStation : fireStations){
+      for (UUID idHome : outPutFireStation.getHomeListIds()){
+        if(idHome.equals(homeId)){
+          result = outPutFireStation.getStationNumber();
+        }
+      }
+    }
+    return result;
+  }
+  @Override
   public ArrayList<OutPutFireStation> setStationNumberHomesToNull(ArrayList<OutPutFireStation> fireStations) {
     ArrayList<OutPutFireStation> result = new ArrayList<>();
     for (OutPutFireStation outPutFireStation : fireStations) {
@@ -76,6 +88,23 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
       outPutFireStation.setHomes(outPutHomes);
       result.add(outPutFireStation);
     }
+    return result;
+  }
+
+  @Override
+  public OutPutFireStation setHome(OutPutFireStation fireStation,
+                                   ArrayList<OutPutHome> homes) {
+    OutPutFireStation result = new OutPutFireStation();
+
+    ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
+    for (OutPutHome outPutHome : homes) {
+      if (fireStation.getStationNumber() == outPutHome.getStationNumber()) {
+        outPutHomes.add(outPutHome);
+      }
+    }
+    fireStation.setHomes(outPutHomes);
+    result = fireStation;
+
     return result;
   }
 

@@ -4,6 +4,7 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.constants.OfAgeRules;
 import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.*;
+import com.safetynet.alerts.utils.RequestLogger;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -39,19 +42,28 @@ public class PersonController {
 
 
   @GetMapping("/communityEmail")
-  public HashSet<String> getEmailforACity(@RequestParam String city) {
-    logger.info("Launching communityEmail controller");
+  public HashSet<String> getEmailforACity(@RequestParam(value = "city") String city,
+                                          final HttpServletResponse response,
+                                          final HttpServletRequest request) {
+    RequestLogger.logRequest(request);
     HashSet<UUID> idHomes = outPutHomeService.getHomesByCity(city);
     HashSet<String> output = outPutPersonService.getPersonsEmailByCity(idHomes);
-    logger.info("Returning result communityEmail controller");
+    if (response.getStatus() == 200 && !output.isEmpty()) {
+      logger.info("Status : " + response.getStatus() + " containing " + output.toString());
+    }
+    if (response.getStatus() == 200 && output.isEmpty()) {
+      logger.info("Status : " + response.getStatus() + "No result found. Output = " + output.toString());
+    }
     return output;
 
   }
 
   @GetMapping("/personInfo")
-  public ArrayList<OutPutPerson> getPersonInfo(@RequestParam String firstName,
-                                               @RequestParam String lastName) {
-    logger.info("Launch personInfo controller");
+  public ArrayList<OutPutPerson> getPersonInfo(@RequestParam(value = "firstName") String firstName,
+                                               @RequestParam(value = "lastName") String lastName,
+                                               final HttpServletResponse response,
+                                               final HttpServletRequest request) {
+    RequestLogger.logRequest(request);
     ArrayList<OutPutPerson> selectedPersons =
             outPutPersonService.getPersonsByFirstAndLastName(firstName, lastName);
     ArrayList<OutPutMedicalRecord> outPutMedicalRecords =
@@ -63,25 +75,39 @@ public class PersonController {
 
     ArrayList<OutPutPerson> result =
             outPutPersonService.setPersonsHome(personsWithMedicalRecord, selectedHomes);
-   outPutPersonService.setPhoneNull(result);
+    outPutPersonService.setPhoneNull(result);
 
-    logger.info("Returning result for personInfo controller");
+    if (response.getStatus() == 200 && !result.isEmpty()) {
+      logger.info("Status : " + response.getStatus() + " containing " + result.toString());
+    }
+    if (response.getStatus() == 200 && result.isEmpty()) {
+      logger.info("Status : " + response.getStatus() + " no result found for " + firstName + " " + lastName + " " + result.toString());
+    }
     return result;
 
   }
 
   @GetMapping("/childAlert")
-  public OutPutChild getChilds(@RequestParam String address) {
-    logger.info("Launching childAlert controller");
+  public OutPutChild getChilds(@RequestParam(value = "address") String address,
+                               final HttpServletResponse response,
+                               final HttpServletRequest request) {
+    RequestLogger.logRequest(request);
 
     OutPutHome selectedHome = outPutHomeService.getHomeByAddress(address);
     ArrayList<OutPutPerson> personsForSelectedHome =
             outPutPersonService.getPersonsByHomeID(selectedHome);
 
     selectedHome.setPersons(personsForSelectedHome);
-    logger.info("Returning result childAlert controller");
+    OutPutChild result = outPutPersonService.getCountedTypeOfPersons(selectedHome.getPersons());
+    if (response.getStatus() == 200 && !result.getChild().isEmpty() && result.getFamilly().isEmpty() || response.getStatus() == 200 && result.getChild().isEmpty() && !result.getFamilly().isEmpty()) {
+      logger.info("Status : " + response.getStatus() + " containing " + result.toString());
+    }
+    if (response.getStatus() == 200 && result.getChild().isEmpty() && result.getFamilly().isEmpty()) {
+      logger.info("Status : " + response.getStatus() + " no person for this address "+address +" "
+              + result.toString());
+    }
 
-    return outPutPersonService.getCountedTypeOfPersons(selectedHome.getPersons());
+    return result;
 
 
   }

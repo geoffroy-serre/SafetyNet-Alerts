@@ -139,12 +139,14 @@ public class OutPutPerson {
     return "OutPutPerson{" +
             "firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
-            ", home=" + home.toString() +
+            ", home=" + home +
             ", phone='" + phone + '\'' +
             ", birthdate=" + birthdate +
             ", age=" + age +
             ", email='" + email + '\'' +
-            ", medicalRecord=" + medicalRecord.toString() +
+            ", medicalRecord=" + medicalRecord +
+            ", idMedicalRecord=" + idMedicalRecord +
+            ", idHome=" + idHome +
             '}';
   }
 }

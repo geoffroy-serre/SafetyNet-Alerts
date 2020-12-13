@@ -9,8 +9,20 @@ import java.util.HashSet;
 import java.util.UUID;
 
 public interface OutPutHomeService {
+
+
+  ArrayList<OutPutHome> setStationNumberNull(ArrayList<OutPutHome> outPutHomes);
+
+  ArrayList<OutPutHome> getCountChildrenAndAdultsforList(ArrayList<OutPutHome> outPutHomes);
+
+  ArrayList<OutPutHome> getHomeByStationNumber(ArrayList<OutPutHome> outPutHomes,
+                                               OutPutFireStation firestation);
+
   ArrayList<OutPutHome> setPersons(ArrayList<OutPutPerson> persons,
                                    ArrayList<OutPutHome> homes);
+
+  OutPutHome setPersonsHome(ArrayList<OutPutPerson> persons,
+                            OutPutHome home);
 
   ArrayList<UUID> getHomesIds(ArrayList<OutPutHome> homes);
 

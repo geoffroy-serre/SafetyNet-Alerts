@@ -66,4 +66,14 @@ public class OutPutFireStation {
   public int hashCode() {
     return Objects.hash(stationNumber, homeListIds);
   }
+
+  @Override
+  public String toString() {
+    return "OutPutFireStation{" +
+            "idFirestation=" + idFirestation +
+            ", stationNumber=" + stationNumber +
+            ", homeListIds=" + homeListIds +
+            ", homes=" + homes +
+            '}';
+  }
 }
