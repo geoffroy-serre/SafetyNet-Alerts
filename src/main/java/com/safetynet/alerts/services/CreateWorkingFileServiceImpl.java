@@ -10,10 +10,7 @@ import com.safetynet.alerts.model.*;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,11 +48,12 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
             true);
     objectMapper.registerModule(new JavaTimeModule());
     try {
-      logger.debug("Writing Working File");
+      logger.debug("Writing Working File with: " +wr.toString());
       objectMapper.writeValue(new File(FilesPath.WORKING_INPUT_FILE), wr);
 
     } catch (IOException e) {
-      logger.error("IOException", e);
+      logger.error("Problem creating working file with "+wr.toString()+" as parameter",
+              e);
     }
     logger.debug("WorkingFile written");
   }
@@ -103,10 +101,13 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
       if (workingMedicalRecordHashMap.containsKey(keyNames)) {
         medicalRecordId = workingMedicalRecordHashMap.get(keyNames).getIdMedicalRecord();
       }
+      if(medicalRecordId ==null){
+        medicalRecordId = new UUID(0L,0L );
+      }
       if (originalMedicalRecordHashMap.containsKey(keyNames)) {
         birthDate = originalMedicalRecordHashMap.get(keyNames).getBirthdate();
       }
-      if (homeId != null && medicalRecordId != null && birthDate != null) {
+      if (homeId != null && medicalRecordId != null ) {
         WorkingPerson workingPerson = new WorkingPerson();
         WorkingPerson currentPerson = me.getValue();
         currentPerson.setHomeID(homeId);

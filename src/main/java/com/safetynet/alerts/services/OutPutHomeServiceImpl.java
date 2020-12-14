@@ -96,7 +96,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
       ArrayList<OutPutPerson> personeHome = new ArrayList<>();
       for (OutPutPerson outPutPerson : persons) {
         if (home.getIdHome().equals(outPutPerson.getIdHome())) {
+          if(outPutPerson.getBirthdate() !=null){
           outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
+          }
           personeHome.add(outPutPerson);
         }
         home.setPersons(personeHome);

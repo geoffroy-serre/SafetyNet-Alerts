@@ -3,6 +3,7 @@ package com.safetynet.alerts.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +27,7 @@ public class WorkingPerson {
   @JsonProperty("email")
   private String email;
   @JsonProperty("idMedicalRecord")
-  private UUID idMedicalRecord;
+  private UUID idMedicalRecord = new UUID(0L, 0L);
 
 
   public UUID getId() {

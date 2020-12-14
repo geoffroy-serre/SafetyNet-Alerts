@@ -2,30 +2,47 @@ package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.stereotype.Component;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Component
-public class OriginalPersons {
+public class OriginalPerson {
+
 
 
   @JsonProperty("firstName")
+  @NotBlank
+  @NotNull
   private String firstName;
 
   @JsonProperty("lastName")
+  @NotBlank
+  @NotNull
   private String lastName;
 
   @JsonProperty("address")
+  @NotBlank
+  @NotNull
   private String address;
 
   @JsonProperty("city")
+  @NotBlank
+  @NotNull
   private String city;
 
   @JsonProperty("zip")
+  @NotBlank
+  @NotNull
   private String zip;
 
   @JsonProperty("phone")
+  @NotBlank
+  @NotNull
   private String phone;
 
   @JsonProperty("email")
+  @NotBlank
+  @NotNull
   private String email;
 
   public void setZip(String zip) {
@@ -87,7 +104,7 @@ public class OriginalPersons {
   @Override
   public String toString() {
     return
-            "PersonsItem{"
+            "Person{"
                     + "zip = '" + zip + '\''
                     + ",firstName = '" + firstName + '\''
                     + ",lastName = '" + lastName + '\''

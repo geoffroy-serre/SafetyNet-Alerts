@@ -3,7 +3,7 @@ package com.safetynet.alerts.services;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.WorkingPersonsService;
-import com.safetynet.alerts.model.OriginalPersons;
+import com.safetynet.alerts.model.OriginalPerson;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingPerson;
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class WorkingPersonsServiceImpl implements WorkingPersonsService {
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
     HashMap<String,WorkingPerson> workingPersonsHashMap = new HashMap<>();
 
-    for (OriginalPersons originalPerson : originalResponse.getPersons()) {
+    for (OriginalPerson originalPerson : originalResponse.getPersons()) {
       WorkingPerson workingPerson = new WorkingPerson();
       workingPerson.setId(UUID.randomUUID());
       workingPerson.setEmail(originalPerson.getEmail());

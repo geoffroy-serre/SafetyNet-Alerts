@@ -4,7 +4,7 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.interfaces.WorkingHomeService;
-import com.safetynet.alerts.model.OriginalPersons;
+import com.safetynet.alerts.model.OriginalPerson;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingHome;
 import com.safetynet.alerts.model.WorkingResponse;
@@ -25,7 +25,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
   @Autowired
-  RetrieveWorkingDataRepository retrieveOutPutDataRepository;
+  RetrieveWorkingDataRepository retrieveWorkingDataRepository;
 
 
   /**
@@ -64,7 +64,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
 
     HashSet<WorkingHome> homeHashSet = new HashSet<WorkingHome>();
-    for (OriginalPersons originalPerson : originalResponse.getPersons()) {
+    for (OriginalPerson originalPerson : originalResponse.getPersons()) {
       WorkingHome addingHome = new WorkingHome();
       addingHome.setAddress(originalPerson.getAddress());
       addingHome.setCity(originalPerson.getCity());
@@ -109,7 +109,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   public WorkingHome getHomeById(UUID homeId) {
     WorkingHome workingHome = new WorkingHome();
     ArrayList<WorkingHome> workingHomes =
-            retrieveOutPutDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE).getHomes();
+            retrieveWorkingDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE).getHomes();
     for (WorkingHome currentWorkingHome : workingHomes) {
       if (currentWorkingHome.getIdHome().equals(homeId)) {
         workingHome = currentWorkingHome;
@@ -121,7 +121,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
 
   @Override
   public  ArrayList<WorkingHome> retrieveWorkingHomeFromFile(String filePath){
-    WorkingResponse wr = retrieveOutPutDataRepository.getWorkingData(filePath);
+    WorkingResponse wr = retrieveWorkingDataRepository.getWorkingData(filePath);
     ArrayList<WorkingHome> ws = wr.getHomes();
     return ws;
   }

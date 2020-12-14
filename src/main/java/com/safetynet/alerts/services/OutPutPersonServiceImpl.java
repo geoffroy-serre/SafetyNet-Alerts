@@ -3,6 +3,7 @@ package com.safetynet.alerts.services;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.constants.OfAgeRules;
 import com.safetynet.alerts.interfaces.OutPutPersonService;
+import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.model.*;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,19 @@ import org.springframework.stereotype.Service;
 public class OutPutPersonServiceImpl implements OutPutPersonService {
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
+
+
+  @Override
+  public boolean isPersonAlreadyInFile(String firstName, String lastName) {
+    boolean isAlreadyInFile = false;
+    ArrayList<OutPutPerson> selectedPersons =
+            getPersonsByFirstAndLastName(firstName, lastName);
+    if (selectedPersons.size() >= 1) {
+      isAlreadyInFile = true;
+    }
+    return isAlreadyInFile;
+  }
+
 
   @Override
   public ArrayList<OutPutPerson> setEmailToNull(ArrayList<OutPutPerson> persons) {
@@ -77,6 +92,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
           outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
           results.add(outPutPerson);
         }
+      }
+      if (outPutPerson.getMedicalRecord() == null) {
+        outPutPerson.setMedicalRecord(new OutPutMedicalRecord());
+        results.add(outPutPerson);
       }
     }
     return results;
@@ -147,8 +166,11 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     ArrayList<OutPutPerson> personsForSelectedHome = new ArrayList();
     for (OutPutPerson outPutPerson : getAllPerson()) {
       if (selectedHome.getIdHome().equals(outPutPerson.getIdHome())) {
-        outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
-        personsForSelectedHome.add(outPutPerson);
+        if (outPutPerson.getBirthdate() != null) {
+          outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(),
+                  LocalDate.now()).getYears());
+          personsForSelectedHome.add(outPutPerson);
+        }
       }
     }
     return personsForSelectedHome;
@@ -182,14 +204,16 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
           (ArrayList<WorkingPerson> inputPersons) {
     ArrayList<OutPutPerson> output = new ArrayList<>();
     for (WorkingPerson wp : inputPersons) {
-      OutPutPerson result = new OutPutPerson();
-      result.setPhone(wp.getPhone());
-      result.setAge(wp.getAge());
-      result.setEmail(wp.getEmail());
-      result.setFirstName(wp.getFirstName());
-      result.setLastName(wp.getLastName());
-      result.setBirthdate(wp.getBirthdate());
-      output.add(result);
+      if (wp.getBirthdate() != null) {
+        OutPutPerson result = new OutPutPerson();
+        result.setPhone(wp.getPhone());
+        result.setAge(wp.getAge());
+        result.setEmail(wp.getEmail());
+        result.setFirstName(wp.getFirstName());
+        result.setLastName(wp.getLastName());
+        result.setBirthdate(wp.getBirthdate());
+        output.add(result);
+      }
     }
     return output;
   }

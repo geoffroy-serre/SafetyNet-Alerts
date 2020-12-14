@@ -8,6 +8,8 @@ import java.util.UUID;
 public interface OutPutPersonService {
 
 
+  boolean isPersonAlreadyInFile(String firstName, String lastName);
+
   ArrayList<OutPutPerson> setEmailToNull(ArrayList<OutPutPerson> persons);
 
   ArrayList<OutPutPerson> getPersonByHomeIds(ArrayList<UUID> homeIds);

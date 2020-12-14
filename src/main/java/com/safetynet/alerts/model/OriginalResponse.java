@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class OriginalResponse  {
 
   @JsonProperty("persons")
-  private ArrayList<OriginalPersons> persons;
+  private ArrayList<OriginalPerson> persons;
 
   @JsonProperty("firestations")
   private ArrayList<OriginalFirestation> firestations;
@@ -19,11 +19,11 @@ public class OriginalResponse  {
 
 
 
-  public ArrayList<OriginalPersons> getPersons() {
+  public ArrayList<OriginalPerson> getPersons() {
     return persons;
   }
 
-  public void setPersons(ArrayList<OriginalPersons> persons) {
+  public void setPersons(ArrayList<OriginalPerson> persons) {
     this.persons = persons;
   }
 
