@@ -15,10 +15,10 @@ public class RequestLogger {
 
     logger.info(request.getMethod()  +" "+  request.getRequestURI() +" "+ request.getQueryString().replace("%20", " "));
   }
-  public static void logPostPutDeleteRequest(final HttpServletRequest request, String controller
+  public static void logObjectRequest(final HttpServletRequest request, String controller
                                              ) {
 
-      logger.info(request.getMethod()  +" "+ " "+ controller+" "+request.getRequestURI()+" "+request );
+      logger.info(request.getMethod()  +" "+ " "+ controller+" "+request.getRequestURI()+" "+request.getParameter(request.toString()) );
 
 
   }

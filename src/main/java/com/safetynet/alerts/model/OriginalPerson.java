@@ -105,10 +105,10 @@ public class OriginalPerson {
   public String toString() {
     return
             "Person{"
-                    + "zip = '" + zip + '\''
                     + ",firstName = '" + firstName + '\''
                     + ",lastName = '" + lastName + '\''
                     + ",address = '" + address + '\''
+                    + ",zip = '" + zip + '\''
                     + ",city = '" + city + '\''
                     + ",phone = '" + phone + '\''
                     + ",email = '" + email + '\''

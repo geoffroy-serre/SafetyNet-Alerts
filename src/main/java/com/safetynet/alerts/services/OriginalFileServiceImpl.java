@@ -22,10 +22,16 @@ public class OriginalFileServiceImpl implements OriginalFleService {
   final Logger logger = LogManager.getLogger("App");
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalResponse getOriginalResponse(String constantOriginalDataFile){
     return retrieveOriginalData.getOriginalData(constantOriginalDataFile);
   }
   @Override
+  /**
+   * @inheritDoc
+   */
   public void writeOriginalFile(OriginalResponse originalResponse){
 
     ObjectMapper objectMapper = new ObjectMapper();

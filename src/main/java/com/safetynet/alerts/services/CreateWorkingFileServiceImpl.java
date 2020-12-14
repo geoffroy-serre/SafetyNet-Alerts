@@ -39,6 +39,9 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
   @Autowired
   CreateWorkingFileService createWorkingFileService;
   @Override
+  /**
+   * @inheritDoc
+   */
   public void writeFile(WorkingResponse wr) {
     final Logger logger = LogManager.getLogger("App");
     ObjectMapper objectMapper = new ObjectMapper();
@@ -59,6 +62,9 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public void createWorkingFile(){
     final Logger logger = LogManager.getLogger("App");
     HashMap<String, WorkingHome> workingHomeHashMap =
@@ -67,7 +73,7 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
     HashMap<String, WorkingMedicalRecord> workingMedicalRecordHashMap =
             workingMedicalRecordService.getWorkingMedicalRecordsHashMap();
 
-    HashMap<String, OriginalMedicalrecords> originalMedicalRecordHashMap =
+    HashMap<String, OriginalMedicalrecord> originalMedicalRecordHashMap =
             originalMedicalRecordService.getOriginalMedicalRecordHashMap();
 
     ArrayList<WorkingPerson> workingPersonsFinal = new ArrayList<WorkingPerson>();

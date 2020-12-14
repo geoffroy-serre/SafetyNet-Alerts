@@ -18,6 +18,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OriginalFirestation> getOriginalFireStations() {
 
     originalResponse =

@@ -3,7 +3,7 @@ package com.safetynet.alerts.services;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.OriginalMedicalRecordService;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
-import com.safetynet.alerts.model.OriginalMedicalrecords;
+import com.safetynet.alerts.model.OriginalMedicalrecord;
 import com.safetynet.alerts.model.OriginalResponse;
 import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,16 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
 
 
   @Override
-  public HashMap<String, OriginalMedicalrecords> getOriginalMedicalRecordHashMap() {
+  /**
+   * @inheritDoc
+   */
+  public HashMap<String, OriginalMedicalrecord> getOriginalMedicalRecordHashMap() {
 
     originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
-    HashMap<String, OriginalMedicalrecords> originalMedicalRecordHashMap = new HashMap<>();
+    HashMap<String, OriginalMedicalrecord> originalMedicalRecordHashMap = new HashMap<>();
 
-    for (OriginalMedicalrecords originalMedicalRecords : originalResponse.getMedicalrecords()) {
+    for (OriginalMedicalrecord originalMedicalRecords : originalResponse.getMedicalrecords()) {
       originalMedicalRecordHashMap.put(originalMedicalRecords.getFirstName()+","+originalMedicalRecords.getLastName(),
               originalMedicalRecords);
     }

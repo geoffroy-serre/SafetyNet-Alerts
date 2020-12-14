@@ -20,6 +20,9 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OriginalPerson> postNewPerson(OriginalPerson originalPerson,
                                                  ArrayList<OriginalPerson> originalPersons) {
     boolean isPresent = false;
@@ -39,11 +42,17 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OriginalPerson> getOriginalPersons(OriginalResponse originalResponse) {
     return originalResponse.getPersons();
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashMap<String, OriginalPerson> getOriginalPersonHashMap() {
 
     originalResponse =
@@ -58,6 +67,9 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalPerson getOriginalPersonByFirstAndLastName(String firstName, String lastName,
                                                             ArrayList<OriginalPerson> originalPersons) {
 
@@ -70,6 +82,9 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalPerson replacePersonData(OriginalPerson source) {
     OriginalPerson result = new OriginalPerson();
     BeanUtils.copyProperties(source, result);
@@ -77,6 +92,9 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OriginalPerson> deleteOriginalPerson(OriginalPerson originalPerson,
                                                         ArrayList<OriginalPerson> originalPersons) {
     ArrayList<OriginalPerson> results = new ArrayList<>();
@@ -89,6 +107,9 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OriginalPerson> deletePerson(String firstName, String lastName,
                                                 ArrayList<OriginalPerson> originalPersons) {
     ArrayList<OriginalPerson> results = new ArrayList<>();

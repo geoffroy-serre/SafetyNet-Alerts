@@ -3,7 +3,7 @@ package com.safetynet.alerts.services;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.WorkingMedicalRecordService;
-import com.safetynet.alerts.model.OriginalMedicalrecords;
+import com.safetynet.alerts.model.OriginalMedicalrecord;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingMedicalRecord;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
     OriginalResponse originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
     HashMap<String, WorkingMedicalRecord> workingMedicalRecordHashMap = new HashMap<>();
-    for (OriginalMedicalrecords originalMedicalrecords : originalResponse.getMedicalrecords()) {
+    for (OriginalMedicalrecord originalMedicalrecords : originalResponse.getMedicalrecords()) {
       WorkingMedicalRecord workingMedicalRecord = new WorkingMedicalRecord();
       workingMedicalRecord.setAllergies(originalMedicalrecords.getAllergies());
       workingMedicalRecord.setMedications(originalMedicalrecords.getMedications());

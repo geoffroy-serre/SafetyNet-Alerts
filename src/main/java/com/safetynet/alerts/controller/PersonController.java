@@ -5,7 +5,6 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.*;
 import com.safetynet.alerts.utils.RequestLogger;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.UUID;
@@ -48,7 +47,7 @@ public class PersonController {
                       final HttpServletResponse response,
                       final HttpServletRequest request) {
 
-    RequestLogger.logPostPutDeleteRequest(request,"PersonController");
+    RequestLogger.logObjectRequest(request, "PersonController");
     if (!outPutPersonService.isPersonAlreadyInFile(personNames.getFirstName(),
             personNames.getLastName())) {
       response.setStatus(400);
@@ -79,29 +78,29 @@ public class PersonController {
                             final HttpServletRequest request) {
 
 
-    RequestLogger.logPostPutDeleteRequest(request, "personController");
+    RequestLogger.logObjectRequest(request, "personController");
     if (outPutPersonService.isPersonAlreadyInFile(newPerson.getFirstName(),
             newPerson.getLastName())) {
       response.setStatus(400);
       logger.info("Status : " + response.getStatus() + " person already registered " + newPerson.toString());
       throw new AllreadyInDatabaseException(newPerson.getFirstName(), newPerson.getLastName());
 
-    }else {
-      OriginalResponse originalResponse =
-              originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE);
-
-      ArrayList<OriginalPerson> originalPersons = originalResponse.getPersons();
-
-
-      originalPersonsService.postNewPerson(newPerson, originalPersons);
-
-      originalResponse.setPersons(originalPersons);
-      originalFleService.writeOriginalFile(originalResponse);
-      createWorkingFileService.createWorkingFile();
-      if (response.getStatus() == 200 && !originalPersons.isEmpty()) {
-        logger.info("Status : " + response.getStatus() + " added " + newPerson.toString());
-      }
     }
+    OriginalResponse originalResponse =
+            originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE);
+
+    ArrayList<OriginalPerson> originalPersons = originalResponse.getPersons();
+
+
+    originalPersonsService.postNewPerson(newPerson, originalPersons);
+
+    originalResponse.setPersons(originalPersons);
+    originalFleService.writeOriginalFile(originalResponse);
+    createWorkingFileService.createWorkingFile();
+    if (response.getStatus() == 200 && !originalPersons.isEmpty()) {
+      logger.info("Status : " + response.getStatus() + " added " + newPerson.toString());
+    }
+
 
     return newPerson;
 
@@ -113,7 +112,7 @@ public class PersonController {
                            final HttpServletRequest request) {
 
 
-    RequestLogger.logPostPutDeleteRequest(request, "personController");
+    RequestLogger.logObjectRequest(request, "personController");
     if (!outPutPersonService.isPersonAlreadyInFile(modifyPerson.getFirstName(),
             modifyPerson.getLastName())) {
       response.setStatus(400);

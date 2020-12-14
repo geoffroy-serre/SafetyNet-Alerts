@@ -14,7 +14,7 @@ public class OriginalResponse  {
   private ArrayList<OriginalFirestation> firestations;
 
   @JsonProperty("medicalrecords")
-  private ArrayList<OriginalMedicalrecords> medicalrecords;
+  private ArrayList<OriginalMedicalrecord> medicalrecords;
 
 
 
@@ -37,11 +37,11 @@ public class OriginalResponse  {
   }
 
 
-  public ArrayList<OriginalMedicalrecords> getMedicalrecords() {
+  public ArrayList<OriginalMedicalrecord> getMedicalrecords() {
     return medicalrecords;
   }
 
-  public void setMedicalrecords(ArrayList<OriginalMedicalrecords> medicalrecords) {
+  public void setMedicalrecords(ArrayList<OriginalMedicalrecord> medicalrecords) {
     this.medicalrecords = medicalrecords;
   }
 
