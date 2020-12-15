@@ -38,7 +38,7 @@ public class ExceptionHandling {
   public ExceptionResponse handleMissingParameterException(MissingServletRequestParameterException exception,
                                                            HttpServletRequest request) {
 
-    ExceptionResponse response = new ExceptionResponse(new Date(), 200, "Bad parameter(s) type",
+    ExceptionResponse response = new ExceptionResponse(new Date(), 409, "Bad parameter(s) type",
             exception.getMessage(), request.getRequestURI()
     );
     logger.info(request.getMethod() + " " + request.getRequestURI() + " " + request.getQueryString());
@@ -104,6 +104,50 @@ public class ExceptionHandling {
     return response;
   }
 
+  @ExceptionHandler(NoExistingStation.class)
+  @ResponseBody
+  public ExceptionResponse NoExistingStation(NoExistingStation exception,
+                                                       HttpServletRequest request) {
+
+    ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Station unknown" ,
+            exception.getMessage(), request.getRequestURI()
+    );
+    logger.error("ERROR: " + response.toString());
+
+    return response;
+  }
+
+  @ExceptionHandler(NoStationNumberException.class)
+  @ResponseBody
+  public ExceptionResponse NoStationNumberException(NoStationNumberException exception,
+                                             HttpServletRequest request) {
+
+    ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Data already stored with" +
+            " this content ",
+            exception.getMessage(), request.getRequestURI()
+    );
+    logger.error("ERROR: " + response.toString());
+
+    return response;
+  }
+
+  @ExceptionHandler(NoDataInDataBaseException.class)
+  @ResponseBody
+  public ExceptionResponse NoDataInDataBaseException(NoDataInDataBaseException exception,
+                                                    HttpServletRequest request) {
+
+    ExceptionResponse response = new ExceptionResponse(new Date(), 400, "No Data stored with" +
+            " this content ",
+            exception.getMessage(), request.getRequestURI()
+    );
+    logger.error("ERROR: " + response.toString());
+
+    return response;
+  }
+
+
+
 }
+
 
 

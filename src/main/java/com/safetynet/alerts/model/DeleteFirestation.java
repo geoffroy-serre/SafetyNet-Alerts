@@ -2,20 +2,14 @@ package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
-import org.springframework.stereotype.Component;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Component
-public class OriginalFirestation {
-
+public class DeleteFirestation {
   @JsonProperty("address")
-  @NotBlank
-  @NotNull
   private String address;
 
   @JsonProperty("station")
-  @NotNull
   private Integer station;
 
   public void setAddress(String address) {
@@ -48,7 +42,7 @@ public class OriginalFirestation {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    OriginalFirestation that = (OriginalFirestation) o;
+    DeleteFirestation that = (DeleteFirestation) o;
     return address.equals(that.address) &&
             station.equals(that.station);
   }

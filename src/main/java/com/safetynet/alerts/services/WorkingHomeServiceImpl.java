@@ -4,14 +4,10 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.interfaces.WorkingHomeService;
-import com.safetynet.alerts.model.OriginalPerson;
-import com.safetynet.alerts.model.OriginalResponse;
-import com.safetynet.alerts.model.WorkingHome;
-import com.safetynet.alerts.model.WorkingResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.UUID;
+import com.safetynet.alerts.model.*;
+import java.util.*;
+import org.apache.commons.lang.WordUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,15 +23,21 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   @Autowired
   RetrieveWorkingDataRepository retrieveWorkingDataRepository;
 
+  @Override
+  public ArrayList<WorkingHome> reestablishCase(Collection<WorkingHome> workingHomes){
+    ArrayList<WorkingHome> result = new ArrayList<>();
+    for (WorkingHome workingHome : workingHomes){
+      WorkingHome processingHome = new WorkingHome();
+      BeanUtils.copyProperties(workingHome, processingHome);
+      processingHome.setAddress(WordUtils.capitalize(workingHome.getAddress()));
+      processingHome.setCity(WordUtils.capitalize(workingHome.getCity()));
+      processingHome.setZip(WordUtils.capitalize(workingHome.getZip()));
+      result.add(processingHome);
+    }
+    return result;
+  }
 
-  /**
-   * Return Object Working Home found by equality between
-   * address parameter and given list occurrence.
-   *
-   * @param address      String
-   * @param workingHomes ArrayList<WorkingHome>
-   * @return WorkingHome
-   */
+  @Override
   public WorkingHome searchWorkingHome(String address, ArrayList<WorkingHome> workingHomes) {
     for (WorkingHome workingHome : workingHomes) {
       if (workingHome.getAddress().equals(address)) {
@@ -46,19 +48,14 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
 
   }
 
+  @Override
   public ArrayList<WorkingHome> getWorkingHomesArrayList() {
     ArrayList<WorkingHome> workingHomes = new ArrayList<WorkingHome>();
     workingHomes.addAll(createWorkingHomes());
     return workingHomes;
   }
 
-  /**
-   * Get workingHomes from OriginalPersonObjet in original file.
-   * OriginalFile input can't be set with the constant FilesPath.
-   * Unique adresses set by address, city, zip.
-   *
-   * @return HashSet<WorkingHome> WorkingHome.
-   */
+  @Override
   public HashSet<WorkingHome> createWorkingHomes() {
     OriginalResponse originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
@@ -75,11 +72,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
     return homeHashSet;
   }
 
-  /**
-   * Use for processing, it has ID in key.
-   *
-   * @return HashMap<UUID, WorkingHome>
-   */
+  @Override
   public HashMap<UUID, WorkingHome> getFinishedWorkingHomesHashMap() {
 
     HashMap<UUID, WorkingHome> hashMapWorkingHomes = new HashMap<>();
@@ -89,18 +82,12 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
     return hashMapWorkingHomes;
   }
 
-  /**
-   * use for linking home  to others object.
-   * Key "address,city,zip"
-   *
-   * @return
-   */
+  @Override
   public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap() {
 
     HashMap<String, WorkingHome> hashMapWorkingHomes = new HashMap<>();
     for (WorkingHome workingHome : createWorkingHomes()) {
       hashMapWorkingHomes.put(workingHome.getAddress() , workingHome);
-
     }
     return hashMapWorkingHomes;
   }

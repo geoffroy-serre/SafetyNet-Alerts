@@ -17,6 +17,19 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
 
   @Override
+  public boolean isFireStationAlreadyInFile(Integer stationNumber, String address,
+                                            ArrayList<OutPutFireStation> firestations
+  ) {
+    boolean isAlreadyInFile = false;
+    OutPutFireStation selectedFireStations =
+            getFireStationByNumber(firestations,stationNumber);
+    if (selectedFireStations != null) {
+      isAlreadyInFile = true;
+    }
+    return isAlreadyInFile;
+  }
+
+  @Override
   public int getStationNumberByHomeId (UUID homeId, ArrayList<OutPutFireStation> fireStations){
     int result = 0;
     for(OutPutFireStation outPutFireStation : fireStations){

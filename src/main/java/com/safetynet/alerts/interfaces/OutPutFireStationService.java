@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public interface OutPutFireStationService {
+  boolean isFireStationAlreadyInFile(Integer stationNumber, String address,
+                                     ArrayList<OutPutFireStation> firestations
+  );
+
   int getStationNumberByHomeId (UUID homeId, ArrayList<OutPutFireStation> fireStations);
 
   ArrayList<OutPutFireStation> setStationNumberHomesToNull(ArrayList<OutPutFireStation> fireStations);

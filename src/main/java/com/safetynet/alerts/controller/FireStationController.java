@@ -1,9 +1,11 @@
 package com.safetynet.alerts.controller;
 
+import com.safetynet.alerts.Exceptions.AllreadyInDatabaseException;
+import com.safetynet.alerts.Exceptions.NoExistingStation;
+import com.safetynet.alerts.Exceptions.NoStationNumberException;
+import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.*;
-import com.safetynet.alerts.model.OutPutFireStation;
-import com.safetynet.alerts.model.OutPutHome;
-import com.safetynet.alerts.model.OutPutPerson;
+import com.safetynet.alerts.model.*;
 import com.safetynet.alerts.utils.RequestLogger;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,12 +14,15 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.tools.picocli.CommandLine;
+import org.json.JSONObject;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 
 @RestController
@@ -34,6 +39,158 @@ public class FireStationController {
   RetrieveOutPutResponseService retrieveOutPutResponseService;
   @Autowired
   OutPutMedicalRecordService outPutMedicalRecordService;
+  @Autowired
+  OriginalFleService originalFleService;
+  @Autowired
+  OriginalFireStationService originalFireStationService;
+  @Autowired
+  CreateWorkingFileService createWorkingFileService;
+
+  @DeleteMapping("/firestation")
+  DeleteFirestation deleteFireStation(@Valid @RequestBody DeleteFirestation deleteFireStation,
+                                      final HttpServletResponse response,
+                                      final HttpServletRequest request) {
+
+    RequestLogger.logObjectRequest(request, "fireStationController");
+    OriginalResponse originalResponse =
+            originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE);
+    ArrayList<OriginalFirestation> originalFirestations = originalResponse.getFirestations();
+    if (deleteFireStation.getStation() != null) {
+      if (!originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getStation(),
+              originalFirestations)) {
+        response.setStatus(400);
+        logger.info("Status : " + response.getStatus() + " firestation Unknown " + deleteFireStation.toString());
+        throw new NoStationNumberException(deleteFireStation.getStation(), "No station known");
+
+      }
+    }
+    if (deleteFireStation.getAddress() != null) {
+      if (!originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getAddress(),
+              originalFirestations)) {
+        response.setStatus(400);
+        logger.info("Status : " + response.getStatus() + " firestation Unknown " + deleteFireStation.toString());
+        throw new NoStationNumberException(deleteFireStation.getStation(), "No station known");
+
+      }
+    }
+
+    if (deleteFireStation.getAddress() != null) {
+      OriginalFirestation originalfireStation =
+              originalFireStationService.getFireStationByAddress(originalFirestations,
+                      deleteFireStation.getAddress());
+      originalFirestations =
+              originalFireStationService.deleteOriginalFireStation(originalfireStation,
+              originalFirestations);
+      originalResponse.setFirestations(originalFirestations);
+    }
+    if (deleteFireStation.getStation() != null) {
+      originalFirestations =
+              originalFireStationService.getFireStationsByNumber(originalFirestations,
+                      deleteFireStation.getStation());
+      OriginalFirestation stationRemain = new OriginalFirestation();
+      stationRemain.setStation(deleteFireStation.getStation());
+      stationRemain.setAddress("");
+      originalFirestations.add(stationRemain);
+      originalResponse.setFirestations(originalFirestations);
+
+
+    }
+
+
+    originalFleService.writeOriginalFile(originalResponse);
+    createWorkingFileService.createWorkingFile();
+    if (response.getStatus() == 200 && !originalFirestations.isEmpty()) {
+      logger.info("Status : " + response.getStatus() + deleteFireStation.getStation() + " " + deleteFireStation.getAddress() + "modified " + deleteFireStation.toString());
+    }
+
+
+    return deleteFireStation;
+  }
+
+
+  @PostMapping("/firestation")
+  OriginalFirestation postFireStation(@Valid @RequestBody OriginalFirestation newFiresStation,
+                                      final HttpServletResponse response,
+                                      final HttpServletRequest request) {
+
+
+    RequestLogger.logObjectRequest(request, "fireStationController");
+
+    OriginalResponse originalResponse =
+            originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE);
+
+    ArrayList<OriginalFirestation> originalFirestations = originalResponse.getFirestations();
+    if (originalFireStationService.isFireStationAlreadyInFile(newFiresStation.getStation(),
+            newFiresStation.getAddress(), originalFirestations)) {
+      response.setStatus(400);
+      logger.info("Status : " + response.getStatus() + " person already registered " + newFiresStation.toString());
+      throw new AllreadyInDatabaseException("FireStation number known",
+              newFiresStation.getAddress());
+
+    }
+
+    originalFireStationService.postNewFireStation(newFiresStation, originalFirestations);
+    originalResponse.setFirestations(originalFirestations);
+    originalFleService.writeOriginalFile(originalResponse);
+    createWorkingFileService.createWorkingFile();
+    if (response.getStatus() == 200 && !originalFirestations.isEmpty()) {
+      logger.info("Status : " + response.getStatus() + " added " + newFiresStation.toString());
+    }
+
+
+    return newFiresStation;
+
+  }
+
+
+  @PutMapping("/firestation")
+  OriginalFirestation putFireStation(@Valid @RequestBody OriginalFirestation modifyFireStation,
+                                     final HttpServletResponse response,
+                                     final HttpServletRequest request) {
+
+
+    RequestLogger.logObjectRequest(request, "fireStationController");
+
+    OriginalResponse originalResponse =
+            originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE);
+
+    ArrayList<OriginalFirestation> originalFirestations = originalResponse.getFirestations();
+
+    if (!originalFireStationService.isFireStationAlreadyInFile(modifyFireStation.getStation(),
+            modifyFireStation.getAddress(), originalFirestations)) {
+      response.setStatus(400);
+      logger.info("Status : " + response.getStatus() + " firestation Unknown " + modifyFireStation.toString());
+      throw new NoExistingStation(modifyFireStation.getStation(), "No station known");
+
+    } else if (!originalFireStationService.isAdressLinked(
+            modifyFireStation.getAddress(), originalFirestations)) {
+      response.setStatus(400);
+      logger.info("Status : " + response.getStatus() + " firestation Unknown " + modifyFireStation.toString());
+      throw new NoStationNumberException(modifyFireStation.getStation(), "No station known");
+
+    } else {
+      OriginalFirestation originalfireStation =
+              originalFireStationService.getFireStationByAddress(originalFirestations,
+
+                      modifyFireStation.getAddress());
+
+
+      originalFirestations =
+              originalFireStationService.deleteOriginalFireStation(originalfireStation,
+              originalFirestations);
+      originalFirestations.add(modifyFireStation);
+      originalResponse.setFirestations(originalFirestations);
+
+      originalFleService.writeOriginalFile(originalResponse);
+      createWorkingFileService.createWorkingFile();
+      if (response.getStatus() == 200 && !originalFirestations.isEmpty()) {
+        logger.info("Status : " + response.getStatus() + modifyFireStation.getStation() + " " + modifyFireStation.getAddress() + "modified " + modifyFireStation.toString());
+      }
+
+
+      return modifyFireStation;
+    }
+  }
 
   @GetMapping("/flood/stations")
   public ArrayList<OutPutFireStation> getPersonsByStation(@RequestParam(value = "stations")
@@ -64,7 +221,7 @@ public class FireStationController {
       logger.info("Status : " + response.getStatus() + " containing " + result.toString());
     }
     if (response.getStatus() == 200 && result.isEmpty()) {
-      logger.info("Status : " + response.getStatus() + " no results found for station number "+stations+" " + result.toString());
+      logger.info("Status : " + response.getStatus() + " no results found for station number " + stations + " " + result.toString());
     }
 
     return result;
@@ -78,15 +235,15 @@ public class FireStationController {
 
     RequestLogger.logRequest(request);
 
-    OutPutHome selectedHome =outPutHomeService.getHomeByAddress(address);
+    OutPutHome selectedHome = outPutHomeService.getHomeByAddress(address);
     UUID wantedAddress;
     wantedAddress = selectedHome.getIdHome();
 
-  if(wantedAddress.equals(new UUID(0L,0L))){
-    logger.info("Status : " + response.getStatus() + " no result  for "+address+" " + selectedHome.toString());
-    return new OutPutHome();
+    if (wantedAddress.equals(new UUID(0L, 0L))) {
+      logger.info("Status : " + response.getStatus() + " no result  for " + address + " " + selectedHome.toString());
+      return new OutPutHome();
 
-  }
+    }
     int stationNumber = outPutFireStationService.getStationNumberByHomeId(wantedAddress,
             outPutFireStationService.getFiresStations());
 
@@ -109,9 +266,9 @@ public class FireStationController {
     OutPutFireStation selectedFireStation =
             outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),
                     firestation);
-    if(selectedFireStation==null){
+    if (selectedFireStation == null) {
       HashSet<String> result = new HashSet<>();
-      logger.info("Status : " + response.getStatus() + " no result for station number " + firestation +" results= "+result.toString());
+      logger.info("Status : " + response.getStatus() + " no result for station number " + firestation + " results= " + result.toString());
       return result;
     }
     ArrayList<UUID> firestationHomes = selectedFireStation.getHomeListIds();
@@ -119,13 +276,14 @@ public class FireStationController {
             outPutPersonService.getPersonByHomeIds(firestationHomes);
     HashSet<String> result = outPutPersonService.getPersonsPhones(selectedPersons);
     if (response.getStatus() == 200) {
-      logger.info("Status : " + response.getStatus() + " for station "+firestation+" containing " + result.toString());
+      logger.info("Status : " + response.getStatus() + " for station " + firestation + " " +
+              "containing " + result.toString());
     }
 
     return result;
   }
 
-  @GetMapping("/firestation")
+  @GetMapping(path="/firestation", produces = "application/json")
   public ArrayList<OutPutHome> getPersonbyStationWithFamillyStats(@RequestParam(value =
           "stationNumber") int stationNumber, final HttpServletResponse response,
                                                                   final HttpServletRequest request) {
@@ -133,14 +291,21 @@ public class FireStationController {
     OutPutFireStation selectedFireStation =
             outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),
                     stationNumber);
-    if(selectedFireStation==null){
+
+    if (selectedFireStation == null ) {
       logger.info("Status : " + response.getStatus() + " no result for station number " + stationNumber);
       return new ArrayList<OutPutHome>();
     }
     ArrayList<OutPutHome> served =
             outPutHomeService.getHomeByStationNumber(outPutHomeService.getOutPutHomeList(),
                     selectedFireStation);
-
+if(served.isEmpty()){
+  response.setStatus(204);
+  logger.info("Status : " + response.getStatus() + " Station "+stationNumber+" is empty / don't " +
+          "exist" +
+          " " + served.toString());
+  return null;
+}
     outPutHomeService.setPersons(outPutPersonService.getAllPerson(), served);
     outPutHomeService.getCountChildrenAndAdultsforList(served);
     outPutHomeService.setStationNumberNull(served);

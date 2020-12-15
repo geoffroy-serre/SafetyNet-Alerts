@@ -5,9 +5,14 @@ import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.WorkingMedicalRecordService;
 import com.safetynet.alerts.model.OriginalMedicalrecord;
 import com.safetynet.alerts.model.OriginalResponse;
+import com.safetynet.alerts.model.WorkingHome;
 import com.safetynet.alerts.model.WorkingMedicalRecord;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.UUID;
+import org.apache.commons.lang.WordUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +22,7 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
-  /**
-   * Key: String "firstname,lastname,birthdate".
-   * Value: WorkingMedicalRecord with id generated in it.
-   * @return HashMap<String, WorkingMedicalRecord>
-   */
-
-
+  @Override
   public HashMap<String, WorkingMedicalRecord> getWorkingMedicalRecordsHashMap() {
     OriginalResponse originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
@@ -37,6 +36,17 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
               + originalMedicalrecords.getLastName(), workingMedicalRecord);
     }
     return workingMedicalRecordHashMap;
+  }
+
+  @Override
+  public ArrayList<WorkingMedicalRecord> reestablishCase(Collection<WorkingMedicalRecord> workingMedicalRecords){
+    ArrayList<WorkingMedicalRecord> result = new ArrayList<>();
+    for (WorkingMedicalRecord workingMedicalRecord : workingMedicalRecords){
+      WorkingMedicalRecord processingMedicalRecord = new WorkingMedicalRecord();
+      BeanUtils.copyProperties(workingMedicalRecord, processingMedicalRecord);
+      result.add(processingMedicalRecord);
+    }
+    return result;
   }
 
 }

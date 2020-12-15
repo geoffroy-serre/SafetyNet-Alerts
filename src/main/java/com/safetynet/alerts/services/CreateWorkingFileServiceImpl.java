@@ -38,6 +38,8 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
   OriginalFireStationService originalFireStationService;
   @Autowired
   CreateWorkingFileService createWorkingFileService;
+
+
   @Override
   /**
    * @inheritDoc
@@ -114,7 +116,6 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
         birthDate = originalMedicalRecordHashMap.get(keyNames).getBirthdate();
       }
       if (homeId != null && medicalRecordId != null ) {
-        WorkingPerson workingPerson = new WorkingPerson();
         WorkingPerson currentPerson = me.getValue();
         currentPerson.setHomeID(homeId);
         currentPerson.setIdMedicalRecord(medicalRecordId);
@@ -153,17 +154,15 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
     Adding list to be mapped
      */
     logger.debug("Populating final list");
-    workingMedicalRecordsFinal.addAll(workingMedicalRecordHashMap.values());
-    workingPersonsFinal.addAll(workingPersonsHashMap.values());
-    workingFireStationsFinal.addAll(workingFireStationHashMap.values());
-    workingHomesFinal.addAll(workingHomeHashMap.values());
+
 
     logger.debug("Fill workingResponse to be write");
     WorkingResponse workingResponse = new WorkingResponse();
-    workingResponse.setPersons(workingPersonsFinal);
-    workingResponse.setHomes(workingHomesFinal);
-    workingResponse.setFirestations(workingFireStationsFinal);
-    workingResponse.setMedicalrecords(workingMedicalRecordsFinal);
+
+    workingResponse.setPersons(workingPersonsService.reestablishCase(workingPersonsHashMap.values()));
+    workingResponse.setHomes(workingHomeService.reestablishCase(workingHomeHashMap.values()));
+    workingResponse.setFirestations(workingFireStationService.reestablishCase(workingFireStationHashMap.values()));
+    workingResponse.setMedicalrecords(workingMedicalRecordService.reestablishCase(workingMedicalRecordHashMap.values()));
     writeFile(workingResponse);
   }
 }

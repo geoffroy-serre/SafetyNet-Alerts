@@ -6,25 +6,34 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Component;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Component
 public class OriginalMedicalrecord {
 
 
   @JsonProperty("firstName")
+  @NotBlank
+  @NotNull
   private String firstName;
 
   @JsonProperty("lastName")
+  @NotBlank
+  @NotNull
   private String lastName;
 
   @JsonFormat(pattern = "MM/dd/yyyy", shape = JsonFormat.Shape.STRING)
   @JsonProperty("birthdate")
+  @NotNull
   private LocalDate birthdate;
 
   @JsonProperty("medications")
+  @NotNull
   private List<String> medications;
 
   @JsonProperty("allergies")
+  @NotNull
   private List<String> allergies;
 
   public void setAllergies(List<String> allergies) {

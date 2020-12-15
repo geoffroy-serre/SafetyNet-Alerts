@@ -1,12 +1,11 @@
 package com.safetynet.alerts.interfaces;
 
 import com.safetynet.alerts.model.WorkingHome;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.UUID;
+import java.util.*;
 
 public interface WorkingHomeService {
+  ArrayList<WorkingHome> reestablishCase(Collection<WorkingHome> workingHomes);
+
   /**
    * Return Object Working Home found by equality between
    * address parameter and given list occurrence.

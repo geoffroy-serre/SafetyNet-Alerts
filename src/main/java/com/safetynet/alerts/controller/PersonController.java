@@ -1,6 +1,7 @@
 package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.Exceptions.AllreadyInDatabaseException;
+import com.safetynet.alerts.Exceptions.NoDataInDataBaseException;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.*;
@@ -10,6 +11,7 @@ import java.util.HashSet;
 import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +44,7 @@ public class PersonController {
   @Autowired
   CreateWorkingFileService createWorkingFileService;
 
-  @DeleteMapping("/person")
+  @DeleteMapping(path="/person", produces = "application/json")
   String deletePerson(@Valid @RequestBody PersonNames personNames,
                       final HttpServletResponse response,
                       final HttpServletRequest request) {
@@ -59,6 +61,9 @@ public class PersonController {
     OriginalResponse originalResponse =
             retrieveOriginalDataService.retrieveOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
     ArrayList<OriginalPerson> originalPersons = originalResponse.getPersons();
+    OriginalPerson originalPerson =
+            originalPersonsService.getOriginalPersonByFirstAndLastName(personNames.getFirstName()
+                    , personNames.getLastName(),originalPersons);
 
     originalPersons = originalPersonsService.deletePerson(personNames.getFirstName(),
             personNames.getLastName(), originalPersons);
@@ -69,7 +74,12 @@ public class PersonController {
     if (response.getStatus() == 200 && !originalPersons.isEmpty()) {
       logger.info("Status : " + response.getStatus() + " " + personNames.getFirstName() + " " + personNames.getLastName() + " deleted");
     }
-    return personNames.getFirstName() + " " + personNames.getLastName() + " deleted";
+
+    JSONObject jsonObject = new JSONObject();
+    jsonObject.put("firstName: ",personNames.getFirstName());
+    jsonObject.put("lastName: ",personNames.getLastName());
+    jsonObject.put("personData: ",originalPerson.toString());
+    return  jsonObject.toString();
   }
 
   @PostMapping("/person")
@@ -117,7 +127,7 @@ public class PersonController {
             modifyPerson.getLastName())) {
       response.setStatus(400);
       logger.info("Status : " + response.getStatus() + " person unknown. Can't be modified " + modifyPerson.toString());
-      throw new AllreadyInDatabaseException(modifyPerson.getFirstName(),
+      throw new NoDataInDataBaseException(modifyPerson.getFirstName(),
               modifyPerson.getLastName());
 
 
@@ -173,8 +183,19 @@ public class PersonController {
                                                final HttpServletResponse response,
                                                final HttpServletRequest request) {
     RequestLogger.logRequest(request);
+    if (!outPutPersonService.isPersonAlreadyInFile(firstName,
+            lastName)) {
+      response.setStatus(204);
+      logger.info("Status : " + response.getStatus() + " person unknown " + firstName+" "+lastName);
+
+    }
     ArrayList<OutPutPerson> selectedPersons =
             outPutPersonService.getPersonsByFirstAndLastName(firstName, lastName);
+    if(selectedPersons.isEmpty()){
+      response.setStatus(204);
+      logger.info("Status : " + response.getStatus() + " no result found for " + firstName + " " + lastName );
+      return null;
+    }
 
     ArrayList<OutPutMedicalRecord> outPutMedicalRecords =
             outPutMedicalRecordService.getAllMedicalRecords();
@@ -191,10 +212,7 @@ public class PersonController {
     if (response.getStatus() == 200 && !result.isEmpty()) {
       logger.info("Status : " + response.getStatus() + " containing " + result.toString());
     }
-    if (response.getStatus() == 200 && result.isEmpty()) {
-      response.setStatus(204);
-      logger.info("Status : " + response.getStatus() + " no result found for " + firstName + " " + lastName + " " + result.toString());
-    }
+
     return result;
 
   }
@@ -211,13 +229,16 @@ public class PersonController {
 
     selectedHome.setPersons(personsForSelectedHome);
     OutPutChild result = outPutPersonService.getCountedTypeOfPersons(selectedHome.getPersons());
-    if (response.getStatus() == 200 && !result.getChild().isEmpty() && result.getFamilly().isEmpty() || response.getStatus() == 200 && result.getChild().isEmpty() && !result.getFamilly().isEmpty()) {
+    if (response.getStatus() == 200 && result.getChild().isEmpty()) {
+      response.setStatus(204);
+      logger.info("Status : " + response.getStatus() + " no child for this address " + address + " "
+              + result.toString());
+      return null;
+    }
+    if (response.getStatus() == 200 && !result.getChild().isEmpty()) {
       logger.info("Status : " + response.getStatus() + " containing " + result.toString());
     }
-    if (response.getStatus() == 200 && result.getChild().isEmpty() && result.getFamilly().isEmpty()) {
-      logger.info("Status : " + response.getStatus() + " no person for this address " + address + " "
-              + result.toString());
-    }
+
 
     return result;
 

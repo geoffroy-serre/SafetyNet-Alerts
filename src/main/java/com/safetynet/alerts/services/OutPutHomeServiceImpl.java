@@ -59,13 +59,17 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
                                                       OutPutFireStation firestation) {
     int stationNumber = firestation.getStationNumber();
     ArrayList<OutPutHome> fireStationHomes = new ArrayList<>();
+
     for (UUID outPutHomeId : firestation.getHomeListIds()) {
-      for (OutPutHome outPutHome : outPutHomes) {
-        if (outPutHomeId.equals(outPutHome.getIdHome())) {
-          outPutHome.setStationNumber(stationNumber);
-          fireStationHomes.add(outPutHome);
+      if (outPutHomeId != null) {
+        for (OutPutHome outPutHome : outPutHomes) {
+          if (outPutHomeId.equals(outPutHome.getIdHome())) {
+            outPutHome.setStationNumber(stationNumber);
+            fireStationHomes.add(outPutHome);
+          }
         }
       }
+
     }
     return fireStationHomes;
   }
@@ -90,20 +94,19 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
 
   @Override
   public OutPutHome setPersonsHome(ArrayList<OutPutPerson> persons,
-                                    OutPutHome home) {
+                                   OutPutHome home) {
 
 
-      ArrayList<OutPutPerson> personeHome = new ArrayList<>();
-      for (OutPutPerson outPutPerson : persons) {
-        if (home.getIdHome().equals(outPutPerson.getIdHome())) {
-          if(outPutPerson.getBirthdate() !=null){
+    ArrayList<OutPutPerson> personeHome = new ArrayList<>();
+    for (OutPutPerson outPutPerson : persons) {
+      if (home.getIdHome().equals(outPutPerson.getIdHome())) {
+        if (outPutPerson.getBirthdate() != null) {
           outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
-          }
-          personeHome.add(outPutPerson);
         }
-        home.setPersons(personeHome);
+        personeHome.add(outPutPerson);
       }
-
+      home.setPersons(personeHome);
+    }
 
 
     return home;

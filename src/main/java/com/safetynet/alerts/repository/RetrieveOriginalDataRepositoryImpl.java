@@ -5,24 +5,24 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
+import com.safetynet.alerts.model.OriginalFirestation;
+import com.safetynet.alerts.model.OriginalMedicalrecord;
+import com.safetynet.alerts.model.OriginalPerson;
 import com.safetynet.alerts.model.OriginalResponse;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataRepository {
   private static final Logger logger = LogManager.getLogger("App");
 
-  /**
-   * Get data from original Json.
-   * Catch IOException in case of problem with file
-   *
-   * @param constantFilePath input file.
-   * @return OriginalResponse
-   */
+
   @Override
   public OriginalResponse getOriginalData(String constantFilePath) {
     String filePath = constantFilePath;
@@ -42,7 +42,49 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
       logger.error("IOException ", e);
     }
     logger.debug("return OriginalResponse for getOriginalData ");
-    return response;
+
+    OriginalResponse originalResponse = response;
+
+    HashSet<OriginalPerson> originalPersonHashSet = new HashSet<>();
+    HashSet<OriginalFirestation> originalFirestationHashet = new HashSet<>();
+    HashSet<OriginalMedicalrecord> originalMedicalrecordHashSet = new HashSet<>();
+    OriginalResponse result = new OriginalResponse();
+
+    for(OriginalPerson originalPerson: originalResponse.getPersons()){
+      OriginalPerson personProcessed = new OriginalPerson();
+      BeanUtils.copyProperties(originalPerson, personProcessed);
+      personProcessed.setAddress(originalPerson.getAddress().toLowerCase());
+      personProcessed.setFirstName(originalPerson.getFirstName().toLowerCase());
+      personProcessed.setLastName(originalPerson.getLastName().toLowerCase());
+      personProcessed.setCity(originalPerson.getCity().toLowerCase());
+      personProcessed.setZip(originalPerson.getZip().toLowerCase());
+      originalPersonHashSet.add(personProcessed);
+    }
+    for (OriginalFirestation originalFirestation : originalResponse.getFirestations()){
+      OriginalFirestation processedFirestation = new OriginalFirestation();
+      BeanUtils.copyProperties(originalFirestation, processedFirestation);
+      processedFirestation.setAddress(originalFirestation.getAddress().toLowerCase());
+      originalFirestationHashet.add(processedFirestation);
+    }
+
+    for(OriginalMedicalrecord originalMedicalrecord : originalResponse.getMedicalrecords()){
+      OriginalMedicalrecord processedMedicalrecord = new OriginalMedicalrecord();
+      BeanUtils.copyProperties(originalMedicalrecord, processedMedicalrecord);
+      processedMedicalrecord.setFirstName(originalMedicalrecord.getFirstName().toLowerCase());
+      processedMedicalrecord.setLastName((originalMedicalrecord.getLastName().toLowerCase()));
+
+      originalMedicalrecordHashSet.add(processedMedicalrecord);
+
+    }
+
+    ArrayList<OriginalPerson> originalPersons = new ArrayList<>(originalPersonHashSet);
+    ArrayList<OriginalFirestation> originalFirestations = new ArrayList<>(originalFirestationHashet);
+    ArrayList<OriginalMedicalrecord> originalMedicalrecords = new ArrayList<>(originalMedicalrecordHashSet);
+
+    result.setFirestations(originalFirestations);
+    result.setPersons(originalPersons);
+    result.setMedicalrecords(originalMedicalrecords);
+    return result;
   }
 
 
