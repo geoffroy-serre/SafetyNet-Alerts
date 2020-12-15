@@ -15,6 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import javax.annotation.PostConstruct;
 
 @Service
 public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
@@ -67,6 +68,7 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
   /**
    * @inheritDoc
    */
+  @PostConstruct
   public void createWorkingFile(){
     final Logger logger = LogManager.getLogger("App");
     HashMap<String, WorkingHome> workingHomeHashMap =
@@ -153,10 +155,7 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
     /*
     Adding list to be mapped
      */
-    logger.debug("Populating final list");
-
-
-    logger.debug("Fill workingResponse to be write");
+    
     WorkingResponse workingResponse = new WorkingResponse();
 
     workingResponse.setPersons(workingPersonsService.reestablishCase(workingPersonsHashMap.values()));
