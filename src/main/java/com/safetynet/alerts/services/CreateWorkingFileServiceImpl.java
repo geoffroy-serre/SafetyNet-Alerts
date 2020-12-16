@@ -155,7 +155,7 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
     /*
     Adding list to be mapped
      */
-    
+
     WorkingResponse workingResponse = new WorkingResponse();
 
     workingResponse.setPersons(workingPersonsService.reestablishCase(workingPersonsHashMap.values()));

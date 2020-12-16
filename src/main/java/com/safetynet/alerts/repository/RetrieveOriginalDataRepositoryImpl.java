@@ -24,6 +24,9 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalResponse getOriginalData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();

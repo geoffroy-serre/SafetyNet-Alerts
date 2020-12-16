@@ -16,15 +16,11 @@ import org.springframework.stereotype.Repository;
 public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRepository {
   private static final Logger logger = LogManager.getLogger("App");
 
-  /**
-   * Can get data from original Json or working Json.
-   * But will always return a WorkingResponse.
-   * Catch IOException in case of problem with file.
-   *
-   * @param constantFilePath input file.
-   * @return WorkingResponse
-   */
+
   @Override
+  /**
+   * @inheritDoc
+   */
   public WorkingResponse getWorkingData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();

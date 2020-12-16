@@ -1,6 +1,7 @@
 package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -13,10 +14,10 @@ public class WorkingMedicalRecord {
   private UUID idMedicalRecord;
 
   @JsonProperty("medications")
-  private List<String> medications;
+  private ArrayList<String> medications;
 
   @JsonProperty("allergies")
-  private List<String> allergies;
+  private ArrayList<String> allergies;
 
   public UUID getIdMedicalRecord() {
     return idMedicalRecord;
@@ -26,19 +27,19 @@ public class WorkingMedicalRecord {
     this.idMedicalRecord = idMedicalRecord;
   }
 
-  public List<String> getMedications() {
+  public ArrayList<String> getMedications() {
     return medications;
   }
 
-  public void setMedications(List<String> medications) {
+  public void setMedications(ArrayList<String> medications) {
     this.medications = medications;
   }
 
-  public List<String> getAllergies() {
+  public ArrayList<String> getAllergies() {
     return allergies;
   }
 
-  public void setAllergies(List<String> allergies) {
+  public void setAllergies(ArrayList<String> allergies) {
     this.allergies = allergies;
   }
 

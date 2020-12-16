@@ -20,6 +20,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OriginalFirestation> deleteOriginalFireStation(OriginalFirestation originalFirestation,
                                                         ArrayList<OriginalFirestation> originalFirestations) {
     ArrayList<OriginalFirestation> results = new ArrayList<>();
@@ -33,6 +36,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public boolean isFireStationAlreadyInFile(Integer stationNumber, String address,
                                             ArrayList<OriginalFirestation> firestations
   ) {
@@ -46,6 +52,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public boolean isFireStationAlreadyInFile(Integer stationNumber,
                                             ArrayList<OriginalFirestation> firestations
   ) {
@@ -58,6 +67,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return isAlreadyInFile;
   }
   @Override
+  /**
+   * @inheritDoc
+   */
   public boolean isFireStationAlreadyInFile(String address,
                                             ArrayList<OriginalFirestation> firestations
   ) {
@@ -71,6 +83,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public boolean isAdressLinked(String address,
                                 ArrayList<OriginalFirestation> firestations
   ) {
@@ -84,6 +99,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalFirestation checkIfAdressExist(ArrayList<OriginalFirestation> firestations,
                                                 String address){
     for(OriginalFirestation originalFirestation : firestations){
@@ -113,6 +131,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalFirestation getFireStationByNumberAndAddress(ArrayList<OriginalFirestation> fireStations,
                                                               Integer stationNumber, String address) {
     for (OriginalFirestation originalFireStation : fireStations) {
@@ -124,6 +145,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalFirestation getFireStationByAddress(ArrayList<OriginalFirestation> fireStations,
                                                      String address) {
     for (OriginalFirestation originalFireStation : fireStations) {
@@ -134,6 +158,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return null;
   }
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalFirestation getFireStationByNumber(ArrayList<OriginalFirestation> fireStations,
                                                      Integer number) {
     for (OriginalFirestation originalFireStation : fireStations) {
@@ -145,6 +172,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OriginalFirestation> getFireStationsByNumber(ArrayList<OriginalFirestation> fireStations,
                                                     Integer number) {
     ArrayList<OriginalFirestation> originalFirestations = new ArrayList<>();
@@ -159,6 +189,9 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OriginalFirestation> postNewFireStation(OriginalFirestation originalFirestation,
                                                            ArrayList<OriginalFirestation> originalFirestations) {
     boolean isPresent = false;

@@ -23,6 +23,9 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<WorkingFireStation> reestablishCase(Collection<WorkingFireStation> workingFireStations){
     ArrayList<WorkingFireStation> result = new ArrayList<>();
     for (WorkingFireStation workingFireStation : workingFireStations){
@@ -34,6 +37,9 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashMap<Integer, WorkingFireStation> createWorkingFiresStationHashMap() {
     originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
@@ -51,6 +57,9 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashMap<Integer, WorkingFireStation> getWorkingFireStationHashMap() {
     RetrieveWorkingDataRepository retrieveWorkingDataRepository =
             new RetrieveWorkingDataRepositoryImpl();

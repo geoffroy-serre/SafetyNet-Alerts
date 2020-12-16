@@ -17,6 +17,9 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public boolean isFireStationAlreadyInFile(Integer stationNumber, String address,
                                             ArrayList<OutPutFireStation> firestations
   ) {
@@ -30,6 +33,9 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public int getStationNumberByHomeId (UUID homeId, ArrayList<OutPutFireStation> fireStations){
     int result = 0;
     for(OutPutFireStation outPutFireStation : fireStations){
@@ -42,6 +48,9 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
     return result;
   }
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutFireStation> setStationNumberHomesToNull(ArrayList<OutPutFireStation> fireStations) {
     ArrayList<OutPutFireStation> result = new ArrayList<>();
     for (OutPutFireStation outPutFireStation : fireStations) {
@@ -57,11 +66,17 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutFireStation> getFiresStations() {
     return retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getFirestations();
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OutPutFireStation getFireStationByNumber(ArrayList<OutPutFireStation> fireStations,
                                                   Integer stationNumber) {
     for (OutPutFireStation outPutFireStation : fireStations) {
@@ -73,6 +88,9 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutFireStation> getFireStationByNumbers(ArrayList<OutPutFireStation> fireStations,
                                                               ArrayList<Integer> stationNumber) {
     ArrayList<OutPutFireStation> result = new ArrayList<>();
@@ -88,6 +106,9 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutFireStation> setHomes(ArrayList<OutPutFireStation> fireStations,
                                                ArrayList<OutPutHome> homes) {
     ArrayList<OutPutFireStation> result = new ArrayList<>();
@@ -105,6 +126,9 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OutPutFireStation setHome(OutPutFireStation fireStation,
                                    ArrayList<OutPutHome> homes) {
     OutPutFireStation result = new OutPutFireStation();

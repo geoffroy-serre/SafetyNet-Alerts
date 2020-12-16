@@ -23,6 +23,9 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashMap<String, WorkingMedicalRecord> getWorkingMedicalRecordsHashMap() {
     OriginalResponse originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
@@ -39,6 +42,9 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<WorkingMedicalRecord> reestablishCase(Collection<WorkingMedicalRecord> workingMedicalRecords){
     ArrayList<WorkingMedicalRecord> result = new ArrayList<>();
     for (WorkingMedicalRecord workingMedicalRecord : workingMedicalRecords){

@@ -23,14 +23,12 @@ public class WorkingPersonsServiceImpl implements WorkingPersonsService {
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
 
-  @Override
-  public ArrayList<WorkingPerson> createWorkingPersonsArrayList() {
-    ArrayList<WorkingPerson> workingPersons = new ArrayList<WorkingPerson>();
-    return workingPersons;
 
-  }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<WorkingPerson> reestablishCase(Collection<WorkingPerson> workingPersons){
     ArrayList<WorkingPerson> result = new ArrayList<>();
     for (WorkingPerson workingPerson : workingPersons){
@@ -43,6 +41,9 @@ public class WorkingPersonsServiceImpl implements WorkingPersonsService {
     return result;
   }
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashMap<String,WorkingPerson> getWorkingPersonsHashMap() {
 
     originalResponse =

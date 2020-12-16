@@ -58,18 +58,18 @@ public class FireStationController {
     if (deleteFireStation.getStation() != null) {
       if (!originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getStation(),
               originalFirestations)) {
-        response.setStatus(400);
+        response.setStatus(204);
         logger.info("Status : " + response.getStatus() + " firestation Unknown " + deleteFireStation.toString());
-        throw new NoStationNumberException(deleteFireStation.getStation(), "No station known");
+        return deleteFireStation;
 
       }
     }
     if (deleteFireStation.getAddress() != null) {
       if (!originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getAddress(),
               originalFirestations)) {
-        response.setStatus(400);
+        response.setStatus(204);
         logger.info("Status : " + response.getStatus() + " firestation Unknown " + deleteFireStation.toString());
-        throw new NoStationNumberException(deleteFireStation.getStation(), "No station known");
+        return deleteFireStation;
 
       }
     }

@@ -23,6 +23,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutHome> setStationNumberNull(ArrayList<OutPutHome> outPutHomes) {
     ArrayList<OutPutHome> result = new ArrayList<>();
     for (OutPutHome outPutHome : outPutHomes) {
@@ -33,6 +36,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutHome> getCountChildrenAndAdultsforList(ArrayList<OutPutHome> outPutHomes) {
     for (OutPutHome outPutHome : outPutHomes) {
       int underAge = 0;
@@ -55,6 +61,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutHome> getHomeByStationNumber(ArrayList<OutPutHome> outPutHomes,
                                                       OutPutFireStation firestation) {
     int stationNumber = firestation.getStationNumber();
@@ -75,6 +84,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutHome> setPersons(ArrayList<OutPutPerson> persons,
                                           ArrayList<OutPutHome> homes) {
     ArrayList<OutPutHome> result = new ArrayList<>();
@@ -93,6 +105,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OutPutHome setPersonsHome(ArrayList<OutPutPerson> persons,
                                    OutPutHome home) {
 
@@ -113,6 +128,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<UUID> getHomesIds(ArrayList<OutPutHome> homes) {
     ArrayList<UUID> result = new ArrayList<>();
     for (OutPutHome outPutHome : homes) {
@@ -122,6 +140,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutHome> getHomesbyIds(ArrayList<OutPutFireStation> firestations,
                                              ArrayList<OutPutHome> homes) {
     ArrayList<OutPutHome> homesResult = new ArrayList<>();
@@ -139,6 +160,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OutPutHome getHomeByAddress(String address) {
     OutPutHome selectedHome = new OutPutHome();
     for (OutPutHome outPutHome : getOutPutHomeList()) {
@@ -150,6 +174,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashSet<UUID> getHomesByCity(String city) {
     HashSet<UUID> homesIds = new HashSet<>();
 
@@ -162,6 +189,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OutPutHome transformWorkingIntoOutPut(WorkingHome inputHome) {
     OutPutHome result = new OutPutHome();
 
@@ -173,6 +203,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutHome> getOutPutHomeList() {
     ArrayList<OutPutHome> outPutHomes =
             retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getHomes();
@@ -180,6 +213,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutHome> transformWorkingIntoOutPut(ArrayList<WorkingHome> inputHome) {
     ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
     for (WorkingHome current : inputHome) {

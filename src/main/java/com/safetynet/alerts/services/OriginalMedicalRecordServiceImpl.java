@@ -20,6 +20,9 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OriginalMedicalrecord> postNewMedicalRecord(OriginalMedicalrecord originalMedicalrecord,
                                                                ArrayList<OriginalMedicalrecord> originalMedicalrecords) {
     boolean isPresent = false;
@@ -38,6 +41,9 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
   }
 
 @Override
+/**
+ * @inheritDoc
+ */
   public ArrayList<OriginalMedicalrecord> deleteOriginalMedicalRecord(OriginalMedicalrecord originalMedicalrecord,
                                                                   ArrayList<OriginalMedicalrecord> originalMedicalrecords) {
     ArrayList<OriginalMedicalrecord> results = new ArrayList<>();
@@ -53,6 +59,9 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public boolean isMedicalRecordAlreadyInFile(String firstName, String lastName,
                                               ArrayList<OriginalMedicalrecord> medicalrecords
   ) {
@@ -66,6 +75,9 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalMedicalrecord getMedicalRecordByFirstLastName(ArrayList<OriginalMedicalrecord> medicalRecords,
                                                                String firstName, String lastName) {
     for (OriginalMedicalrecord originalMedicalrecord : medicalRecords) {

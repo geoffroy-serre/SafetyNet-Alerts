@@ -23,6 +23,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public boolean isPersonAlreadyInFile(String firstName, String lastName) {
     boolean isAlreadyInFile = false;
     ArrayList<OutPutPerson> selectedPersons =
@@ -35,6 +38,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
 
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutPerson> setEmailToNull(ArrayList<OutPutPerson> persons) {
     ArrayList<OutPutPerson> results = new ArrayList<>();
     for (OutPutPerson outPutPerson : persons) {
@@ -45,6 +51,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutPerson> getPersonByHomeIds(ArrayList<UUID> homeIds) {
     ArrayList<OutPutPerson> result = new ArrayList<>();
     for (OutPutPerson outPutPerson : getAllPerson()) {
@@ -58,6 +67,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashSet<String> getPersonsPhones(ArrayList<OutPutPerson> persons) {
     HashSet<String> result = new HashSet<>();
     for (OutPutPerson outPutPerson : persons) {
@@ -67,6 +79,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutPerson> setPersonsHome(ArrayList<OutPutPerson> persons,
                                                 ArrayList<OutPutHome> homes) {
     ArrayList<OutPutPerson> result = new ArrayList<>();
@@ -82,6 +97,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutPerson> setMedicalRecordForPersons(ArrayList<OutPutPerson> outPutPersons
           , ArrayList<OutPutMedicalRecord> outPutMedicalRecords) {
     ArrayList<OutPutPerson> results = new ArrayList<>();
@@ -102,6 +120,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutPerson> setPhoneNull(ArrayList<OutPutPerson> persons) {
     ArrayList<OutPutPerson> result = new ArrayList<>();
     for (OutPutPerson outPutPerson : persons) {
@@ -112,6 +133,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutPerson> getPersonsByFirstAndLastName(String firstName, String lastName) {
     ArrayList<OutPutPerson> selectedPersons = new ArrayList<>();
 
@@ -124,6 +148,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashSet<String> getPersonsEmailByCity(HashSet<UUID> homeIds) {
     HashSet<String> output = new HashSet<>();
     for (UUID idHome : homeIds) {
@@ -137,6 +164,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OutPutChild getCountedTypeOfPersons(ArrayList<OutPutPerson> persons) {
     ArrayList<OutPutPerson> family = new ArrayList<>();
     ArrayList<OutPutPerson> underAge = new ArrayList<>();
@@ -162,6 +192,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutPerson> getPersonsByHomeID(OutPutHome selectedHome) {
     ArrayList<OutPutPerson> personsForSelectedHome = new ArrayList();
     for (OutPutPerson outPutPerson : getAllPerson()) {
@@ -177,6 +210,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutPerson> getAllPerson() {
     ArrayList<OutPutPerson> output =
             retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getPersons();
@@ -184,6 +220,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OutPutPerson transformWorkingIntoOutPut(WorkingPerson inputPerson) {
     OutPutPerson result = new OutPutPerson();
 
@@ -200,6 +239,9 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutPerson> transformWorkingIntoOutPut
           (ArrayList<WorkingPerson> inputPersons) {
     ArrayList<OutPutPerson> output = new ArrayList<>();

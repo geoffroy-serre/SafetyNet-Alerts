@@ -4,6 +4,12 @@ import com.safetynet.alerts.model.WorkingHome;
 import java.util.*;
 
 public interface WorkingHomeService {
+
+  /**
+   * From lower case to upper case for each first letter
+   * @param workingHomes
+   * @return ArrayList of WorkingHomes
+   */
   ArrayList<WorkingHome> reestablishCase(Collection<WorkingHome> workingHomes);
 
   /**
@@ -24,6 +30,10 @@ public interface WorkingHomeService {
    */
   HashSet<WorkingHome> createWorkingHomes();
 
+  /**
+   * Get data form createWorkingHomes
+   * @return ArrayList of WorkingHomes
+   */
   ArrayList<WorkingHome> getWorkingHomesArrayList();
   /**
    * Use for processing, it has ID in key.
@@ -39,7 +49,17 @@ public interface WorkingHomeService {
    */
   public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap();
 
+  /**
+   *
+   * @param homeId
+   * @return WorkingHome
+   */
   WorkingHome getHomeById(UUID homeId);
 
+  /**
+   *
+   * @param filePath
+   * @return ArrayList of WorkingHomes
+   */
   ArrayList<WorkingHome> retrieveWorkingHomeFromFile(String filePath);
 }

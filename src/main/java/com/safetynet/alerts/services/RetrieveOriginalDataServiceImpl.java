@@ -19,6 +19,9 @@ public class RetrieveOriginalDataServiceImpl implements RetrieveOriginalDataServ
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OriginalResponse retrieveOriginalData(String filepath) {
 
     OriginalResponse originalResponse = retrieveOriginalDataRepository.getOriginalData(filepath);

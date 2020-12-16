@@ -7,10 +7,17 @@ import java.util.HashMap;
 
 public interface WorkingPersonsService {
 
-
-  ArrayList<WorkingPerson> createWorkingPersonsArrayList();
-
+  /**
+   * from lower case to upper case for each first letter .
+   * @param workingPersons
+   * @return ArrayList WorkingPerson
+   */
   ArrayList<WorkingPerson> reestablishCase(Collection<WorkingPerson> workingPersons);
 
+  /**
+   * Key : firstname, lastname, adress,city,zipcode.
+   * Value : WorkingPerson
+   * @return HashMap  of String WorkingPerson
+   */
   HashMap<String,WorkingPerson> getWorkingPersonsHashMap();
 }

@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
-/**
- * The Interface IMedicalRecordDao.
- */
+
 public interface WorkingMedicalRecordService {
   /**
    * Key: String "firstname,lastname,birthdate".
@@ -17,5 +15,10 @@ public interface WorkingMedicalRecordService {
    */
   HashMap<String, WorkingMedicalRecord> getWorkingMedicalRecordsHashMap();
 
+  /**
+   * from lower case to upper case for each first letter.
+   * @param workingMedicalRecords
+   * @return ArrayList of WorkingMedicalRecord
+   */
   ArrayList<WorkingMedicalRecord> reestablishCase(Collection<WorkingMedicalRecord> workingMedicalRecords);
 }

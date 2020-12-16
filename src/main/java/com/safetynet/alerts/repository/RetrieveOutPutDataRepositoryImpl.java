@@ -17,14 +17,11 @@ public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepos
 
   private static final Logger logger = LogManager.getLogger("App");
 
-  /**
-   * Get data from Json.
-   * Catch IOException in case of problem with file
-   *
-   * @param constantFilePath input file.
-   * @return OutPutResponse
-   */
+
   @Override
+  /**
+   * @inheritDoc
+   */
   public OutPutResponse getOutPutData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();

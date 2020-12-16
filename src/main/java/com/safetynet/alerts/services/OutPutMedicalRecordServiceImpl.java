@@ -17,6 +17,9 @@ public class OutPutMedicalRecordServiceImpl implements OutPutMedicalRecordServic
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public OutPutMedicalRecord getMedicalRecordById(UUID medicalRecordId) {
     OutPutMedicalRecord medicalRecord = new OutPutMedicalRecord();
     ArrayList<OutPutMedicalRecord> outPutMedicalRecords =
@@ -34,6 +37,9 @@ public class OutPutMedicalRecordServiceImpl implements OutPutMedicalRecordServic
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<OutPutMedicalRecord> getAllMedicalRecords(){
     return retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getMedicalrecords();
   }

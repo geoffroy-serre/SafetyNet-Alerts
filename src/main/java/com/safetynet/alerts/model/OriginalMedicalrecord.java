@@ -3,6 +3,7 @@ package com.safetynet.alerts.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Component;
@@ -30,17 +31,17 @@ public class OriginalMedicalrecord {
 
   @JsonProperty("medications")
   @NotNull
-  private List<String> medications;
+  private ArrayList<String> medications;
 
   @JsonProperty("allergies")
   @NotNull
-  private List<String> allergies;
+  private ArrayList<String> allergies;
 
-  public void setAllergies(List<String> allergies) {
+  public void setAllergies(ArrayList<String> allergies) {
     this.allergies = allergies;
   }
 
-  public List<String> getAllergies() {
+  public ArrayList<String> getAllergies() {
     return allergies;
   }
 
@@ -68,11 +69,11 @@ public class OriginalMedicalrecord {
     return birthdate;
   }
 
-  public void setMedications(List<String> medications) {
+  public void setMedications(ArrayList<String> medications) {
     this.medications = medications;
   }
 
-  public List<String> getMedications() {
+  public ArrayList<String> getMedications() {
     return medications;
   }
 

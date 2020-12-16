@@ -24,6 +24,9 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   RetrieveWorkingDataRepository retrieveWorkingDataRepository;
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<WorkingHome> reestablishCase(Collection<WorkingHome> workingHomes){
     ArrayList<WorkingHome> result = new ArrayList<>();
     for (WorkingHome workingHome : workingHomes){
@@ -38,6 +41,9 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public WorkingHome searchWorkingHome(String address, ArrayList<WorkingHome> workingHomes) {
     for (WorkingHome workingHome : workingHomes) {
       if (workingHome.getAddress().equals(address)) {
@@ -49,6 +55,9 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public ArrayList<WorkingHome> getWorkingHomesArrayList() {
     ArrayList<WorkingHome> workingHomes = new ArrayList<WorkingHome>();
     workingHomes.addAll(createWorkingHomes());
@@ -56,6 +65,9 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashSet<WorkingHome> createWorkingHomes() {
     OriginalResponse originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
@@ -73,6 +85,9 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashMap<UUID, WorkingHome> getFinishedWorkingHomesHashMap() {
 
     HashMap<UUID, WorkingHome> hashMapWorkingHomes = new HashMap<>();
@@ -83,6 +98,9 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap() {
 
     HashMap<String, WorkingHome> hashMapWorkingHomes = new HashMap<>();
@@ -93,6 +111,9 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public WorkingHome getHomeById(UUID homeId) {
     WorkingHome workingHome = new WorkingHome();
     ArrayList<WorkingHome> workingHomes =
@@ -107,6 +128,9 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   }
 
   @Override
+  /**
+   * @inheritDoc
+   */
   public  ArrayList<WorkingHome> retrieveWorkingHomeFromFile(String filePath){
     WorkingResponse wr = retrieveWorkingDataRepository.getWorkingData(filePath);
     ArrayList<WorkingHome> ws = wr.getHomes();

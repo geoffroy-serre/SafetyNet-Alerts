@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
-/**
- * The Interface IFireStationDao.
- */
+
 public interface WorkingFirestationsService {
 
+  /**
+   * From lower case to each first letter in uppercase
+   * @param workingFireStations
+   * @return ArrayList of WorkingFireStation
+   */
   ArrayList<WorkingFireStation> reestablishCase(Collection<WorkingFireStation> workingFireStations);
 
   /**
@@ -20,5 +23,9 @@ public interface WorkingFirestationsService {
    */
   public HashMap<Integer, WorkingFireStation> createWorkingFiresStationHashMap();
 
+  /**
+   * Key Station number, value WorkingFirestation
+   * @return hashMap of Integer and WorkingFireStation
+   */
   HashMap<Integer, WorkingFireStation> getWorkingFireStationHashMap();
 }
