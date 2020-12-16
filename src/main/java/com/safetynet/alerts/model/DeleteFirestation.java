@@ -2,9 +2,10 @@ package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
+/**
+ * Contains adress and station number
+ */
 public class DeleteFirestation {
   @JsonProperty("address")
   private String address;

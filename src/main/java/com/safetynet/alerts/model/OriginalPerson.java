@@ -6,6 +6,17 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Component
+/**
+ * Contains original data format
+ *
+ *@param String firstName;
+ *@param String lastName;
+ *@param String address;
+ *@param String city;
+ *@param String zip;
+ *@param String phone;
+ *@param String email;
+ */
 public class OriginalPerson {
 
 

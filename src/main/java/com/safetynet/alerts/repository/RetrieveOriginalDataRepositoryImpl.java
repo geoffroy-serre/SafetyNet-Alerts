@@ -42,7 +42,7 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
       response = (objectMapper.readValue(new File(filePath),
               OriginalResponse.class));
     } catch (IOException e) {
-      logger.error("IOException ", e);
+      logger.error("IOException getting Original Data ", e);
     }
     logger.debug("return OriginalResponse for getOriginalData ");
 
@@ -53,7 +53,7 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
     HashSet<OriginalMedicalrecord> originalMedicalrecordHashSet = new HashSet<>();
     OriginalResponse result = new OriginalResponse();
 
-    for(OriginalPerson originalPerson: originalResponse.getPersons()){
+    for (OriginalPerson originalPerson : originalResponse.getPersons()) {
       OriginalPerson personProcessed = new OriginalPerson();
       BeanUtils.copyProperties(originalPerson, personProcessed);
       personProcessed.setAddress(originalPerson.getAddress().toLowerCase());
@@ -63,14 +63,14 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
       personProcessed.setZip(originalPerson.getZip().toLowerCase());
       originalPersonHashSet.add(personProcessed);
     }
-    for (OriginalFirestation originalFirestation : originalResponse.getFirestations()){
+    for (OriginalFirestation originalFirestation : originalResponse.getFirestations()) {
       OriginalFirestation processedFirestation = new OriginalFirestation();
       BeanUtils.copyProperties(originalFirestation, processedFirestation);
       processedFirestation.setAddress(originalFirestation.getAddress().toLowerCase());
       originalFirestationHashet.add(processedFirestation);
     }
 
-    for(OriginalMedicalrecord originalMedicalrecord : originalResponse.getMedicalrecords()){
+    for (OriginalMedicalrecord originalMedicalrecord : originalResponse.getMedicalrecords()) {
       OriginalMedicalrecord processedMedicalrecord = new OriginalMedicalrecord();
       BeanUtils.copyProperties(originalMedicalrecord, processedMedicalrecord);
       processedMedicalrecord.setFirstName(originalMedicalrecord.getFirstName().toLowerCase());
@@ -81,16 +81,16 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
     }
 
     ArrayList<OriginalPerson> originalPersons = new ArrayList<>(originalPersonHashSet);
-    ArrayList<OriginalFirestation> originalFirestations = new ArrayList<>(originalFirestationHashet);
-    ArrayList<OriginalMedicalrecord> originalMedicalrecords = new ArrayList<>(originalMedicalrecordHashSet);
+    ArrayList<OriginalFirestation> originalFirestations =
+            new ArrayList<>(originalFirestationHashet);
+    ArrayList<OriginalMedicalrecord> originalMedicalrecords =
+            new ArrayList<>(originalMedicalrecordHashSet);
 
     result.setFirestations(originalFirestations);
     result.setPersons(originalPersons);
     result.setMedicalrecords(originalMedicalrecords);
     return result;
   }
-
-
 
 
 }

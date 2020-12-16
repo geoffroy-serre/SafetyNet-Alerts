@@ -5,13 +5,13 @@ import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.WorkingMedicalRecordService;
 import com.safetynet.alerts.model.OriginalMedicalrecord;
 import com.safetynet.alerts.model.OriginalResponse;
-import com.safetynet.alerts.model.WorkingHome;
 import com.safetynet.alerts.model.WorkingMedicalRecord;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.UUID;
-import org.apache.commons.lang.WordUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +21,15 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
 
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
+  final Logger logger = LogManager.getLogger("WorkingMedicalRecordServiceImpl");
+
 
   @Override
   /**
    * @inheritDoc
    */
   public HashMap<String, WorkingMedicalRecord> getWorkingMedicalRecordsHashMap() {
+    logger.debug("Entering getWorkingMedicalRecordsHashMap ");
     OriginalResponse originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
     HashMap<String, WorkingMedicalRecord> workingMedicalRecordHashMap = new HashMap<>();
@@ -38,6 +41,7 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
       workingMedicalRecordHashMap.put(originalMedicalrecords.getFirstName() + ","
               + originalMedicalrecords.getLastName(), workingMedicalRecord);
     }
+    logger.debug("Success getWorkingMedicalRecordsHashMap ");
     return workingMedicalRecordHashMap;
   }
 
@@ -45,13 +49,15 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
   /**
    * @inheritDoc
    */
-  public ArrayList<WorkingMedicalRecord> reestablishCase(Collection<WorkingMedicalRecord> workingMedicalRecords){
+  public ArrayList<WorkingMedicalRecord> reestablishCase(Collection<WorkingMedicalRecord> workingMedicalRecords) {
+    logger.debug("Entering reestablishCase ");
     ArrayList<WorkingMedicalRecord> result = new ArrayList<>();
-    for (WorkingMedicalRecord workingMedicalRecord : workingMedicalRecords){
+    for (WorkingMedicalRecord workingMedicalRecord : workingMedicalRecords) {
       WorkingMedicalRecord processingMedicalRecord = new WorkingMedicalRecord();
       BeanUtils.copyProperties(workingMedicalRecord, processingMedicalRecord);
       result.add(processingMedicalRecord);
     }
+    logger.debug("Success reestablishCase ");
     return result;
   }
 

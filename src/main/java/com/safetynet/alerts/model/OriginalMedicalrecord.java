@@ -4,13 +4,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 import org.springframework.stereotype.Component;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Component
+/**
+ * Contains Original format data
+ * @param String firstName;
+ *@param String lastName;
+ *@param LocalDate birthdate;
+ *@param ArrayList<String> medications;
+ *@param ArrayList<String> allergies;
+ */
 public class OriginalMedicalrecord {
 
 

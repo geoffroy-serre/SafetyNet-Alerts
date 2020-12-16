@@ -1,13 +1,6 @@
 package com.safetynet.alerts.controller;
 
-import com.safetynet.alerts.interfaces.*;
-import com.safetynet.alerts.model.*;
-import com.safetynet.alerts.utils.RequestLogger;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import com.safetynet.alerts.interfaces.CreateWorkingFileService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

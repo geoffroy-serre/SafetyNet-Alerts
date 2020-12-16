@@ -3,11 +3,24 @@ package com.safetynet.alerts.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 @Component
+/**
+ * Contains out put format data
+ * @param String firstName;
+ * @param String lastName;
+ * @param OutPutHome home;
+ * @param String phone;
+ * @param LocalDate birthdate;
+ * @param Integer age;
+ * @param String email;
+ * @param OutPutMedicalRecord medicalRecord  ;
+ * @param UUID idMedicalRecord  ;
+ *@param  UUID idHome;
+ *
+ */
 public class OutPutPerson {
 
   @JsonProperty("firstName")

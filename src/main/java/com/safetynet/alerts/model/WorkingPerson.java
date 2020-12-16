@@ -3,11 +3,23 @@ package com.safetynet.alerts.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 @Component
+/**
+ * Working format data
+ * @param UUID id;
+ * @param String firstName;
+ * @param String lastName;
+ * @param  UUID homeID;
+ * @param String phone;
+ * @param  LocalDate birthdate;
+ * @param int age;
+ * @param String email;
+ * @param  idMedicalRecord = new UUID(0L, 0L);
+ *
+ */
 public class WorkingPerson {
 
   @JsonProperty("id")

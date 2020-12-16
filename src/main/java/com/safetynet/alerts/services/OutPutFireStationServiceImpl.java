@@ -7,6 +7,8 @@ import com.safetynet.alerts.model.OutPutFireStation;
 import com.safetynet.alerts.model.OutPutHome;
 import java.util.ArrayList;
 import java.util.UUID;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
 
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
+  final Logger logger = LogManager.getLogger("OutPutFireStationServiceImpl");
 
   @Override
   /**
@@ -23,12 +26,14 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   public boolean isFireStationAlreadyInFile(Integer stationNumber, String address,
                                             ArrayList<OutPutFireStation> firestations
   ) {
+    logger.debug("Entering isFireStationAlreadyInFile ");
     boolean isAlreadyInFile = false;
     OutPutFireStation selectedFireStations =
-            getFireStationByNumber(firestations,stationNumber);
+            getFireStationByNumber(firestations, stationNumber);
     if (selectedFireStations != null) {
       isAlreadyInFile = true;
     }
+    logger.debug("Success isFireStationAlreadyInFile ");
     return isAlreadyInFile;
   }
 
@@ -36,22 +41,26 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   /**
    * @inheritDoc
    */
-  public int getStationNumberByHomeId (UUID homeId, ArrayList<OutPutFireStation> fireStations){
+  public int getStationNumberByHomeId(UUID homeId, ArrayList<OutPutFireStation> fireStations) {
+    logger.debug("Entering getStationNumberByHomeId ");
     int result = 0;
-    for(OutPutFireStation outPutFireStation : fireStations){
-      for (UUID idHome : outPutFireStation.getHomeListIds()){
-        if(idHome.equals(homeId)){
+    for (OutPutFireStation outPutFireStation : fireStations) {
+      for (UUID idHome : outPutFireStation.getHomeListIds()) {
+        if (idHome.equals(homeId)) {
           result = outPutFireStation.getStationNumber();
         }
       }
     }
+    logger.debug("Success getStationNumberByHomeId ");
     return result;
   }
+
   @Override
   /**
    * @inheritDoc
    */
   public ArrayList<OutPutFireStation> setStationNumberHomesToNull(ArrayList<OutPutFireStation> fireStations) {
+    logger.debug("Entering setStationNumberHomesToNull ");
     ArrayList<OutPutFireStation> result = new ArrayList<>();
     for (OutPutFireStation outPutFireStation : fireStations) {
       ArrayList<OutPutHome> homes = new ArrayList<>();
@@ -62,6 +71,8 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
       outPutFireStation.setHomes(homes);
       result.add(outPutFireStation);
     }
+    logger.debug("Success setStationNumberHomesToNull ");
+
     return result;
   }
 
@@ -79,11 +90,15 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
    */
   public OutPutFireStation getFireStationByNumber(ArrayList<OutPutFireStation> fireStations,
                                                   Integer stationNumber) {
+    logger.debug("Entering getFireStationByNumber ");
+
     for (OutPutFireStation outPutFireStation : fireStations) {
       if (outPutFireStation.getStationNumber() == stationNumber) {
+        logger.debug("Match found getFireStationByNumber ");
         return outPutFireStation;
       }
     }
+    logger.debug("Not Match found getFireStationByNumber return null ");
     return null;
   }
 
@@ -93,6 +108,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
    */
   public ArrayList<OutPutFireStation> getFireStationByNumbers(ArrayList<OutPutFireStation> fireStations,
                                                               ArrayList<Integer> stationNumber) {
+    logger.debug("Entering getFireStationByNumbers ");
     ArrayList<OutPutFireStation> result = new ArrayList<>();
 
     for (OutPutFireStation outPutFireStation : fireStations) {
@@ -102,6 +118,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
         }
       }
     }
+    logger.debug("Success getFireStationByNumber ");
     return result;
   }
 
@@ -111,6 +128,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
    */
   public ArrayList<OutPutFireStation> setHomes(ArrayList<OutPutFireStation> fireStations,
                                                ArrayList<OutPutHome> homes) {
+    logger.debug("Entering setHomes ");
     ArrayList<OutPutFireStation> result = new ArrayList<>();
     for (OutPutFireStation outPutFireStation : fireStations) {
       ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
@@ -122,6 +140,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
       outPutFireStation.setHomes(outPutHomes);
       result.add(outPutFireStation);
     }
+    logger.debug("Success setHomes ");
     return result;
   }
 
@@ -131,6 +150,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
    */
   public OutPutFireStation setHome(OutPutFireStation fireStation,
                                    ArrayList<OutPutHome> homes) {
+    logger.debug("Entering setHome ");
     OutPutFireStation result = new OutPutFireStation();
 
     ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
@@ -141,7 +161,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
     }
     fireStation.setHomes(outPutHomes);
     result = fireStation;
-
+    logger.debug("Success setHome ");
     return result;
   }
 

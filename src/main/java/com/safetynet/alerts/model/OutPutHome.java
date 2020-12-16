@@ -7,6 +7,16 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 @Component
+/**
+ * Contains output format data
+ * @param Integer stationNumber = null;
+ * @param String address;
+ * @param String city;
+ * @param  String zip;
+ * @param Integer numberOfAdults;
+ * @param Integer numberOfChildren;
+ * @param UUID idHome = new UUID(0L,0L);
+ */
 public class OutPutHome {
 
 

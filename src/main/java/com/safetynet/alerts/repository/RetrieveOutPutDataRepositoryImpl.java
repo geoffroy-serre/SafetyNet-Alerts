@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
 import com.safetynet.alerts.model.OutPutResponse;
 import java.io.File;
@@ -12,6 +11,7 @@ import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
+
 @Repository
 public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepository {
 
@@ -38,7 +38,7 @@ public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepos
               OutPutResponse.class));
 
     } catch (IOException e) {
-      logger.error("IOException ", e);
+      logger.error("IOException getting OutPutData ", e);
     }
     logger.debug("Returng OutPutResponse created");
     return response;

@@ -7,6 +7,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Component
+/**
+ * Original data format
+ * @param String address;
+ * @param Integer station;
+ */
 public class OriginalFirestation {
 
   @JsonProperty("address")

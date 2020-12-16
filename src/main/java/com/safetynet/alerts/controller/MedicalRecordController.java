@@ -3,13 +3,10 @@ package com.safetynet.alerts.controller;
 
 import com.safetynet.alerts.Exceptions.AllreadyInDatabaseException;
 import com.safetynet.alerts.Exceptions.NoDataInDataBaseException;
-import com.safetynet.alerts.Exceptions.NoExistingStation;
-import com.safetynet.alerts.Exceptions.NoStationNumberException;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.CreateWorkingFileService;
 import com.safetynet.alerts.interfaces.OriginalFleService;
 import com.safetynet.alerts.interfaces.OriginalMedicalRecordService;
-import com.safetynet.alerts.model.OriginalFirestation;
 import com.safetynet.alerts.model.OriginalMedicalrecord;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.PersonNames;

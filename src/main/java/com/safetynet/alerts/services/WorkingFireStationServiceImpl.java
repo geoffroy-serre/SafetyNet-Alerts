@@ -4,10 +4,16 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.interfaces.WorkingFirestationsService;
-import com.safetynet.alerts.model.*;
-import com.safetynet.alerts.repository.RetrieveWorkingDataRepositoryImpl;
-import java.util.*;
-import org.apache.commons.lang.WordUtils;
+import com.safetynet.alerts.model.OriginalFirestation;
+import com.safetynet.alerts.model.OriginalResponse;
+import com.safetynet.alerts.model.WorkingFireStation;
+import com.safetynet.alerts.model.WorkingResponse;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.UUID;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,19 +26,24 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
 
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
+  @Autowired
+  RetrieveWorkingDataRepository retrieveWorkingDataRepository;
+  final Logger logger = LogManager.getLogger("OriginalFireStationServiceImpl");
 
 
   @Override
   /**
    * @inheritDoc
    */
-  public ArrayList<WorkingFireStation> reestablishCase(Collection<WorkingFireStation> workingFireStations){
+  public ArrayList<WorkingFireStation> reestablishCase(Collection<WorkingFireStation> workingFireStations) {
+    logger.debug("Entering reestablishCase ");
     ArrayList<WorkingFireStation> result = new ArrayList<>();
-    for (WorkingFireStation workingFireStation : workingFireStations){
+    for (WorkingFireStation workingFireStation : workingFireStations) {
       WorkingFireStation processingFireStation = new WorkingFireStation();
       BeanUtils.copyProperties(workingFireStation, processingFireStation);
       result.add(processingFireStation);
     }
+    logger.debug("Success reestablishCase ");
     return result;
   }
 
@@ -41,6 +52,7 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
    * @inheritDoc
    */
   public HashMap<Integer, WorkingFireStation> createWorkingFiresStationHashMap() {
+    logger.debug("Entering createWorkingFiresStationHashMap ");
     originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
 
@@ -53,6 +65,7 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
       fireStationsHashMap.put(workingFireStation.getStationNumber(), workingFireStation);
 
     }
+    logger.debug("Success createWorkingFiresStationHashMap " + fireStationsHashMap.toString());
     return fireStationsHashMap;
   }
 
@@ -61,10 +74,9 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
    * @inheritDoc
    */
   public HashMap<Integer, WorkingFireStation> getWorkingFireStationHashMap() {
-    RetrieveWorkingDataRepository retrieveWorkingDataRepository =
-            new RetrieveWorkingDataRepositoryImpl();
+    logger.debug("Entering getWorkingFireStationHashMap ");
     HashMap<Integer, WorkingFireStation> workingFireStationHashMap = new HashMap<>();
-    WorkingResponse  workingResponse =
+    WorkingResponse workingResponse =
             retrieveWorkingDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE);
     ArrayList<WorkingFireStation> workingFireStations = workingResponse.getFirestations();
 
@@ -72,6 +84,7 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
     for (WorkingFireStation current : workingFireStations) {
       workingFireStationHashMap.put(current.getStationNumber(), current);
     }
+    logger.debug("Success getWorkingFireStationHashMap ");
     return workingFireStationHashMap;
   }
 

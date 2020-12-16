@@ -2,12 +2,17 @@ package com.safetynet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 @Component
+/**
+ * Working format data
+ *@param UUID idMedicalRecord;
+ * @param ArrayList<String> medications;
+ * @param ArrayList<String> allergies;
+ */
 public class WorkingMedicalRecord {
 
   @JsonProperty("idMedicalRecord")

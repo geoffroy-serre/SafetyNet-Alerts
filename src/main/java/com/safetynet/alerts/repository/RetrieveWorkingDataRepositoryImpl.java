@@ -36,7 +36,7 @@ public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRep
       response = (objectMapper.readValue(new File(filePath),
               WorkingResponse.class));
     } catch (IOException e) {
-      logger.error("IOException ", e);
+      logger.error("IOException getting WorkingData ", e);
     }
     logger.debug("Returning created WorkingResponse");
     return response;

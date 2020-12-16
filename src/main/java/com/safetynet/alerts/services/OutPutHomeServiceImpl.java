@@ -4,15 +4,18 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.constants.OfAgeRules;
 import com.safetynet.alerts.interfaces.OutPutHomeService;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
-import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
-import com.safetynet.alerts.model.*;
+import com.safetynet.alerts.model.OutPutFireStation;
+import com.safetynet.alerts.model.OutPutHome;
+import com.safetynet.alerts.model.OutPutPerson;
+import com.safetynet.alerts.model.WorkingHome;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.UUID;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 
@@ -20,6 +23,7 @@ import org.springframework.stereotype.Service;
 public class OutPutHomeServiceImpl implements OutPutHomeService {
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
+  final Logger logger = LogManager.getLogger("OutPutHomeServiceImpl");
 
 
   @Override
@@ -27,11 +31,13 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    * @inheritDoc
    */
   public ArrayList<OutPutHome> setStationNumberNull(ArrayList<OutPutHome> outPutHomes) {
+    logger.debug("Entering setStationNumberNull ");
     ArrayList<OutPutHome> result = new ArrayList<>();
     for (OutPutHome outPutHome : outPutHomes) {
       outPutHome.setStationNumber(null);
       result.add(outPutHome);
     }
+    logger.debug("Success setStationNumberNull ");
     return result;
   }
 
@@ -40,6 +46,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    * @inheritDoc
    */
   public ArrayList<OutPutHome> getCountChildrenAndAdultsforList(ArrayList<OutPutHome> outPutHomes) {
+    logger.debug("Entering getCountChildrenAndAdultsforList ");
     for (OutPutHome outPutHome : outPutHomes) {
       int underAge = 0;
       int ofAge = 0;
@@ -57,6 +64,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
       outPutHome.setNumberOfAdults(ofAge);
       outPutHome.setNumberOfChildren(underAge);
     }
+    logger.debug("Success getCountChildrenAndAdultsforList ");
     return outPutHomes;
   }
 
@@ -66,6 +74,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    */
   public ArrayList<OutPutHome> getHomeByStationNumber(ArrayList<OutPutHome> outPutHomes,
                                                       OutPutFireStation firestation) {
+    logger.debug("Entering getHomeByStationNumber ");
     int stationNumber = firestation.getStationNumber();
     ArrayList<OutPutHome> fireStationHomes = new ArrayList<>();
 
@@ -80,6 +89,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
       }
 
     }
+    logger.debug("Success getHomeByStationNumber ");
     return fireStationHomes;
   }
 
@@ -89,6 +99,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    */
   public ArrayList<OutPutHome> setPersons(ArrayList<OutPutPerson> persons,
                                           ArrayList<OutPutHome> homes) {
+    logger.debug("Entering setPersons ");
     ArrayList<OutPutHome> result = new ArrayList<>();
     for (OutPutHome outPutHome : homes) {
       ArrayList<OutPutPerson> personeHome = new ArrayList<>();
@@ -100,7 +111,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
       }
       result.add(outPutHome);
     }
-
+    logger.debug("Success setPersons ");
     return result;
   }
 
@@ -111,7 +122,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   public OutPutHome setPersonsHome(ArrayList<OutPutPerson> persons,
                                    OutPutHome home) {
 
-
+    logger.debug("Entering setPersonsHome ");
     ArrayList<OutPutPerson> personeHome = new ArrayList<>();
     for (OutPutPerson outPutPerson : persons) {
       if (home.getIdHome().equals(outPutPerson.getIdHome())) {
@@ -122,8 +133,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
       }
       home.setPersons(personeHome);
     }
-
-
+    logger.debug("Success setPersonsHome ");
     return home;
   }
 
@@ -132,10 +142,12 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    * @inheritDoc
    */
   public ArrayList<UUID> getHomesIds(ArrayList<OutPutHome> homes) {
+    logger.debug("Entering getHomesIds ");
     ArrayList<UUID> result = new ArrayList<>();
     for (OutPutHome outPutHome : homes) {
       result.add(outPutHome.getIdHome());
     }
+    logger.debug("Success getHomesIds ");
     return result;
   }
 
@@ -145,6 +157,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    */
   public ArrayList<OutPutHome> getHomesbyIds(ArrayList<OutPutFireStation> firestations,
                                              ArrayList<OutPutHome> homes) {
+    logger.debug("Entering getHomesbyIds ");
     ArrayList<OutPutHome> homesResult = new ArrayList<>();
     for (OutPutFireStation outPutFireStation : firestations) {
       for (UUID fireStationHomeId : outPutFireStation.getHomeListIds()) {
@@ -156,6 +169,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
         }
       }
     }
+    logger.debug("Success getHomesbyIds ");
     return homesResult;
   }
 
@@ -164,12 +178,14 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    * @inheritDoc
    */
   public OutPutHome getHomeByAddress(String address) {
+    logger.debug("Entering getHomeByAddress ");
     OutPutHome selectedHome = new OutPutHome();
     for (OutPutHome outPutHome : getOutPutHomeList()) {
       if (outPutHome.getAddress().equalsIgnoreCase(address)) {
         selectedHome = outPutHome;
       }
     }
+    logger.debug("Success getHomeByAddress ");
     return selectedHome;
   }
 
@@ -178,6 +194,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    * @inheritDoc
    */
   public HashSet<UUID> getHomesByCity(String city) {
+    logger.debug("Entering getHomesByCity ");
     HashSet<UUID> homesIds = new HashSet<>();
 
     for (OutPutHome outPutHome : getOutPutHomeList()) {
@@ -185,6 +202,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
         homesIds.add(outPutHome.getIdHome());
       }
     }
+    logger.debug("Success getHomesByCity ");
     return homesIds;
   }
 
@@ -193,12 +211,13 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    * @inheritDoc
    */
   public OutPutHome transformWorkingIntoOutPut(WorkingHome inputHome) {
+    logger.debug("Entering transformWorkingIntoOutPut ");
     OutPutHome result = new OutPutHome();
 
     result.setAddress(inputHome.getAddress());
     result.setCity(inputHome.getCity());
     result.setZip(inputHome.getZip());
-
+    logger.debug("Success transformWorkingIntoOutPut ");
     return result;
   }
 
@@ -207,8 +226,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    * @inheritDoc
    */
   public ArrayList<OutPutHome> getOutPutHomeList() {
+    logger.debug("Entering getOutPutHomeList ");
     ArrayList<OutPutHome> outPutHomes =
             retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getHomes();
+    logger.debug("Success getOutPutHomeList ");
     return outPutHomes;
   }
 
@@ -217,6 +238,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    * @inheritDoc
    */
   public ArrayList<OutPutHome> transformWorkingIntoOutPut(ArrayList<WorkingHome> inputHome) {
+    logger.debug("Entering transformWorkingIntoOutPut ");
     ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
     for (WorkingHome current : inputHome) {
       OutPutHome result = new OutPutHome();
@@ -226,6 +248,7 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
 
       outPutHomes.add(result);
     }
+    logger.debug("Success transformWorkingIntoOutPut ");
     return outPutHomes;
   }
 }

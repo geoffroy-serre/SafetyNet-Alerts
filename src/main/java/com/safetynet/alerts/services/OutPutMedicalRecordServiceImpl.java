@@ -3,11 +3,11 @@ package com.safetynet.alerts.services;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.OutPutMedicalRecordService;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
-import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.model.OutPutMedicalRecord;
-import com.safetynet.alerts.model.WorkingMedicalRecord;
 import java.util.ArrayList;
 import java.util.UUID;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +15,14 @@ import org.springframework.stereotype.Service;
 public class OutPutMedicalRecordServiceImpl implements OutPutMedicalRecordService {
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
+  final Logger logger = LogManager.getLogger("OriginalFireStationServiceImpl");
 
   @Override
   /**
    * @inheritDoc
    */
   public OutPutMedicalRecord getMedicalRecordById(UUID medicalRecordId) {
+    logger.debug("Entering getMedicalRecordById ");
     OutPutMedicalRecord medicalRecord = new OutPutMedicalRecord();
     ArrayList<OutPutMedicalRecord> outPutMedicalRecords =
             retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getMedicalrecords();
@@ -29,10 +31,11 @@ public class OutPutMedicalRecordServiceImpl implements OutPutMedicalRecordServic
       if (currentMedicalRecord.getIdMedicalRecord().equals(medicalRecordId)) {
         medicalRecord.setAllergies(currentMedicalRecord.getAllergies());
         medicalRecord.setMedications(currentMedicalRecord.getMedications());
-
+        logger.debug("Success getMedicalRecordById ");
         return medicalRecord;
       }
     }
+    logger.debug("Not match found getMedicalRecordById return null");
     return null;
   }
 
@@ -40,7 +43,7 @@ public class OutPutMedicalRecordServiceImpl implements OutPutMedicalRecordServic
   /**
    * @inheritDoc
    */
-  public ArrayList<OutPutMedicalRecord> getAllMedicalRecords(){
+  public ArrayList<OutPutMedicalRecord> getAllMedicalRecords() {
     return retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getMedicalrecords();
   }
 }

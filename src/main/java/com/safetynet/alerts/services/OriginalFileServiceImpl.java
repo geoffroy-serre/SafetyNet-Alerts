@@ -19,21 +19,22 @@ import org.springframework.stereotype.Service;
 public class OriginalFileServiceImpl implements OriginalFleService {
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalData;
-  final Logger logger = LogManager.getLogger("App");
+  final Logger logger = LogManager.getLogger("OriginalFileServiceImpl");
 
   @Override
   /**
    * @inheritDoc
    */
-  public OriginalResponse getOriginalResponse(String constantOriginalDataFile){
+  public OriginalResponse getOriginalResponse(String constantOriginalDataFile) {
     return retrieveOriginalData.getOriginalData(constantOriginalDataFile);
   }
+
   @Override
   /**
    * @inheritDoc
    */
-  public void writeOriginalFile(OriginalResponse originalResponse){
-
+  public void writeOriginalFile(OriginalResponse originalResponse) {
+    logger.debug("Begin write of originalFile");
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);
@@ -41,14 +42,15 @@ public class OriginalFileServiceImpl implements OriginalFleService {
             true);
     objectMapper.registerModule(new JavaTimeModule());
     try {
-      logger.debug("Writing Working File with: " +originalResponse.toString());
+      logger.debug("Writing Original File with ");
       objectMapper.writeValue(new File(FilesPath.ORIGINAL_INPUT_FILE), originalResponse);
 
     } catch (IOException e) {
-      logger.error("Problem creating working file with "+originalResponse.toString()+" as parameter",
+      logger.error("Problem creating original file with " + originalResponse.toString() + " as " +
+                      "parameter",
               e);
     }
-    logger.debug("WorkingFile written");
+    logger.debug("Original  written");
     //TODO code pour écrire le fichier data.json avec les données modifiées;
   }
 }

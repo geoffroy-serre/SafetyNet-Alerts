@@ -2,12 +2,14 @@ package com.safetynet.alerts.model;
 
 import java.util.Date;
 
+
 public class ExceptionResponse {
   private Date timestamp;
   private int status;
   private String error;
   private String message;
   private String path;
+
 
   public ExceptionResponse(Date timestamp, int status, String error, String message,
                            String path) {

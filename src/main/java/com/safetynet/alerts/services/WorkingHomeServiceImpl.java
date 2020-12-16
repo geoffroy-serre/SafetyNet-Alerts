@@ -4,9 +4,14 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.interfaces.WorkingHomeService;
-import com.safetynet.alerts.model.*;
+import com.safetynet.alerts.model.OriginalPerson;
+import com.safetynet.alerts.model.OriginalResponse;
+import com.safetynet.alerts.model.WorkingHome;
+import com.safetynet.alerts.model.WorkingResponse;
 import java.util.*;
 import org.apache.commons.lang.WordUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,14 +27,17 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
 
   @Autowired
   RetrieveWorkingDataRepository retrieveWorkingDataRepository;
+  final Logger logger = LogManager.getLogger("WorkingHomeServiceImpl");
 
   @Override
   /**
    * @inheritDoc
    */
-  public ArrayList<WorkingHome> reestablishCase(Collection<WorkingHome> workingHomes){
+  public ArrayList<WorkingHome> reestablishCase(Collection<WorkingHome> workingHomes) {
+    logger.debug("Entering reestablishCase ");
+
     ArrayList<WorkingHome> result = new ArrayList<>();
-    for (WorkingHome workingHome : workingHomes){
+    for (WorkingHome workingHome : workingHomes) {
       WorkingHome processingHome = new WorkingHome();
       BeanUtils.copyProperties(workingHome, processingHome);
       processingHome.setAddress(WordUtils.capitalize(workingHome.getAddress()));
@@ -37,6 +45,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
       processingHome.setZip(WordUtils.capitalize(workingHome.getZip()));
       result.add(processingHome);
     }
+    logger.debug("Success reestablishCase ");
     return result;
   }
 
@@ -45,11 +54,14 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
    * @inheritDoc
    */
   public WorkingHome searchWorkingHome(String address, ArrayList<WorkingHome> workingHomes) {
+    logger.debug("Entering searchWorkingHome ");
     for (WorkingHome workingHome : workingHomes) {
       if (workingHome.getAddress().equals(address)) {
+        logger.debug("Success searchWorkingHome ");
         return workingHome;
       }
     }
+    logger.debug("Not match found searchWorkingHome return null");
     return null;
 
   }
@@ -69,6 +81,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
    * @inheritDoc
    */
   public HashSet<WorkingHome> createWorkingHomes() {
+    logger.debug("Entering createWorkingHomes ");
     OriginalResponse originalResponse =
             retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE);
 
@@ -81,6 +94,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
       addingHome.setIdHome(UUID.randomUUID());
       homeHashSet.add(addingHome);
     }
+    logger.debug("Success createWorkingHomes ");
     return homeHashSet;
   }
 
@@ -89,11 +103,12 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
    * @inheritDoc
    */
   public HashMap<UUID, WorkingHome> getFinishedWorkingHomesHashMap() {
-
+    logger.debug("Entering getFinishedWorkingHomesHashMap ");
     HashMap<UUID, WorkingHome> hashMapWorkingHomes = new HashMap<>();
     for (WorkingHome workingHome : createWorkingHomes()) {
       hashMapWorkingHomes.put(workingHome.getIdHome(), workingHome);
     }
+    logger.debug("Success getFinishedWorkingHomesHashMap ");
     return hashMapWorkingHomes;
   }
 
@@ -102,11 +117,12 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
    * @inheritDoc
    */
   public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap() {
-
+    logger.debug("Entering getUnFinishedWorkingHomesHashMap ");
     HashMap<String, WorkingHome> hashMapWorkingHomes = new HashMap<>();
     for (WorkingHome workingHome : createWorkingHomes()) {
-      hashMapWorkingHomes.put(workingHome.getAddress() , workingHome);
+      hashMapWorkingHomes.put(workingHome.getAddress(), workingHome);
     }
+    logger.debug("Success getUnFinishedWorkingHomesHashMap ");
     return hashMapWorkingHomes;
   }
 
@@ -115,15 +131,18 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
    * @inheritDoc
    */
   public WorkingHome getHomeById(UUID homeId) {
+    logger.debug("Entering getHomeById ");
     WorkingHome workingHome = new WorkingHome();
     ArrayList<WorkingHome> workingHomes =
             retrieveWorkingDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE).getHomes();
     for (WorkingHome currentWorkingHome : workingHomes) {
       if (currentWorkingHome.getIdHome().equals(homeId)) {
         workingHome = currentWorkingHome;
+        logger.debug("Success getHomeById ");
         return workingHome;
       }
     }
+    logger.debug("Not Match found getHomeById return null ");
     return null;
   }
 
@@ -131,7 +150,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   /**
    * @inheritDoc
    */
-  public  ArrayList<WorkingHome> retrieveWorkingHomeFromFile(String filePath){
+  public ArrayList<WorkingHome> retrieveWorkingHomeFromFile(String filePath) {
     WorkingResponse wr = retrieveWorkingDataRepository.getWorkingData(filePath);
     ArrayList<WorkingHome> ws = wr.getHomes();
     return ws;

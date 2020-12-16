@@ -4,7 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
+import org.springframework.stereotype.Component;
 
+@Component
+/**
+ * Contains outPut format Datas
+ * @param UUID idFirestation;
+ * @param int stationNumber;
+ * @param ArrayList<UUID> homeListIds = new ArrayList<UUID>();
+ *@param ArrayList<OutPutHome> homes = new ArrayList<>();
+ */
 public class OutPutFireStation {
   @JsonProperty("idFirestation")
   private UUID idFirestation;

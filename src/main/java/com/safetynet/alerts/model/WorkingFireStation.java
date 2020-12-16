@@ -7,6 +7,12 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 @Component
+/**
+ * Working format data for
+ * @param UUID idFireStation;
+ * @param int stationNumber;
+ * @param ArrayList<UUID> workingHomeIds = new ArrayList<UUID>();
+ */
 public class WorkingFireStation {
   @JsonProperty("idFirestation")
   private UUID idFireStation;

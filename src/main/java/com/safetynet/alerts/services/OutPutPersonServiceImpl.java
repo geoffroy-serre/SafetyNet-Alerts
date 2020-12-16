@@ -3,16 +3,15 @@ package com.safetynet.alerts.services;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.constants.OfAgeRules;
 import com.safetynet.alerts.interfaces.OutPutPersonService;
-import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
-import com.safetynet.alerts.interfaces.RetrieveWorkingDataRepository;
 import com.safetynet.alerts.model.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.UUID;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +19,7 @@ import org.springframework.stereotype.Service;
 public class OutPutPersonServiceImpl implements OutPutPersonService {
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
+  final Logger logger = LogManager.getLogger("OutPutPersonServiceImpl");
 
 
   @Override
@@ -27,12 +27,15 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public boolean isPersonAlreadyInFile(String firstName, String lastName) {
+    logger.debug("Entering isPersonAlreadyInFile ");
+
     boolean isAlreadyInFile = false;
     ArrayList<OutPutPerson> selectedPersons =
             getPersonsByFirstAndLastName(firstName, lastName);
     if (selectedPersons.size() >= 1) {
       isAlreadyInFile = true;
     }
+    logger.debug("Success isPersonAlreadyInFile ");
     return isAlreadyInFile;
   }
 
@@ -42,11 +45,13 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public ArrayList<OutPutPerson> setEmailToNull(ArrayList<OutPutPerson> persons) {
+    logger.debug("Entering setEmailToNull ");
     ArrayList<OutPutPerson> results = new ArrayList<>();
     for (OutPutPerson outPutPerson : persons) {
       outPutPerson.setEmail(null);
       results.add(outPutPerson);
     }
+    logger.debug("SSuccess setEmailToNull ");
     return results;
   }
 
@@ -55,6 +60,8 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public ArrayList<OutPutPerson> getPersonByHomeIds(ArrayList<UUID> homeIds) {
+    logger.debug("Entering getPersonByHomeIds ");
+
     ArrayList<OutPutPerson> result = new ArrayList<>();
     for (OutPutPerson outPutPerson : getAllPerson()) {
       for (UUID currentHomeId : homeIds) {
@@ -63,6 +70,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
         }
       }
     }
+    logger.debug("Success getPersonByHomeIds ");
     return result;
   }
 
@@ -71,10 +79,12 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public HashSet<String> getPersonsPhones(ArrayList<OutPutPerson> persons) {
+    logger.debug("Entering getPersonsPhones ");
     HashSet<String> result = new HashSet<>();
     for (OutPutPerson outPutPerson : persons) {
       result.add(outPutPerson.getPhone());
     }
+    logger.debug("Success getPersonsPhones ");
     return result;
   }
 
@@ -84,6 +94,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    */
   public ArrayList<OutPutPerson> setPersonsHome(ArrayList<OutPutPerson> persons,
                                                 ArrayList<OutPutHome> homes) {
+    logger.debug("Entering setPersonsHome ");
     ArrayList<OutPutPerson> result = new ArrayList<>();
     for (OutPutPerson outPutPerson : persons) {
       for (OutPutHome outPutHome : homes) {
@@ -93,6 +104,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
         }
       }
     }
+    logger.debug("Success setPersonsHome ");
     return result;
   }
 
@@ -102,6 +114,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    */
   public ArrayList<OutPutPerson> setMedicalRecordForPersons(ArrayList<OutPutPerson> outPutPersons
           , ArrayList<OutPutMedicalRecord> outPutMedicalRecords) {
+    logger.debug("Entering setMedicalRecordForPersons ");
     ArrayList<OutPutPerson> results = new ArrayList<>();
     for (OutPutPerson outPutPerson : outPutPersons) {
       for (OutPutMedicalRecord outPutMedicalRecord : outPutMedicalRecords) {
@@ -116,6 +129,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
         results.add(outPutPerson);
       }
     }
+    logger.debug("Success setMedicalRecordForPersons ");
     return results;
   }
 
@@ -124,11 +138,13 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public ArrayList<OutPutPerson> setPhoneNull(ArrayList<OutPutPerson> persons) {
+    logger.debug("Entering setPhoneNull ");
     ArrayList<OutPutPerson> result = new ArrayList<>();
     for (OutPutPerson outPutPerson : persons) {
       outPutPerson.setPhone(null);
       result.add(outPutPerson);
     }
+    logger.debug("Success setPhoneNull ");
     return result;
   }
 
@@ -137,6 +153,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public ArrayList<OutPutPerson> getPersonsByFirstAndLastName(String firstName, String lastName) {
+    logger.debug("Entering getPersonsByFirstAndLastName ");
     ArrayList<OutPutPerson> selectedPersons = new ArrayList<>();
 
     for (OutPutPerson outPutPerson : getAllPerson()) {
@@ -144,6 +161,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
         selectedPersons.add(outPutPerson);
       }
     }
+    logger.debug("Success getPersonsByFirstAndLastName ");
     return selectedPersons;
   }
 
@@ -152,6 +170,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public HashSet<String> getPersonsEmailByCity(HashSet<UUID> homeIds) {
+    logger.debug("Entering getPersonsEmailByCity ");
     HashSet<String> output = new HashSet<>();
     for (UUID idHome : homeIds) {
       for (OutPutPerson outPutPerson : getAllPerson()) {
@@ -160,6 +179,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
         }
       }
     }
+    logger.debug("Success getPersonsEmailByCity ");
     return output;
   }
 
@@ -168,6 +188,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public OutPutChild getCountedTypeOfPersons(ArrayList<OutPutPerson> persons) {
+    logger.debug("Entering getCountedTypeOfPersons ");
     ArrayList<OutPutPerson> family = new ArrayList<>();
     ArrayList<OutPutPerson> underAge = new ArrayList<>();
     OutPutChild outPutChild = new OutPutChild();
@@ -188,6 +209,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     }
     outPutChild.setChild(underAge);
     outPutChild.setFamilly(family);
+    logger.debug("Success getCountedTypeOfPersons ");
     return outPutChild;
   }
 
@@ -196,6 +218,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public ArrayList<OutPutPerson> getPersonsByHomeID(OutPutHome selectedHome) {
+    logger.debug("Entering getPersonsByHomeID ");
     ArrayList<OutPutPerson> personsForSelectedHome = new ArrayList();
     for (OutPutPerson outPutPerson : getAllPerson()) {
       if (selectedHome.getIdHome().equals(outPutPerson.getIdHome())) {
@@ -206,6 +229,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
         }
       }
     }
+    logger.debug("Success getPersonsByHomeID ");
     return personsForSelectedHome;
   }
 
@@ -224,6 +248,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
    * @inheritDoc
    */
   public OutPutPerson transformWorkingIntoOutPut(WorkingPerson inputPerson) {
+    logger.debug("Entering transformWorkingIntoOutPut ");
     OutPutPerson result = new OutPutPerson();
 
     result.setPhone(inputPerson.getPhone());
@@ -232,7 +257,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     result.setFirstName(inputPerson.getFirstName());
     result.setLastName(inputPerson.getLastName());
     result.setBirthdate(inputPerson.getBirthdate());
-
+    logger.debug("Success transformWorkingIntoOutPut ");
     return result;
 
 
@@ -242,8 +267,8 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   /**
    * @inheritDoc
    */
-  public ArrayList<OutPutPerson> transformWorkingIntoOutPut
-          (ArrayList<WorkingPerson> inputPersons) {
+  public ArrayList<OutPutPerson> transformWorkingIntoOutPut(ArrayList<WorkingPerson> inputPersons) {
+    logger.debug("Entering transformWorkingIntoOutPut ");
     ArrayList<OutPutPerson> output = new ArrayList<>();
     for (WorkingPerson wp : inputPersons) {
       if (wp.getBirthdate() != null) {
@@ -257,6 +282,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
         output.add(result);
       }
     }
+    logger.debug("Success transformWorkingIntoOutPut ");
     return output;
   }
 }

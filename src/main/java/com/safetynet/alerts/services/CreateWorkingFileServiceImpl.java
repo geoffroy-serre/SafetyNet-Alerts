@@ -10,7 +10,10 @@ import com.safetynet.alerts.model.*;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +42,14 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
   OriginalFireStationService originalFireStationService;
   @Autowired
   CreateWorkingFileService createWorkingFileService;
-
+  final Logger logger = LogManager.getLogger("CreateWorkingFileServiceImpl");
 
   @Override
   /**
    * @inheritDoc
    */
   public void writeFile(WorkingResponse wr) {
-    final Logger logger = LogManager.getLogger("App");
+
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);
@@ -54,11 +57,11 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
             true);
     objectMapper.registerModule(new JavaTimeModule());
     try {
-      logger.debug("Writing Working File with: " +wr.toString());
+      logger.debug("Writing Working File with: " + wr.toString());
       objectMapper.writeValue(new File(FilesPath.WORKING_INPUT_FILE), wr);
 
     } catch (IOException e) {
-      logger.error("Problem creating working file with "+wr.toString()+" as parameter",
+      logger.error("Problem creating working file with " + wr.toString() + " as parameter",
               e);
     }
     logger.debug("WorkingFile written");
@@ -69,8 +72,8 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
    * @inheritDoc
    */
   @PostConstruct
-  public void createWorkingFile(){
-    final Logger logger = LogManager.getLogger("App");
+  public void createWorkingFile() {
+    logger.debug("Entering creating Working File: ");
     HashMap<String, WorkingHome> workingHomeHashMap =
             workingHomeService.getUnFinishedWorkingHomesHashMap();
 
@@ -80,14 +83,10 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
     HashMap<String, OriginalMedicalrecord> originalMedicalRecordHashMap =
             originalMedicalRecordService.getOriginalMedicalRecordHashMap();
 
-    ArrayList<WorkingPerson> workingPersonsFinal = new ArrayList<WorkingPerson>();
-    ArrayList<WorkingMedicalRecord> workingMedicalRecordsFinal = new ArrayList<>();
-    ArrayList<WorkingFireStation> workingFireStationsFinal = new ArrayList<>();
-    ArrayList<WorkingHome> workingHomesFinal = new ArrayList<>();
-
     /*
     Linking Persons to home and medical records id
      */
+    logger.debug("Linking Persons to home and medical records id ");
     HashMap<String, WorkingPerson> workingPersonsHashMap =
             workingPersonsService.getWorkingPersonsHashMap();
     HashMap<String, WorkingPerson> workingPersonsHashMapFinal = new HashMap<String,
@@ -111,13 +110,13 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
       if (workingMedicalRecordHashMap.containsKey(keyNames)) {
         medicalRecordId = workingMedicalRecordHashMap.get(keyNames).getIdMedicalRecord();
       }
-      if(medicalRecordId ==null){
-        medicalRecordId = new UUID(0L,0L );
+      if (medicalRecordId == null) {
+        medicalRecordId = new UUID(0L, 0L);
       }
       if (originalMedicalRecordHashMap.containsKey(keyNames)) {
         birthDate = originalMedicalRecordHashMap.get(keyNames).getBirthdate();
       }
-      if (homeId != null && medicalRecordId != null ) {
+      if (homeId != null && medicalRecordId != null) {
         WorkingPerson currentPerson = me.getValue();
         currentPerson.setHomeID(homeId);
         currentPerson.setIdMedicalRecord(medicalRecordId);
@@ -133,6 +132,7 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
     /*
     Populating Home list of Firestations
      */
+    logger.debug("Populating Home list of Firestations ");
     ArrayList<OriginalFirestation> originalFirestations =
             originalFireStationService.getOriginalFireStations();
     HashMap<Integer, WorkingFireStation> workingFireStationHashMap =
@@ -155,7 +155,7 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
     /*
     Adding list to be mapped
      */
-
+    logger.debug("Create working response to send to writeFile()");
     WorkingResponse workingResponse = new WorkingResponse();
 
     workingResponse.setPersons(workingPersonsService.reestablishCase(workingPersonsHashMap.values()));
