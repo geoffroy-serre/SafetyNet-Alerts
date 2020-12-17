@@ -33,7 +33,7 @@ public class OutPutHome {
   @JsonProperty("children")
   private Integer numberOfChildren;
   @JsonProperty("idHome")
-  private UUID idHome = new UUID(0L,0L);
+  private UUID idHome = new UUID(0L, 0L);
 
   @JsonProperty("persons")
   private ArrayList<OutPutPerson> persons;

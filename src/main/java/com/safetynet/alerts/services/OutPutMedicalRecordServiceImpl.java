@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OutPutMedicalRecordServiceImpl implements OutPutMedicalRecordService {
+  final Logger logger = LogManager.getLogger("OriginalFireStationServiceImpl");
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
-  final Logger logger = LogManager.getLogger("OriginalFireStationServiceImpl");
 
   @Override
   /**

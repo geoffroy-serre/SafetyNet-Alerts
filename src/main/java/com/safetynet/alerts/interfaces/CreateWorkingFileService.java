@@ -5,6 +5,7 @@ import com.safetynet.alerts.model.WorkingResponse;
 public interface CreateWorkingFileService {
   /**
    * Write WorkingFile with provided WorkingResponse.
+   *
    * @param wr WorkingResponse
    */
   void writeFile(WorkingResponse wr);

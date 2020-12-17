@@ -7,6 +7,7 @@ public interface WorkingHomeService {
 
   /**
    * From lower case to upper case for each first letter
+   *
    * @param workingHomes
    * @return ArrayList of WorkingHomes
    */
@@ -21,6 +22,7 @@ public interface WorkingHomeService {
    * @return WorkingHome
    */
   WorkingHome searchWorkingHome(String address, ArrayList<WorkingHome> workingHomes);
+
   /**
    * Get workingHomes from OriginalPersonObjet in original file.
    * OriginalFile input can't be set with the constant FilesPath.
@@ -32,15 +34,18 @@ public interface WorkingHomeService {
 
   /**
    * Get data form createWorkingHomes
+   *
    * @return ArrayList of WorkingHomes
    */
   ArrayList<WorkingHome> getWorkingHomesArrayList();
+
   /**
    * Use for processing, it has ID in key.
    *
    * @return HashMap<UUID, WorkingHome>
    */
   HashMap<UUID, WorkingHome> getFinishedWorkingHomesHashMap();
+
   /**
    * use for linking home  to others object.
    * Key "address,city,zip"
@@ -50,14 +55,12 @@ public interface WorkingHomeService {
   public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap();
 
   /**
-   *
    * @param homeId
    * @return WorkingHome
    */
   WorkingHome getHomeById(UUID homeId);
 
   /**
-   *
    * @param filePath
    * @return ArrayList of WorkingHomes
    */

@@ -12,6 +12,7 @@ public interface OutPutHomeService {
 
   /**
    * Set StationNumber to null to avoir their display
+   *
    * @param outPutHomes
    * @return ArrayList of OutPutHome
    */
@@ -20,6 +21,7 @@ public interface OutPutHomeService {
   /**
    * Count number of children and adult for given home.
    * Return empty List if no one home.
+   *
    * @param outPutHomes
    * @return ArrayList of OutPutHome
    */
@@ -27,6 +29,7 @@ public interface OutPutHomeService {
 
   /**
    * Retrieve home matching station number in given list
+   *
    * @param outPutHomes
    * @param firestation
    * @return ArrayList of OutPutHome
@@ -36,6 +39,7 @@ public interface OutPutHomeService {
 
   /**
    * Set persons data for given Homes.
+   *
    * @param persons
    * @param homes
    * @return ArrayList of OutPutHome
@@ -54,14 +58,12 @@ public interface OutPutHomeService {
                             OutPutHome home);
 
   /**
-   *
    * @param homes
    * @return ArrayList of UUID
    */
   ArrayList<UUID> getHomesIds(ArrayList<OutPutHome> homes);
 
   /**
-   *
    * @param firestations
    * @param homes
    * @return ArrayList of OutPutHome
@@ -71,6 +73,7 @@ public interface OutPutHomeService {
 
   /**
    * Return new OutPutHome if no home for this address.
+   *
    * @param Address
    * @return OutPutHome
    */
@@ -78,26 +81,26 @@ public interface OutPutHomeService {
 
   /**
    * Return empty HashSet if no matches.
+   *
    * @param city
    * @return HashSet of UUID
    */
   HashSet<UUID> getHomesByCity(String city);
 
   /**
-   *
    * @param inputHome
    * @return
    */
   OutPutHome transformWorkingIntoOutPut(WorkingHome inputHome);
 
   /**
-   *
    * @return ArrayList of OutPutHome
    */
   ArrayList<OutPutHome> getOutPutHomeList();
 
   /**
    * Convertion of Homes
+   *
    * @param inputHome
    * @return ArrayList of OutPutHome
    */

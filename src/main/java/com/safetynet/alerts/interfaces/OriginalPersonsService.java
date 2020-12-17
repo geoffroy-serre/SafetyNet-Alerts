@@ -9,8 +9,9 @@ public interface OriginalPersonsService {
   /**
    * Verify if OriginalPerson exist in original file.
    * Then if it's not present, add the OriginalPerson to the
-   *  existing list of OriginalPerson given in parameter.
-   * @param originalPerson OriginalPerson
+   * existing list of OriginalPerson given in parameter.
+   *
+   * @param originalPerson  OriginalPerson
    * @param originalPersons ArrayList of OriginalPerson
    * @return ArrayList of OriginalPerson
    */
@@ -19,24 +20,27 @@ public interface OriginalPersonsService {
 
   /**
    * Get OriginalPersons from given OriginalResponse
+   *
    * @param originalResponse OriginalResponse
    * @return ArrayList of OriginalPerson>
    */
-  ArrayList<OriginalPerson> getOriginalPersons (OriginalResponse originalResponse);
+  ArrayList<OriginalPerson> getOriginalPersons(OriginalResponse originalResponse);
 
   /**
    * From original data file.
    * Set key String firstName + lastName
    * Set value OriginalPerson
+   *
    * @return HashMap  String, OriginalPerson
    */
   HashMap<String, OriginalPerson> getOriginalPersonHashMap();
 
   /**
-   *Search for OriginalPerson matching provided firstName and lastName from the also provided
+   * Search for OriginalPerson matching provided firstName and lastName from the also provided
    * OriginalPerson List.
-   * @param firstName String
-   * @param lastName String
+   *
+   * @param firstName       String
+   * @param lastName        String
    * @param originalPersons ArrayList<OriginalPerson>
    * @return OriginalPerson
    */
@@ -45,6 +49,7 @@ public interface OriginalPersonsService {
 
   /**
    * Send an OriginalPerson created from OriginalPerson in parameter.
+   *
    * @param source OriginalPerson
    * @return OriginalPerson
    */
@@ -52,7 +57,8 @@ public interface OriginalPersonsService {
 
   /**
    * Delete and OrginalPerson from a provided list of OriginalPerson.
-   * @param originalPerson OriginalPerson
+   *
+   * @param originalPerson  OriginalPerson
    * @param originalPersons ArrayList of OriginalPerson
    * @return ArrayList of OriginalPerson.
    */
@@ -63,8 +69,9 @@ public interface OriginalPersonsService {
    * Search for OriginalPerson matching parameters in provided list.
    * Return a list without the OriginalPerson found.
    * If no matchs found return a list with same data provided.
-   * @param firstName String
-   * @param lastName String
+   *
+   * @param firstName       String
+   * @param lastName        String
    * @param originalPersons ArrayList of OriginalPerson
    * @return ArrayList of OriginalPerson
    */

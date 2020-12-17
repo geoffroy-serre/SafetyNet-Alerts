@@ -38,9 +38,9 @@ public class OutPutPerson {
   @JsonProperty("email")
   private String email;
   @JsonProperty("medicalRecord")
-  private OutPutMedicalRecord medicalRecord  ;
+  private OutPutMedicalRecord medicalRecord;
   @JsonProperty("idMedicalRecord")
-  private UUID idMedicalRecord  ;
+  private UUID idMedicalRecord;
 
   @JsonProperty("homeId")
   private UUID idHome;

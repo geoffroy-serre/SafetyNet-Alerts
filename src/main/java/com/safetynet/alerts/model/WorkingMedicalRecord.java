@@ -55,7 +55,7 @@ public class WorkingMedicalRecord {
       return false;
     }
     WorkingMedicalRecord workingMedicalRecord = (WorkingMedicalRecord) obj;
-    return  Objects.equals(idMedicalRecord,workingMedicalRecord.idMedicalRecord)&&
+    return Objects.equals(idMedicalRecord, workingMedicalRecord.idMedicalRecord) &&
             Objects.equals(allergies, workingMedicalRecord.allergies) &&
             Objects.equals(medications, workingMedicalRecord.medications);
 
@@ -63,7 +63,7 @@ public class WorkingMedicalRecord {
 
   @Override
   public int hashCode() {
-    return Objects.hash(idMedicalRecord,allergies,medications);
+    return Objects.hash(idMedicalRecord, allergies, medications);
   }
 
 

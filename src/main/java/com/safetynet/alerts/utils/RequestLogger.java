@@ -9,22 +9,25 @@ public class RequestLogger {
 
   /**
    * logger info for Get request
+   *
    * @param request
    */
   public static void logRequest(final HttpServletRequest request) {
 
-    logger.info(request.getMethod()  +" "+  request.getRequestURI() +" "+ request.getQueryString().replace("%20", " "));
+    logger.info(request.getMethod() + " " + request.getRequestURI() + " " + request.getQueryString().replace("%20", " "));
   }
 
   /**
    * Logger  info for post put delete request.
+   *
    * @param request
    * @param controller
    */
   public static void logObjectRequest(final HttpServletRequest request, String controller
-                                             ) {
+  ) {
 
-      logger.info(request.getMethod()  +" "+ " "+ controller+" "+request.getRequestURI()+" "+request.getParameter(request.toString()) );
+    logger.info(request.getMethod() + " " + " " + controller + " " + request.getRequestURI() + " "
+            + request.getParameter(request.toString()));
 
 
   }

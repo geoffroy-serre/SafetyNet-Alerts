@@ -20,7 +20,6 @@ import javax.validation.constraints.NotNull;
 public class OriginalPerson {
 
 
-
   @JsonProperty("firstName")
   @NotBlank
   @NotNull
@@ -56,60 +55,60 @@ public class OriginalPerson {
   @NotNull
   private String email;
 
-  public void setZip(String zip) {
-    this.zip = zip;
-  }
-
   public String getZip() {
     return zip;
   }
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
+  public void setZip(String zip) {
+    this.zip = zip;
   }
 
   public String getFirstName() {
     return firstName;
   }
 
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
   public String getLastName() {
     return lastName;
   }
 
-  public void setAddress(String address) {
-    this.address = address;
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   public String getAddress() {
     return address;
   }
 
-  public void setCity(String city) {
-    this.city = city;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
   public String getCity() {
     return city;
   }
 
-  public void setPhone(String phone) {
-    this.phone = phone;
+  public void setCity(String city) {
+    this.city = city;
   }
 
   public String getPhone() {
     return phone;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setPhone(String phone) {
+    this.phone = phone;
   }
 
   public String getEmail() {
     return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   @Override

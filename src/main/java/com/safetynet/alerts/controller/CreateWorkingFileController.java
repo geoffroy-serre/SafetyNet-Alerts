@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 public class CreateWorkingFileController {
   private static final Logger logger = LogManager.getLogger("App");
 
-@Autowired
-CreateWorkingFileService createWorkingFileService;
+  @Autowired
+  CreateWorkingFileService createWorkingFileService;
 
   @GetMapping("/createWorkingFile")
   public void createWorkingFile(final HttpServletResponse response,
                                 final HttpServletRequest request) {
-    logger.info(request.getMethod()  +" "+  request.getRequestURI());
+    logger.info(request.getMethod() + " " + request.getRequestURI());
     createWorkingFileService.createWorkingFile();
     response.setStatus(201);
-    logger.info("Status : " + response.getStatus() + " WorkingFile created " );
+    logger.info("Status : " + response.getStatus() + " WorkingFile created ");
 
   }
 

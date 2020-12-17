@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OriginalFireStationServiceImpl implements OriginalFireStationService {
+  final Logger logger = LogManager.getLogger("OriginalFireStationServiceImpl");
   @Autowired
   OriginalResponse originalResponse;
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-  final Logger logger = LogManager.getLogger("OriginalFireStationServiceImpl");
 
   @Override
   /**

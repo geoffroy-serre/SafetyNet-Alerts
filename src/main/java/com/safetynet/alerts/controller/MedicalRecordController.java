@@ -25,13 +25,13 @@ import javax.validation.Valid;
 @RestController
 public class MedicalRecordController {
 
+  private static final Logger logger = LogManager.getLogger("SafetyNetAlerts personController");
   @Autowired
   OriginalFleService originalFleService;
   @Autowired
   OriginalMedicalRecordService originalMedicalRecordService;
   @Autowired
   CreateWorkingFileService createWorkingFileService;
-  private static final Logger logger = LogManager.getLogger("SafetyNetAlerts personController");
 
   @PostMapping("/medicalRecord")
   OriginalMedicalrecord postFireStation(@Valid @RequestBody OriginalMedicalrecord newMedicalRecord,
@@ -91,7 +91,8 @@ public class MedicalRecordController {
             originalMedicalRecordService.getMedicalRecordByFirstLastName(originalResponse.getMedicalrecords(), modifyMedicalRecord.getFirstName(), modifyMedicalRecord.getLastName());
 
 
-    originalMedicalRecords = originalMedicalRecordService.deleteOriginalMedicalRecord(originalMedicalRecord,
+    originalMedicalRecords =
+            originalMedicalRecordService.deleteOriginalMedicalRecord(originalMedicalRecord,
             originalMedicalRecords);
     originalMedicalRecords.add(modifyMedicalRecord);
     originalResponse.setMedicalrecords(originalMedicalRecords);
@@ -108,10 +109,10 @@ public class MedicalRecordController {
 
   }
 
-  @DeleteMapping(path="/medicalRecord", produces = "application/json")
+  @DeleteMapping(path = "/medicalRecord", produces = "application/json")
   String deleteMedicalRecord(@Valid @RequestBody PersonNames deleteMedicalRecord,
-                                       final HttpServletResponse response,
-                                       final HttpServletRequest request) {
+                             final HttpServletResponse response,
+                             final HttpServletRequest request) {
 
 
     RequestLogger.logObjectRequest(request, "fireStationController");
@@ -134,7 +135,8 @@ public class MedicalRecordController {
             originalMedicalRecordService.getMedicalRecordByFirstLastName(originalResponse.getMedicalrecords(), deleteMedicalRecord.getFirstName(), deleteMedicalRecord.getLastName());
 
 
-    originalMedicalRecords = originalMedicalRecordService.deleteOriginalMedicalRecord(originalMedicalRecord,
+    originalMedicalRecords =
+            originalMedicalRecordService.deleteOriginalMedicalRecord(originalMedicalRecord,
             originalMedicalRecords);
     originalResponse.setMedicalrecords(originalMedicalRecords);
 
@@ -146,9 +148,9 @@ public class MedicalRecordController {
     }
 
     JSONObject jsonObject = new JSONObject();
-    jsonObject.put("firstName: ",deleteMedicalRecord.getFirstName());
-    jsonObject.put("lastName: ",deleteMedicalRecord.getLastName());
-    jsonObject.put("medicalRecord: ",originalMedicalRecord.toString());
+    jsonObject.put("firstName: ", deleteMedicalRecord.getFirstName());
+    jsonObject.put("lastName: ", deleteMedicalRecord.getLastName());
+    jsonObject.put("medicalRecord: ", originalMedicalRecord.toString());
 
 
     return jsonObject.toString();

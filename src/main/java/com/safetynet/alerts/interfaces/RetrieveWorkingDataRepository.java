@@ -4,7 +4,6 @@ import com.safetynet.alerts.model.WorkingResponse;
 
 public interface RetrieveWorkingDataRepository {
   /**
-   *
    * @param constantFilePath
    * @return WorkingResponse
    */

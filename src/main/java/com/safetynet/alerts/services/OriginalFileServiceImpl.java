@@ -17,9 +17,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OriginalFileServiceImpl implements OriginalFleService {
+  final Logger logger = LogManager.getLogger("OriginalFileServiceImpl");
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalData;
-  final Logger logger = LogManager.getLogger("OriginalFileServiceImpl");
 
   @Override
   /**
@@ -51,6 +51,5 @@ public class OriginalFileServiceImpl implements OriginalFleService {
               e);
     }
     logger.debug("Original  written");
-    //TODO code pour écrire le fichier data.json avec les données modifiées;
   }
 }

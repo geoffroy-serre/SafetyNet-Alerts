@@ -19,10 +19,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordService {
 
+  final Logger logger = LogManager.getLogger("WorkingMedicalRecordServiceImpl");
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-  final Logger logger = LogManager.getLogger("WorkingMedicalRecordServiceImpl");
-
 
   @Override
   /**

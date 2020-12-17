@@ -43,44 +43,44 @@ public class OriginalMedicalrecord {
   @NotNull
   private ArrayList<String> allergies;
 
-  public void setAllergies(ArrayList<String> allergies) {
-    this.allergies = allergies;
-  }
-
   public ArrayList<String> getAllergies() {
     return allergies;
   }
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
+  public void setAllergies(ArrayList<String> allergies) {
+    this.allergies = allergies;
   }
 
   public String getFirstName() {
     return firstName;
   }
 
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
   public String getLastName() {
     return lastName;
   }
 
-  public void setBirthdate(LocalDate birthdate) {
-    this.birthdate = birthdate;
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   public LocalDate getBirthdate() {
     return birthdate;
   }
 
-  public void setMedications(ArrayList<String> medications) {
-    this.medications = medications;
+  public void setBirthdate(LocalDate birthdate) {
+    this.birthdate = birthdate;
   }
 
   public ArrayList<String> getMedications() {
     return medications;
+  }
+
+  public void setMedications(ArrayList<String> medications) {
+    this.medications = medications;
   }
 
   @Override

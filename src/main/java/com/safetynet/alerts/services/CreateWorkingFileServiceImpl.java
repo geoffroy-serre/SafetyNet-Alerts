@@ -22,6 +22,7 @@ import javax.annotation.PostConstruct;
 
 @Service
 public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
+  final Logger logger = LogManager.getLogger("CreateWorkingFileServiceImpl");
   @Autowired
   RetrieveOriginalDataService retrieveOriginalDataService;
   @Autowired
@@ -42,7 +43,6 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
   OriginalFireStationService originalFireStationService;
   @Autowired
   CreateWorkingFileService createWorkingFileService;
-  final Logger logger = LogManager.getLogger("CreateWorkingFileServiceImpl");
 
   @Override
   /**

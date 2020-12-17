@@ -25,8 +25,6 @@ public class WorkingHome {
   private String zip;
 
 
-
-
   public UUID getIdHome() {
     return idHome;
   }
@@ -58,7 +56,6 @@ public class WorkingHome {
   public void setZip(String zip) {
     this.zip = zip;
   }
-
 
 
   @Override

@@ -8,6 +8,7 @@ import java.util.UUID;
 public interface OutPutFireStationService {
   /**
    * Verify presence of OutPutFireStation with given parameters.
+   *
    * @param stationNumber
    * @param address
    * @param firestations
@@ -19,14 +20,16 @@ public interface OutPutFireStationService {
 
   /**
    * Search for station numbner for given home Id.
+   *
    * @param homeId
    * @param fireStations
    * @return int
    */
-  int getStationNumberByHomeId (UUID homeId, ArrayList<OutPutFireStation> fireStations);
+  int getStationNumberByHomeId(UUID homeId, ArrayList<OutPutFireStation> fireStations);
 
   /**
    * Set station home number to null, to avoid their display in result.
+   *
    * @param fireStations
    * @return ArrayList of OutPutFireStation
    */
@@ -34,6 +37,7 @@ public interface OutPutFireStationService {
 
   /**
    * Get All FireStation with OutPut formatting
+   *
    * @return ArrayList of OutPutFireStation
    */
   ArrayList<OutPutFireStation> getFiresStations();
@@ -41,6 +45,7 @@ public interface OutPutFireStationService {
   /**
    * Get OutPut FireStation by station number
    * Return new OutPut FireStationif nothing found
+   *
    * @param fireStations
    * @param stationNumber
    * @return OutPutFireStation
@@ -50,6 +55,7 @@ public interface OutPutFireStationService {
 
   /**
    * Get FireStations by station numbers
+   *
    * @param fireStations
    * @param stationNumber
    * @return ArrayList of OutPutFire
@@ -59,6 +65,7 @@ public interface OutPutFireStationService {
 
   /**
    * Set Homes adress city and zip for given list with given homes
+   *
    * @param fireStations
    * @param homes
    * @return ArrayList of OutPutFireStation
@@ -68,6 +75,7 @@ public interface OutPutFireStationService {
 
   /**
    * Set Hom information in given OutPutFireStation
+   *
    * @param fireStation
    * @param homes
    * @return OutPutFireStation

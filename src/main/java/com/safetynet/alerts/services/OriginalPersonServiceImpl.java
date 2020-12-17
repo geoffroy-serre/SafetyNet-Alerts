@@ -15,11 +15,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OriginalPersonServiceImpl implements OriginalPersonsService {
+  final Logger logger = LogManager.getLogger("OriginalPersonServiceImpl");
   @Autowired
   OriginalResponse originalResponse;
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-  final Logger logger = LogManager.getLogger("OriginalPersonServiceImpl");
 
   @Override
   /**

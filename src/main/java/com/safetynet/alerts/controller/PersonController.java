@@ -44,7 +44,7 @@ public class PersonController {
   @Autowired
   CreateWorkingFileService createWorkingFileService;
 
-  @DeleteMapping(path="/person", produces = "application/json")
+  @DeleteMapping(path = "/person", produces = "application/json")
   String deletePerson(@Valid @RequestBody PersonNames personNames,
                       final HttpServletResponse response,
                       final HttpServletRequest request) {
@@ -63,7 +63,7 @@ public class PersonController {
     ArrayList<OriginalPerson> originalPersons = originalResponse.getPersons();
     OriginalPerson originalPerson =
             originalPersonsService.getOriginalPersonByFirstAndLastName(personNames.getFirstName()
-                    , personNames.getLastName(),originalPersons);
+                    , personNames.getLastName(), originalPersons);
 
     originalPersons = originalPersonsService.deletePerson(personNames.getFirstName(),
             personNames.getLastName(), originalPersons);
@@ -76,10 +76,10 @@ public class PersonController {
     }
 
     JSONObject jsonObject = new JSONObject();
-    jsonObject.put("firstName: ",personNames.getFirstName());
-    jsonObject.put("lastName: ",personNames.getLastName());
-    jsonObject.put("personData: ",originalPerson.toString());
-    return  jsonObject.toString();
+    jsonObject.put("firstName: ", personNames.getFirstName());
+    jsonObject.put("lastName: ", personNames.getLastName());
+    jsonObject.put("personData: ", originalPerson.toString());
+    return jsonObject.toString();
   }
 
   @PostMapping("/person")
@@ -186,14 +186,14 @@ public class PersonController {
     if (!outPutPersonService.isPersonAlreadyInFile(firstName,
             lastName)) {
       response.setStatus(204);
-      logger.info("Status : " + response.getStatus() + " person unknown " + firstName+" "+lastName);
+      logger.info("Status : " + response.getStatus() + " person unknown " + firstName + " " + lastName);
 
     }
     ArrayList<OutPutPerson> selectedPersons =
             outPutPersonService.getPersonsByFirstAndLastName(firstName, lastName);
-    if(selectedPersons.isEmpty()){
+    if (selectedPersons.isEmpty()) {
       response.setStatus(204);
-      logger.info("Status : " + response.getStatus() + " no result found for " + firstName + " " + lastName );
+      logger.info("Status : " + response.getStatus() + " no result found for " + firstName + " " + lastName);
       return null;
     }
 

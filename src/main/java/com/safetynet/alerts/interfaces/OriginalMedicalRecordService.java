@@ -8,6 +8,7 @@ public interface OriginalMedicalRecordService {
   /**
    * Add given OriginalMedicalRecord to the existing list
    * Verify if given MedicalRecord is allready present.
+   *
    * @param originalMedicalrecord
    * @param originalMedicalrecords
    * @return ArrayList of OriginalMedicalRecord
@@ -17,6 +18,7 @@ public interface OriginalMedicalRecordService {
 
   /**
    * Delete originalMedicalrecord from given list
+   *
    * @param originalMedicalrecord
    * @param originalMedicalrecords
    * @return
@@ -26,6 +28,7 @@ public interface OriginalMedicalRecordService {
 
   /**
    * Search for an OriginalMedicalrecord in given list.
+   *
    * @param firstName
    * @param lastName
    * @param medicalrecords
@@ -38,6 +41,7 @@ public interface OriginalMedicalRecordService {
   /**
    * Search for OriginalMedicalrecord in given list with given parameters.
    * Return new OriginalMedicalrecord if no matchses
+   *
    * @param medicalRecords
    * @param firstName
    * @param lastName
@@ -50,6 +54,7 @@ public interface OriginalMedicalRecordService {
    * Get OriginalMedicalRecords from original file.
    * key is String  firstName+ lastName.
    * value is OriginalMedicalRecord
+   *
    * @return HashMap<String, OriginalMedicalRecord>
    */
   HashMap<String, OriginalMedicalrecord> getOriginalMedicalRecordHashMap();

@@ -21,15 +21,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class WorkingFireStationServiceImpl implements WorkingFirestationsService {
 
+  final Logger logger = LogManager.getLogger("OriginalFireStationServiceImpl");
   @Autowired
   OriginalResponse originalResponse;
-
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
   @Autowired
   RetrieveWorkingDataRepository retrieveWorkingDataRepository;
-  final Logger logger = LogManager.getLogger("OriginalFireStationServiceImpl");
-
 
   @Override
   /**

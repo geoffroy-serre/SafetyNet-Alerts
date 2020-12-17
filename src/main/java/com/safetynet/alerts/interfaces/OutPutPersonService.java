@@ -9,6 +9,7 @@ public interface OutPutPersonService {
 
   /**
    * Check for presence of a persons in workingFile
+   *
    * @param firstName
    * @param lastName
    * @return boolean
@@ -17,20 +18,19 @@ public interface OutPutPersonService {
 
   /**
    * Set email to null to avoid diplay on result
+   *
    * @param persons
    * @return ArrayLsit of OutPutPerson
    */
   ArrayList<OutPutPerson> setEmailToNull(ArrayList<OutPutPerson> persons);
 
   /**
-   *
    * @param homeIds
    * @return ArrayList of OutPutPerson
    */
   ArrayList<OutPutPerson> getPersonByHomeIds(ArrayList<UUID> homeIds);
 
   /**
-   *
    * @param persons
    * @return HashSet of String
    */
@@ -38,6 +38,7 @@ public interface OutPutPersonService {
 
   /**
    * Set Persons Homes data
+   *
    * @param persons
    * @param homes
    * @return ArrayList of OutPutPerson
@@ -47,6 +48,7 @@ public interface OutPutPersonService {
 
   /**
    * Set medicalrecord data for OutPutPersons
+   *
    * @param outPutPersons
    * @param outPutMedicalRecords
    * @return ArrayList of OutPutPerson
@@ -56,14 +58,16 @@ public interface OutPutPersonService {
 
   /**
    * Set Phone null to avoi display
+   *
    * @param persons
    * @return ArrayList of OutPutPerson
-   * */
+   */
   ArrayList<OutPutPerson> setPhoneNull(ArrayList<OutPutPerson> persons);
 
   /**
    * Search for Person with given parameters
    * Not case sensitive
+   *
    * @param firstName
    * @param lastName
    * @return
@@ -72,6 +76,7 @@ public interface OutPutPersonService {
 
   /**
    * List in parameter already contains right person with right city
+   *
    * @param homeIds
    * @return HashSet of String
    */
@@ -80,13 +85,13 @@ public interface OutPutPersonService {
   /**
    * Create OutPutChild with a list for adult a list for children.
    * Depending of constant Of_Age
+   *
    * @param persons
    * @return OutPutChild
    */
   OutPutChild getCountedTypeOfPersons(ArrayList<OutPutPerson> persons);
 
   /**
-   *
    * @param outPutHome
    * @return ArrayList of OutPutPerson
    */
@@ -94,12 +99,14 @@ public interface OutPutPersonService {
 
   /**
    * Get All OutPutPerson from working File
+   *
    * @return ArrayLsit of OutPutPerson
    */
   ArrayList<OutPutPerson> getAllPerson();
 
   /**
    * Person conversion.
+   *
    * @param inputPerson
    * @return OutPutPerson
    */
@@ -107,6 +114,7 @@ public interface OutPutPersonService {
 
   /**
    * Persons conversion
+   *
    * @param inputPerson
    * @return ArrayList of OutPutPerson
    */

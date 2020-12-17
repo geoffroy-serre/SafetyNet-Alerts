@@ -33,6 +33,7 @@ public class OutPutFireStation {
   public void setHomes(ArrayList<OutPutHome> homes) {
     this.homes = homes;
   }
+
   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   public ArrayList<UUID> getHomeListIds() {
     return homeListIds;
@@ -41,6 +42,7 @@ public class OutPutFireStation {
   public void setHomeListIds(ArrayList<UUID> homeListIds) {
     this.homeListIds = homeListIds;
   }
+
   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   public UUID getIdFirestation() {
     return idFirestation;
@@ -51,7 +53,6 @@ public class OutPutFireStation {
   }
 
 
-
   public int getStationNumber() {
     return stationNumber;
   }
@@ -59,7 +60,6 @@ public class OutPutFireStation {
   public void setStationNumber(int stationNumber) {
     this.stationNumber = stationNumber;
   }
-
 
 
   @Override

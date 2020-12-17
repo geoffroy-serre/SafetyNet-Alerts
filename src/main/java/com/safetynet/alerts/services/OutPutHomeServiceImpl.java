@@ -21,10 +21,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OutPutHomeServiceImpl implements OutPutHomeService {
+  final Logger logger = LogManager.getLogger("OutPutHomeServiceImpl");
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
-  final Logger logger = LogManager.getLogger("OutPutHomeServiceImpl");
-
 
   @Override
   /**

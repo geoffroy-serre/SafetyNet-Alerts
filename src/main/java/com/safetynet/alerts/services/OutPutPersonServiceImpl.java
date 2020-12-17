@@ -17,10 +17,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OutPutPersonServiceImpl implements OutPutPersonService {
+  final Logger logger = LogManager.getLogger("OutPutPersonServiceImpl");
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
-  final Logger logger = LogManager.getLogger("OutPutPersonServiceImpl");
-
 
   @Override
   /**

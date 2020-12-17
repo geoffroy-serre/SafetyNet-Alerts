@@ -19,7 +19,7 @@ public class RetrieveOutPutResponseServiceImpl implements RetrieveOutPutResponse
   public OutPutResponse retrieveOutPutResponse(String filePath) {
     OutPutResponse result = retrieveOutPutDataRepository.getOutPutData(filePath);
 
-  return result;
+    return result;
   }
 
 }

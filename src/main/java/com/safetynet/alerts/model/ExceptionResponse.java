@@ -14,7 +14,7 @@ public class ExceptionResponse {
   public ExceptionResponse(Date timestamp, int status, String error, String message,
                            String path) {
     this.timestamp = timestamp;
-    this.message  = message;
+    this.message = message;
     this.status = status;
     this.error = error;
     this.path = path;

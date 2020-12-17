@@ -9,7 +9,7 @@ import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingHome;
 import com.safetynet.alerts.model.WorkingResponse;
 import java.util.*;
-import org.apache.commons.lang.WordUtils;
+import org.apache.commons.text.WordUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
@@ -22,12 +22,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class WorkingHomeServiceImpl implements WorkingHomeService {
 
+  final Logger logger = LogManager.getLogger("WorkingHomeServiceImpl");
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-
   @Autowired
   RetrieveWorkingDataRepository retrieveWorkingDataRepository;
-  final Logger logger = LogManager.getLogger("WorkingHomeServiceImpl");
 
   @Override
   /**

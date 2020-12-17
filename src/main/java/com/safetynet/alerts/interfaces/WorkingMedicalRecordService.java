@@ -11,12 +11,14 @@ public interface WorkingMedicalRecordService {
   /**
    * Key: String "firstname,lastname,birthdate".
    * Value: WorkingMedicalRecord with id generated in it.
+   *
    * @return HashMap<String, WorkingMedicalRecord>
    */
   HashMap<String, WorkingMedicalRecord> getWorkingMedicalRecordsHashMap();
 
   /**
    * from lower case to upper case for each first letter.
+   *
    * @param workingMedicalRecords
    * @return ArrayList of WorkingMedicalRecord
    */

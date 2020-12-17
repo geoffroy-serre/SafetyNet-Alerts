@@ -16,9 +16,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RetrieveOriginalDataServiceImpl implements RetrieveOriginalDataService {
+  final Logger logger = LogManager.getLogger("RetrieveOriginalDataServiceImpl");
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-  final Logger logger = LogManager.getLogger("RetrieveOriginalDataServiceImpl");
 
   @Override
   /**

@@ -9,6 +9,7 @@ public interface WorkingPersonsService {
 
   /**
    * from lower case to upper case for each first letter .
+   *
    * @param workingPersons
    * @return ArrayList WorkingPerson
    */
@@ -17,7 +18,8 @@ public interface WorkingPersonsService {
   /**
    * Key : firstname, lastname, adress,city,zipcode.
    * Value : WorkingPerson
+   *
    * @return HashMap  of String WorkingPerson
    */
-  HashMap<String,WorkingPerson> getWorkingPersonsHashMap();
+  HashMap<String, WorkingPerson> getWorkingPersonsHashMap();
 }

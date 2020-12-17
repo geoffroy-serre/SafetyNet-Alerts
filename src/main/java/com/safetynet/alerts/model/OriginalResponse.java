@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  *@param ArrayList<OriginalFirestation> firestations;
  *@param ArrayList<OriginalMedicalrecord> medicalrecords;
  */
-public class OriginalResponse  {
+public class OriginalResponse {
 
   @JsonProperty("persons")
   private ArrayList<OriginalPerson> persons;
@@ -21,8 +21,6 @@ public class OriginalResponse  {
 
   @JsonProperty("medicalrecords")
   private ArrayList<OriginalMedicalrecord> medicalrecords;
-
-
 
 
   public ArrayList<OriginalPerson> getPersons() {

@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordService {
+  final Logger logger = LogManager.getLogger("OriginalMedicalRecordServiceImpl");
   @Autowired
   OriginalResponse originalResponse;
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-  final Logger logger = LogManager.getLogger("OriginalMedicalRecordServiceImpl");
 
   @Override
   /**

@@ -34,28 +34,28 @@ public class WorkingResponse {
     this.homes = homes;
   }
 
-  public void setPersons(ArrayList<WorkingPerson> persons) {
-    this.persons = persons;
-  }
-
   public ArrayList<WorkingPerson> getPersons() {
     return persons;
   }
 
-  public void setFirestations(ArrayList<WorkingFireStation> firestations) {
-    this.firestations = firestations;
+  public void setPersons(ArrayList<WorkingPerson> persons) {
+    this.persons = persons;
   }
 
   public ArrayList<WorkingFireStation> getFirestations() {
     return firestations;
   }
 
-  public void setMedicalrecords(ArrayList<WorkingMedicalRecord> medicalrecords) {
-    this.medicalrecords = medicalrecords;
+  public void setFirestations(ArrayList<WorkingFireStation> firestations) {
+    this.firestations = firestations;
   }
 
   public ArrayList<WorkingMedicalRecord> getMedicalrecords() {
     return medicalrecords;
+  }
+
+  public void setMedicalrecords(ArrayList<WorkingMedicalRecord> medicalrecords) {
+    this.medicalrecords = medicalrecords;
   }
 
   @Override

@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class OutPutFireStationServiceImpl implements OutPutFireStationService {
 
+  final Logger logger = LogManager.getLogger("OutPutFireStationServiceImpl");
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
-  final Logger logger = LogManager.getLogger("OutPutFireStationServiceImpl");
 
   @Override
   /**

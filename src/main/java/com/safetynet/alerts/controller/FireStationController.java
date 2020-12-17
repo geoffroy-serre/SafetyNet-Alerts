@@ -74,7 +74,7 @@ public class FireStationController {
                       deleteFireStation.getAddress());
       originalFirestations =
               originalFireStationService.deleteOriginalFireStation(originalfireStation,
-              originalFirestations);
+                      originalFirestations);
       originalResponse.setFirestations(originalFirestations);
     }
     if (deleteFireStation.getStation() != null) {
@@ -171,7 +171,7 @@ public class FireStationController {
 
       originalFirestations =
               originalFireStationService.deleteOriginalFireStation(originalfireStation,
-              originalFirestations);
+                      originalFirestations);
       originalFirestations.add(modifyFireStation);
       originalResponse.setFirestations(originalFirestations);
 
@@ -277,7 +277,7 @@ public class FireStationController {
     return result;
   }
 
-  @GetMapping(path="/firestation", produces = "application/json")
+  @GetMapping(path = "/firestation", produces = "application/json")
   public ArrayList<OutPutHome> getPersonbyStationWithFamillyStats(@RequestParam(value =
           "stationNumber") int stationNumber, final HttpServletResponse response,
                                                                   final HttpServletRequest request) {
@@ -286,20 +286,21 @@ public class FireStationController {
             outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),
                     stationNumber);
 
-    if (selectedFireStation == null ) {
+    if (selectedFireStation == null) {
       logger.info("Status : " + response.getStatus() + " no result for station number " + stationNumber);
       return new ArrayList<OutPutHome>();
     }
     ArrayList<OutPutHome> served =
             outPutHomeService.getHomeByStationNumber(outPutHomeService.getOutPutHomeList(),
                     selectedFireStation);
-if(served.isEmpty()){
-  response.setStatus(204);
-  logger.info("Status : " + response.getStatus() + " Station "+stationNumber+" is empty / don't " +
-          "exist" +
-          " " + served.toString());
-  return null;
-}
+    if (served.isEmpty()) {
+      response.setStatus(204);
+      logger.info("Status : " + response.getStatus() + " Station " + stationNumber + " is empty /" +
+              " don't " +
+              "exist" +
+              " " + served.toString());
+      return null;
+    }
     outPutHomeService.setPersons(outPutPersonService.getAllPerson(), served);
     outPutHomeService.getCountChildrenAndAdultsforList(served);
     outPutHomeService.setStationNumberNull(served);

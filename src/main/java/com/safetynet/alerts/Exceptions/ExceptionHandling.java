@@ -106,9 +106,9 @@ public class ExceptionHandling {
   @ExceptionHandler(NoExistingStation.class)
   @ResponseBody
   public ExceptionResponse NoExistingStation(NoExistingStation exception,
-                                                       HttpServletRequest request) {
+                                             HttpServletRequest request) {
 
-    ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Station unknown" ,
+    ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Station unknown",
             exception.getMessage(), request.getRequestURI()
     );
     logger.error("ERROR: " + response.toString());
@@ -119,7 +119,7 @@ public class ExceptionHandling {
   @ExceptionHandler(NoStationNumberException.class)
   @ResponseBody
   public ExceptionResponse NoStationNumberException(NoStationNumberException exception,
-                                             HttpServletRequest request) {
+                                                    HttpServletRequest request) {
 
     ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Data already stored with" +
             " this content ",
@@ -133,7 +133,7 @@ public class ExceptionHandling {
   @ExceptionHandler(NoDataInDataBaseException.class)
   @ResponseBody
   public ExceptionResponse NoDataInDataBaseException(NoDataInDataBaseException exception,
-                                                    HttpServletRequest request) {
+                                                     HttpServletRequest request) {
 
     ExceptionResponse response = new ExceptionResponse(new Date(), 400, "No Data stored with" +
             " this content ",
@@ -143,7 +143,6 @@ public class ExceptionHandling {
 
     return response;
   }
-
 
 
 }
