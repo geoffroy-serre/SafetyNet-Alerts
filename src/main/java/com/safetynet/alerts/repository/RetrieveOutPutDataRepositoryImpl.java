@@ -38,7 +38,12 @@ public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepos
               OutPutResponse.class));
 
     } catch (IOException e) {
-      logger.error("IOException getting OutPutData ", e);
+      logger.error("IOException getting OutPutData. ", e);
+      logger.debug("Returng new OutPutResponse");
+      return new OutPutResponse();
+    }
+    if(response==null){
+      return new OutPutResponse();
     }
     logger.debug("Returng OutPutResponse created");
     return response;

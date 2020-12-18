@@ -43,9 +43,12 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
               OriginalResponse.class));
     } catch (IOException e) {
       logger.error("IOException getting Original Data ", e);
+      return new OriginalResponse();
     }
     logger.debug("return OriginalResponse for getOriginalData ");
-
+    if(response == null){
+      return new OriginalResponse();
+    }
     OriginalResponse originalResponse = response;
 
     HashSet<OriginalPerson> originalPersonHashSet = new HashSet<>();
@@ -94,6 +97,3 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
 
 
 }
-
-
-

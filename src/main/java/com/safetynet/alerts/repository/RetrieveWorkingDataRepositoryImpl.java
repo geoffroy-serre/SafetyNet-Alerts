@@ -37,6 +37,11 @@ public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRep
               WorkingResponse.class));
     } catch (IOException e) {
       logger.error("IOException getting WorkingData ", e);
+      logger.debug("Error returning empty WorkingResponse");
+      return  new WorkingResponse();
+    }
+    if(response==null){
+      return new WorkingResponse();
     }
     logger.debug("Returning created WorkingResponse");
     return response;

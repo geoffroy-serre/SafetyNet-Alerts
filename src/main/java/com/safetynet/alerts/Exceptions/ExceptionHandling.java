@@ -51,7 +51,7 @@ public class ExceptionHandling {
   public ExceptionResponse handleHttpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException exception,
                                                                     HttpServletRequest request) {
 
-    ExceptionResponse response = new ExceptionResponse(new Date(), 200, "Bad input type",
+    ExceptionResponse response = new ExceptionResponse(new Date(), 204, "Bad input type",
             exception.getMessage(), request.getRequestURI()
     );
     logger.info(request.getMethod() + " " + request.getRequestURI() + " " + request.getQueryString());

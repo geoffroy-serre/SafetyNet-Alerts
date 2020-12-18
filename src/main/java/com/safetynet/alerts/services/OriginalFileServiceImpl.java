@@ -34,6 +34,7 @@ public class OriginalFileServiceImpl implements OriginalFleService {
    * @inheritDoc
    */
   public void writeOriginalFile(OriginalResponse originalResponse) {
+
     logger.debug("Begin write of originalFile");
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,

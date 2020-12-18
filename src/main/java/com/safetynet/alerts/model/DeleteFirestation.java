@@ -32,7 +32,7 @@ public class DeleteFirestation {
   @Override
   public String toString() {
     return
-            "FirestationsItem{"
+            "{"
                     + "address = '" + address + '\''
                     + ",station = '" + station + '\''
                     + "}";

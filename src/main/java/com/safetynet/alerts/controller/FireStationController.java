@@ -87,14 +87,11 @@ public class FireStationController {
       originalFirestations.add(stationRemain);
       originalResponse.setFirestations(originalFirestations);
 
-
     }
-
-
     originalFleService.writeOriginalFile(originalResponse);
     createWorkingFileService.createWorkingFile();
     if (response.getStatus() == 200 && !originalFirestations.isEmpty()) {
-      logger.info("Status : " + response.getStatus() + deleteFireStation.getStation() + " " + deleteFireStation.getAddress() + "modified " + deleteFireStation.toString());
+      logger.info("Status : " + response.getStatus() + deleteFireStation.getStation() + " " + deleteFireStation.getAddress() + "deleted " + deleteFireStation.toString());
     }
 
 
