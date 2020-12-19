@@ -36,7 +36,7 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
     }
     if (isPresent) {
       logger.debug("postNewMedicalRecord not match return empty list ");
-      return new ArrayList<OriginalMedicalrecord>();
+      return originalMedicalrecords;
     }
     ArrayList<OriginalMedicalrecord> originalMedicalRecordResult = originalMedicalrecords;
     originalMedicalRecordResult.add(originalMedicalrecord);
@@ -75,7 +75,7 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
     boolean isAlreadyInFile = false;
     OriginalMedicalrecord selectedMedicalrecords =
             getMedicalRecordByFirstLastName(medicalrecords, firstName, lastName);
-    if (selectedMedicalrecords != null) {
+    if (selectedMedicalrecords.getFirstName()!=null && selectedMedicalrecords.getLastName()!=null) {
       isAlreadyInFile = true;
     }
     logger.debug("Success isMedicalRecordAlreadyInFile ");
@@ -96,7 +96,7 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
       }
     }
     logger.debug("Not match Found getMedicalRecordByFirstLastName  returning null");
-    return null;
+    return new OriginalMedicalrecord();
   }
 
   @Override

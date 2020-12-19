@@ -49,7 +49,7 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     boolean isAlreadyInFile = false;
     OriginalFirestation selectedFireStations =
             getFireStationByNumberAndAddress(firestations, stationNumber, address);
-    if (selectedFireStations != null) {
+    if (selectedFireStations.getAddress() != null||selectedFireStations.getStation() != null) {
       isAlreadyInFile = true;
     }
     logger.debug("isFireStationAlreadyInFile sucess ");
@@ -67,7 +67,7 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     boolean isAlreadyInFile = false;
     OriginalFirestation selectedFireStations =
             getFireStationByNumber(firestations, stationNumber);
-    if (selectedFireStations != null) {
+    if (selectedFireStations.getStation() != null) {
       isAlreadyInFile = true;
     }
     logger.debug("isFireStationAlreadyInFile sucess return: ");
@@ -85,7 +85,7 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     boolean isAlreadyInFile = false;
     OriginalFirestation selectedFireStations =
             getFireStationByAddress(firestations, address);
-    if (selectedFireStations != null) {
+    if (selectedFireStations.getAddress() != null) {
       isAlreadyInFile = true;
     }
     logger.debug("isFireStationAlreadyInFile sucess ");
@@ -103,7 +103,7 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     boolean isAlreadyInFile = false;
     OriginalFirestation selectedFireStations =
             checkIfAdressExist(firestations, address);
-    if (selectedFireStations != null) {
+    if (selectedFireStations.getAddress() != null) {
       isAlreadyInFile = true;
     }
     logger.debug("isFireStationAlreadyInFile sucess ");
@@ -123,8 +123,8 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
         return originalFirestation;
       }
     }
-    logger.debug("Entering checkIfAdressExist not match found return null ");
-    return null;
+    logger.debug("Entering checkIfAdressExist not match found return new OriginalFirestation ");
+    return new OriginalFirestation();
   }
 
 
@@ -163,7 +163,7 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
       }
     }
     logger.debug("Exit getFireStationByNumberAndAddress not match found return null");
-    return null;
+    return new OriginalFirestation();
   }
 
   @Override
@@ -180,7 +180,7 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
       }
     }
     logger.debug("Exit getFireStationByAddress not match found return null ");
-    return null;
+    return new OriginalFirestation();
   }
 
   @Override
@@ -196,15 +196,15 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
         return originalFireStation;
       }
     }
-    logger.debug("Exit getFireStationByNumber  not match found return null");
-    return null;
+    logger.debug("Exit getFireStationByNumber  not match found new OriginalFirestation");
+    return new OriginalFirestation();
   }
 
   @Override
   /**
    * @inheritDoc
    */
-  public ArrayList<OriginalFirestation> getFireStationsByNumber(ArrayList<OriginalFirestation> fireStations,
+  public ArrayList<OriginalFirestation> getFireStationsWithoutThisStation(ArrayList<OriginalFirestation> fireStations,
                                                                 Integer number) {
     logger.debug("entering getFireStationByNumber ");
     ArrayList<OriginalFirestation> originalFirestations = new ArrayList<>();
@@ -234,7 +234,7 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     }
     if (isPresent) {
       logger.debug(" postNewFireStation Firestation already in return empty list");
-      return new ArrayList<OriginalFirestation>();
+      return originalFirestations;
     }
     ArrayList<OriginalFirestation> originalFirestationsResult = originalFirestations;
     originalFirestationsResult.add(originalFirestation);

@@ -3,17 +3,14 @@ package com.safetynet.alerts.services;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.model.OriginalResponse;
-import com.safetynet.alerts.repository.RetrieveOriginalDataRepositoryImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyObject;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -40,6 +37,7 @@ class OriginalFileServiceImplTest {
     assertDoesNotThrow(() ->  originalFileService.getOriginalResponse("wrongFile"));
     assertNotNull(originalFileService.getOriginalResponse("wrongFile"));
   }
+
 
 
 }

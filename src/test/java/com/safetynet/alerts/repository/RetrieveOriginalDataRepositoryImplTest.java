@@ -3,6 +3,7 @@ package com.safetynet.alerts.repository;
 
 import com.safetynet.alerts.constants.FilesPath;
 
+import java.io.IOException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -10,7 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -27,6 +28,7 @@ RetrieveOriginalDataRepositoryImpl retrieveOriginalDataRepository =
     assertDoesNotThrow(() -> retrieveOriginalDataRepository.getOriginalData(file));
     assertNotNull(retrieveOriginalDataRepository.getOriginalData(file));
   }
+
   @Test
   void getOriginalDataWithKnownFile() {
 

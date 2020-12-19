@@ -113,7 +113,7 @@ public interface OriginalFireStationService {
    * @param number
    * @return ArrayList of OriginalFireStations
    */
-  ArrayList<OriginalFirestation> getFireStationsByNumber(ArrayList<OriginalFirestation> fireStations,
+  ArrayList<OriginalFirestation> getFireStationsWithoutThisStation(ArrayList<OriginalFirestation> fireStations,
                                                          Integer number);
 
   /**

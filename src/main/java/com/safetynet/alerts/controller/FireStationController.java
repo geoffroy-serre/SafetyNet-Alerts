@@ -79,7 +79,7 @@ public class FireStationController {
     }
     if (deleteFireStation.getStation() != null) {
       originalFirestations =
-              originalFireStationService.getFireStationsByNumber(originalFirestations,
+              originalFireStationService.getFireStationsWithoutThisStation(originalFirestations,
                       deleteFireStation.getStation());
       OriginalFirestation stationRemain = new OriginalFirestation();
       stationRemain.setStation(deleteFireStation.getStation());
@@ -160,6 +160,7 @@ public class FireStationController {
       throw new NoStationNumberException(modifyFireStation.getStation(), "No station known");
 
     } else {
+
       OriginalFirestation originalfireStation =
               originalFireStationService.getFireStationByAddress(originalFirestations,
 
