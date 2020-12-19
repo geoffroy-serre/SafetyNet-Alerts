@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @ControllerAdvice
 public class ExceptionHandling {
@@ -21,8 +22,8 @@ public class ExceptionHandling {
   @ExceptionHandler(TypeMismatchException.class)
   @ResponseBody
   public ExceptionResponse handleTypeMismatchException(TypeMismatchException typeMismatchException,
-                                                       HttpServletRequest request) {
-
+                                                       HttpServletRequest request, HttpServletResponse responseCode) {
+responseCode.setStatus(400);
     ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Bad parameter(s) type",
             typeMismatchException.getMessage(), request.getRequestURI()
     );
@@ -35,9 +36,9 @@ public class ExceptionHandling {
   @ExceptionHandler(MissingServletRequestParameterException.class)
   @ResponseBody
   public ExceptionResponse handleMissingParameterException(MissingServletRequestParameterException exception,
-                                                           HttpServletRequest request) {
-
-    ExceptionResponse response = new ExceptionResponse(new Date(), 409, "Bad parameter(s) type",
+                                                           HttpServletRequest request, HttpServletResponse responseCode) {
+responseCode.setStatus(400);
+    ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Bad parameter(s) type",
             exception.getMessage(), request.getRequestURI()
     );
     logger.info(request.getMethod() + " " + request.getRequestURI() + " " + request.getQueryString());
@@ -49,8 +50,10 @@ public class ExceptionHandling {
   @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
   @ResponseBody
   public ExceptionResponse handleHttpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException exception,
-                                                                    HttpServletRequest request) {
+                                                                    HttpServletRequest request,
+                                                                    HttpServletResponse responseCode) {
 
+    responseCode.setStatus(204);
     ExceptionResponse response = new ExceptionResponse(new Date(), 204, "Bad input type",
             exception.getMessage(), request.getRequestURI()
     );
@@ -63,8 +66,8 @@ public class ExceptionHandling {
   @ExceptionHandler(HttpMessageNotReadableException.class)
   @ResponseBody
   public ExceptionResponse handleHttpMessageNotReadableException(HttpMessageNotReadableException exception,
-                                                                 HttpServletRequest request) {
-
+                                                                 HttpServletRequest request, HttpServletResponse responseCode) {
+responseCode.setStatus(409);
     ExceptionResponse response = new ExceptionResponse(new Date(), 409, "Bad separator(s) type",
             exception.getMessage(), request.getRequestURI()
     );
@@ -77,12 +80,15 @@ public class ExceptionHandling {
   @ExceptionHandler(MethodArgumentNotValidException.class)
   @ResponseBody
   public ExceptionResponse methodArgumentNotValidException(MethodArgumentNotValidException exception,
-                                                           HttpServletRequest request) {
+                                                           HttpServletRequest request,
+                                                           HttpServletResponse responsecode) {
 
-    ExceptionResponse response = new ExceptionResponse(new Date(), 409, "Missing or blank " +
+    responsecode.setStatus(400);
+    ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Missing or blank " +
             "parameter in request",
             exception.getMessage(), request.getRequestURI()
     );
+
     logger.info(request.getMethod() + " " + request.getRequestURI() + " " + request.getQueryString());
     logger.error("ERROR: " + response.toString());
 
@@ -92,8 +98,8 @@ public class ExceptionHandling {
   @ExceptionHandler(AllreadyInDatabaseException.class)
   @ResponseBody
   public ExceptionResponse allreadyInDatabaseException(AllreadyInDatabaseException exception,
-                                                       HttpServletRequest request) {
-
+                                                       HttpServletRequest request, HttpServletResponse responseCode) {
+responseCode.setStatus(400);
     ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Data already stored with" +
             " this content ",
             exception.getMessage(), request.getRequestURI()
@@ -106,8 +112,8 @@ public class ExceptionHandling {
   @ExceptionHandler(NoExistingStation.class)
   @ResponseBody
   public ExceptionResponse NoExistingStation(NoExistingStation exception,
-                                             HttpServletRequest request) {
-
+                                             HttpServletRequest request, HttpServletResponse responseCode) {
+responseCode.setStatus(400);
     ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Station unknown",
             exception.getMessage(), request.getRequestURI()
     );
@@ -119,8 +125,9 @@ public class ExceptionHandling {
   @ExceptionHandler(NoStationNumberException.class)
   @ResponseBody
   public ExceptionResponse NoStationNumberException(NoStationNumberException exception,
-                                                    HttpServletRequest request) {
+                                                    HttpServletRequest request, HttpServletResponse responseCode) {
 
+    responseCode.setStatus(400);
     ExceptionResponse response = new ExceptionResponse(new Date(), 400, "Data already stored with" +
             " this content ",
             exception.getMessage(), request.getRequestURI()
@@ -133,8 +140,8 @@ public class ExceptionHandling {
   @ExceptionHandler(NoDataInDataBaseException.class)
   @ResponseBody
   public ExceptionResponse NoDataInDataBaseException(NoDataInDataBaseException exception,
-                                                     HttpServletRequest request) {
-
+                                                     HttpServletRequest request,HttpServletResponse responseCode) {
+responseCode.setStatus(400);
     ExceptionResponse response = new ExceptionResponse(new Date(), 400, "No Data stored with" +
             " this content ",
             exception.getMessage(), request.getRequestURI()

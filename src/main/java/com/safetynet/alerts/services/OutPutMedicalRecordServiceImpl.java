@@ -4,6 +4,7 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.OutPutMedicalRecordService;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
 import com.safetynet.alerts.model.OutPutMedicalRecord;
+import com.safetynet.alerts.model.OutPutResponse;
 import java.util.ArrayList;
 import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
@@ -24,6 +25,7 @@ public class OutPutMedicalRecordServiceImpl implements OutPutMedicalRecordServic
   public OutPutMedicalRecord getMedicalRecordById(UUID medicalRecordId) {
     logger.debug("Entering getMedicalRecordById ");
     OutPutMedicalRecord medicalRecord = new OutPutMedicalRecord();
+
     ArrayList<OutPutMedicalRecord> outPutMedicalRecords =
             retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getMedicalrecords();
 
@@ -44,6 +46,8 @@ public class OutPutMedicalRecordServiceImpl implements OutPutMedicalRecordServic
    * @inheritDoc
    */
   public ArrayList<OutPutMedicalRecord> getAllMedicalRecords() {
-    return retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getMedicalrecords();
+    OutPutResponse outPutResponse = retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE);
+
+    return outPutResponse.getMedicalrecords();
   }
 }

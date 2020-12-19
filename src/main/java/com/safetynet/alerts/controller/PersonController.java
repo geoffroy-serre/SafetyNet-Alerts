@@ -65,7 +65,7 @@ public class PersonController {
             originalPersonsService.getOriginalPersonByFirstAndLastName(personNames.getFirstName()
                     , personNames.getLastName(), originalPersons);
 
-    originalPersons = originalPersonsService.deletePerson(personNames.getFirstName(),
+    originalPersons = originalPersonsService.deletePersonbyFirstAndLastNames(personNames.getFirstName(),
             personNames.getLastName(), originalPersons);
     originalResponse.setPersons(originalPersons);
     originalFleService.writeOriginalFile(originalResponse);

@@ -4,10 +4,7 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.constants.OfAgeRules;
 import com.safetynet.alerts.interfaces.OutPutHomeService;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
-import com.safetynet.alerts.model.OutPutFireStation;
-import com.safetynet.alerts.model.OutPutHome;
-import com.safetynet.alerts.model.OutPutPerson;
-import com.safetynet.alerts.model.WorkingHome;
+import com.safetynet.alerts.model.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -106,8 +103,9 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
         if (outPutHome.getIdHome().equals(outPutPerson.getIdHome())) {
           personeHome.add(outPutPerson);
         }
-        outPutHome.setPersons(personeHome);
+
       }
+      outPutHome.setPersons(personeHome);
       result.add(outPutHome);
     }
     logger.debug("Success setPersons ");
@@ -226,8 +224,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
    */
   public ArrayList<OutPutHome> getOutPutHomeList() {
     logger.debug("Entering getOutPutHomeList ");
+    OutPutResponse reponse =
+            retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE);
     ArrayList<OutPutHome> outPutHomes =
-            retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getHomes();
+            reponse.getHomes();
     logger.debug("Success getOutPutHomeList ");
     return outPutHomes;
   }

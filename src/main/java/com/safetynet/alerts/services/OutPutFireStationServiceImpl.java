@@ -30,7 +30,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
     boolean isAlreadyInFile = false;
     OutPutFireStation selectedFireStations =
             getFireStationByNumber(firestations, stationNumber);
-    if (selectedFireStations != null) {
+    if ( selectedFireStations.getStationNumber()==stationNumber) {
       isAlreadyInFile = true;
     }
     logger.debug("Success isFireStationAlreadyInFile ");
@@ -99,7 +99,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
       }
     }
     logger.debug("Not Match found getFireStationByNumber return null ");
-    return null;
+    return new OutPutFireStation();
   }
 
   @Override

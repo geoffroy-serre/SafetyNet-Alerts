@@ -29,15 +29,16 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
                                                  ArrayList<OriginalPerson> originalPersons) {
     logger.debug("Entering postNewPerson ");
     boolean isPresent = false;
+
     for (OriginalPerson currentPerson : originalPersons) {
-      if (originalPerson.getFirstName().equals(currentPerson.getFirstName()) &&
-              originalPerson.getLastName().equals(originalPerson.getLastName())) {
+      if (originalPerson.getFirstName().equalsIgnoreCase(currentPerson.getFirstName()) &&
+              originalPerson.getLastName().equalsIgnoreCase(currentPerson.getLastName())) {
         isPresent = true;
       }
     }
     if (isPresent) {
       logger.debug("Not match found postNewPerson return empty list ");
-      return new ArrayList<OriginalPerson>();
+      return originalPersons;
     }
     ArrayList<OriginalPerson> originalPersonsResult = originalPersons;
     originalPersonsResult.add(originalPerson);
@@ -90,18 +91,6 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
     return new OriginalPerson();
   }
 
-  @Override
-  /**
-   * @inheritDoc
-   */
-  public OriginalPerson replacePersonData(OriginalPerson source) {
-    logger.debug("Entering replacePersonData " + source.toString());
-    OriginalPerson result = new OriginalPerson();
-    BeanUtils.copyProperties(source, result);
-    logger.debug("Success replacePersonData " + result.toString());
-
-    return result;
-  }
 
   @Override
   /**
@@ -112,7 +101,7 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
     logger.debug("Entering deleteOriginalPerson ");
     ArrayList<OriginalPerson> results = new ArrayList<>();
     for (OriginalPerson currentPerson : originalPersons) {
-      if (!originalPerson.getFirstName().equals(currentPerson.getFirstName()) && !originalPerson.getLastName().equals(currentPerson.getLastName())) {
+      if (!originalPerson.getFirstName().equals(currentPerson.getFirstName()) || !originalPerson.getLastName().equals(currentPerson.getLastName())) {
         results.add(currentPerson);
       }
     }
@@ -124,7 +113,8 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
   /**
    * @inheritDoc
    */
-  public ArrayList<OriginalPerson> deletePerson(String firstName, String lastName,
+  public ArrayList<OriginalPerson> deletePersonbyFirstAndLastNames(String firstName,
+                                                                   String lastName,
                                                 ArrayList<OriginalPerson> originalPersons) {
     logger.debug("Entering deletePerson ");
     ArrayList<OriginalPerson> results = new ArrayList<>();

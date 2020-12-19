@@ -47,13 +47,7 @@ public interface OriginalPersonsService {
   OriginalPerson getOriginalPersonByFirstAndLastName(String firstName, String lastName,
                                                      ArrayList<OriginalPerson> originalPersons);
 
-  /**
-   * Send an OriginalPerson created from OriginalPerson in parameter.
-   *
-   * @param source OriginalPerson
-   * @return OriginalPerson
-   */
-  OriginalPerson replacePersonData(OriginalPerson source);
+
 
   /**
    * Delete and OrginalPerson from a provided list of OriginalPerson.
@@ -75,6 +69,6 @@ public interface OriginalPersonsService {
    * @param originalPersons ArrayList of OriginalPerson
    * @return ArrayList of OriginalPerson
    */
-  ArrayList<OriginalPerson> deletePerson(String firstName, String lastName,
+  ArrayList<OriginalPerson> deletePersonbyFirstAndLastNames(String firstName, String lastName,
                                          ArrayList<OriginalPerson> originalPersons);
 }
