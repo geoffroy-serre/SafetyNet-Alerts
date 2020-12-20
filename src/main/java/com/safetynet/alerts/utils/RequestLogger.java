@@ -2,8 +2,9 @@ package com.safetynet.alerts.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
-
+@Service
 public class RequestLogger {
   private static final Logger logger = LogManager.getLogger("App");
 

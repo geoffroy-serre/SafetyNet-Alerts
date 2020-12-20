@@ -1,25 +1,28 @@
 package com.safetynet.alerts.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.*;
-import com.safetynet.alerts.model.DeleteFirestation;
-import com.safetynet.alerts.model.OriginalFirestation;
-import com.safetynet.alerts.model.OriginalResponse;
+import com.safetynet.alerts.model.*;
+import com.safetynet.alerts.utils.RequestLogger;
 import java.util.ArrayList;
-import org.junit.jupiter.api.BeforeEach;
+import java.util.UUID;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.RequestPostProcessor;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyList;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 @WebMvcTest(controllers = FireStationController.class)
 class FireStationControllerTest {
@@ -46,12 +49,431 @@ class FireStationControllerTest {
   OriginalResponse originalResponse;
   @MockBean
   OriginalFirestation originalFirestation;
+  @MockBean
+  RequestLogger requestLogger;
+  @MockBean
+  HttpServletRequest servletRequest;
 
+  @MockBean
+  HttpServletResponse servletResponse;
+
+
+  @InjectMocks
+  FireStationController fireStationController;
 
   @Test
   void deleteFireStationWithoutBody() throws Exception {
     mockMvc.perform(delete("/firestation")).andExpect(result -> assertTrue(result.getResolvedException() instanceof HttpMessageNotReadableException));
   }
 
+  @Test
+  void deleteFireStationUnknown() throws Exception {
+    DeleteFirestation deleteFireStation = new DeleteFirestation();
+    deleteFireStation.setStation(15);
 
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getStation(),
+            originalResponse.getFirestations())).thenReturn(false);
+
+    mockMvc.perform(
+            delete("/firestation")
+                    .contentType("application/json")
+                    .content("{\"station\" : \"" + deleteFireStation.getStation() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
+  }
+
+  @Test
+  void deleteFireStationknown() throws Exception {
+    DeleteFirestation deleteFireStation = new DeleteFirestation();
+    deleteFireStation.setStation(15);
+    when(originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getStation(),
+            originalResponse.getFirestations())).thenReturn(true);
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+
+    mockMvc.perform(
+            delete("/firestation")
+                    .contentType("application/json")
+                    .content("{\"station\" : \"" + deleteFireStation.getStation() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
+  }
+
+  @Test
+  void postFireStationWithoutBody() throws Exception {
+    mockMvc.perform(post("/firestation")).andExpect(result -> assertTrue(result.getResolvedException() instanceof HttpMessageNotReadableException));
+  }
+
+  @Test
+  void postNewFireStationIncomplete() throws Exception {
+    DeleteFirestation deleteFireStation = new DeleteFirestation();
+    deleteFireStation.setStation(15);
+
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getStation(),
+            originalResponse.getFirestations())).thenReturn(false);
+
+    mockMvc.perform(
+            post("/firestation")
+                    .contentType("application/json")
+                    .content("{\"station\" : \"" + deleteFireStation.getStation() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400))
+            .andExpect(result -> assertTrue(result.getResolvedException() instanceof MethodArgumentNotValidException));
+  }
+
+  @Test
+  void postNewFireStationIncomplete2() throws Exception {
+    DeleteFirestation deleteFireStation = new DeleteFirestation();
+    deleteFireStation.setStation(15);
+    deleteFireStation.setAddress("15 rue des prés");
+
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getStation(),
+            originalResponse.getFirestations())).thenReturn(false);
+
+    mockMvc.perform(
+            post("/firestation")
+                    .contentType("application/json")
+                    .content("{\"address\" : \"" + deleteFireStation.getAddress() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400))
+            .andExpect(result -> assertTrue(result.getResolvedException() instanceof MethodArgumentNotValidException));
+  }
+
+  @Test
+  void postNewFireStation() throws Exception {
+    DeleteFirestation deleteFireStation = new DeleteFirestation();
+    deleteFireStation.setStation(15);
+    deleteFireStation.setAddress("15 rue des prés");
+
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getStation(),
+            originalResponse.getFirestations())).thenReturn(false);
+
+    mockMvc.perform(
+            post("/firestation")
+                    .contentType("application/json")
+                    .content("{\"address\" : \"" + deleteFireStation.getAddress() + "\","
+                            + "\"station\" : \"" + deleteFireStation.getStation() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
+
+  }
+
+  @Test
+  void postExistingFireStation() throws Exception {
+    OriginalFirestation newFireStation = new OriginalFirestation();
+    newFireStation.setStation(15);
+    newFireStation.setAddress("15 rue des prés");
+
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn
+            (originalResponse);
+    when(originalFireStationService.isFireStationAlreadyInFile(newFireStation.getStation(),
+            newFireStation.getAddress(),
+            originalResponse.getFirestations())).thenReturn(true);
+
+    mockMvc.perform(
+            post("/firestation")
+                    .contentType("application/json")
+                    .content("{\"address\" : \"" + newFireStation.getAddress() + "\","
+                            + "\"station\" : \"" + newFireStation.getStation() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400));
+
+  }
+
+  @Test
+  void putFirestation() throws Exception {
+    OriginalFirestation modifyFireStation = new OriginalFirestation();
+    modifyFireStation.setStation(15);
+    modifyFireStation.setAddress("15 rue des prés");
+
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn
+            (originalResponse);
+    when(originalFireStationService.isFireStationAlreadyInFile(modifyFireStation.getStation(),
+            modifyFireStation.getAddress(),
+            originalResponse.getFirestations())).thenReturn(true);
+
+    mockMvc.perform(
+            put("/firestation")
+                    .contentType("application/json")
+                    .content("{\"address\" : \"" + modifyFireStation.getAddress() + "\","
+                            + "\"station\" : \"" + modifyFireStation.getStation() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400));
+
+  }
+
+  @Test
+  void putFirestationNotPresent() throws Exception {
+    OriginalFirestation modifyFireStation = new OriginalFirestation();
+    modifyFireStation.setStation(15);
+    modifyFireStation.setAddress("15 rue des prés");
+
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn
+            (originalResponse);
+    when(originalFireStationService.isFireStationAlreadyInFile(modifyFireStation.getStation(),
+            modifyFireStation.getAddress(),
+            originalResponse.getFirestations())).thenReturn(false);
+
+    mockMvc.perform(
+            put("/firestation")
+                    .contentType("application/json")
+                    .content("{\"address\" : \"" + modifyFireStation.getAddress() + "\","
+                            + "\"station\" : \"" + modifyFireStation.getStation() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400));
+
+  }
+
+  @Test
+  void putFireStationIncomplete() throws Exception {
+    DeleteFirestation deleteFireStation = new DeleteFirestation();
+    deleteFireStation.setStation(15);
+
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getStation(),
+            originalResponse.getFirestations())).thenReturn(false);
+
+    mockMvc.perform(
+            put("/firestation")
+                    .contentType("application/json")
+                    .content("{\"station\" : \"" + deleteFireStation.getStation() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400))
+            .andExpect(result -> assertTrue(result.getResolvedException() instanceof MethodArgumentNotValidException));
+  }
+
+  @Test
+  void putFireStationIncomplete2() throws Exception {
+    DeleteFirestation deleteFireStation = new DeleteFirestation();
+    deleteFireStation.setAddress("15 rue des pres");
+
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(originalFireStationService.isFireStationAlreadyInFile(deleteFireStation.getStation(),
+            originalResponse.getFirestations())).thenReturn(false);
+
+
+    mockMvc.perform(
+            put("/firestation")
+                    .contentType("application/json")
+                    .content("{\"address\" : \"" + deleteFireStation.getAddress() + "\"}")
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400))
+            .andExpect(result -> assertTrue(result.getResolvedException() instanceof MethodArgumentNotValidException));
+  }
+
+  @Test
+  void floodTest() throws Exception {
+    ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
+    OutPutFireStation outputFirestation = new OutPutFireStation();
+    outPutFireStations.add(outputFirestation);
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(outPutFireStationService.setHomes(outPutFireStationService.getFiresStations(),
+            outPutHomeService.getOutPutHomeList())).thenReturn(outPutFireStations);
+    when(servletResponse.getStatus()).thenReturn(200);
+
+    mockMvc.perform(
+            get("/flood/stations")
+                    .contentType("application/json")
+                    .param("stations", "2")
+                    .with(new RequestPostProcessor() {
+                      public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
+                        request.setRemoteAddr("/flood/stations");
+                        request.setQueryString("test flood");
+                        return request;}})
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
+
+  }
+
+  @Test
+  void floodTestNoStation() throws Exception {
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    mockMvc.perform(
+            get("/flood/stations")
+                    .contentType("application/json")
+                    .param("stations", "2")
+                    .with(new RequestPostProcessor() {
+                      public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
+                        request.setRemoteAddr("/flood/stations");
+                        request.setQueryString("test flood");
+                        return request;}})
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
+
+  }
+
+  @Test
+  void fireTest() throws Exception {
+    ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
+    OutPutFireStation outputFirestation = new OutPutFireStation();
+    outPutFireStations.add(outputFirestation);
+    OutPutHome outPutHome = new OutPutHome();
+    outPutHome.setAddress("15 rue des prés");
+    outPutHome.setIdHome(UUID.randomUUID());
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(outPutHomeService.getHomeByAddress("15 rue des prés")).thenReturn(outPutHome);
+    when(servletResponse.getStatus()).thenReturn(200);
+
+    mockMvc.perform(
+            get("/fire")
+                    .contentType("application/json")
+                    .param("address", "15 rue des prés")
+                    .with(new RequestPostProcessor() {
+                      public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
+                        request.setRemoteAddr("/fire");
+                        request.setQueryString("test fire");
+                        return request;}})
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
+
+  }
+
+  @Test
+  void fireTestNoResult() throws Exception {
+    ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
+    OutPutFireStation outputFirestation = new OutPutFireStation();
+    outPutFireStations.add(outputFirestation);
+    OutPutHome outPutHome = new OutPutHome();
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(outPutHomeService.getHomeByAddress("15 rue des prés")).thenReturn(outPutHome);
+
+    mockMvc.perform(
+            get("/fire")
+                    .contentType("application/json")
+                    .param("address", "15 rue des prés")
+                    .with(new RequestPostProcessor() {
+                      public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
+                        request.setRemoteAddr("/fire");
+                        request.setQueryString("test fire");
+                        return request;}})
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
+
+  }
+
+  @Test
+  void getPhoneNumberByStationsNoResult() throws Exception {
+    ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
+    OutPutFireStation outputFirestation = new OutPutFireStation();
+    outPutFireStations.add(outputFirestation);
+    OutPutHome outPutHome = new OutPutHome();
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(outPutHomeService.getHomeByAddress("15 rue des prés")).thenReturn(outPutHome);
+
+    mockMvc.perform(
+            get("/phoneAlert")
+                    .contentType("application/json")
+                    .param("firestation", "1")
+                    .with(new RequestPostProcessor() {
+                      public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
+                        request.setRemoteAddr("/phoneAlert");
+                        request.setQueryString("test phoneAlert");
+                        return request;}})
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
+
+  }
+
+  @Test
+  void getPhoneNumberByStation() throws Exception {
+    ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
+    OutPutFireStation outputFirestation = new OutPutFireStation();
+    outPutFireStations.add(outputFirestation);
+
+    OutPutHome outPutHome = new OutPutHome();
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),1))
+            .thenReturn(outputFirestation);
+    when(outPutHomeService.getHomeByAddress("15 rue des prés")).thenReturn(outPutHome);
+
+    mockMvc.perform(
+            get("/phoneAlert")
+                    .contentType("application/json")
+                    .param("firestation", "1")
+                    .with(new RequestPostProcessor() {
+                      public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
+                        request.setRemoteAddr("/phoneAlert");
+                        request.setQueryString("test phoneAlert");
+                        return request;}})
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
+
+  }
+
+  @Test
+  void getPersonbyStationWithFamillyStats() throws Exception {
+    ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
+    OutPutFireStation outputFirestation = new OutPutFireStation();
+    outPutFireStations.add(outputFirestation);
+
+    OutPutHome outPutHome = new OutPutHome();
+    ArrayList<OutPutHome> outputHomes = new ArrayList<>();
+    outputHomes.add(outPutHome);
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),1))
+            .thenReturn(outputFirestation);
+    when(outPutHomeService.getHomeByStationNumber(outPutHomeService.getOutPutHomeList(),
+            outputFirestation)).thenReturn(outputHomes);
+
+    mockMvc.perform(
+            get("/firestation")
+                    .contentType("application/json")
+                    .param("stationNumber", "1")
+                    .with(new RequestPostProcessor() {
+                      public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
+                        request.setRemoteAddr("/phoneAlert");
+                        request.setQueryString("test phoneAlert");
+                        return request;}})
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
+
+  }
+
+  @Test
+  void getPersonbyStationWithFamillyStatsNoResult() throws Exception {
+    ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
+    OutPutFireStation outputFirestation = new OutPutFireStation();
+
+    ArrayList<OutPutHome> outputHomes = new ArrayList<>();
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),1))
+            .thenReturn(outputFirestation);
+    when(outPutHomeService.getHomeByStationNumber(outPutHomeService.getOutPutHomeList(),
+            outputFirestation)).thenReturn(outputHomes);
+
+    mockMvc.perform(
+            get("/firestation")
+                    .contentType("application/json")
+                    .param("stationNumber", "1")
+                    .with(new RequestPostProcessor() {
+                      public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
+                        request.setRemoteAddr("/phoneAlert");
+                        request.setQueryString("test phoneAlert");
+                        return request;}})
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
+
+  }
+  
 }

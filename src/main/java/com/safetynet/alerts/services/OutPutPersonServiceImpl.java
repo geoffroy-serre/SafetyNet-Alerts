@@ -192,6 +192,7 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     ArrayList<OutPutPerson> underAge = new ArrayList<>();
     OutPutChild outPutChild = new OutPutChild();
     for (OutPutPerson outPutPerson : persons) {
+      outPutPerson.setAge(Period.between(outPutPerson.getBirthdate(), LocalDate.now()).getYears());
       boolean isUnderAge = false;
       outPutPerson.setEmail(null);
       outPutPerson.setPhone(null);
