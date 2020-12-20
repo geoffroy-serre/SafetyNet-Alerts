@@ -16,15 +16,14 @@ import org.springframework.stereotype.Repository;
 public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRepository {
   private static final Logger logger = LogManager.getLogger("App");
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public WorkingResponse getWorkingData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();
-    WorkingResponse response = new WorkingResponse();
+    WorkingResponse response ;
 
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);
@@ -38,9 +37,9 @@ public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRep
     } catch (IOException e) {
       logger.error("IOException getting WorkingData ", e);
       logger.debug("Error returning empty WorkingResponse");
-      return  new WorkingResponse();
+      return new WorkingResponse();
     }
-    if(response==null){
+    if (response == null) {
       return new WorkingResponse();
     }
     logger.debug("Returning created WorkingResponse");

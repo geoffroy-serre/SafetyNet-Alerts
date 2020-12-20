@@ -10,22 +10,30 @@ public class ExceptionResponse {
   private String message;
   private String path;
 
-
-  public ExceptionResponse(Date timestamp, int status, String error, String message,
-                           String path) {
-    this.timestamp = timestamp;
-    this.message = message;
-    this.status = status;
-    this.error = error;
-    this.path = path;
+  /**
+   * Custom wrapper for custom exceptions, and custom handlers.
+   *
+   * @param ptimestamp Date
+   * @param pstatus int
+   * @param perror String
+   * @param pmessage String
+   * @param ppath String
+   */
+  public ExceptionResponse(Date ptimestamp, int pstatus, String perror, String pmessage,
+                           String ppath) {
+    timestamp = ptimestamp;
+    message = pmessage;
+    status = pstatus;
+    error = perror;
+    path = ppath;
   }
 
   public Date getTimestamp() {
-    return timestamp;
+    return  timestamp;
   }
 
-  public void setTimestamp(Date timestamp) {
-    this.timestamp = timestamp;
+  public void setTimestamp(Date ptimestamp) {
+    timestamp = ptimestamp;
   }
 
   public int getStatus() {

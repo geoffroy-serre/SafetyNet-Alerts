@@ -11,11 +11,10 @@ public class RetrieveOutPutResponseServiceImpl implements RetrieveOutPutResponse
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OutPutResponse retrieveOutPutResponse(String filePath) {
     OutPutResponse result = retrieveOutPutDataRepository.getOutPutData(filePath);
 

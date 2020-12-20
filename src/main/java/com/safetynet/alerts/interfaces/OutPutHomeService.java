@@ -11,9 +11,9 @@ import java.util.UUID;
 public interface OutPutHomeService {
 
   /**
-   * Set StationNumber to null to avoir their display
+   * Set StationNumber to null to avoir their display.
    *
-   * @param outPutHomes
+   * @param outPutHomes ArrayList<OutPutHome>
    * @return ArrayList of OutPutHome
    */
   ArrayList<OutPutHome> setStationNumberNull(ArrayList<OutPutHome> outPutHomes);
@@ -22,7 +22,7 @@ public interface OutPutHomeService {
    * Count number of children and adult for given home.
    * Return empty List if no one home.
    *
-   * @param outPutHomes
+   * @param outPutHomes ArrayList<OutPutHome>
    * @return ArrayList of OutPutHome
    */
   ArrayList<OutPutHome> getCountChildrenAndAdultsforList(ArrayList<OutPutHome> outPutHomes);
@@ -30,8 +30,8 @@ public interface OutPutHomeService {
   /**
    * Retrieve home matching station number in given list
    *
-   * @param outPutHomes
-   * @param firestation
+   * @param outPutHomes ArrayList<OutPutHome>
+   * @param firestation OutPutFireStation
    * @return ArrayList of OutPutHome
    */
   ArrayList<OutPutHome> getHomeByStationNumber(ArrayList<OutPutHome> outPutHomes,
@@ -40,8 +40,8 @@ public interface OutPutHomeService {
   /**
    * Set persons data for given Homes.
    *
-   * @param persons
-   * @param homes
+   * @param persons ArrayList<OutPutPerson>
+   * @param homes   ArrayList<OutPutHome>
    * @return ArrayList of OutPutHome
    */
   ArrayList<OutPutHome> setPersons(ArrayList<OutPutPerson> persons,
@@ -50,22 +50,22 @@ public interface OutPutHomeService {
   /**
    * Set persons data for given home.
    *
-   * @param persons
-   * @param home
+   * @param persons ArrayList<OutPutPerson>
+   * @param home    OutPutHome
    * @return OutPutHome
    */
   OutPutHome setPersonsHome(ArrayList<OutPutPerson> persons,
                             OutPutHome home);
 
   /**
-   * @param homes
+   * @param homes ArrayList<OutPutHome>
    * @return ArrayList of UUID
    */
   ArrayList<UUID> getHomesIds(ArrayList<OutPutHome> homes);
 
   /**
-   * @param firestations
-   * @param homes
+   * @param firestations ArrayList<OutPutFireStation>
+   * @param homes        ArrayList<OutPutHome>
    * @return ArrayList of OutPutHome
    */
   ArrayList<OutPutHome> getHomesbyIds(ArrayList<OutPutFireStation> firestations,
@@ -74,21 +74,21 @@ public interface OutPutHomeService {
   /**
    * Return new OutPutHome if no home for this address.
    *
-   * @param Address
+   * @param address String
    * @return OutPutHome
    */
-  OutPutHome getHomeByAddress(String Address);
+  OutPutHome getHomeByAddress(String address);
 
   /**
    * Return empty HashSet if no matches.
    *
-   * @param city
+   * @param city String
    * @return HashSet of UUID
    */
   HashSet<UUID> getHomesByCity(String city);
 
   /**
-   * @param inputHome
+   * @param inputHome WorkingHome
    * @return
    */
   OutPutHome transformWorkingIntoOutPut(WorkingHome inputHome);
@@ -101,7 +101,7 @@ public interface OutPutHomeService {
   /**
    * Convertion of Homes
    *
-   * @param inputHome
+   * @param inputHome ArrayList<OutPutHome>
    * @return ArrayList of OutPutHome
    */
   ArrayList<OutPutHome> transformWorkingIntoOutPut(ArrayList<WorkingHome> inputHome);

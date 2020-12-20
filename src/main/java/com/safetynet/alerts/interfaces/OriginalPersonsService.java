@@ -19,7 +19,7 @@ public interface OriginalPersonsService {
                                           ArrayList<OriginalPerson> originalPersons);
 
   /**
-   * Get OriginalPersons from given OriginalResponse
+   * Get OriginalPersons from given OriginalResponse.
    *
    * @param originalResponse OriginalResponse
    * @return ArrayList of OriginalPerson>
@@ -36,7 +36,7 @@ public interface OriginalPersonsService {
   HashMap<String, OriginalPerson> getOriginalPersonHashMap();
 
   /**
-   * Search for OriginalPerson matching provided firstName and lastName from the also provided
+   * Search for OriginalPerson matching provided firstName and lastName from the also provided.
    * OriginalPerson List.
    *
    * @param firstName       String
@@ -46,7 +46,6 @@ public interface OriginalPersonsService {
    */
   OriginalPerson getOriginalPersonByFirstAndLastName(String firstName, String lastName,
                                                      ArrayList<OriginalPerson> originalPersons);
-
 
 
   /**
@@ -70,5 +69,5 @@ public interface OriginalPersonsService {
    * @return ArrayList of OriginalPerson
    */
   ArrayList<OriginalPerson> deletePersonbyFirstAndLastNames(String firstName, String lastName,
-                                         ArrayList<OriginalPerson> originalPersons);
+                                                            ArrayList<OriginalPerson> originalPersons);
 }

@@ -44,6 +44,14 @@ public class PersonController {
   @Autowired
   CreateWorkingFileService createWorkingFileService;
 
+  /**
+   * Delete person
+   *
+   * @param personNames PersonNames
+   * @param response    HttpServletResponse
+   * @param request     HttpServletRequest
+   * @return
+   */
   @DeleteMapping(path = "/person", produces = "application/json")
   String deletePerson(@Valid @RequestBody PersonNames personNames,
                       final HttpServletResponse response,
@@ -65,7 +73,8 @@ public class PersonController {
             originalPersonsService.getOriginalPersonByFirstAndLastName(personNames.getFirstName()
                     , personNames.getLastName(), originalPersons);
 
-    originalPersons = originalPersonsService.deletePersonbyFirstAndLastNames(personNames.getFirstName(),
+    originalPersons =
+            originalPersonsService.deletePersonbyFirstAndLastNames(personNames.getFirstName(),
             personNames.getLastName(), originalPersons);
     originalResponse.setPersons(originalPersons);
     originalFleService.writeOriginalFile(originalResponse);
@@ -82,6 +91,14 @@ public class PersonController {
     return jsonObject.toString();
   }
 
+  /**
+   * Post new Person with original format
+   *
+   * @param newPerson OriginalPerson
+   * @param response  HttpServletResponse
+   * @param request   HttpServletRequest
+   * @return
+   */
   @PostMapping("/person")
   OriginalPerson postPerson(@Valid @RequestBody OriginalPerson newPerson,
                             final HttpServletResponse response,
@@ -116,6 +133,14 @@ public class PersonController {
 
   }
 
+  /**
+   * Modify person with original format
+   *
+   * @param modifyPerson OriginalPerson
+   * @param response     HttpServletResponse
+   * @param request      HttpServletRequest
+   * @return
+   */
   @PutMapping("/person")
   OriginalPerson putPerson(@Valid @RequestBody OriginalPerson modifyPerson,
                            final HttpServletResponse response,
@@ -158,7 +183,14 @@ public class PersonController {
 
   }
 
-
+  /**
+   * Get emails for a given city
+   *
+   * @param city     String
+   * @param response HttpServletResponse
+   * @param request  HttpServletRequest
+   * @return
+   */
   @GetMapping("/communityEmail")
   public HashSet<String> getEmailforACity(@RequestParam(value = "city") String city,
                                           final HttpServletResponse response,
@@ -177,6 +209,15 @@ public class PersonController {
 
   }
 
+  /**
+   * Get persons Infos
+   *
+   * @param firstName String
+   * @param lastName  String
+   * @param response  HttpServletResponse
+   * @param request   HttpServletRequest
+   * @return
+   */
   @GetMapping("/personInfo")
   public ArrayList<OutPutPerson> getPersonInfo(@RequestParam(value = "firstName") String firstName,
                                                @RequestParam(value = "lastName") String lastName,
@@ -217,6 +258,14 @@ public class PersonController {
 
   }
 
+  /**
+   * get childs if exist for a given adress
+   *
+   * @param address  String
+   * @param response HttpServletResponse
+   * @param request  HttpServletRequest
+   * @return
+   */
   @GetMapping("/childAlert")
   public OutPutChild getChilds(@RequestParam(value = "address") String address,
                                final HttpServletResponse response,

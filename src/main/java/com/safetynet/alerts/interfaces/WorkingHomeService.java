@@ -6,15 +6,15 @@ import java.util.*;
 public interface WorkingHomeService {
 
   /**
-   * From lower case to upper case for each first letter
+   * From lower case to upper case for each first letter.
    *
-   * @param workingHomes
+   * @param workingHomes Collection<WorkingHome>
    * @return ArrayList of WorkingHomes
    */
   ArrayList<WorkingHome> reestablishCase(Collection<WorkingHome> workingHomes);
 
   /**
-   * Return Object Working Home found by equality between
+   * Return Object Working Home found by equality between.
    * address parameter and given list occurrence.
    *
    * @param address      String
@@ -33,7 +33,7 @@ public interface WorkingHomeService {
   HashSet<WorkingHome> createWorkingHomes();
 
   /**
-   * Get data form createWorkingHomes
+   * Get data form createWorkingHomes.
    *
    * @return ArrayList of WorkingHomes
    */
@@ -55,13 +55,17 @@ public interface WorkingHomeService {
   public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap();
 
   /**
-   * @param homeId
+   * Get home for given ID.
+   *
+   * @param homeId UUID
    * @return WorkingHome
    */
   WorkingHome getHomeById(UUID homeId);
 
   /**
-   * @param filePath
+   * Get Home data in working format.
+   *
+   * @param filePath String
    * @return ArrayList of WorkingHomes
    */
   ArrayList<WorkingHome> retrieveWorkingHomeFromFile(String filePath);

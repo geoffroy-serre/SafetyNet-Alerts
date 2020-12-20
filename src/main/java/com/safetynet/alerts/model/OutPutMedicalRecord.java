@@ -5,13 +5,10 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
-@Component
 /**
  * Contains OutPut format data.
- * @param UUID idMedicalRecord;
- * @param List<String> medications;
- *@param List<String> allergies;
  */
+@Component
 public class OutPutMedicalRecord {
 
   @JsonProperty("idMedicalRecord")

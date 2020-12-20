@@ -17,15 +17,14 @@ public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepos
 
   private static final Logger logger = LogManager.getLogger("App");
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OutPutResponse getOutPutData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();
-    OutPutResponse response = new OutPutResponse();
+    OutPutResponse response ;
 
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);
@@ -42,7 +41,7 @@ public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepos
       logger.debug("Returng new OutPutResponse");
       return new OutPutResponse();
     }
-    if(response==null){
+    if (response == null) {
       return new OutPutResponse();
     }
     logger.debug("Returng OutPutResponse created");

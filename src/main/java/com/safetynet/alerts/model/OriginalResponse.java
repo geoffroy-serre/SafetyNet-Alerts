@@ -4,13 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
-@Component
 /**
- * Wrapper for Original datas
- * @param ArrayList<OriginalPerson> persons;
- *@param ArrayList<OriginalFirestation> firestations;
- *@param ArrayList<OriginalMedicalrecord> medicalrecords;
+ * Wrapper for Original datas.
  */
+@Component
 public class OriginalResponse {
 
   @JsonProperty("persons")

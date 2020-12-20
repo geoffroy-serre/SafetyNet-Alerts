@@ -6,7 +6,7 @@ public interface OriginalFleService {
   /**
    * Get data from file corresponding to OriginalResponse Mapping.
    *
-   * @param constantOriginalDataFile
+   * @param constantOriginalDataFile String
    * @return OriginalResponse
    */
   OriginalResponse getOriginalResponse(String constantOriginalDataFile);
@@ -14,7 +14,7 @@ public interface OriginalFleService {
   /**
    * Write originalFile with provided OriginalResponse.
    *
-   * @param originalResponse
+   * @param originalResponse OriginalResponse
    */
   void writeOriginalFile(OriginalResponse originalResponse);
 }

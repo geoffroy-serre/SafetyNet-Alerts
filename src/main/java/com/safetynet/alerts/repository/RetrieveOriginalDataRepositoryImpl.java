@@ -22,15 +22,14 @@ import org.springframework.stereotype.Repository;
 public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataRepository {
   private static final Logger logger = LogManager.getLogger("App");
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OriginalResponse getOriginalData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();
-    OriginalResponse response = new OriginalResponse();
+    OriginalResponse response ;
 
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);
@@ -46,7 +45,7 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
       return new OriginalResponse();
     }
     logger.debug("return OriginalResponse for getOriginalData ");
-    if(response == null){
+    if (response == null) {
       return new OriginalResponse();
     }
     OriginalResponse originalResponse = response;

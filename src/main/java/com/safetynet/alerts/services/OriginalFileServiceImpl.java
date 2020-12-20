@@ -21,18 +21,18 @@ public class OriginalFileServiceImpl implements OriginalFleService {
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalData;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OriginalResponse getOriginalResponse(String constantOriginalDataFile) {
     return retrieveOriginalData.getOriginalData(constantOriginalDataFile);
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public void writeOriginalFile(OriginalResponse originalResponse) {
 
     logger.debug("Begin write of originalFile");

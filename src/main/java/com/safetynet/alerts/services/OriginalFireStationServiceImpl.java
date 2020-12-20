@@ -20,10 +20,10 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OriginalFirestation> deleteOriginalFireStation(OriginalFirestation originalFirestation,
                                                                   ArrayList<OriginalFirestation> originalFirestations) {
     logger.debug("Entering deleteOriginalFirestation ");
@@ -37,11 +37,10 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return results;
   }
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public boolean isFireStationAlreadyInFile(Integer stationNumber, String address,
                                             ArrayList<OriginalFirestation> firestations
   ) {
@@ -49,17 +48,17 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     boolean isAlreadyInFile = false;
     OriginalFirestation selectedFireStations =
             getFireStationByNumberAndAddress(firestations, stationNumber, address);
-    if (selectedFireStations.getAddress() != null||selectedFireStations.getStation() != null) {
+    if (selectedFireStations.getAddress() != null || selectedFireStations.getStation() != null) {
       isAlreadyInFile = true;
     }
     logger.debug("isFireStationAlreadyInFile sucess ");
     return isAlreadyInFile;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public boolean isFireStationAlreadyInFile(Integer stationNumber,
                                             ArrayList<OriginalFirestation> firestations
   ) {
@@ -74,10 +73,10 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return isAlreadyInFile;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public boolean isFireStationAlreadyInFile(String address,
                                             ArrayList<OriginalFirestation> firestations
   ) {
@@ -92,10 +91,10 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return isAlreadyInFile;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public boolean isAdressLinked(String address,
                                 ArrayList<OriginalFirestation> firestations
   ) {
@@ -110,10 +109,10 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return isAlreadyInFile;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OriginalFirestation checkIfAdressExist(ArrayList<OriginalFirestation> firestations,
                                                 String address) {
     logger.debug("Entering checkIfAdressExist ");
@@ -127,11 +126,10 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return new OriginalFirestation();
   }
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OriginalFirestation> getOriginalFireStations() {
     logger.debug("Entering getOriginalFireStations ");
     originalResponse =
@@ -147,17 +145,17 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OriginalFirestation getFireStationByNumberAndAddress(ArrayList<OriginalFirestation> fireStations,
 
                                                               Integer stationNumber,
                                                               String address) {
     logger.debug("Entering getFireStationByNumberAndAddress ");
     for (OriginalFirestation originalFireStation : fireStations) {
-      if (originalFireStation.getStation() == stationNumber && originalFireStation.getAddress().equalsIgnoreCase(address)) {
+      if (originalFireStation.getStation() == stationNumber.intValue() && originalFireStation.getAddress().equalsIgnoreCase(address)) {
         logger.debug("Exit getFireStationByNumberAndAddress ");
         return originalFireStation;
       }
@@ -166,10 +164,10 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return new OriginalFirestation();
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OriginalFirestation getFireStationByAddress(ArrayList<OriginalFirestation> fireStations,
                                                      String address) {
     logger.debug("Entering getFireStationByAddress ");
@@ -183,15 +181,15 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return new OriginalFirestation();
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OriginalFirestation getFireStationByNumber(ArrayList<OriginalFirestation> fireStations,
                                                     Integer number) {
     logger.debug("entering getFireStationByNumber ");
     for (OriginalFirestation originalFireStation : fireStations) {
-      if (originalFireStation.getStation() == number) {
+      if (originalFireStation.getStation() == number.intValue()) {
         logger.debug("Exit getFireStationByNumber ");
         return originalFireStation;
       }
@@ -200,16 +198,16 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return new OriginalFirestation();
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OriginalFirestation> getFireStationsWithoutThisStation(ArrayList<OriginalFirestation> fireStations,
-                                                                Integer number) {
+                                                                          Integer number) {
     logger.debug("entering getFireStationByNumber ");
     ArrayList<OriginalFirestation> originalFirestations = new ArrayList<>();
     for (OriginalFirestation originalFireStation : fireStations) {
-      if (originalFireStation.getStation() != number) {
+      if (originalFireStation.getStation() != number.intValue()) {
         originalFirestations.add(originalFireStation);
       }
     }
@@ -217,18 +215,17 @@ public class OriginalFireStationServiceImpl implements OriginalFireStationServic
     return originalFirestations;
   }
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OriginalFirestation> postNewFireStation(OriginalFirestation originalFirestation,
                                                            ArrayList<OriginalFirestation> originalFirestations) {
     logger.debug("entering postNewFireStation ");
     boolean isPresent = false;
     for (OriginalFirestation currentFirestation : originalFirestations) {
-      if (originalFirestation.getAddress().equals(currentFirestation.getAddress()) &&
-              originalFirestation.getStation() == currentFirestation.getStation()) {
+      if (originalFirestation.getAddress().equalsIgnoreCase(currentFirestation.getAddress()) &&
+              originalFirestation.getStation().intValue() == currentFirestation.getStation().intValue()) {
         isPresent = true;
       }
     }

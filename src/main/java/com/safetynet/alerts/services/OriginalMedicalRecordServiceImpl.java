@@ -20,10 +20,10 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OriginalMedicalrecord> postNewMedicalRecord(OriginalMedicalrecord originalMedicalrecord,
                                                                ArrayList<OriginalMedicalrecord> originalMedicalrecords) {
     logger.debug("Entering postNewMedicalRecord ");
@@ -44,10 +44,10 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
     return originalMedicalRecordResult;
   }
 
+  /**
+   * @inheritDoc
+   */
   @Override
-/**
- * @inheritDoc
- */
   public ArrayList<OriginalMedicalrecord> deleteOriginalMedicalRecord(OriginalMedicalrecord originalMedicalrecord,
                                                                       ArrayList<OriginalMedicalrecord> originalMedicalrecords) {
     logger.debug("Entering deleteOriginalMedicalRecord ");
@@ -63,11 +63,10 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
     return results;
   }
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public boolean isMedicalRecordAlreadyInFile(String firstName, String lastName,
                                               ArrayList<OriginalMedicalrecord> medicalrecords
   ) {
@@ -75,17 +74,17 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
     boolean isAlreadyInFile = false;
     OriginalMedicalrecord selectedMedicalrecords =
             getMedicalRecordByFirstLastName(medicalrecords, firstName, lastName);
-    if (selectedMedicalrecords.getFirstName()!=null && selectedMedicalrecords.getLastName()!=null) {
+    if (selectedMedicalrecords.getFirstName() != null && selectedMedicalrecords.getLastName() != null) {
       isAlreadyInFile = true;
     }
     logger.debug("Success isMedicalRecordAlreadyInFile ");
     return isAlreadyInFile;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OriginalMedicalrecord getMedicalRecordByFirstLastName(ArrayList<OriginalMedicalrecord> medicalRecords,
                                                                String firstName, String lastName) {
     logger.debug("Entering getMedicalRecordByFirstLastName ");
@@ -99,10 +98,10 @@ public class OriginalMedicalRecordServiceImpl implements OriginalMedicalRecordSe
     return new OriginalMedicalrecord();
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashMap<String, OriginalMedicalrecord> getOriginalMedicalRecordHashMap() {
     logger.debug("Entering getOriginalMedicalRecordHashMap ");
     originalResponse =

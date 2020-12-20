@@ -25,7 +25,8 @@ import javax.validation.Valid;
 @RestController
 public class MedicalRecordController {
 
-  private static final Logger logger = LogManager.getLogger("SafetyNetAlerts personController");
+  private static final Logger logger = LogManager.getLogger("SafetyNetAlerts " +
+          "medicalRecordController");
   @Autowired
   OriginalFleService originalFleService;
   @Autowired
@@ -34,9 +35,9 @@ public class MedicalRecordController {
   CreateWorkingFileService createWorkingFileService;
 
   @PostMapping("/medicalRecord")
-  OriginalMedicalrecord postFireStation(@Valid @RequestBody OriginalMedicalrecord newMedicalRecord,
-                                        final HttpServletResponse response,
-                                        final HttpServletRequest request) {
+  OriginalMedicalrecord postMedicalRecord(@Valid @RequestBody OriginalMedicalrecord newMedicalRecord,
+                                          final HttpServletResponse response,
+                                          final HttpServletRequest request) {
 
 
     RequestLogger.logObjectRequest(request, "medicalRecordController");
@@ -66,9 +67,9 @@ public class MedicalRecordController {
   }
 
   @PutMapping("/medicalRecord")
-  OriginalMedicalrecord putFireStation(@Valid @RequestBody OriginalMedicalrecord modifyMedicalRecord,
-                                       final HttpServletResponse response,
-                                       final HttpServletRequest request) {
+  OriginalMedicalrecord putMedicalRecord(@Valid @RequestBody OriginalMedicalrecord modifyMedicalRecord,
+                                         final HttpServletResponse response,
+                                         final HttpServletRequest request) {
 
 
     RequestLogger.logObjectRequest(request, "fireStationController");
@@ -93,7 +94,7 @@ public class MedicalRecordController {
 
     originalMedicalRecords =
             originalMedicalRecordService.deleteOriginalMedicalRecord(originalMedicalRecord,
-            originalMedicalRecords);
+                    originalMedicalRecords);
     originalMedicalRecords.add(modifyMedicalRecord);
     originalResponse.setMedicalrecords(originalMedicalRecords);
 
@@ -137,7 +138,7 @@ public class MedicalRecordController {
 
     originalMedicalRecords =
             originalMedicalRecordService.deleteOriginalMedicalRecord(originalMedicalRecord,
-            originalMedicalRecords);
+                    originalMedicalRecords);
     originalResponse.setMedicalrecords(originalMedicalRecords);
 
     originalFleService.writeOriginalFile(originalResponse);

@@ -28,10 +28,10 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   @Autowired
   RetrieveWorkingDataRepository retrieveWorkingDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<WorkingHome> reestablishCase(Collection<WorkingHome> workingHomes) {
     logger.debug("Entering reestablishCase ");
 
@@ -48,10 +48,10 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public WorkingHome searchWorkingHome(String address, ArrayList<WorkingHome> workingHomes) {
     logger.debug("Entering searchWorkingHome ");
     for (WorkingHome workingHome : workingHomes) {
@@ -65,20 +65,20 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
 
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<WorkingHome> getWorkingHomesArrayList() {
     ArrayList<WorkingHome> workingHomes = new ArrayList<WorkingHome>();
     workingHomes.addAll(createWorkingHomes());
     return workingHomes;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashSet<WorkingHome> createWorkingHomes() {
     logger.debug("Entering createWorkingHomes ");
     OriginalResponse originalResponse =
@@ -97,10 +97,10 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
     return homeHashSet;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashMap<UUID, WorkingHome> getFinishedWorkingHomesHashMap() {
     logger.debug("Entering getFinishedWorkingHomesHashMap ");
     HashMap<UUID, WorkingHome> hashMapWorkingHomes = new HashMap<>();
@@ -111,10 +111,10 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
     return hashMapWorkingHomes;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashMap<String, WorkingHome> getUnFinishedWorkingHomesHashMap() {
     logger.debug("Entering getUnFinishedWorkingHomesHashMap ");
     HashMap<String, WorkingHome> hashMapWorkingHomes = new HashMap<>();
@@ -125,13 +125,13 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
     return hashMapWorkingHomes;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public WorkingHome getHomeById(UUID homeId) {
     logger.debug("Entering getHomeById ");
-    WorkingHome workingHome = new WorkingHome();
+    WorkingHome workingHome ;
     ArrayList<WorkingHome> workingHomes =
             retrieveWorkingDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE).getHomes();
     for (WorkingHome currentWorkingHome : workingHomes) {
@@ -145,10 +145,10 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
     return null;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<WorkingHome> retrieveWorkingHomeFromFile(String filePath) {
     WorkingResponse wr = retrieveWorkingDataRepository.getWorkingData(filePath);
     ArrayList<WorkingHome> ws = wr.getHomes();

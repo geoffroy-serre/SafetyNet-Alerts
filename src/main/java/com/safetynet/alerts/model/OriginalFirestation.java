@@ -6,12 +6,10 @@ import org.springframework.stereotype.Component;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Component
 /**
- * Original data format
- * @param String address;
- * @param Integer station;
+ * Original data format.
  */
+@Component
 public class OriginalFirestation {
 
   @JsonProperty("address")

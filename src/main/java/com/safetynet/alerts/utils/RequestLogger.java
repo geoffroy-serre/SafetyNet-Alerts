@@ -4,12 +4,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
+
 @Service
 public class RequestLogger {
+
   private static final Logger logger = LogManager.getLogger("App");
 
   /**
-   * logger info for Get request
+   * logger info for Get request.
    *
    * @param request
    */
@@ -21,8 +23,8 @@ public class RequestLogger {
   /**
    * Logger  info for post put delete request.
    *
-   * @param request
-   * @param controller
+   * @param request    HttpServletRequest
+   * @param controller String
    */
   public static void logObjectRequest(final HttpServletRequest request, String controller
   ) {

@@ -22,10 +22,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutHome> setStationNumberNull(ArrayList<OutPutHome> outPutHomes) {
     logger.debug("Entering setStationNumberNull ");
     ArrayList<OutPutHome> result = new ArrayList<>();
@@ -37,10 +37,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutHome> getCountChildrenAndAdultsforList(ArrayList<OutPutHome> outPutHomes) {
     logger.debug("Entering getCountChildrenAndAdultsforList ");
     for (OutPutHome outPutHome : outPutHomes) {
@@ -64,10 +64,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return outPutHomes;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutHome> getHomeByStationNumber(ArrayList<OutPutHome> outPutHomes,
                                                       OutPutFireStation firestation) {
     logger.debug("Entering getHomeByStationNumber ");
@@ -89,10 +89,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return fireStationHomes;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutHome> setPersons(ArrayList<OutPutPerson> persons,
                                           ArrayList<OutPutHome> homes) {
     logger.debug("Entering setPersons ");
@@ -112,10 +112,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OutPutHome setPersonsHome(ArrayList<OutPutPerson> persons,
                                    OutPutHome home) {
 
@@ -134,10 +134,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return home;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<UUID> getHomesIds(ArrayList<OutPutHome> homes) {
     logger.debug("Entering getHomesIds ");
     ArrayList<UUID> result = new ArrayList<>();
@@ -148,10 +148,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutHome> getHomesbyIds(ArrayList<OutPutFireStation> firestations,
                                              ArrayList<OutPutHome> homes) {
     logger.debug("Entering getHomesbyIds ");
@@ -170,10 +170,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return homesResult;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OutPutHome getHomeByAddress(String address) {
     logger.debug("Entering getHomeByAddress ");
     OutPutHome selectedHome = new OutPutHome();
@@ -186,10 +186,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return selectedHome;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashSet<UUID> getHomesByCity(String city) {
     logger.debug("Entering getHomesByCity ");
     HashSet<UUID> homesIds = new HashSet<>();
@@ -203,10 +203,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return homesIds;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OutPutHome transformWorkingIntoOutPut(WorkingHome inputHome) {
     logger.debug("Entering transformWorkingIntoOutPut ");
     OutPutHome result = new OutPutHome();
@@ -218,10 +218,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutHome> getOutPutHomeList() {
     logger.debug("Entering getOutPutHomeList ");
     OutPutResponse reponse =
@@ -232,10 +232,10 @@ public class OutPutHomeServiceImpl implements OutPutHomeService {
     return outPutHomes;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutHome> transformWorkingIntoOutPut(ArrayList<WorkingHome> inputHome) {
     logger.debug("Entering transformWorkingIntoOutPut ");
     ArrayList<OutPutHome> outPutHomes = new ArrayList<>();

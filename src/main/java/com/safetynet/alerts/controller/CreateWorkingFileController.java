@@ -11,11 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class CreateWorkingFileController {
-  private static final Logger logger = LogManager.getLogger("App");
+  private static final Logger logger = LogManager.getLogger("createWorkingFileController");
 
   @Autowired
   CreateWorkingFileService createWorkingFileService;
 
+  /**
+   * Create WorkingFIle from originalData.
+   */
   @GetMapping("/createWorkingFile")
   public void createWorkingFile(final HttpServletResponse response,
                                 final HttpServletRequest request) {

@@ -6,20 +6,10 @@ import java.util.Objects;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
-@Component
 /**
  * Working format data
- * @param UUID id;
- * @param String firstName;
- * @param String lastName;
- * @param  UUID homeID;
- * @param String phone;
- * @param  LocalDate birthdate;
- * @param int age;
- * @param String email;
- * @param  idMedicalRecord = new UUID(0L, 0L);
- *
  */
+@Component
 public class WorkingPerson {
 
   @JsonProperty("id")

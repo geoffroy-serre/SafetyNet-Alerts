@@ -19,7 +19,7 @@ public interface WorkingMedicalRecordService {
   /**
    * from lower case to upper case for each first letter.
    *
-   * @param workingMedicalRecords
+   * @param workingMedicalRecords Collection<WorkingMedicalRecord>
    * @return ArrayList of WorkingMedicalRecord
    */
   ArrayList<WorkingMedicalRecord> reestablishCase(Collection<WorkingMedicalRecord> workingMedicalRecords);

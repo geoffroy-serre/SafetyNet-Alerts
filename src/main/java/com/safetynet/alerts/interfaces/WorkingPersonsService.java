@@ -10,7 +10,7 @@ public interface WorkingPersonsService {
   /**
    * from lower case to upper case for each first letter .
    *
-   * @param workingPersons
+   * @param workingPersons Collection<WorkingPerson>
    * @return ArrayList WorkingPerson
    */
   ArrayList<WorkingPerson> reestablishCase(Collection<WorkingPerson> workingPersons);

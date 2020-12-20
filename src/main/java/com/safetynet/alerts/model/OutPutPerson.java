@@ -6,21 +6,10 @@ import java.util.Objects;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
-@Component
 /**
- * Contains out put format data
- * @param String firstName;
- * @param String lastName;
- * @param OutPutHome home;
- * @param String phone;
- * @param LocalDate birthdate;
- * @param Integer age;
- * @param String email;
- * @param OutPutMedicalRecord medicalRecord  ;
- * @param UUID idMedicalRecord  ;
- *@param  UUID idHome;
- *
+ * Contains out put format data.
  */
+@Component
 public class OutPutPerson {
 
   @JsonProperty("firstName")

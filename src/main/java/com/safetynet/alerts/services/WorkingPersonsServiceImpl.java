@@ -25,10 +25,10 @@ public class WorkingPersonsServiceImpl implements WorkingPersonsService {
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<WorkingPerson> reestablishCase(Collection<WorkingPerson> workingPersons) {
     logger.debug("Entering reestablishCase ");
     ArrayList<WorkingPerson> result = new ArrayList<>();
@@ -43,10 +43,10 @@ public class WorkingPersonsServiceImpl implements WorkingPersonsService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashMap<String, WorkingPerson> getWorkingPersonsHashMap() {
     logger.debug("Entering getWorkingPersonsHashMap ");
     originalResponse =

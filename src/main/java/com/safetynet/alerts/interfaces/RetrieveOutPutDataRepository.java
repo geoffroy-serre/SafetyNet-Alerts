@@ -4,7 +4,9 @@ import com.safetynet.alerts.model.OutPutResponse;
 
 public interface RetrieveOutPutDataRepository {
   /**
-   * @param constantFilePath
+   * Get data with output format
+   *
+   * @param constantFilePath String
    * @return OutPutResponse
    */
   OutPutResponse getOutPutData(String constantFilePath);

@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public interface OutPutMedicalRecordService {
   /**
-   * Return null if no match
+   * Return null if no match.
    *
    * @param medicalRecordId
    * @return OutPutMedicalRecord
@@ -14,7 +14,9 @@ public interface OutPutMedicalRecordService {
   OutPutMedicalRecord getMedicalRecordById(UUID medicalRecordId);
 
   /**
-   * @return ArrayList of OutPutMedicalRecord from working file
+   * getAllMedicalRecords.
+   *
+   * @return ArrayList of OutPutMedicalRecord from working file.
    */
   ArrayList<OutPutMedicalRecord> getAllMedicalRecords();
 }

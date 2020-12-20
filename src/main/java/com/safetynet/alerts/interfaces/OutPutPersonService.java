@@ -8,68 +8,70 @@ import java.util.UUID;
 public interface OutPutPersonService {
 
   /**
-   * Check for presence of a persons in workingFile
+   * Check for presence of a persons in workingFile.
    *
-   * @param firstName
-   * @param lastName
+   * @param firstName String
+   * @param lastName  String
    * @return boolean
    */
   boolean isPersonAlreadyInFile(String firstName, String lastName);
 
   /**
-   * Set email to null to avoid diplay on result
+   * Set email to null to avoid diplay on result.
    *
-   * @param persons
-   * @return ArrayLsit of OutPutPerson
+   * @param persons ArrayList<OutPutPerson>
+   * @return ArrayList of OutPutPerson
    */
   ArrayList<OutPutPerson> setEmailToNull(ArrayList<OutPutPerson> persons);
 
   /**
-   * @param homeIds
+   * Get persons homd Ids.
+   *
+   * @param homeIds ArrayList<UUID>
    * @return ArrayList of OutPutPerson
    */
   ArrayList<OutPutPerson> getPersonByHomeIds(ArrayList<UUID> homeIds);
 
   /**
-   * @param persons
+   * @param persons ArrayList<OutPutPerson>
    * @return HashSet of String
    */
   HashSet<String> getPersonsPhones(ArrayList<OutPutPerson> persons);
 
   /**
-   * Set Persons Homes data
+   * Set Persons Homes data.
    *
-   * @param persons
-   * @param homes
+   * @param persons ArrayList<OutPutPerson>
+   * @param homes   ArrayList<OutPutHome>
    * @return ArrayList of OutPutPerson
    */
   ArrayList<OutPutPerson> setPersonsHome(ArrayList<OutPutPerson> persons,
                                          ArrayList<OutPutHome> homes);
 
   /**
-   * Set medicalrecord data for OutPutPersons
+   * Set medicalrecord data for OutPutPersons.
    *
-   * @param outPutPersons
-   * @param outPutMedicalRecords
+   * @param outPutPersons        ArrayList<OutPutPerson>
+   * @param outPutMedicalRecords ArrayList<OutPutMedicalRecord>
    * @return ArrayList of OutPutPerson
    */
   ArrayList<OutPutPerson> setMedicalRecordForPersons(ArrayList<OutPutPerson> outPutPersons
           , ArrayList<OutPutMedicalRecord> outPutMedicalRecords);
 
   /**
-   * Set Phone null to avoi display
+   * Set Phone null to avoi display.
    *
-   * @param persons
+   * @param persons ArrayList<OutPutPerson>
    * @return ArrayList of OutPutPerson
    */
   ArrayList<OutPutPerson> setPhoneNull(ArrayList<OutPutPerson> persons);
 
   /**
-   * Search for Person with given parameters
+   * Search for Person with given parameters.
    * Not case sensitive
    *
-   * @param firstName
-   * @param lastName
+   * @param firstName String
+   * @param lastName  String
    * @return
    */
   ArrayList<OutPutPerson> getPersonsByFirstAndLastName(String firstName, String lastName);
@@ -77,7 +79,7 @@ public interface OutPutPersonService {
   /**
    * List in parameter already contains right person with right city
    *
-   * @param homeIds
+   * @param homeIds HashSet<UUID>
    * @return HashSet of String
    */
   HashSet<String> getPersonsEmailByCity(HashSet<UUID> homeIds);
@@ -86,13 +88,13 @@ public interface OutPutPersonService {
    * Create OutPutChild with a list for adult a list for children.
    * Depending of constant Of_Age
    *
-   * @param persons
+   * @param persons ArrayList<OutPutPerson>
    * @return OutPutChild
    */
   OutPutChild getCountedTypeOfPersons(ArrayList<OutPutPerson> persons);
 
   /**
-   * @param outPutHome
+   * @param outPutHome OutPutHome
    * @return ArrayList of OutPutPerson
    */
   ArrayList<OutPutPerson> getPersonsByHomeID(OutPutHome outPutHome);
@@ -107,7 +109,7 @@ public interface OutPutPersonService {
   /**
    * Person conversion.
    *
-   * @param inputPerson
+   * @param inputPerson WorkingPerson
    * @return OutPutPerson
    */
   OutPutPerson transformWorkingIntoOutPut(WorkingPerson inputPerson);
@@ -115,7 +117,7 @@ public interface OutPutPersonService {
   /**
    * Persons conversion
    *
-   * @param inputPerson
+   * @param inputPerson ArrayList<WorkingPerson>
    * @return ArrayList of OutPutPerson
    */
   ArrayList<OutPutPerson> transformWorkingIntoOutPut(ArrayList<WorkingPerson> inputPerson);

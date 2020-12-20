@@ -20,10 +20,10 @@ public class RetrieveOriginalDataServiceImpl implements RetrieveOriginalDataServ
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OriginalResponse retrieveOriginalData(String filepath) {
     logger.debug("Entering retrieveOriginalData");
 

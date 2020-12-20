@@ -6,13 +6,10 @@ import java.util.Objects;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
-@Component
 /**
  * Working format data
- *@param UUID idMedicalRecord;
- * @param ArrayList<String> medications;
- * @param ArrayList<String> allergies;
  */
+@Component
 public class WorkingMedicalRecord {
 
   @JsonProperty("idMedicalRecord")

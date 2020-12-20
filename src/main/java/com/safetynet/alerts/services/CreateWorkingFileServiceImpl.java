@@ -44,10 +44,10 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
   @Autowired
   CreateWorkingFileService createWorkingFileService;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public void writeFile(WorkingResponse wr) {
 
     ObjectMapper objectMapper = new ObjectMapper();
@@ -67,10 +67,10 @@ public class CreateWorkingFileServiceImpl implements CreateWorkingFileService {
     logger.debug("WorkingFile written");
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   @PostConstruct
   public void createWorkingFile() {
     logger.debug("Entering creating Working File: ");

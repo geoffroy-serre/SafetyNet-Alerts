@@ -5,14 +5,10 @@ import java.util.Objects;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
-@Component
 /**
  * Working format data
- * @param UUID idHome;
- * @param String address;
- * @param String city;
- * @param  String zip;
  */
+@Component
 public class WorkingHome {
 
   @JsonProperty("idHome")

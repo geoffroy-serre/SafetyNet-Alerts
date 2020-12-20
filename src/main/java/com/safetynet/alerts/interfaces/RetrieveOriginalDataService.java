@@ -4,9 +4,9 @@ import com.safetynet.alerts.model.OriginalResponse;
 
 public interface RetrieveOriginalDataService {
   /**
-   * HashSet used to check for duplicates
+   * HashSet used to check for duplicates.
    *
-   * @param filepath
+   * @param filepath String
    * @return OriginalResponse
    */
   OriginalResponse retrieveOriginalData(String filepath);

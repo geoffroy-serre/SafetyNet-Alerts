@@ -9,9 +9,9 @@ import java.util.HashMap;
 public interface WorkingFirestationsService {
 
   /**
-   * From lower case to each first letter in uppercase
+   * From lower case to each first letter in uppercase.
    *
-   * @param workingFireStations
+   * @param workingFireStations Collection<WorkingFireStation>
    * @return ArrayList of WorkingFireStation
    */
   ArrayList<WorkingFireStation> reestablishCase(Collection<WorkingFireStation> workingFireStations);
@@ -25,7 +25,7 @@ public interface WorkingFirestationsService {
   public HashMap<Integer, WorkingFireStation> createWorkingFiresStationHashMap();
 
   /**
-   * Key Station number, value WorkingFirestation
+   * Key Station number, value WorkingFirestation.
    *
    * @return hashMap of Integer and WorkingFireStation
    */

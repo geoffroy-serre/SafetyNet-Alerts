@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +20,10 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OriginalPerson> postNewPerson(OriginalPerson originalPerson,
                                                  ArrayList<OriginalPerson> originalPersons) {
     logger.debug("Entering postNewPerson ");
@@ -46,19 +45,18 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
     return originalPersonsResult;
   }
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OriginalPerson> getOriginalPersons(OriginalResponse originalResponse) {
     return originalResponse.getPersons();
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashMap<String, OriginalPerson> getOriginalPersonHashMap() {
     logger.debug("Entering getOriginalPersonHashMap ");
     originalResponse =
@@ -73,10 +71,10 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
     return originalPersonHashMap;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OriginalPerson getOriginalPersonByFirstAndLastName(String firstName, String lastName,
                                                             ArrayList<OriginalPerson> originalPersons) {
     logger.debug("Entering getOriginalPersonByFirstAndLastName ");
@@ -91,11 +89,10 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
     return new OriginalPerson();
   }
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OriginalPerson> deleteOriginalPerson(OriginalPerson originalPerson,
                                                         ArrayList<OriginalPerson> originalPersons) {
     logger.debug("Entering deleteOriginalPerson ");
@@ -109,13 +106,13 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
     return results;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OriginalPerson> deletePersonbyFirstAndLastNames(String firstName,
                                                                    String lastName,
-                                                ArrayList<OriginalPerson> originalPersons) {
+                                                                   ArrayList<OriginalPerson> originalPersons) {
     logger.debug("Entering deletePerson ");
     ArrayList<OriginalPerson> results = new ArrayList<>();
     for (OriginalPerson currentPerson : originalPersons) {

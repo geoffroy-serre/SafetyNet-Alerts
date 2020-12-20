@@ -9,8 +9,8 @@ public interface OriginalMedicalRecordService {
    * Add given OriginalMedicalRecord to the existing list
    * Verify if given MedicalRecord is allready present.
    *
-   * @param originalMedicalrecord
-   * @param originalMedicalrecords
+   * @param originalMedicalrecord  OriginalMedicalrecord
+   * @param originalMedicalrecords ArrayList<OriginalMedicalrecord>
    * @return ArrayList of OriginalMedicalRecord
    */
   ArrayList<OriginalMedicalrecord> postNewMedicalRecord(OriginalMedicalrecord originalMedicalrecord,
@@ -19,9 +19,9 @@ public interface OriginalMedicalRecordService {
   /**
    * Delete originalMedicalrecord from given list
    *
-   * @param originalMedicalrecord
-   * @param originalMedicalrecords
-   * @return
+   * @param originalMedicalrecord  OriginalMedicalrecord
+   * @param originalMedicalrecords ArrayList<OriginalMedicalrecord>
+   * @return ArrayList<OriginalMedicalrecord>
    */
   ArrayList<OriginalMedicalrecord> deleteOriginalMedicalRecord(OriginalMedicalrecord originalMedicalrecord,
                                                                ArrayList<OriginalMedicalrecord> originalMedicalrecords);
@@ -29,9 +29,9 @@ public interface OriginalMedicalRecordService {
   /**
    * Search for an OriginalMedicalrecord in given list.
    *
-   * @param firstName
-   * @param lastName
-   * @param medicalrecords
+   * @param firstName      String
+   * @param lastName       String
+   * @param medicalrecords ArrayList<OriginalMedicalrecord>
    * @return boolean
    */
   boolean isMedicalRecordAlreadyInFile(String firstName, String lastName,
@@ -42,9 +42,9 @@ public interface OriginalMedicalRecordService {
    * Search for OriginalMedicalrecord in given list with given parameters.
    * Return new OriginalMedicalrecord if no matchses
    *
-   * @param medicalRecords
-   * @param firstName
-   * @param lastName
+   * @param medicalRecords ArrayList<OriginalMedicalrecord>
+   * @param firstName      String
+   * @param lastName       String
    * @return OriginalMedicalrecord
    */
   OriginalMedicalrecord getMedicalRecordByFirstLastName(ArrayList<OriginalMedicalrecord> medicalRecords,

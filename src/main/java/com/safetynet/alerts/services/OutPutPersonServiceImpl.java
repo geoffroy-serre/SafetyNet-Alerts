@@ -21,10 +21,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
   @Autowired
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public boolean isPersonAlreadyInFile(String firstName, String lastName) {
     logger.debug("Entering isPersonAlreadyInFile ");
 
@@ -38,11 +38,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return isAlreadyInFile;
   }
 
-
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutPerson> setEmailToNull(ArrayList<OutPutPerson> persons) {
     logger.debug("Entering setEmailToNull ");
     ArrayList<OutPutPerson> results = new ArrayList<>();
@@ -54,10 +53,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return results;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutPerson> getPersonByHomeIds(ArrayList<UUID> homeIds) {
     logger.debug("Entering getPersonByHomeIds ");
 
@@ -73,10 +72,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashSet<String> getPersonsPhones(ArrayList<OutPutPerson> persons) {
     logger.debug("Entering getPersonsPhones ");
     HashSet<String> result = new HashSet<>();
@@ -87,10 +86,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutPerson> setPersonsHome(ArrayList<OutPutPerson> persons,
                                                 ArrayList<OutPutHome> homes) {
     logger.debug("Entering setPersonsHome ");
@@ -107,10 +106,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutPerson> setMedicalRecordForPersons(ArrayList<OutPutPerson> outPutPersons
           , ArrayList<OutPutMedicalRecord> outPutMedicalRecords) {
     logger.debug("Entering setMedicalRecordForPersons ");
@@ -132,10 +131,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return results;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutPerson> setPhoneNull(ArrayList<OutPutPerson> persons) {
     logger.debug("Entering setPhoneNull ");
     ArrayList<OutPutPerson> result = new ArrayList<>();
@@ -147,10 +146,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutPerson> getPersonsByFirstAndLastName(String firstName, String lastName) {
     logger.debug("Entering getPersonsByFirstAndLastName ");
     ArrayList<OutPutPerson> selectedPersons = new ArrayList<>();
@@ -164,10 +163,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return selectedPersons;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashSet<String> getPersonsEmailByCity(HashSet<UUID> homeIds) {
     logger.debug("Entering getPersonsEmailByCity ");
     HashSet<String> output = new HashSet<>();
@@ -182,10 +181,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return output;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OutPutChild getCountedTypeOfPersons(ArrayList<OutPutPerson> persons) {
     logger.debug("Entering getCountedTypeOfPersons ");
     ArrayList<OutPutPerson> family = new ArrayList<>();
@@ -213,13 +212,13 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return outPutChild;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutPerson> getPersonsByHomeID(OutPutHome selectedHome) {
     logger.debug("Entering getPersonsByHomeID ");
-    ArrayList<OutPutPerson> personsForSelectedHome = new ArrayList();
+    ArrayList<OutPutPerson> personsForSelectedHome = new ArrayList<>();
     for (OutPutPerson outPutPerson : getAllPerson()) {
       if (selectedHome.getIdHome().equals(outPutPerson.getIdHome())) {
         if (outPutPerson.getBirthdate() != null) {
@@ -233,20 +232,20 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
     return personsForSelectedHome;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutPerson> getAllPerson() {
     ArrayList<OutPutPerson> output =
             retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE).getPersons();
     return output;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public OutPutPerson transformWorkingIntoOutPut(WorkingPerson inputPerson) {
     logger.debug("Entering transformWorkingIntoOutPut ");
     OutPutPerson result = new OutPutPerson();
@@ -263,10 +262,10 @@ public class OutPutPersonServiceImpl implements OutPutPersonService {
 
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<OutPutPerson> transformWorkingIntoOutPut(ArrayList<WorkingPerson> inputPersons) {
     logger.debug("Entering transformWorkingIntoOutPut ");
     ArrayList<OutPutPerson> output = new ArrayList<>();

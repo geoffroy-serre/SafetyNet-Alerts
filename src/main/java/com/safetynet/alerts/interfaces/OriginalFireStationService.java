@@ -11,9 +11,9 @@ public interface OriginalFireStationService {
    * Search for presence of a FireStation presence in a given list.
    * Search by number and Adress.
    *
-   * @param stationNumber
-   * @param address
-   * @param firestations
+   * @param stationNumber Integer
+   * @param address       String
+   * @param firestations  ArrayList<OriginalFirestation>>
    * @return boolean
    */
   boolean isFireStationAlreadyInFile(Integer stationNumber, String address,
@@ -23,8 +23,8 @@ public interface OriginalFireStationService {
   /**
    * Search for presence of Firestation in a List by given number.
    *
-   * @param stationNumber
-   * @param firestations
+   * @param stationNumber Integer
+   * @param firestations  ArrayList<OriginalFirestation>
    * @return boolean
    */
   boolean isFireStationAlreadyInFile(Integer stationNumber,
@@ -34,8 +34,8 @@ public interface OriginalFireStationService {
   /**
    * Search for presence of a Firestation with a given adress.
    *
-   * @param address
-   * @param firestations
+   * @param address      String
+   * @param firestations ArrayList<OriginalFirestation>
    * @return boolean
    */
 
@@ -46,8 +46,8 @@ public interface OriginalFireStationService {
   /**
    * Search is and adress is already linked to a Firestation.
    *
-   * @param address
-   * @param firestations
+   * @param address      String
+   * @param firestations ArrayList<OriginalFirestation>
    * @return boolean
    */
   boolean isAdressLinked(String address,
@@ -57,8 +57,8 @@ public interface OriginalFireStationService {
   /**
    * Search for a Firestation for an adress in the OriginalFirestation.
    *
-   * @param firestations
-   * @param address
+   * @param firestations ArrayList<OriginalFirestation>
+   * @param address      String
    * @return
    */
   OriginalFirestation checkIfAdressExist(ArrayList<OriginalFirestation> firestations,
@@ -75,9 +75,9 @@ public interface OriginalFireStationService {
    * Retrieve FireStation by name and Address.
    * Return new OriginalFireStation if no matches.
    *
-   * @param fireStations
-   * @param stationNumber
-   * @param address
+   * @param fireStations  ArrayList<OriginalFirestation>
+   * @param stationNumber Integer
+   * @param address       String
    * @return OriginalFirestation
    */
   OriginalFirestation getFireStationByNumberAndAddress(ArrayList<OriginalFirestation> fireStations,
@@ -87,8 +87,8 @@ public interface OriginalFireStationService {
    * Retrieve FireStation by Address.
    * Return new OriginalFireStation if no matches.
    *
-   * @param fireStations
-   * @param address
+   * @param fireStations ArrayList<OriginalFirestation>
+   * @param address      String
    * @return OriginalFirestation
    */
   OriginalFirestation getFireStationByAddress(ArrayList<OriginalFirestation> fireStations,
@@ -98,8 +98,8 @@ public interface OriginalFireStationService {
    * Retrieve FireStation by station number.
    * Return new OriginalFireStation if no matches.
    *
-   * @param fireStations
-   * @param number
+   * @param fireStations ArrayList<OriginalFirestation>
+   * @param number       Integer
    * @return OriginalFirestation
    */
   OriginalFirestation getFireStationByNumber(ArrayList<OriginalFirestation> fireStations,
@@ -109,18 +109,18 @@ public interface OriginalFireStationService {
    * Retrieve FireStations by station number.
    * Return empty ArrayList if no matches.
    *
-   * @param fireStations
-   * @param number
+   * @param fireStations ArrayList<OriginalFirestation>
+   * @param number       Integer
    * @return ArrayList of OriginalFireStations
    */
   ArrayList<OriginalFirestation> getFireStationsWithoutThisStation(ArrayList<OriginalFirestation> fireStations,
-                                                         Integer number);
+                                                                   Integer number);
 
   /**
    * Create a new list with the OriginalFirestation you want to add.
    *
-   * @param originalFirestation
-   * @param originalFirestations
+   * @param originalFirestation  OriginalFirestation
+   * @param originalFirestations ArrayList<OriginalFirestation>
    * @return ArrayList of OriginalFirestations
    */
   ArrayList<OriginalFirestation> postNewFireStation(OriginalFirestation originalFirestation,

@@ -23,10 +23,10 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
   @Autowired
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashMap<String, WorkingMedicalRecord> getWorkingMedicalRecordsHashMap() {
     logger.debug("Entering getWorkingMedicalRecordsHashMap ");
     OriginalResponse originalResponse =
@@ -44,10 +44,10 @@ public class WorkingMedicalRecordServiceImpl implements WorkingMedicalRecordServ
     return workingMedicalRecordHashMap;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<WorkingMedicalRecord> reestablishCase(Collection<WorkingMedicalRecord> workingMedicalRecords) {
     logger.debug("Entering reestablishCase ");
     ArrayList<WorkingMedicalRecord> result = new ArrayList<>();

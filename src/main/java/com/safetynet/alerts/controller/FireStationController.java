@@ -1,9 +1,6 @@
 package com.safetynet.alerts.controller;
 
-import com.safetynet.alerts.Exceptions.AllreadyInDatabaseException;
-import com.safetynet.alerts.Exceptions.NoDataInDataBaseException;
-import com.safetynet.alerts.Exceptions.NoExistingStation;
-import com.safetynet.alerts.Exceptions.NoStationNumberException;
+import com.safetynet.alerts.Exceptions.*;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.*;
@@ -23,7 +20,7 @@ import javax.validation.Valid;
 @RestController
 public class FireStationController {
 
-  private static final Logger logger = LogManager.getLogger("App");
+  private static final Logger logger = LogManager.getLogger("firestationController");
   @Autowired
   OutPutHomeService outPutHomeService;
   @Autowired
@@ -41,6 +38,14 @@ public class FireStationController {
   @Autowired
   CreateWorkingFileService createWorkingFileService;
 
+  /**
+   * Deletefirestation by adress of station number.
+   *
+   * @param deleteFireStation DeleteFirestation
+   * @param response HttpServletResponse
+   * @param request HttpServletRequest
+   * @return DeleteFireStation
+   */
   @DeleteMapping("/firestation")
   DeleteFirestation deleteFireStation(@Valid @RequestBody DeleteFirestation deleteFireStation,
                                       final HttpServletResponse response,
@@ -97,6 +102,14 @@ public class FireStationController {
     return deleteFireStation;
   }
 
+  /**
+   * Post new firestation.
+   *
+   * @param newFiresStation OriginalFirestation
+   * @param response HttpServletResponse
+   * @param request HttpServletRequest
+   * @return OriginalFireStation
+   */
   @PostMapping("/firestation")
   OriginalFirestation postFireStation(@Valid @RequestBody OriginalFirestation newFiresStation,
                                       final HttpServletResponse response,
@@ -114,6 +127,11 @@ public class FireStationController {
               newFiresStation.getAddress());
 
     }
+    if(originalFirestations.isEmpty()){
+      response.setStatus(500);
+      throw new EmptyDataretrievalException(newFiresStation.toString(),
+              originalFirestations.toString());
+    }
 
     originalFireStationService.postNewFireStation(newFiresStation, originalFirestations);
     originalResponse.setFirestations(originalFirestations);
@@ -128,7 +146,14 @@ public class FireStationController {
 
   }
 
-
+  /**
+   * Modify firestation.
+   *
+   * @param modifyFireStation OriginalFirestation
+   * @param response HttpServletResponse
+   * @param request HttpServletRequest
+   * @return
+   */
   @PutMapping("/firestation")
   OriginalFirestation putFireStation(@Valid @RequestBody OriginalFirestation modifyFireStation,
                                      final HttpServletResponse response,
@@ -178,6 +203,14 @@ public class FireStationController {
     }
   }
 
+  /**
+   * Get persons by stationNumber.
+   *
+   * @param stations  ArrayList<Integer>
+   * @param response HttpServletResponse
+   * @param request HttpServletRequest
+   * @return
+   */
   @GetMapping("/flood/stations")
   public ArrayList<OutPutFireStation> getPersonsByStation(@RequestParam(value = "stations")
                                                                   ArrayList<Integer> stations,
@@ -215,6 +248,14 @@ public class FireStationController {
 
   }
 
+  /**
+   * Get personsInfo and station number by address.
+   *
+   * @param address String
+   * @param response HttpServletResponse
+   * @param request HttpServletRequest
+   * @return
+   */
   @GetMapping("/fire")
   public OutPutHome getPersonsbyAddress(@RequestParam(value = "address") String address,
                                         final HttpServletResponse response,
@@ -238,17 +279,25 @@ public class FireStationController {
     outPutHomeService.setPersonsHome(outPutPersonService.getAllPerson(), selectedHome);
 
     selectedHome.setStationNumber(stationNumber);
-    if (response.getStatus() == 200 && selectedHome.getAddress().equals(address)) {
+    if (response.getStatus() == 200 && selectedHome.getAddress().equalsIgnoreCase(address)) {
       logger.info("Status : " + response.getStatus() + " containing " + selectedHome.toString());
     }
-    if (response.getStatus() == 200 && selectedHome.getAddress().equals(null)) {
+    if (response.getStatus() == 200 && !selectedHome.getAddress().equalsIgnoreCase(address)) {
       response.setStatus(204);
-      logger.info("Status : " + response.getStatus() + " containing no Homes" );
+      logger.info("Status : " + response.getStatus() + " containing no Homes");
     }
     return selectedHome;
 
   }
 
+  /**
+   * Get phones of persons served by given station number.
+   *
+   * @param firestation Integer
+   * @param response HttpServletResponse
+   * @param request HttpServletRequest
+   * @return
+   */
   @GetMapping("/phoneAlert")
   public HashSet<String> getPhoneNumberByStations(@RequestParam(value = "firestation") Integer
                                                           firestation,
@@ -276,6 +325,14 @@ public class FireStationController {
     return result;
   }
 
+  /**
+   * Get persons infos for a given station number and with count of childs and adults.
+   *
+   * @param stationNumber int
+   * @param response HttpServletResponse
+   * @param request HttpServletRequest
+   * @return
+   */
   @GetMapping(path = "/firestation", produces = "application/json")
   public ArrayList<OutPutHome> getPersonbyStationWithFamillyStats(@RequestParam(value =
           "stationNumber") int stationNumber, final HttpServletResponse response,
@@ -285,10 +342,11 @@ public class FireStationController {
             outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),
                     stationNumber);
 
-    if (selectedFireStation == null || selectedFireStation.getIdFirestation()==(new UUID(0L,0L))) {
+    if (selectedFireStation == null || selectedFireStation.getIdFirestation() == (new UUID(0L,
+            0L))) {
       response.setStatus(204);
       logger.info("Status : " + response.getStatus() + " no result for station number " + stationNumber);
-     return new ArrayList<>();
+      return new ArrayList<>();
     }
     ArrayList<OutPutHome> served =
             outPutHomeService.getHomeByStationNumber(outPutHomeService.getOutPutHomeList(),

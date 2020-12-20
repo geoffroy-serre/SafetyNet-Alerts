@@ -29,10 +29,10 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
   @Autowired
   RetrieveWorkingDataRepository retrieveWorkingDataRepository;
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public ArrayList<WorkingFireStation> reestablishCase(Collection<WorkingFireStation> workingFireStations) {
     logger.debug("Entering reestablishCase ");
     ArrayList<WorkingFireStation> result = new ArrayList<>();
@@ -45,10 +45,10 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
     return result;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashMap<Integer, WorkingFireStation> createWorkingFiresStationHashMap() {
     logger.debug("Entering createWorkingFiresStationHashMap ");
     originalResponse =
@@ -67,10 +67,10 @@ public class WorkingFireStationServiceImpl implements WorkingFirestationsService
     return fireStationsHashMap;
   }
 
-  @Override
   /**
    * @inheritDoc
    */
+  @Override
   public HashMap<Integer, WorkingFireStation> getWorkingFireStationHashMap() {
     logger.debug("Entering getWorkingFireStationHashMap ");
     HashMap<Integer, WorkingFireStation> workingFireStationHashMap = new HashMap<>();

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
 /**
- * Contains adress and station number
+ * Contains adress and station number.
  */
 public class DeleteFirestation {
   @JsonProperty("address")
