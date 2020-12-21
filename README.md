@@ -81,12 +81,37 @@ To use the applications properly, you have to use these proper format
 ## URL
 ```html
 /firestation?stationNumber=<station_number>
+ ```
+ People covered by the given station. Return firstName, lastName, adress, phone and a count of child and adults.
+ 
+ ```html
 /childAlert?address=<address>
+ ```
+ Return a list of children for given address (+18, can be set to +21 with ofAge constant)
+ 
+ ```html
 /phoneAlert?firestation=<firestation_number>
+ ```
+ Return a lsit of phone of people covered by given station.
+ 
+ ```html
 /fire?address=<address>
+ ```
+ Return a list of people living at given address and the linked stationNumber. Show firstNAme, lastName, phone, age, medications, and allergies.
+ 
+ ```html
 /flood/stations?stations=<a list of station_numbers>
+ ```
+ Return homes served by given station(s). Persons are ordered by adress. Show firstName, lastName, phone, age, medications, allergies.
+ 
+ ```html
 /personInfo?firstName=<firstName>&lastName=<lastName>
+ ```
+ Return firstName, lastName, adress, age, email, medications, allergies, for given parameters
+ 
+ ```html
 /communityEmail?city=<city>
 ```
+Return all email for persons living in given city.
 
 
