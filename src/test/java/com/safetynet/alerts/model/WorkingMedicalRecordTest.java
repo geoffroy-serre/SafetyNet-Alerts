@@ -23,6 +23,15 @@ public class WorkingMedicalRecordTest {
     assertSame(randomUUIDResult, this.workingMedicalRecord.getIdMedicalRecord());
   }
 
+  @Test
+  void testEquals(){
+    String result = "WorkingMedicalRecord{idMedicalRecord=00000000-0000-0000-0000-000000000000, " +
+            "medications=null, allergies=null}";
+    workingMedicalRecord.setIdMedicalRecord(new UUID(0L,0L));
+    assertEquals(result, this.workingMedicalRecord.toString());
+
+  }
+
 
 
 }

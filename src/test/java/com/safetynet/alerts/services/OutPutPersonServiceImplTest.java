@@ -1,10 +1,7 @@
 package com.safetynet.alerts.services;
 
 import com.safetynet.alerts.constants.FilesPath;
-import com.safetynet.alerts.model.OutPutHome;
-import com.safetynet.alerts.model.OutPutMedicalRecord;
-import com.safetynet.alerts.model.OutPutPerson;
-import com.safetynet.alerts.model.OutPutResponse;
+import com.safetynet.alerts.model.*;
 import com.safetynet.alerts.repository.RetrieveOutPutDataRepositoryImpl;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -47,6 +44,8 @@ OutPutResponse outPutResponse = new OutPutResponse();
   ArrayList<String> medications = new ArrayList<>();
   ArrayList<OutPutMedicalRecord> outPutMedicalRecords = new ArrayList<>();
   HashSet<UUID> uuidHashSet = new HashSet<>();
+  WorkingPerson workingPerson = new WorkingPerson();
+  ArrayList<WorkingPerson> workingPersons = new ArrayList<>();
 
   @BeforeEach
   void setUp() {
@@ -116,6 +115,15 @@ outPutMedicalRecords.add(outPutMedicalRecord);
     outPutHomes.add(outPutHome2);
 
     uuidHashSet.addAll(uuids);
+
+    workingPerson.setIdMedicalRecord(UUID.randomUUID());
+    workingPerson.setBirthdate(LocalDate.parse("04/04/1982",dtf));
+    workingPerson.setPhone("0645894578");
+    workingPerson.setEmail("toto@tata.fr");
+    workingPerson.setId(UUID.randomUUID());
+    workingPerson.setHomeID(UUID.randomUUID());
+
+    workingPersons.add(workingPerson);
 
   }
 
@@ -236,5 +244,32 @@ assertEquals(null,outPutPersonService.setEmailToNull(outPutPersons).get(0).getEm
     assertFalse(outPutPersonService.getAllPerson().isEmpty());
 
   }
+
+  @Test
+  void transformtransformWorkingIntoOutPut(){
+    assertNotNull(outPutPersonService.transformWorkingIntoOutPut(workingPerson));
+    assertEquals(workingPerson.getFirstName(),
+            outPutPersonService.transformWorkingIntoOutPut(workingPerson).getFirstName());
+    assertEquals(workingPerson.getLastName(),
+            outPutPersonService.transformWorkingIntoOutPut(workingPerson).getLastName());
+    assertEquals(workingPerson.getPhone(),
+            outPutPersonService.transformWorkingIntoOutPut(workingPerson).getPhone());
+    assertEquals(workingPerson.getEmail(),
+            outPutPersonService.transformWorkingIntoOutPut(workingPerson).getEmail());
+  }
+
+  @Test
+  void transformtransformWorkingsIntoOutPut(){
+    assertNotNull(outPutPersonService.transformWorkingIntoOutPut(workingPersons));
+    assertEquals(workingPerson.getFirstName(),
+            outPutPersonService.transformWorkingIntoOutPut(workingPersons).get(0).getFirstName());
+    assertEquals(workingPerson.getLastName(),
+            outPutPersonService.transformWorkingIntoOutPut(workingPersons).get(0).getLastName());
+    assertEquals(workingPerson.getPhone(),
+            outPutPersonService.transformWorkingIntoOutPut(workingPersons).get(0).getPhone());
+    assertEquals(workingPerson.getEmail(),
+            outPutPersonService.transformWorkingIntoOutPut(workingPersons).get(0).getEmail());
+  }
+
 
 }

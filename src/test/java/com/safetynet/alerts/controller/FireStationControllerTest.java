@@ -298,6 +298,7 @@ class FireStationControllerTest {
 
   }
 
+
   @Test
   void putFirestationNotPresent() throws Exception {
     OriginalFirestation modifyFireStation = new OriginalFirestation();
@@ -382,6 +383,31 @@ class FireStationControllerTest {
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
+
+  }
+
+  @Test
+  void floodTestTypeMismatch() throws Exception {
+    ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
+    OutPutFireStation outputFirestation = new OutPutFireStation();
+    outPutFireStations.add(outputFirestation);
+    when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
+    when(outPutFireStationService.setHomes(outPutFireStationService.getFiresStations(),
+            outPutHomeService.getOutPutHomeList())).thenReturn(outPutFireStations);
+    when(servletResponse.getStatus()).thenReturn(200);
+
+    mockMvc.perform(
+            get("/flood/stations")
+                    .contentType("application/json")
+                    .param("stations", "qqch")
+                    .with(new RequestPostProcessor() {
+                      public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
+                        request.setRemoteAddr("/flood/stations");
+                        request.setQueryString("test flood");
+                        return request;}})
+
+    )
+            .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400));
 
   }
 

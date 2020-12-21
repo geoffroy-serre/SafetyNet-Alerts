@@ -79,8 +79,8 @@ public class ExceptionHandling {
                                                                     HttpServletRequest request,
                                                                     HttpServletResponse responseCode) {
 
-    responseCode.setStatus(204);
-    ExceptionResponse response = new ExceptionResponse(new Date(), 204, "Bad input type",
+    responseCode.setStatus(406);
+    ExceptionResponse response = new ExceptionResponse(new Date(), 406, "Bad input type",
             exception.getMessage(), request.getRequestURI()
     );
     logger.info(request.getMethod() + " " + request.getRequestURI() + " " + request.getQueryString());
