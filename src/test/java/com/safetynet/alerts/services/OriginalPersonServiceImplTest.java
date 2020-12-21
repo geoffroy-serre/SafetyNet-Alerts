@@ -12,8 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -87,6 +87,7 @@ class OriginalPersonServiceImplTest {
 
 
   }
+
   @Test
   void postNewPersonExisting() {
     String result = "[Person{,firstName = 'Geff',lastName = 'mwa',address = '15 rue de " +
@@ -121,20 +122,24 @@ class OriginalPersonServiceImplTest {
 
   @Test
   void getOriginalPersonByFirstAndLastName() {
-    String result ="Person{,firstName = 'Geff',lastName = 'mwa',address = '15 rue de paris',zip = 'J6T5A6',city = 'Orange',phone = '0619674945',email = 'toto@toto.fr'}";
-    assertEquals(result,originalPersonService.getOriginalPersonByFirstAndLastName("geff","mwa",
+    String result = "Person{,firstName = 'Geff',lastName = 'mwa',address = '15 rue de paris',zip " +
+            "= 'J6T5A6',city = 'Orange',phone = '0619674945',email = 'toto@toto.fr'}";
+    assertEquals(result, originalPersonService.getOriginalPersonByFirstAndLastName("geff", "mwa",
             originalPersons).toString());
   }
+
   @Test
   void getOriginalPersonByFirstAndLastNameNotFound() {
-    String result ="Person{,firstName = 'null',lastName = 'null',address = 'null',zip = 'null',city = 'null',phone = 'null',email = 'null'}";
-    assertEquals(result,originalPersonService.getOriginalPersonByFirstAndLastName("Hector","dupré",
+    String result = "Person{,firstName = 'null',lastName = 'null',address = 'null',zip = 'null'," +
+            "city = 'null',phone = 'null',email = 'null'}";
+    assertEquals(result, originalPersonService.getOriginalPersonByFirstAndLastName("Hector",
+            "dupré",
             originalPersons).toString());
   }
 
   @Test
   void deleteOriginalPerson() {
-    String result ="[Person{,firstName = 'Hubert',lastName = 'trotro',address = '1bis " +
+    String result = "[Person{,firstName = 'Hubert',lastName = 'trotro',address = '1bis " +
             "rue des eperviers',zip = '75000',city = 'Paris',phone = '0619688945',email = " +
             "'wesg@toto.fr'}, Person{,firstName = 'Sarah',lastName = 'twa',address = '55 impasse " +
             "roudoudou',zip = '75000',city = 'Paris',phone = '0698432518',email = 'ratata@toto" +
@@ -143,6 +148,7 @@ class OriginalPersonServiceImplTest {
             originalPersons).toString());
 
   }
+
   @Test
   void deleteOriginalPersonNotFound() {
     String result = "[Person{,firstName = 'Geff',lastName = 'mwa',address = '15 rue de " +
@@ -158,24 +164,25 @@ class OriginalPersonServiceImplTest {
 
   @Test
   void deletePersonbyFirstAndLastNames() {
-    String result ="[Person{,firstName = 'Hubert',lastName = 'trotro',address = '1bis " +
+    String result = "[Person{,firstName = 'Hubert',lastName = 'trotro',address = '1bis " +
             "rue des eperviers',zip = '75000',city = 'Paris',phone = '0619688945',email = " +
             "'wesg@toto.fr'}, Person{,firstName = 'Sarah',lastName = 'twa',address = '55 impasse " +
             "roudoudou',zip = '75000',city = 'Paris',phone = '0698432518',email = 'ratata@toto" +
             ".fr'}]";
-    assertEquals(result, originalPersonService.deletePersonbyFirstAndLastNames("geff","mwa",
+    assertEquals(result, originalPersonService.deletePersonbyFirstAndLastNames("geff", "mwa",
             originalPersons).toString());
 
   }
+
   @Test
   void deletePersonbyFirstAndLastNamesNotFound() {
-    String result ="[Person{,firstName = 'Geff',lastName = 'mwa',address = '15 rue de " +
+    String result = "[Person{,firstName = 'Geff',lastName = 'mwa',address = '15 rue de " +
             "paris',zip = 'J6T5A6',city = 'Orange',phone = '0619674945',email = 'toto@toto.fr'}, " +
             "Person{,firstName = 'Hubert',lastName = 'trotro',address = '1bis rue des eperviers'," +
             "zip = '75000',city = 'Paris',phone = '0619688945',email = 'wesg@toto.fr'}, Person{," +
             "firstName = 'Sarah',lastName = 'twa',address = '55 impasse roudoudou',zip = '75000'," +
             "city = 'Paris',phone = '0698432518',email = 'ratata@toto.fr'}]";
-    assertEquals(result, originalPersonService.deletePersonbyFirstAndLastNames("geff","serre",
+    assertEquals(result, originalPersonService.deletePersonbyFirstAndLastNames("geff", "serre",
             originalPersons).toString());
 
   }

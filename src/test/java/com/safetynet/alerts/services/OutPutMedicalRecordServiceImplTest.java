@@ -39,7 +39,7 @@ class OutPutMedicalRecordServiceImplTest {
   OutPutResponse outPutResponse = new OutPutResponse();
 
   @BeforeEach
-  void setup(){
+  void setup() {
     allergies.add("Python");
     medications.add("Java");
     outPutMedicalRecord.setIdMedicalRecord(UUID.randomUUID());
@@ -91,7 +91,7 @@ class OutPutMedicalRecordServiceImplTest {
     outPutResponseTest.setMedicalrecords(outPutMedicalRecords);
     when(retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE)).thenReturn(outPutResponseTest);
     assertNotNull(outPutMedicalRecordService.getAllMedicalRecords());
-    assertDoesNotThrow(()->outPutMedicalRecordService.getAllMedicalRecords());
+    assertDoesNotThrow(() -> outPutMedicalRecordService.getAllMedicalRecords());
 
   }
 }

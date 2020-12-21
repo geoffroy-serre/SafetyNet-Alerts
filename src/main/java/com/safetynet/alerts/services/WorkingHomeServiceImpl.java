@@ -131,7 +131,7 @@ public class WorkingHomeServiceImpl implements WorkingHomeService {
   @Override
   public WorkingHome getHomeById(UUID homeId) {
     logger.debug("Entering getHomeById ");
-    WorkingHome workingHome ;
+    WorkingHome workingHome;
     ArrayList<WorkingHome> workingHomes =
             retrieveWorkingDataRepository.getWorkingData(FilesPath.WORKING_INPUT_FILE).getHomes();
     for (WorkingHome currentWorkingHome : workingHomes) {

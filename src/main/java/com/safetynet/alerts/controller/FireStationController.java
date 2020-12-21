@@ -1,6 +1,9 @@
 package com.safetynet.alerts.controller;
 
-import com.safetynet.alerts.Exceptions.*;
+import com.safetynet.alerts.Exceptions.AllreadyInDatabaseException;
+import com.safetynet.alerts.Exceptions.EmptyDataretrievalException;
+import com.safetynet.alerts.Exceptions.NoExistingStation;
+import com.safetynet.alerts.Exceptions.NoStationNumberException;
 import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.*;
@@ -42,8 +45,8 @@ public class FireStationController {
    * Deletefirestation by adress of station number.
    *
    * @param deleteFireStation DeleteFirestation
-   * @param response HttpServletResponse
-   * @param request HttpServletRequest
+   * @param response          HttpServletResponse
+   * @param request           HttpServletRequest
    * @return DeleteFireStation
    */
   @DeleteMapping("/firestation")
@@ -106,8 +109,8 @@ public class FireStationController {
    * Post new firestation.
    *
    * @param newFiresStation OriginalFirestation
-   * @param response HttpServletResponse
-   * @param request HttpServletRequest
+   * @param response        HttpServletResponse
+   * @param request         HttpServletRequest
    * @return OriginalFireStation
    */
   @PostMapping("/firestation")
@@ -127,7 +130,7 @@ public class FireStationController {
               newFiresStation.getAddress());
 
     }
-    if(originalFirestations.isEmpty()){
+    if (originalFirestations.isEmpty()) {
       response.setStatus(500);
       throw new EmptyDataretrievalException(newFiresStation.toString(),
               originalFirestations.toString());
@@ -150,8 +153,8 @@ public class FireStationController {
    * Modify firestation.
    *
    * @param modifyFireStation OriginalFirestation
-   * @param response HttpServletResponse
-   * @param request HttpServletRequest
+   * @param response          HttpServletResponse
+   * @param request           HttpServletRequest
    * @return
    */
   @PutMapping("/firestation")
@@ -206,9 +209,9 @@ public class FireStationController {
   /**
    * Get persons by stationNumber.
    *
-   * @param stations  ArrayList<Integer>
+   * @param stations ArrayList<Integer>
    * @param response HttpServletResponse
-   * @param request HttpServletRequest
+   * @param request  HttpServletRequest
    * @return
    */
   @GetMapping("/flood/stations")
@@ -251,9 +254,9 @@ public class FireStationController {
   /**
    * Get personsInfo and station number by address.
    *
-   * @param address String
+   * @param address  String
    * @param response HttpServletResponse
-   * @param request HttpServletRequest
+   * @param request  HttpServletRequest
    * @return
    */
   @GetMapping("/fire")
@@ -294,8 +297,8 @@ public class FireStationController {
    * Get phones of persons served by given station number.
    *
    * @param firestation Integer
-   * @param response HttpServletResponse
-   * @param request HttpServletRequest
+   * @param response    HttpServletResponse
+   * @param request     HttpServletRequest
    * @return
    */
   @GetMapping("/phoneAlert")
@@ -329,8 +332,8 @@ public class FireStationController {
    * Get persons infos for a given station number and with count of childs and adults.
    *
    * @param stationNumber int
-   * @param response HttpServletResponse
-   * @param request HttpServletRequest
+   * @param response      HttpServletResponse
+   * @param request       HttpServletRequest
    * @return
    */
   @GetMapping(path = "/firestation", produces = "application/json")

@@ -1,16 +1,13 @@
 package com.safetynet.alerts.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @ContextConfiguration(classes = {WorkingHome.class})
 @ExtendWith(SpringExtension.class)
@@ -42,7 +39,6 @@ public class WorkingHomeTest {
     this.workingHome.setZip("21654");
     assertEquals("21654", this.workingHome.getZip());
   }
-
 
 
   @Test

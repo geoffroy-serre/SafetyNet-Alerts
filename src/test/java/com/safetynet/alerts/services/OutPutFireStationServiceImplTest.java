@@ -13,10 +13,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -36,11 +34,11 @@ class OutPutFireStationServiceImplTest {
   OutPutHome outPutHome2 = new OutPutHome();
   OutPutHome outPutHome3 = new OutPutHome();
 
-OutPutResponse outPutResponse = new OutPutResponse();
+  OutPutResponse outPutResponse = new OutPutResponse();
   ArrayList<OutPutFireStation> outPutFireStations = new ArrayList<>();
 
   @BeforeEach
-  void setup(){
+  void setup() {
     outPutFireStation.setStationNumber(10);
     outPutFireStation.setIdFirestation(UUID.randomUUID());
     ArrayList<UUID> idhomes = new ArrayList<>();
@@ -83,32 +81,35 @@ OutPutResponse outPutResponse = new OutPutResponse();
 
   @Test
   void isFireStationAlreadyInFile() {
-    assertTrue(outPutFireStationService.isFireStationAlreadyInFile(8,"anyString()",
+    assertTrue(outPutFireStationService.isFireStationAlreadyInFile(8, "anyString()",
             outPutFireStations));
   }
+
   @Test
   void isNotFireStationAlreadyInFile() {
-    assertFalse(outPutFireStationService.isFireStationAlreadyInFile(33,"anyString()",
+    assertFalse(outPutFireStationService.isFireStationAlreadyInFile(33, "anyString()",
             outPutFireStations));
   }
 
   @Test
   void getStationNumberByHomeId() {
     UUID currentId = outPutFireStation3.getHomeListIds().get(0);
-    assertEquals(8,outPutFireStationService.getStationNumberByHomeId(currentId, outPutFireStations));
+    assertEquals(8, outPutFireStationService.getStationNumberByHomeId(currentId,
+            outPutFireStations));
   }
+
   @Test
   void getStationNumberByHomeIdNotFound() {
     UUID currentId = UUID.randomUUID();
-    assertEquals(0,outPutFireStationService.getStationNumberByHomeId(currentId,
+    assertEquals(0, outPutFireStationService.getStationNumberByHomeId(currentId,
             outPutFireStations));
   }
 
   @Test
   void setStationNumberHomesToNull() {
     outPutFireStationService.setStationNumberHomesToNull(outPutFireStations);
-    for (OutPutFireStation currentFS : outPutFireStations   ) {
-      for(OutPutHome currentHome : currentFS.getHomes()){
+    for (OutPutFireStation currentFS : outPutFireStations) {
+      for (OutPutHome currentHome : currentFS.getHomes()) {
         assertTrue(currentHome.getStationNumber() == null);
       }
     }
@@ -124,31 +125,34 @@ OutPutResponse outPutResponse = new OutPutResponse();
   @Test
   void getFireStationByNumber() {
 
-    assertEquals(8,outPutFireStationService.getFireStationByNumber(outPutFireStations,8).getStationNumber());
+    assertEquals(8,
+            outPutFireStationService.getFireStationByNumber(outPutFireStations, 8).getStationNumber());
   }
+
   @Test
   void getFireStationByNumberNotFound() {
 
     assertEquals(0,
-            outPutFireStationService.getFireStationByNumber(outPutFireStations,90).getStationNumber());
+            outPutFireStationService.getFireStationByNumber(outPutFireStations, 90).getStationNumber());
   }
 
   @Test
   void getFireStationByNumbers() {
-    ArrayList<Integer>  nums = new ArrayList<>();
+    ArrayList<Integer> nums = new ArrayList<>();
     nums.add(8);
     assertEquals(8,
-            outPutFireStationService.getFireStationByNumbers(outPutFireStations,nums).get(0).getStationNumber());
+            outPutFireStationService.getFireStationByNumbers(outPutFireStations, nums).get(0).getStationNumber());
   }
+
   @Test
   void getFireStationByNumbersNotfound() {
-    ArrayList<Integer>  nums = new ArrayList<>();
+    ArrayList<Integer> nums = new ArrayList<>();
     nums.add(8);
     nums.add(95);
     assertEquals(8,
-            outPutFireStationService.getFireStationByNumbers(outPutFireStations,nums).get(0).getStationNumber());
+            outPutFireStationService.getFireStationByNumbers(outPutFireStations, nums).get(0).getStationNumber());
     assertEquals(1,
-            outPutFireStationService.getFireStationByNumbers(outPutFireStations,nums).size());
+            outPutFireStationService.getFireStationByNumbers(outPutFireStations, nums).size());
   }
 
   @Test
@@ -158,9 +162,9 @@ OutPutResponse outPutResponse = new OutPutResponse();
     outPutHome.setIdHome(num);
     outPutHomestest.add(outPutHome);
     assertEquals(num,
-            outPutFireStationService.setHomes(outPutFireStations,outPutHomestest).get(0).getHomes().get(0).getIdHome());
+            outPutFireStationService.setHomes(outPutFireStations, outPutHomestest).get(0).getHomes().get(0).getIdHome());
     assertEquals(10,
-            outPutFireStationService.setHomes(outPutFireStations,outPutHomestest).get(0).getHomes().get(0).getStationNumber());
+            outPutFireStationService.setHomes(outPutFireStations, outPutHomestest).get(0).getHomes().get(0).getStationNumber());
   }
 
   @Test
@@ -170,8 +174,8 @@ OutPutResponse outPutResponse = new OutPutResponse();
     outPutHome.setIdHome(num);
     outPutHomestest.add(outPutHome);
     assertEquals(num,
-            outPutFireStationService.setHome(outPutFireStation,outPutHomestest).getHomes().get(0).getIdHome());
+            outPutFireStationService.setHome(outPutFireStation, outPutHomestest).getHomes().get(0).getIdHome());
     assertEquals(10,
-            outPutFireStationService.setHome(outPutFireStation,outPutHomestest).getHomes().get(0).getStationNumber());
+            outPutFireStationService.setHome(outPutFireStation, outPutHomestest).getHomes().get(0).getStationNumber());
   }
 }

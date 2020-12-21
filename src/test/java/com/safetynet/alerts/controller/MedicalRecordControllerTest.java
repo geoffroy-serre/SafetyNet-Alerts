@@ -5,16 +5,8 @@ import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.OriginalFirestation;
 import com.safetynet.alerts.model.OriginalMedicalrecord;
 import com.safetynet.alerts.model.OriginalResponse;
-import com.safetynet.alerts.model.OutPutMedicalRecord;
-import com.safetynet.alerts.services.CreateWorkingFileServiceImpl;
-import com.safetynet.alerts.services.OriginalFileServiceImpl;
-import com.safetynet.alerts.services.OriginalMedicalRecordServiceImpl;
 import com.safetynet.alerts.utils.RequestLogger;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import org.assertj.core.util.Files;
-import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -24,19 +16,17 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 @WebMvcTest(controllers = MedicalRecordController.class)
 class MedicalRecordControllerTest {
 
+  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
   @MockBean
   OutPutHomeService outPutHomeService;
   @MockBean
@@ -63,19 +53,14 @@ class MedicalRecordControllerTest {
   RequestLogger requestLogger;
   @MockBean
   OriginalMedicalrecord originalMedicalrecord2;
-
   @MockBean
   HttpServletRequest servletRequest;
-
   @MockBean
   HttpServletResponse servletResponse;
-@Autowired
-  private MockMvc mockMvc;
-
-  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-
   @InjectMocks
   MedicalRecordController medicalRecordController;
+  @Autowired
+  private MockMvc mockMvc;
 
   @BeforeEach
   void setUp() {
@@ -104,37 +89,37 @@ class MedicalRecordControllerTest {
   void postMedicalRecord() throws Exception {
 
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff","Mwa",
+    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff", "Mwa",
             originalResponse.getMedicalrecords())).thenReturn(false);
     mockMvc.perform(
             post("/medicalRecord")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(" { \r\n"
-                            +"  \"firstName\":\"Geff\", \r\n"
+                            + "  \"firstName\":\"Geff\", \r\n"
                             + "  \"lastName\":\"Serre\", \r\n"
                             + "  \"birthdate\":\"04/14/1982\", \r\n"
                             + "  \"medications\": [\"Seretas\"], \r\n"
                             + "  \"allergies\": [\"Python\"] \r\n"
-                            +" }")
-               )
+                            + " }")
+    )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
   }
 
   @Test
   void putMedicalRecord() throws Exception {
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff","Serre",
+    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff", "Serre",
             originalResponse.getMedicalrecords())).thenReturn(true);
     mockMvc.perform(
             put("/medicalRecord")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(" { \r\n"
-                            +"  \"firstName\":\"Geff\", \r\n"
+                            + "  \"firstName\":\"Geff\", \r\n"
                             + "  \"lastName\":\"Serre\", \r\n"
                             + "  \"birthdate\":\"04/14/1982\", \r\n"
                             + "  \"medications\": [\"Seretas\"], \r\n"
                             + "  \"allergies\": [\"Python\"] \r\n"
-                            +" }")
+                            + " }")
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
 
@@ -144,18 +129,18 @@ class MedicalRecordControllerTest {
   @Test
   void putMedicalRecordError() throws Exception {
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff","Serre",
+    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff", "Serre",
             originalResponse.getMedicalrecords())).thenReturn(false);
     mockMvc.perform(
             put("/medicalRecord")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(" { \r\n"
-                            +"  \"firstName\":\"Geff\", \r\n"
+                            + "  \"firstName\":\"Geff\", \r\n"
                             + "  \"lastName\":\"Serre\", \r\n"
                             + "  \"birthdate\":\"04/14/1982\", \r\n"
                             + "  \"medications\": [\"Seretas\"], \r\n"
                             + "  \"allergies\": [\"Python\"] \r\n"
-                            +" }")
+                            + " }")
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400));
 
@@ -165,20 +150,20 @@ class MedicalRecordControllerTest {
   @Test
   void deleteMedicalRecord() throws Exception {
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff","Serre",
+    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff", "Serre",
             originalResponse.getMedicalrecords())).thenReturn(true);
-    when(originalMedicalRecordService.getMedicalRecordByFirstLastName(originalResponse.getMedicalrecords(),"Geff",
+    when(originalMedicalRecordService.getMedicalRecordByFirstLastName(originalResponse.getMedicalrecords(), "Geff",
             "Serre")).thenReturn(originalMedicalrecord2);
     mockMvc.perform(
             delete("/medicalRecord")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(" { \r\n"
-                            +"  \"firstName\":\"Geff\", \r\n"
+                            + "  \"firstName\":\"Geff\", \r\n"
                             + "  \"lastName\":\"Serre\", \r\n"
                             + "  \"birthdate\":\"04/14/1982\", \r\n"
                             + "  \"medications\": [\"Seretas\"], \r\n"
                             + "  \"allergies\": [\"Python\"] \r\n"
-                            +" }")
+                            + " }")
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
 
@@ -188,20 +173,20 @@ class MedicalRecordControllerTest {
   @Test
   void deleteMedicalRecordUnknow() throws Exception {
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff","Serre",
+    when(originalMedicalRecordService.isMedicalRecordAlreadyInFile("Geff", "Serre",
             originalResponse.getMedicalrecords())).thenReturn(false);
-    when(originalMedicalRecordService.getMedicalRecordByFirstLastName(originalResponse.getMedicalrecords(),"Geff",
+    when(originalMedicalRecordService.getMedicalRecordByFirstLastName(originalResponse.getMedicalrecords(), "Geff",
             "Serre")).thenReturn(originalMedicalrecord2);
     mockMvc.perform(
             delete("/medicalRecord")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(" { \r\n"
-                            +"  \"firstName\":\"Geff\", \r\n"
+                            + "  \"firstName\":\"Geff\", \r\n"
                             + "  \"lastName\":\"Serre\", \r\n"
                             + "  \"birthdate\":\"04/14/1982\", \r\n"
                             + "  \"medications\": [\"Seretas\"], \r\n"
                             + "  \"allergies\": [\"Python\"] \r\n"
-                            +" }")
+                            + " }")
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400));
 

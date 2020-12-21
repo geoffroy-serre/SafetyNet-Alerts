@@ -1,10 +1,5 @@
 package com.safetynet.alerts.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.time.LocalDate;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -12,9 +7,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -26,7 +20,7 @@ public class OutPutPersonTest {
   @Mock
   private OutPutHome outPutHome;
 
-@InjectMocks
+  @InjectMocks
   private OutPutPerson outPutPerson;
 
   @Test
@@ -70,8 +64,8 @@ public class OutPutPersonTest {
 
   @Test
   public void testSetBirthdate() {
-    LocalDate date =LocalDate.ofEpochDay(1L);
-            this.outPutPerson.setBirthdate(LocalDate.ofEpochDay(1L));
+    LocalDate date = LocalDate.ofEpochDay(1L);
+    this.outPutPerson.setBirthdate(LocalDate.ofEpochDay(1L));
     assertEquals(date,
             this.outPutPerson.getBirthdate());
   }

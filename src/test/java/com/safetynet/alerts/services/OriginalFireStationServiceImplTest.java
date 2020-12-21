@@ -20,16 +20,13 @@ class OriginalFireStationServiceImplTest {
 
   @Mock
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-
+  @InjectMocks
+  OriginalFireStationServiceImpl originalFireStationService;
   private OriginalFirestation originalFirestation = new OriginalFirestation();
   private OriginalFirestation originalFirestation2 = new OriginalFirestation();
   private OriginalFirestation originalFirestation3 = new OriginalFirestation();
   private ArrayList<OriginalFirestation> originalFirestations = new ArrayList<>();
   private OriginalResponse originalResponse = new OriginalResponse();
-
-  @InjectMocks
-  OriginalFireStationServiceImpl originalFireStationService;
-
 
   @BeforeEach
   void setup() {
@@ -195,6 +192,7 @@ class OriginalFireStationServiceImplTest {
             originalFirestations).toString());
 
   }
+
   @Test
   void postNewFireStationAlreadyIn() {
 

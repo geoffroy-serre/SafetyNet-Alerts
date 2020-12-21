@@ -21,14 +21,12 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class OutPutPersonServiceImplTest {
 
+  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
   @Mock
   RetrieveOutPutDataRepositoryImpl retrieveOutPutDataRepository;
-
   @InjectMocks
   OutPutPersonServiceImpl outPutPersonService;
-
-  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-OutPutResponse outPutResponse = new OutPutResponse();
+  OutPutResponse outPutResponse = new OutPutResponse();
   OutPutPerson outPutPerson = new OutPutPerson();
   OutPutPerson outPutPerson2 = new OutPutPerson();
   OutPutPerson outPutPerson3 = new OutPutPerson();
@@ -57,15 +55,15 @@ OutPutResponse outPutResponse = new OutPutResponse();
     outPutPerson.setPhone("0619674995");
     outPutPerson.setIdHome(UUID.randomUUID());
     outPutPersons.add(outPutPerson);
-uuids.add(outPutPerson.getIdHome());
-outPutPerson.setIdMedicalRecord(UUID.randomUUID());
-outPutMedicalRecord.setIdMedicalRecord(outPutPerson.getIdMedicalRecord());
+    uuids.add(outPutPerson.getIdHome());
+    outPutPerson.setIdMedicalRecord(UUID.randomUUID());
+    outPutMedicalRecord.setIdMedicalRecord(outPutPerson.getIdMedicalRecord());
     ArrayList<String> allergies = new ArrayList<>();
     ArrayList<String> medications = new ArrayList<>();
     medications.add("Java");
     allergies.add("Python");
-outPutMedicalRecord.setMedications(medications);
-outPutMedicalRecord.setAllergies(allergies);
+    outPutMedicalRecord.setMedications(medications);
+    outPutMedicalRecord.setAllergies(allergies);
 
     outPutPerson2.setBirthdate(LocalDate.parse("08/23/2012", dtf));
     outPutPerson2.setFirstName("Geff");
@@ -95,9 +93,9 @@ outPutMedicalRecord.setAllergies(allergies);
     outPutPerson4.setIdHome(UUID.randomUUID());
     uuids.add(outPutPerson3.getIdHome());
     uuids.add(outPutPerson4.getIdHome());
-outPutResponse.setPersons(outPutPersons);
+    outPutResponse.setPersons(outPutPersons);
 
-outPutMedicalRecords.add(outPutMedicalRecord);
+    outPutMedicalRecords.add(outPutMedicalRecord);
     outPutMedicalRecords.add(outPutMedicalRecord2);
     outPutHome.setStationNumber(10);
     outPutHome.setIdHome(outPutPerson.getIdHome());
@@ -117,7 +115,7 @@ outPutMedicalRecords.add(outPutMedicalRecord);
     uuidHashSet.addAll(uuids);
 
     workingPerson.setIdMedicalRecord(UUID.randomUUID());
-    workingPerson.setBirthdate(LocalDate.parse("04/04/1982",dtf));
+    workingPerson.setBirthdate(LocalDate.parse("04/04/1982", dtf));
     workingPerson.setPhone("0645894578");
     workingPerson.setEmail("toto@tata.fr");
     workingPerson.setId(UUID.randomUUID());
@@ -130,26 +128,27 @@ outPutMedicalRecords.add(outPutMedicalRecord);
   @Test
   void isPersonAlreadyInFile() {
     when(retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE)).thenReturn(outPutResponse);
-    assertTrue(outPutPersonService.isPersonAlreadyInFile("Geff","twa"));
-    assertFalse(outPutPersonService.isPersonAlreadyInFile("Geff","trotro"));
+    assertTrue(outPutPersonService.isPersonAlreadyInFile("Geff", "twa"));
+    assertFalse(outPutPersonService.isPersonAlreadyInFile("Geff", "trotro"));
 
   }
 
   @Test
   void setEmailToNull() {
-assertEquals(null,outPutPersonService.setEmailToNull(outPutPersons).get(0).getEmail());
-    assertEquals("mwa",outPutPersonService.setEmailToNull(outPutPersons).get(0).getLastName());
-    assertEquals(null,outPutPersonService.setEmailToNull(outPutPersons).get(1).getEmail());
-    assertEquals("twa",outPutPersonService.setEmailToNull(outPutPersons).get(1).getLastName());
+    assertEquals(null, outPutPersonService.setEmailToNull(outPutPersons).get(0).getEmail());
+    assertEquals("mwa", outPutPersonService.setEmailToNull(outPutPersons).get(0).getLastName());
+    assertEquals(null, outPutPersonService.setEmailToNull(outPutPersons).get(1).getEmail());
+    assertEquals("twa", outPutPersonService.setEmailToNull(outPutPersons).get(1).getLastName());
   }
 
   @Test
   void getPersonByHomeIds() {
     when(retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE)).thenReturn(outPutResponse);
-    assertEquals(outPutPerson.getIdHome(), outPutPersonService.getPersonByHomeIds(uuids).get(0).getIdHome());
+    assertEquals(outPutPerson.getIdHome(),
+            outPutPersonService.getPersonByHomeIds(uuids).get(0).getIdHome());
     assertEquals(outPutPerson2.getIdHome(),
             outPutPersonService.getPersonByHomeIds(uuids).get(1).getIdHome());
-    assertTrue(outPutPersonService.getPersonByHomeIds(uuids).size()==2);
+    assertTrue(outPutPersonService.getPersonByHomeIds(uuids).size() == 2);
   }
 
   @Test
@@ -157,25 +156,26 @@ assertEquals(null,outPutPersonService.setEmailToNull(outPutPersons).get(0).getEm
     ArrayList<String> phoneNumbers = new ArrayList<>();
     phoneNumbers.add(outPutPerson.getPhone());
     phoneNumbers.add(outPutPerson2.getPhone());
-    assertEquals(phoneNumbers.toString(),outPutPersonService.getPersonsPhones(outPutPersons).toString());
+    assertEquals(phoneNumbers.toString(),
+            outPutPersonService.getPersonsPhones(outPutPersons).toString());
 
 
   }
 
   @Test
   void setPersonsHome() {
-    assertNotNull(outPutPersonService.setPersonsHome(outPutPersons,outPutHomes));
-    assertEquals(outPutPerson.getIdHome(),outPutPersonService.setPersonsHome(outPutPersons,
+    assertNotNull(outPutPersonService.setPersonsHome(outPutPersons, outPutHomes));
+    assertEquals(outPutPerson.getIdHome(), outPutPersonService.setPersonsHome(outPutPersons,
             outPutHomes).get(0).getIdHome());
-    assertEquals(outPutPerson2.getIdHome(),outPutPersonService.setPersonsHome(outPutPersons,
+    assertEquals(outPutPerson2.getIdHome(), outPutPersonService.setPersonsHome(outPutPersons,
             outPutHomes).get(1).getIdHome());
-    assertEquals(outPutPerson.getFirstName(),outPutPersonService.setPersonsHome(outPutPersons,
+    assertEquals(outPutPerson.getFirstName(), outPutPersonService.setPersonsHome(outPutPersons,
             outPutHomes).get(0).getFirstName());
-    assertEquals(outPutPerson.getLastName(),outPutPersonService.setPersonsHome(outPutPersons,
+    assertEquals(outPutPerson.getLastName(), outPutPersonService.setPersonsHome(outPutPersons,
             outPutHomes).get(0).getLastName());
-    assertEquals(outPutPerson2.getFirstName(),outPutPersonService.setPersonsHome(outPutPersons,
+    assertEquals(outPutPerson2.getFirstName(), outPutPersonService.setPersonsHome(outPutPersons,
             outPutHomes).get(1).getFirstName());
-    assertEquals(outPutPerson2.getLastName(),outPutPersonService.setPersonsHome(outPutPersons,
+    assertEquals(outPutPerson2.getLastName(), outPutPersonService.setPersonsHome(outPutPersons,
             outPutHomes).get(1).getLastName());
 
   }
@@ -246,7 +246,7 @@ assertEquals(null,outPutPersonService.setEmailToNull(outPutPersons).get(0).getEm
   }
 
   @Test
-  void transformtransformWorkingIntoOutPut(){
+  void transformtransformWorkingIntoOutPut() {
     assertNotNull(outPutPersonService.transformWorkingIntoOutPut(workingPerson));
     assertEquals(workingPerson.getFirstName(),
             outPutPersonService.transformWorkingIntoOutPut(workingPerson).getFirstName());
@@ -259,7 +259,7 @@ assertEquals(null,outPutPersonService.setEmailToNull(outPutPersons).get(0).getEm
   }
 
   @Test
-  void transformtransformWorkingsIntoOutPut(){
+  void transformtransformWorkingsIntoOutPut() {
     assertNotNull(outPutPersonService.transformWorkingIntoOutPut(workingPersons));
     assertEquals(workingPerson.getFirstName(),
             outPutPersonService.transformWorkingIntoOutPut(workingPersons).get(0).getFirstName());

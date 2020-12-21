@@ -13,7 +13,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,7 +33,7 @@ class RetrieveOriginalDataServiceImplTest {
     originalResponse.setMedicalrecords(new ArrayList<OriginalMedicalrecord>());
     originalResponse.setFirestations(new ArrayList<OriginalFirestation>());
     when(retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    assertDoesNotThrow(()->originalDataService.retrieveOriginalData(FilesPath.ORIGINAL_INPUT_FILE));
+    assertDoesNotThrow(() -> originalDataService.retrieveOriginalData(FilesPath.ORIGINAL_INPUT_FILE));
     assertNotNull(originalDataService.retrieveOriginalData(FilesPath.ORIGINAL_INPUT_FILE));
   }
 }

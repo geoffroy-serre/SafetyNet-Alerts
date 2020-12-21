@@ -24,7 +24,7 @@ public class RetrieveOutPutDataRepositoryImpl implements RetrieveOutPutDataRepos
   public OutPutResponse getOutPutData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();
-    OutPutResponse response ;
+    OutPutResponse response;
 
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);

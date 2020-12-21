@@ -14,10 +14,10 @@ public class ExceptionResponse {
    * Custom wrapper for custom exceptions, and custom handlers.
    *
    * @param ptimestamp Date
-   * @param pstatus int
-   * @param perror String
-   * @param pmessage String
-   * @param ppath String
+   * @param pstatus    int
+   * @param perror     String
+   * @param pmessage   String
+   * @param ppath      String
    */
   public ExceptionResponse(Date ptimestamp, int pstatus, String perror, String pmessage,
                            String ppath) {
@@ -29,7 +29,7 @@ public class ExceptionResponse {
   }
 
   public Date getTimestamp() {
-    return  timestamp;
+    return timestamp;
   }
 
   public void setTimestamp(Date ptimestamp) {

@@ -1,6 +1,7 @@
 # SafetyNet Alert
 
 ## Technical Requirements
+
 Java JDK 11 min
 
 ## Post Put Delete Formats
@@ -8,6 +9,7 @@ Java JDK 11 min
 To use the applications properly, you have to use these proper format
 
 ### Person for Post and PuT
+
 ```Json
  {
  "firstName":"someFirstName",
@@ -21,6 +23,7 @@ To use the applications properly, you have to use these proper format
 ```
 
 ### Person for delete
+
 ```Json
  {
  "firstName":"someFirstName",
@@ -29,6 +32,7 @@ To use the applications properly, you have to use these proper format
 ```
 
 ### FireStation for Post and Pu
+
 ```Json
  {
  "address":"anAdress",
@@ -38,19 +42,24 @@ To use the applications properly, you have to use these proper format
 ```
 
 ### FireStation for Delete : deleting a station
+
 ```Json
  {
  "station":"stationNumber",
 }
 ```
+
 ### FireStation for Delete : deleting a mapped address
+
 ```Json
  {
  "address":"anAdress",
 }
 
 ```
+
 ### MedicalRecord for Post and Put (allergies and medications can be empty, or with 1 2 3 ... values
+
 ```Json
  {
   "firstName":"someFirstName",
@@ -63,6 +72,7 @@ To use the applications properly, you have to use these proper format
 ```
 
 ### MedicalRecord for Delete
+
 ```Json
  {
   "firstName":"someFirstName",
@@ -72,6 +82,7 @@ To use the applications properly, you have to use these proper format
 ```
 
 ## Endpoints
+
 ```html
 /firestation
 /medicalRecord
@@ -79,39 +90,50 @@ To use the applications properly, you have to use these proper format
  ```
 
 ## URL
+
 ```html
 /firestation?stationNumber=<station_number>
  ```
- People covered by the given station. Return firstName, lastName, adress, phone and a count of child and adults.
- 
+
+People covered by the given station. Return firstName, lastName, adress, phone and a count of child
+and adults.
+
  ```html
 /childAlert?address=<address>
  ```
- Return a list of children for given address (+18, can be set to +21 with ofAge constant)
- 
+
+Return a list of children for given address (+18, can be set to +21 with ofAge constant)
+
  ```html
 /phoneAlert?firestation=<firestation_number>
  ```
- Return a lsit of phone of people covered by given station.
- 
+
+Return a lsit of phone of people covered by given station.
+
  ```html
 /fire?address=<address>
  ```
- Return a list of people living at given address and the linked stationNumber. Show firstNAme, lastName, phone, age, medications, and allergies.
- 
+
+Return a list of people living at given address and the linked stationNumber. Show firstNAme,
+lastName, phone, age, medications, and allergies.
+
  ```html
 /flood/stations?stations=<a list of station_numbers>
  ```
- Return homes served by given station(s). Persons are ordered by adress. Show firstName, lastName, phone, age, medications, allergies.
- 
+
+Return homes served by given station(s). Persons are ordered by adress. Show firstName, lastName,
+phone, age, medications, allergies.
+
  ```html
 /personInfo?firstName=<firstName>&lastName=<lastName>
  ```
- Return firstName, lastName, adress, age, email, medications, allergies, for given parameters
- 
+
+Return firstName, lastName, adress, age, email, medications, allergies, for given parameters
+
  ```html
 /communityEmail?city=<city>
 ```
+
 Return all email for persons living in given city.
 
 

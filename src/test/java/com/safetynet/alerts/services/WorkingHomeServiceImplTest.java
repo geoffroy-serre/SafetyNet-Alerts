@@ -7,7 +7,6 @@ import com.safetynet.alerts.model.OriginalPerson;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingHome;
 import com.safetynet.alerts.model.WorkingResponse;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.UUID;
@@ -17,7 +16,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -43,7 +41,6 @@ class WorkingHomeServiceImplTest {
   OriginalPerson originalPerson2 = new OriginalPerson();
   HashSet<WorkingHome> workingHomeHashSet = new HashSet<>();
   WorkingResponse workingResponse = new WorkingResponse();
-
 
 
   @BeforeEach
@@ -77,7 +74,7 @@ class WorkingHomeServiceImplTest {
     originalPerson2.setPhone("0619688945");
     originalPersons.add(originalPerson2);
 
-originalResponse.setPersons(originalPersons);
+    originalResponse.setPersons(originalPersons);
     workingHomes.add(workingHome);
     workingHomes.add(workingHome2);
     workingHomeHashSet.addAll(workingHomes);
@@ -89,8 +86,8 @@ originalResponse.setPersons(originalPersons);
 
   @Test
   void searchWorkingHome() {
-assertEquals(workingHome.getAddress(), workingHomeService.searchWorkingHome("15 rue des prés",
-        workingHomes).getAddress());
+    assertEquals(workingHome.getAddress(), workingHomeService.searchWorkingHome("15 rue des prés",
+            workingHomes).getAddress());
     assertEquals(workingHome.getIdHome(), workingHomeService.searchWorkingHome("15 rue des prés",
             workingHomes).getIdHome());
     assertEquals(workingHome.getCity(), workingHomeService.searchWorkingHome("15 rue des prés",
@@ -120,7 +117,7 @@ assertEquals(workingHome.getAddress(), workingHomeService.searchWorkingHome("15 
 
   @Test
   void createWorkingHomes() {
-    assertDoesNotThrow(()->retrieveOriginalDataRepository);
+    assertDoesNotThrow(() -> retrieveOriginalDataRepository);
   }
 
   @Test

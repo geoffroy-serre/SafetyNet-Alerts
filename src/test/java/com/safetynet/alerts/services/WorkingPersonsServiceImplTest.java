@@ -5,10 +5,8 @@ import com.safetynet.alerts.interfaces.RetrieveOriginalDataRepository;
 import com.safetynet.alerts.model.OriginalPerson;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingPerson;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,21 +14,19 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class WorkingPersonsServiceImplTest {
 
+  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
   @Mock
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-
   @InjectMocks
   WorkingPersonsServiceImpl workingPersonsService;
-
   ArrayList<OriginalPerson> originalPersons = new ArrayList<>();
-  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
- OriginalPerson originalPerson = new OriginalPerson();
+  OriginalPerson originalPerson = new OriginalPerson();
   OriginalPerson originalPerson2 = new OriginalPerson();
   OriginalPerson originalPerson3 = new OriginalPerson();
   OriginalResponse originalResponse = new OriginalResponse();
@@ -44,7 +40,6 @@ class WorkingPersonsServiceImplTest {
     workingPerson.setEmail("toto@toto.fr");
     workingPerson.setPhone("0619674945");
     workingPersons.add(workingPerson);
-
 
 
     originalPerson.setFirstName("Geff");
@@ -76,12 +71,12 @@ class WorkingPersonsServiceImplTest {
     originalPersons.add(originalPerson3);
 
 
-
   }
 
   @Test
   void reestablishCase() {
-    assertEquals("Geff", workingPersonsService.reestablishCase(workingPersons).get(0).getFirstName());
+    assertEquals("Geff",
+            workingPersonsService.reestablishCase(workingPersons).get(0).getFirstName());
     assertEquals("Serre",
             workingPersonsService.reestablishCase(workingPersons).get(0).getLastName());
 
@@ -103,6 +98,7 @@ class WorkingPersonsServiceImplTest {
             workingPersonsService.getWorkingPersonsHashMap().get(createdKey).getPhone());
 
   }
+
   @Test
   void getWorkingPersonsHashMap2() {
     String createdKey =
@@ -119,6 +115,7 @@ class WorkingPersonsServiceImplTest {
             workingPersonsService.getWorkingPersonsHashMap().get(createdKey).getPhone());
 
   }
+
   @Test
   void getWorkingPersonsHashMap3() {
     String createdKey =

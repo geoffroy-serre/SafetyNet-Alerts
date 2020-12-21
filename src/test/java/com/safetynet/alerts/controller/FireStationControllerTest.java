@@ -20,15 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 @WebMvcTest(controllers = FireStationController.class)
 class FireStationControllerTest {
-  @Autowired
-  private MockMvc mockMvc;
-
   @MockBean
   OutPutHomeService outPutHomeService;
   @MockBean
@@ -53,13 +49,12 @@ class FireStationControllerTest {
   RequestLogger requestLogger;
   @MockBean
   HttpServletRequest servletRequest;
-
   @MockBean
   HttpServletResponse servletResponse;
-
-
   @InjectMocks
   FireStationController fireStationController;
+  @Autowired
+  private MockMvc mockMvc;
 
   @Test
   void deleteFireStationWithoutBody() throws Exception {
@@ -202,14 +197,15 @@ class FireStationControllerTest {
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 500));
 
   }
+
   @Test
   void postNewFireStation2() throws Exception {
     OriginalFirestation newFireStation = new OriginalFirestation();
     newFireStation.setStation(15);
     newFireStation.setAddress("15 rue des prés");
-  ArrayList<OriginalFirestation> originalFirestations = new ArrayList<>();
-  originalFirestations.add(newFireStation);
-  originalResponse.setFirestations(originalFirestations);
+    ArrayList<OriginalFirestation> originalFirestations = new ArrayList<>();
+    originalFirestations.add(newFireStation);
+    originalResponse.setFirestations(originalFirestations);
 
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
     when(originalResponse.getFirestations()).thenReturn(originalFirestations);
@@ -379,7 +375,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/flood/stations");
                         request.setQueryString("test flood");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
@@ -404,7 +402,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/flood/stations");
                         request.setQueryString("test flood");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 400));
@@ -422,7 +422,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/flood/stations");
                         request.setQueryString("test flood");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
@@ -449,7 +451,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/fire");
                         request.setQueryString("test fire");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
@@ -473,7 +477,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/fire");
                         request.setQueryString("test fire");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
@@ -499,7 +505,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/fire");
                         request.setQueryString("test fire");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
@@ -523,7 +531,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/phoneAlert");
                         request.setQueryString("test phoneAlert");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
@@ -538,7 +548,7 @@ class FireStationControllerTest {
 
     OutPutHome outPutHome = new OutPutHome();
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),1))
+    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(), 1))
             .thenReturn(outputFirestation);
     when(outPutHomeService.getHomeByAddress("15 rue des prés")).thenReturn(outPutHome);
 
@@ -550,7 +560,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/firestation");
                         request.setQueryString("test firestation");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
@@ -567,7 +579,7 @@ class FireStationControllerTest {
     ArrayList<OutPutHome> outputHomes = new ArrayList<>();
     outputHomes.add(outPutHome);
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),1))
+    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(), 1))
             .thenReturn(outputFirestation);
     when(outPutHomeService.getHomeByStationNumber(outPutHomeService.getOutPutHomeList(),
             outputFirestation)).thenReturn(outputHomes);
@@ -580,7 +592,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/firestation");
                         request.setQueryString("test firestation");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 200));
@@ -597,7 +611,7 @@ class FireStationControllerTest {
     ArrayList<OutPutHome> outputHomes = new ArrayList<>();
     //outputHomes.add(outPutHome);
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),1))
+    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(), 1))
             .thenReturn(outputFirestation);
     when(outPutHomeService.getHomeByStationNumber(outPutHomeService.getOutPutHomeList(),
             outputFirestation)).thenReturn(outputHomes);
@@ -610,7 +624,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/firestation");
                         request.setQueryString("test firestation");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));
@@ -624,7 +640,7 @@ class FireStationControllerTest {
     ArrayList<OutPutHome> outputHomes = new ArrayList<>();
 
     when(originalFleService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
-    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(),1))
+    when(outPutFireStationService.getFireStationByNumber(outPutFireStationService.getFiresStations(), 1))
             .thenReturn(null);
     when(outPutHomeService.getHomeByStationNumber(outPutHomeService.getOutPutHomeList(),
             outputFirestation)).thenReturn(outputHomes);
@@ -637,7 +653,9 @@ class FireStationControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/firestation");
                         request.setQueryString("test firestation");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 204));

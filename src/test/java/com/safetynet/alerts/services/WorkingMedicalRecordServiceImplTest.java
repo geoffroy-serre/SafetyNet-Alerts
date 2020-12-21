@@ -14,24 +14,23 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class WorkingMedicalRecordServiceImplTest {
 
+  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
   @Mock
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-
   @InjectMocks
   WorkingMedicalRecordServiceImpl workingMedicalRecordService;
-  OriginalMedicalrecord originalMedicalrecord= new OriginalMedicalrecord();
-  OriginalMedicalrecord originalMedicalrecord2= new OriginalMedicalrecord();
-  OriginalMedicalrecord originalMedicalrecord3= new OriginalMedicalrecord();
-  OriginalMedicalrecord originalMedicalrecord4= new OriginalMedicalrecord();
+  OriginalMedicalrecord originalMedicalrecord = new OriginalMedicalrecord();
+  OriginalMedicalrecord originalMedicalrecord2 = new OriginalMedicalrecord();
+  OriginalMedicalrecord originalMedicalrecord3 = new OriginalMedicalrecord();
+  OriginalMedicalrecord originalMedicalrecord4 = new OriginalMedicalrecord();
   ArrayList<OriginalMedicalrecord> originalMedicalRecords = new ArrayList<>();
   OriginalResponse originalResponse = new OriginalResponse();
-  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
   @BeforeEach
   void setUp() {
@@ -83,11 +82,11 @@ class WorkingMedicalRecordServiceImplTest {
   @Test
   void getWorkingMedicalRecordsHashMap() {
     String resultKey1 =
-            originalMedicalrecord.getFirstName()+ ","+originalMedicalrecord.getLastName();
+            originalMedicalrecord.getFirstName() + "," + originalMedicalrecord.getLastName();
     String resultKey2 =
-            originalMedicalrecord2.getFirstName()+ ","+originalMedicalrecord2.getLastName();
+            originalMedicalrecord2.getFirstName() + "," + originalMedicalrecord2.getLastName();
     String resultKey3 =
-            originalMedicalrecord3.getFirstName()+ ","+originalMedicalrecord3.getLastName();
+            originalMedicalrecord3.getFirstName() + "," + originalMedicalrecord3.getLastName();
 
     when(retrieveOriginalDataRepository.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(originalResponse);
     assertEquals(originalMedicalrecord.getMedications(),

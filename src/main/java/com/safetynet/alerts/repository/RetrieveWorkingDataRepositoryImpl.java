@@ -23,7 +23,7 @@ public class RetrieveWorkingDataRepositoryImpl implements RetrieveWorkingDataRep
   public WorkingResponse getWorkingData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();
-    WorkingResponse response ;
+    WorkingResponse response;
 
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);

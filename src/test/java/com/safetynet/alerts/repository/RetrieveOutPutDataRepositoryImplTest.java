@@ -4,11 +4,14 @@ import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.RetrieveOutPutDataRepository;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class RetrieveOutPutDataRepositoryImplTest {
 
-RetrieveOutPutDataRepository retrieveOutPutDataRepository = new RetrieveOutPutDataRepositoryImpl();
+  RetrieveOutPutDataRepository retrieveOutPutDataRepository =
+          new RetrieveOutPutDataRepositoryImpl();
+
   @Test
   void getOutPutDataWithWrongFile() {
     String file = "wrong";
@@ -16,6 +19,7 @@ RetrieveOutPutDataRepository retrieveOutPutDataRepository = new RetrieveOutPutDa
     assertNotNull(retrieveOutPutDataRepository.getOutPutData(file));
 
   }
+
   @Test
   void getOutPutData() {
 

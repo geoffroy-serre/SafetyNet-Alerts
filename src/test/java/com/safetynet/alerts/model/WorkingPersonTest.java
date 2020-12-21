@@ -1,10 +1,5 @@
 package com.safetynet.alerts.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.time.LocalDate;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -12,6 +7,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @ContextConfiguration(classes = {WorkingPerson.class})
 @ExtendWith(SpringExtension.class)
@@ -79,7 +76,6 @@ public class WorkingPersonTest {
   }
 
 
-
   @Test
   public void testEquals2() {
     WorkingPerson workingPerson = new WorkingPerson();
@@ -115,8 +111,6 @@ public class WorkingPersonTest {
     workingPerson.setBirthdate(birthdate);
     assertFalse(this.workingPerson.equals(workingPerson));
   }
-
-
 
 
 }

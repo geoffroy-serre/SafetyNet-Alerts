@@ -23,8 +23,8 @@ public class ExceptionHandling {
    * Exception Handler for TypeMismatchException.
    *
    * @param typeMismatchException Exception
-   * @param request HttpServletRequest
-   * @param responseCode HttpServletResponse
+   * @param request               HttpServletRequest
+   * @param responseCode          HttpServletResponse
    * @return
    */
   @ExceptionHandler(TypeMismatchException.class)
@@ -45,8 +45,8 @@ public class ExceptionHandling {
   /**
    * Exception Handler for MissingServletRequestParameterException.
    *
-   * @param exception Exception
-   * @param request HttpServletRequest
+   * @param exception    Exception
+   * @param request      HttpServletRequest
    * @param responseCode HttpServletResponse
    * @return
    */
@@ -68,8 +68,8 @@ public class ExceptionHandling {
   /**
    * Exception Handler for HttpMediaTypeNotSupportedException.
    *
-   * @param exception Exception
-   * @param request HttpServletRequest
+   * @param exception    Exception
+   * @param request      HttpServletRequest
    * @param responseCode HttpServletResponse
    * @return
    */
@@ -92,8 +92,8 @@ public class ExceptionHandling {
   /**
    * Exception handler for HttpMessageNotReadableException.
    *
-   * @param exception Exception
-   * @param request HttpServletRequest
+   * @param exception    Exception
+   * @param request      HttpServletRequest
    * @param responseCode HttpServletResponse
    * @return
    */
@@ -115,8 +115,8 @@ public class ExceptionHandling {
   /**
    * Exception handler for MethodArgumentNotValidException.
    *
-   * @param exception Exception
-   * @param request HttpServletRequest
+   * @param exception    Exception
+   * @param request      HttpServletRequest
    * @param responsecode HttpServletResponse
    * @return
    */
@@ -141,8 +141,8 @@ public class ExceptionHandling {
   /**
    * Exception handler for AllreadyInDatabaseException.
    *
-   * @param exception Exception
-   * @param request HttpServletRequest
+   * @param exception    Exception
+   * @param request      HttpServletRequest
    * @param responseCode HttpServletResponse
    * @return
    */
@@ -164,8 +164,8 @@ public class ExceptionHandling {
   /**
    * Exception handler for NoExistingStation.
    *
-   * @param exception Exception
-   * @param request HttpServletRequest
+   * @param exception    Exception
+   * @param request      HttpServletRequest
    * @param responseCode HttpServletResponse
    * @return
    */
@@ -186,8 +186,8 @@ public class ExceptionHandling {
   /**
    * Exception handler for NoStationNumberException.
    *
-   * @param exception Exception
-   * @param request HttpServletRequest
+   * @param exception    Exception
+   * @param request      HttpServletRequest
    * @param responseCode HttpServletResponse
    * @return
    */
@@ -210,8 +210,8 @@ public class ExceptionHandling {
   /**
    * Exception handler for NoDataInDataBaseException.
    *
-   * @param exception Exception
-   * @param request HttpServletRequest
+   * @param exception    Exception
+   * @param request      HttpServletRequest
    * @param responseCode HttpServletResponse
    * @return
    */
@@ -233,19 +233,19 @@ public class ExceptionHandling {
   /**
    * Exception handler for NoDataInDataBaseException.
    *
-   * @param exception Exception
-   * @param request HttpServletRequest
+   * @param exception    Exception
+   * @param request      HttpServletRequest
    * @param responseCode HttpServletResponse
    * @return
    */
   @ExceptionHandler(EmptyDataretrievalException.class)
   @ResponseBody
   public ExceptionResponse emptyDataretrievalException(EmptyDataretrievalException exception,
-                                                     HttpServletRequest request,
-                                                     HttpServletResponse responseCode) {
+                                                       HttpServletRequest request,
+                                                       HttpServletResponse responseCode) {
     responseCode.setStatus(500);
     ExceptionResponse response = new ExceptionResponse(new Date(), 500, "Error retrieving data " +
-            "for "+
+            "for " +
             " this content ",
             exception.getMessage(), request.getRequestURI()
     );

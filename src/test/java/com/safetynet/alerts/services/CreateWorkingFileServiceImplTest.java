@@ -1,6 +1,5 @@
 package com.safetynet.alerts.services;
 
-import com.safetynet.alerts.constants.FilesPath;
 import com.safetynet.alerts.interfaces.*;
 import com.safetynet.alerts.model.OriginalResponse;
 import com.safetynet.alerts.model.WorkingResponse;
@@ -9,10 +8,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @ExtendWith(MockitoExtension.class)
 class CreateWorkingFileServiceImplTest {
@@ -35,7 +32,7 @@ class CreateWorkingFileServiceImplTest {
   @Mock
   OriginalFireStationService originalFireStationService;
 
- @InjectMocks
+  @InjectMocks
   CreateWorkingFileServiceImpl createWorkingFileService;
 
   @Test

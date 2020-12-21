@@ -1,6 +1,5 @@
 package com.safetynet.alerts.controller;
 
-import com.safetynet.alerts.interfaces.CreateWorkingFileService;
 import com.safetynet.alerts.services.CreateWorkingFileServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -11,7 +10,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.RequestPostProcessor;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @WebMvcTest(controllers = CreateWorkingFileController.class)
@@ -35,7 +34,9 @@ class CreateWorkingFileControllerTest {
                       public MockHttpServletRequest postProcessRequest(MockHttpServletRequest request) {
                         request.setRemoteAddr("/flood/stations");
                         request.setQueryString("test flood");
-                        return request;}})
+                        return request;
+                      }
+                    })
 
     )
             .andExpect(result -> assertTrue(result.getResponse().getStatus() == 201));

@@ -24,29 +24,23 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class OutPutHomeServiceImplTest {
 
+  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
   @Mock
   RetrieveOutPutDataRepository retrieveOutPutDataRepository;
-
   @InjectMocks
   OutPutHomeServiceImpl outPutHomeService;
-
   OutPutHome outPutHome = new OutPutHome();
   OutPutHome outPutHome2 = new OutPutHome();
   OutPutHome outPutHome3 = new OutPutHome();
-
   OutPutFireStation outPutFireStation = new OutPutFireStation();
-
   OutPutPerson outPutPerson = new OutPutPerson();
   OutPutPerson outPutPerson2 = new OutPutPerson();
   OutPutPerson outPutPerson3 = new OutPutPerson();
   OutPutPerson outPutPerson4 = new OutPutPerson();
-
   ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
   ArrayList<OutPutPerson> outPutPersons = new ArrayList<>();
   ArrayList<OutPutPerson> outPutPersons2 = new ArrayList<>();
   ArrayList<OutPutPerson> outPutPersons3 = new ArrayList<>();
-
-  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
   @BeforeEach
   void setUp() {
@@ -129,14 +123,16 @@ class OutPutHomeServiceImplTest {
     uuids.add(outPutHome3.getIdHome());
     outPutFireStation.setHomeListIds(uuids);
     assertEquals(30,
-            outPutHomeService.getHomeByStationNumber(outPutHomes,outPutFireStation).get(0).getStationNumber());
+            outPutHomeService.getHomeByStationNumber(outPutHomes, outPutFireStation).get(0).getStationNumber());
   }
 
   @Test
   void setPersons() {
 
-    assertEquals("Geff",outPutHomeService.setPersons(outPutPersons, outPutHomes).get(0).getPersons().get(0).getFirstName());
-    assertEquals("mwa",outPutHomeService.setPersons(outPutPersons, outPutHomes).get(0).getPersons().get(0).getLastName());
+    assertEquals("Geff",
+            outPutHomeService.setPersons(outPutPersons, outPutHomes).get(0).getPersons().get(0).getFirstName());
+    assertEquals("mwa",
+            outPutHomeService.setPersons(outPutPersons, outPutHomes).get(0).getPersons().get(0).getLastName());
 
 
     assertEquals("Geff",
@@ -162,9 +158,9 @@ class OutPutHomeServiceImplTest {
 
   @Test
   void getHomesIds() {
-    assertEquals(outPutHome.getIdHome(),outPutHomeService.getHomesIds(outPutHomes).get(0));
-    assertEquals(outPutHome2.getIdHome(),outPutHomeService.getHomesIds(outPutHomes).get(1));
-    assertEquals(outPutHome3.getIdHome(),outPutHomeService.getHomesIds(outPutHomes).get(2));
+    assertEquals(outPutHome.getIdHome(), outPutHomeService.getHomesIds(outPutHomes).get(0));
+    assertEquals(outPutHome2.getIdHome(), outPutHomeService.getHomesIds(outPutHomes).get(1));
+    assertEquals(outPutHome3.getIdHome(), outPutHomeService.getHomesIds(outPutHomes).get(2));
   }
 
   @Test
@@ -175,7 +171,8 @@ class OutPutHomeServiceImplTest {
     uuids.add(outPutHome3.getIdHome());
     outPutFireStation.setHomeListIds(uuids);
     outputs.add(outPutFireStation);
-    assertEquals(30,outPutHomeService.getHomesbyIds(outputs,outPutHomes).get(0).getStationNumber());
+    assertEquals(30,
+            outPutHomeService.getHomesbyIds(outputs, outPutHomes).get(0).getStationNumber());
   }
 
   @Test
@@ -183,7 +180,8 @@ class OutPutHomeServiceImplTest {
     OutPutResponse outPutResponse = new OutPutResponse();
     outPutResponse.setHomes(outPutHomes);
     when(retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE)).thenReturn(outPutResponse);
-    assertEquals("15 rue des prés", outPutHomeService.getHomeByAddress("15 rue des prés").getAddress());
+    assertEquals("15 rue des prés",
+            outPutHomeService.getHomeByAddress("15 rue des prés").getAddress());
   }
 
   @Test
@@ -203,7 +201,8 @@ class OutPutHomeServiceImplTest {
     OutPutResponse outPutResponse = new OutPutResponse();
     outPutResponse.setHomes(outPutHomes);
     when(retrieveOutPutDataRepository.getOutPutData(FilesPath.WORKING_INPUT_FILE)).thenReturn(outPutResponse);
-    assertEquals("15 rue des prés", outPutHomeService.getHomeByAddress("15 rue des prés").getAddress());
+    assertEquals("15 rue des prés",
+            outPutHomeService.getHomeByAddress("15 rue des prés").getAddress());
   }
 
 }

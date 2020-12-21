@@ -27,17 +27,16 @@ class OriginalFileServiceImplTest {
   @Test
   void getOriginalResponseWithRightFile() {
     when(retrieveOriginalData.getOriginalData(FilesPath.ORIGINAL_INPUT_FILE)).thenReturn(new OriginalResponse());
-    assertDoesNotThrow(() ->  originalFileService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE));
+    assertDoesNotThrow(() -> originalFileService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE));
     assertNotNull(originalFileService.getOriginalResponse(FilesPath.ORIGINAL_INPUT_FILE));
   }
 
   @Test
   void getOriginalResponseWithWrongFile() {
     when(retrieveOriginalData.getOriginalData("wrongFile")).thenReturn(new OriginalResponse());
-    assertDoesNotThrow(() ->  originalFileService.getOriginalResponse("wrongFile"));
+    assertDoesNotThrow(() -> originalFileService.getOriginalResponse("wrongFile"));
     assertNotNull(originalFileService.getOriginalResponse("wrongFile"));
   }
-
 
 
 }

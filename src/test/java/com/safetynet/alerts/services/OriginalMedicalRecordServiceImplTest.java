@@ -21,18 +21,15 @@ import static org.mockito.Mockito.when;
 class OriginalMedicalRecordServiceImplTest {
 
 
-
+  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
   @Mock
   RetrieveOriginalDataRepository retrieveOriginalDataRepository;
-
   @InjectMocks
   OriginalMedicalRecordServiceImpl originalMedicalRecordService;
-
   private OriginalMedicalrecord originalMedicalrecord = new OriginalMedicalrecord();
   private OriginalMedicalrecord originalMedicalrecord2 = new OriginalMedicalrecord();
   private OriginalMedicalrecord originalMedicalrecord3 = new OriginalMedicalrecord();
   private OriginalMedicalrecord originalMedicalrecord4 = new OriginalMedicalrecord();
-  private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
   private ArrayList<OriginalMedicalrecord> originalMedicalRecords = new ArrayList<>();
   private OriginalResponse originalResponse = new OriginalResponse();
 
@@ -81,6 +78,7 @@ class OriginalMedicalRecordServiceImplTest {
             originalMedicalRecords).toString());
 
   }
+
   @Test
   void postNewMedicalRecord() {
     String result = "[MedicalrecordsItem{allergies = '[python]',firstName = 'Geff'," +
@@ -98,14 +96,16 @@ class OriginalMedicalRecordServiceImplTest {
 
   @Test
   void deleteOriginalMedicalRecordExisting() {
-    String result = "[MedicalrecordsItem{allergies = '[python]',firstName = 'Sarah',lastName = 'twa'," +
+    String result = "[MedicalrecordsItem{allergies = '[python]',firstName = 'Sarah',lastName = " +
+            "'twa'," +
             "birthdate = '1982-01-02',medications = '[Seresta 10mg]'}, " +
             "MedicalrecordsItem{allergies = '[python]',firstName = 'Edouard',lastName = 'Lui'," +
             "birthdate = '1990-11-18',medications = '[Seresta 10mg]'}]";
     assertEquals(result,
             originalMedicalRecordService.deleteOriginalMedicalRecord(originalMedicalrecord,
-            originalMedicalRecords).toString());
+                    originalMedicalRecords).toString());
   }
+
   @Test
   void deleteOriginalMedicalRecordNotExisting() {
     String result = "[MedicalrecordsItem{allergies = '[python]',firstName = 'Geff'," +
@@ -121,28 +121,32 @@ class OriginalMedicalRecordServiceImplTest {
 
   @Test
   void isMedicalRecordAlreadyInFile() {
-    assertTrue(originalMedicalRecordService.isMedicalRecordAlreadyInFile("geff","mwa",
+    assertTrue(originalMedicalRecordService.isMedicalRecordAlreadyInFile("geff", "mwa",
             originalMedicalRecords));
   }
+
   @Test
   void isMedicalRecordAlreadyInFileFalse() {
-    assertFalse(originalMedicalRecordService.isMedicalRecordAlreadyInFile("geff","twa",
+    assertFalse(originalMedicalRecordService.isMedicalRecordAlreadyInFile("geff", "twa",
             originalMedicalRecords));
   }
 
   @Test
   void getMedicalRecordByFirstLastName() {
-    String result = "MedicalrecordsItem{allergies = '[python]',firstName = 'Geff',lastName = 'Mwa',birthdate = '1984-08-23',medications = '[Seresta 10mg]'}";
+    String result = "MedicalrecordsItem{allergies = '[python]',firstName = 'Geff',lastName = " +
+            "'Mwa',birthdate = '1984-08-23',medications = '[Seresta 10mg]'}";
     assertEquals(result,
             originalMedicalRecordService.getMedicalRecordByFirstLastName(originalMedicalRecords,
-                    "geff","mwa").toString());
+                    "geff", "mwa").toString());
   }
+
   @Test
   void getMedicalRecordByFirstLastNameNotFound() {
-    String result = "MedicalrecordsItem{allergies = 'null',firstName = 'null',lastName = 'null',birthdate = 'null',medications = 'null'}";
+    String result = "MedicalrecordsItem{allergies = 'null',firstName = 'null',lastName = 'null'," +
+            "birthdate = 'null',medications = 'null'}";
     assertEquals(result,
             originalMedicalRecordService.getMedicalRecordByFirstLastName(originalMedicalRecords,
-                    "geff","twa").toString());
+                    "geff", "twa").toString());
   }
 
   @Test

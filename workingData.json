@@ -1,1 +1,6 @@
-{"persons":[],"firestations":[],"medicalrecords":[],"home":[]}
+{
+  "persons": [],
+  "firestations": [],
+  "medicalrecords": [],
+  "home": []
+}

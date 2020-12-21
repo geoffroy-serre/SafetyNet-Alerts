@@ -151,7 +151,7 @@ public class OutPutFireStationServiceImpl implements OutPutFireStationService {
   public OutPutFireStation setHome(OutPutFireStation fireStation,
                                    ArrayList<OutPutHome> homes) {
     logger.debug("Entering setHome ");
-    OutPutFireStation result ;
+    OutPutFireStation result;
 
     ArrayList<OutPutHome> outPutHomes = new ArrayList<>();
     for (OutPutHome outPutHome : homes) {

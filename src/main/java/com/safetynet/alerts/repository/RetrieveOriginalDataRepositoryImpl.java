@@ -29,7 +29,7 @@ public class RetrieveOriginalDataRepositoryImpl implements RetrieveOriginalDataR
   public OriginalResponse getOriginalData(String constantFilePath) {
     String filePath = constantFilePath;
     ObjectMapper objectMapper = new ObjectMapper();
-    OriginalResponse response ;
+    OriginalResponse response;
 
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
             false);
