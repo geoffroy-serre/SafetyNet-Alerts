@@ -2,10 +2,18 @@
 
 ## Technical Requirements
 
-Java JDK 11 min, Maven 3.x
+Java JDK 11 min, Maven 3.3.6
 Postman for testing purposes.
 
+## Installation note
+Once you have Maven 3.6.3 and Java 11 installed, run in terminal / command prompt/ powershell:
+
+```Bash
+
+```
+
 ## Notes
+
 data.json is the used file for input datas. 
 workingData.json for processing the data in the working given format  (with use for ids, and differents things).
 data_save.json is a save of original data.json in case there is a lost or a wrong manipulation, so we can get original given data back.
