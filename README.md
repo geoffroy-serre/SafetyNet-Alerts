@@ -2,7 +2,22 @@
 
 ## Technical Requirements
 
-Java JDK 11 min
+Java JDK 11 , Maven 3.6.3
+
+## Installation Notes
+Run with terminal / command prompt or powershell, form the project folder
+```Bash
+mvn clean install
+```
+The output jar files will be generated in the target folder of the project.</br>
+Don't forget to move your jar file and data.json in the same folder !!! </br>
+Open terminal / command prompt /powershell and run 
+```bash
+java -jar {nameOfTheFile}.jar
+```
+Tomcat is embedded so just launch the jar and it's ready to work</br>
+Port 8080 is use by the app.
+
 
 ## Post Put Delete Formats
 
