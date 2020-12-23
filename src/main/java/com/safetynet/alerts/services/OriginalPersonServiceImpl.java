@@ -116,7 +116,7 @@ public class OriginalPersonServiceImpl implements OriginalPersonsService {
     logger.debug("Entering deletePerson ");
     ArrayList<OriginalPerson> results = new ArrayList<>();
     for (OriginalPerson currentPerson : originalPersons) {
-      if (!currentPerson.getFirstName().equals(firstName) && !currentPerson.getLastName().equals(lastName)) {
+      if (!currentPerson.getFirstName().equalsIgnoreCase(firstName) && !currentPerson.getLastName().equalsIgnoreCase(lastName)) {
         results.add(currentPerson);
       }
     }
